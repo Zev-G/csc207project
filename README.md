@@ -1,4 +1,5 @@
-This is a UofTGeoguessr Game.
+#UofTGeoguessr
+
 
 We are group 120.
 
@@ -11,7 +12,7 @@ Rithvik Sunil | r11creates
 Kristopher Zhao | KristopherZ
 
 User Story Epics:
--
+
 
 User Stories:
 Team:
