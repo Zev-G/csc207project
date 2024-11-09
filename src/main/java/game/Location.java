@@ -1,7 +1,9 @@
 package game;
 
+import javax.swing.*;
+
 public interface Location {
-    String getPhotoUrl();
+    ImageIcon getPhoto();
 
     double[] getLocation();
 
