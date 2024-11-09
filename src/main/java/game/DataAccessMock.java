@@ -18,9 +18,9 @@ public class DataAccessMock implements LocationDataAccess {
 
     @Override
     public PhotoLocation getRamdonLocation() {
-        if(Math.random()<.5){
+        if (Math.random() < .5) {
             return locations.get(0);
-        }else {
+        } else {
             return locations.get(1);
         }
     }
