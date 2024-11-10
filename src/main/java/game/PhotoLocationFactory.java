@@ -9,6 +9,6 @@ public class PhotoLocationFactory {
     }
 
     public PhotoLocation getRandomLocation() {
-        return dataAccess.getRamdonLocation();
+        return dataAccess.getRandomLocation();
     }
 }
