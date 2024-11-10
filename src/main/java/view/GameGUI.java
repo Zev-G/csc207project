@@ -2,9 +2,10 @@ package view;
 
 import game.DataAccessMock;
 import game.PhotoLocationFactory;
-
 import javax.swing.*;
 import java.awt.*;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 public class GameGUI extends JFrame {
     private JLabel roundLabel;
@@ -48,7 +49,6 @@ public class GameGUI extends JFrame {
         mainCenterPanel.setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50));
         mainCenterPanel.add(Box.createVerticalGlue());
 
-        // CURRENTLY USING AN IMAGE AS A MAP PLACE HOLDER THIS SHOULD BE CHANGED
         JPanel imagePanel = new JPanel(new GridLayout(1, 2, 10, 0));
         imageLabel1 = new JLabel();
         imageLabel2 = new JLabel();
@@ -100,11 +100,17 @@ public class GameGUI extends JFrame {
         PhotoLocationFactory photoFactory = new PhotoLocationFactory(dataAccess);
 
         ImageIcon fetchedImage1 = photoFactory.getRandomLocation().getPhoto();
-        ImageIcon fetchedImage2 = photoFactory.getRandomLocation().getPhoto();
-
         imageLabel1.setIcon(ImageScaler.getScaledImageIcon(fetchedImage1, frameWidth, frameWidth));
-        imageLabel2.setIcon(ImageScaler.getScaledImageIcon(fetchedImage2, frameWidth, frameWidth));
+
+        try {
+            ImageIcon mapImage = new ImageIcon(ImageIO.read(getClass().getResource("/photos/UofTmap.jpg")));
+            imageLabel2.setIcon(ImageScaler.getScaledImageIcon(mapImage, frameWidth, frameWidth));
+        } catch (IOException e) {
+            e.printStackTrace();
+            imageLabel2.setText("Map not found");
+        }
     }
+
 
     private void handleGuess(int frameWidth) {
         boolean win = Math.random() > 0.5;
