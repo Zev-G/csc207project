@@ -103,6 +103,8 @@ public class GameGUI extends JFrame {
         imageLabel1.setIcon(ImageScaler.getScaledImageIcon(fetchedImage1, frameWidth, frameWidth));
 
         try {
+            // The following line sets the RHS image. Ideally, this should be replaced
+            // with an interactive map embedding for a more engaging user experience.
             ImageIcon mapImage = new ImageIcon(ImageIO.read(getClass().getResource("/photos/UofTmap.jpg")));
             imageLabel2.setIcon(ImageScaler.getScaledImageIcon(mapImage, frameWidth, frameWidth));
         } catch (IOException e) {
@@ -110,6 +112,7 @@ public class GameGUI extends JFrame {
             imageLabel2.setText("Map not found");
         }
     }
+
 
 
     private void handleGuess(int frameWidth) {
