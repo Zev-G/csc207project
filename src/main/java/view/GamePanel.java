@@ -7,7 +7,7 @@ import java.awt.*;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class GameGUI extends JFrame {
+public class GamePanel extends JPanel {
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
     private GameTimer gameTimer;
@@ -19,9 +19,7 @@ public class GameGUI extends JFrame {
     private int round = 1;
     private int totalRounds = 10;
 
-    public GameGUI() {
-        setTitle("Game GUI");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public GamePanel() {
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -87,11 +85,6 @@ public class GameGUI extends JFrame {
         bottomPanel.add(progressBarPanel, BorderLayout.SOUTH);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        pack();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setLocationRelativeTo(null);
-        setVisible(true);
-
         gameTimer.start(this::nextRound);
     }
 
@@ -140,6 +133,6 @@ public class GameGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new GameGUI();
+        new GamePanel();
     }
 }
