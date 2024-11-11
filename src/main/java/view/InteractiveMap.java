@@ -17,7 +17,7 @@ public class InteractiveMap extends JPanel {
 
     private double [] mapLocation;
 
-    private double [] mouseLocation = new double[2];
+    private int [] mouseLocation = new int[2];
 
     public InteractiveMap(ImageIcon map, double[] mapLocation) {
         this.map = map;
@@ -28,8 +28,11 @@ public class InteractiveMap extends JPanel {
                     public void mouseClicked(MouseEvent e) {
                         double yRatio = (double) e.getY() /getHeight();
                         double xRatio = (double) e.getX() /getWidth();
+                        mouseLocation[0] = e.getX();
+                        mouseLocation[1] = e.getY();
                         chosenCoord[0] = (mapLocation[1]-mapLocation[0])*xRatio+mapLocation[0];
                         chosenCoord[1] = (mapLocation[3]-mapLocation[2])*yRatio+mapLocation[2];
+                        paintComponent(getGraphics());
                         System.out.println(chosenCoord[0] + " " + chosenCoord[1]);
                     }
                 }
@@ -41,6 +44,7 @@ public class InteractiveMap extends JPanel {
         super.paintComponent(g);
         int length = Math.max(getHeight(), getWidth());
         g.drawImage(map.getImage(), 0, 0, length, length, this);
+        g.fillOval(mouseLocation[0]-5,mouseLocation[1]-5,10,10);
     }
 
 
