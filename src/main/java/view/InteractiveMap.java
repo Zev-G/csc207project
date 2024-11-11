@@ -47,6 +47,9 @@ public class InteractiveMap extends JPanel {
         g.fillOval(mouseLocation[0]-5,mouseLocation[1]-5,10,10);
     }
 
+    public double[] getChosenCoord() {
+        return chosenCoord;
+    }
 
     public static void main(String[] args) {
 
