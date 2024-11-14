@@ -1,23 +1,27 @@
 package view;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import game.DistanceCalculator;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
+
 
 public class InteractiveMap extends JPanel {
 
     private ImageIcon map;
 
+    private double[] target;
+
+    private boolean displayTarget = false;
+
+    private boolean isSelected = false;
+
     private double[] chosenCoord = new double[2];
 
-    private double [] mapLocation;
+    private double[] mapLocation;
 
-    private int [] mouseLocation = new int[2];
+    private int[] mouseLocation = new int[2];
 
     public InteractiveMap(ImageIcon map, double[] mapLocation) {
         this.map = map;
@@ -26,12 +30,16 @@ public class InteractiveMap extends JPanel {
                 new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        double yRatio = (double) e.getY() /getHeight();
-                        double xRatio = (double) e.getX() /getWidth();
+                        if (!isSelected) {
+                            isSelected = true;
+                        }
+                        double size = Math.max(getHeight(), getWidth());
+                        double yRatio = e.getY() / size;
+                        double xRatio = e.getX() / size;
                         mouseLocation[0] = e.getX();
                         mouseLocation[1] = e.getY();
-                        chosenCoord[0] = (mapLocation[1]-mapLocation[0])*xRatio+mapLocation[0];
-                        chosenCoord[1] = (mapLocation[3]-mapLocation[2])*yRatio+mapLocation[2];
+                        chosenCoord[0] = (mapLocation[1] - mapLocation[0]) * yRatio + mapLocation[0];
+                        chosenCoord[1] = (mapLocation[3] - mapLocation[2]) * xRatio + mapLocation[2];
                         paintComponent(getGraphics());
                         System.out.println(chosenCoord[0] + " " + chosenCoord[1]);
                     }
@@ -44,20 +52,46 @@ public class InteractiveMap extends JPanel {
         super.paintComponent(g);
         int length = Math.max(getHeight(), getWidth());
         g.drawImage(map.getImage(), 0, 0, length, length, this);
-        g.fillOval(mouseLocation[0]-5,mouseLocation[1]-5,10,10);
+        if (isSelected) {
+            g.fillOval(mouseLocation[0] - 5, mouseLocation[1] - 5, 10, 10);
+        }
+        if (displayTarget) {
+            g.setColor(new Color(255, 0, 0));
+            double xRatio = (target[1] - mapLocation[2]) / (mapLocation[3] - mapLocation[2]);
+            double yRatio = 1 + (target[0] - mapLocation[1]) / (mapLocation[1] - mapLocation[0]);
+            double size = Math.max(getHeight(), getWidth());
+            g.fillOval((int) (size * xRatio - 5), (int) (size * yRatio - 5), 10, 10);
+
+        }
     }
 
     public double[] getChosenCoord() {
         return chosenCoord;
     }
 
+    public void setTarget(double[] t) {
+        target = t;
+    }
+
+    public void setDisplayTarget(boolean displayTarget) {
+        this.displayTarget = displayTarget;
+        paintComponent(getGraphics());
+    }
+
+    public double getDistance(){
+        return DistanceCalculator.calculate(target, chosenCoord);
+    }
+
     public static void main(String[] args) {
 
         JFrame frame = new JFrame("Interactive Map");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        InteractiveMap map = new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")), new double[]{0,1,0,1});
+        InteractiveMap map = new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")),
+                new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115});
         frame.setContentPane(map);
         frame.setSize(500, 500);
         frame.setVisible(true);
+        map.setTarget(new double[]{43.65984277958618, -79.39718377820866});
+        map.setDisplayTarget(true);
     }
 }
