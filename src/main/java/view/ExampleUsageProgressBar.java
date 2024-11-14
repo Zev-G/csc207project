@@ -19,7 +19,7 @@ public class ExampleUsageProgressBar {
             boolean won = Math.random() > 0.5;
             progressBar.updateRound(won);
 
-            if (progressBar.currentRound >= totalRounds) {
+            if (progressBar.getCurrentRound() >= totalRounds) {
                 ((Timer) e.getSource()).stop();
             }
         }).start();
