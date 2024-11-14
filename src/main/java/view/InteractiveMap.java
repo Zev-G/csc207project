@@ -21,8 +21,6 @@ public class InteractiveMap extends JPanel {
 
     private double[] mapLocation;
 
-    private int[] mouseLocation = new int[2];
-
     public InteractiveMap(ImageIcon map, double[] mapLocation) {
         this.map = map;
         this.mapLocation = mapLocation;
@@ -36,8 +34,6 @@ public class InteractiveMap extends JPanel {
                         double size = Math.max(getHeight(), getWidth());
                         double yRatio = e.getY() / size;
                         double xRatio = e.getX() / size;
-                        mouseLocation[0] = e.getX();
-                        mouseLocation[1] = e.getY();
                         chosenCoord[0] = (mapLocation[1] - mapLocation[0]) * yRatio + mapLocation[0];
                         chosenCoord[1] = (mapLocation[3] - mapLocation[2]) * xRatio + mapLocation[2];
                         paintComponent(getGraphics());
@@ -53,7 +49,10 @@ public class InteractiveMap extends JPanel {
         int length = Math.max(getHeight(), getWidth());
         g.drawImage(map.getImage(), 0, 0, length, length, this);
         if (isSelected) {
-            g.fillOval(mouseLocation[0] - 5, mouseLocation[1] - 5, 10, 10);
+            double xRatio = (chosenCoord[1] - mapLocation[2]) / (mapLocation[3] - mapLocation[2]);
+            double yRatio = 1 + (chosenCoord[0] - mapLocation[1]) / (mapLocation[1] - mapLocation[0]);
+            double size = Math.max(getHeight(), getWidth());
+            g.fillOval((int) (size * xRatio - 5), (int) (size * yRatio - 5), 10, 10);
         }
         if (displayTarget) {
             g.setColor(new Color(255, 0, 0));
@@ -78,7 +77,7 @@ public class InteractiveMap extends JPanel {
         paintComponent(getGraphics());
     }
 
-    public double getDistance(){
+    public double getDistance() {
         return DistanceCalculator.calculate(target, chosenCoord);
     }
 

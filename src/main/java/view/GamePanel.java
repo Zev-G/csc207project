@@ -1,11 +1,12 @@
 package view;
 
 import game.DataAccessMock;
+import game.PhotoLocation;
 import game.PhotoLocationFactory;
+
 import javax.swing.*;
 import java.awt.*;
-import javax.imageio.ImageIO;
-import java.io.IOException;
+
 
 public class GamePanel extends JPanel {
     private JLabel roundLabel;
@@ -14,7 +15,11 @@ public class GamePanel extends JPanel {
     private PointsDisplay pointsDisplay;
     private RoundedButton guessButton;
     private JLabel imageLabel1;
-    private JLabel imageLabel2;
+
+    private double[] coord;
+    private InteractiveMap map =
+            new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")),
+                    new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115});
 
     private int round = 1;
     private int totalRounds = 10;
@@ -49,20 +54,24 @@ public class GamePanel extends JPanel {
 
         JPanel imagePanel = new JPanel(new GridLayout(1, 2, 10, 0));
         imageLabel1 = new JLabel();
-        imageLabel2 = new JLabel();
+
 
         imageLabel1.setHorizontalAlignment(JLabel.CENTER);
-        imageLabel2.setHorizontalAlignment(JLabel.CENTER);
+
 
         imageLabel1.setPreferredSize(new Dimension(frameWidth, frameWidth));
-        imageLabel2.setPreferredSize(new Dimension(frameWidth, frameWidth));
+
 
         loadNewImages(frameWidth);
 
         imagePanel.add(imageLabel1);
-        imagePanel.add(imageLabel2);
+
+        mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.X_AXIS));
 
         mainCenterPanel.add(imagePanel);
+
+        mainCenterPanel.add(map);
+
         mainCenterPanel.add(Box.createVerticalGlue());
 
         add(mainCenterPanel, BorderLayout.CENTER);
@@ -91,25 +100,17 @@ public class GamePanel extends JPanel {
     private void loadNewImages(int frameWidth) {
         DataAccessMock dataAccess = new DataAccessMock();
         PhotoLocationFactory photoFactory = new PhotoLocationFactory(dataAccess);
+        PhotoLocation l = photoFactory.getRandomLocation();
 
-        ImageIcon fetchedImage1 = photoFactory.getRandomLocation().getPhoto();
+        ImageIcon fetchedImage1 = l.getPhoto();
+        coord = l.getLocation();
         imageLabel1.setIcon(ImageScaler.getScaledImageIcon(fetchedImage1, frameWidth, frameWidth));
-
-        try {
-            // The following line sets the RHS image. Ideally, this should be replaced
-            // with an interactive map embedding for a more engaging user experience.
-            ImageIcon mapImage = new ImageIcon(ImageIO.read(getClass().getResource("/photos/UofTmap.jpg")));
-            imageLabel2.setIcon(ImageScaler.getScaledImageIcon(mapImage, frameWidth, frameWidth));
-        } catch (IOException e) {
-            e.printStackTrace();
-            imageLabel2.setText("Map not found");
-        }
     }
 
 
-
     private void handleGuess(int frameWidth) {
-        boolean win = Math.random() > 0.5;
+        map.setTarget(coord);
+        boolean win = (map.getDistance() < 100);
         boolean barFilled = progressBar.updateRound(win);
 
         if (!barFilled) {
