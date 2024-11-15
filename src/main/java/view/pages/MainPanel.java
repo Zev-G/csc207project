@@ -1,6 +1,8 @@
 package view.pages;
 
+import interface_adapter.leaderboard.LeaderboardViewModel;
 import view.ViewConstants;
+import view.components.leaderboard.LeaderboardView;
 import view.components.standard.*;
 import view.utils.HTMLTextBuilder;
 
@@ -19,9 +21,13 @@ public class MainPanel extends DPanel {
                     .center().build());
     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
+    private final LeaderboardView leaderboard;
     private final VerticalPanel layout = new VerticalPanel(titlePanel, subtitlePanel);
 
-    public MainPanel() {
+    public MainPanel(LeaderboardViewModel lbvm) {
+        // Create objects
+        leaderboard = new LeaderboardView(lbvm);
+
         // Configure components
         uoftText.setFontSize(ViewConstants.TEXT_LL);
         gameText.setFontSize(ViewConstants.TEXT_LL);
@@ -30,6 +36,8 @@ public class MainPanel extends DPanel {
         subtitleText.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Add components
+        layout.add(leaderboard);
+
         add(layout);
     }
 
