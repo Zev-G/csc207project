@@ -39,4 +39,5 @@ public class DLabel extends JLabel {
     public FontGenerator getFontGenerator() {
         return fontGenerator;
     }
+
 }
