@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class GamePanel extends JPanel {
+public class GamePage extends Page {
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
     private GameTimer gameTimer;
@@ -30,7 +30,8 @@ public class GamePanel extends JPanel {
     private int round = 1;
     private int totalRounds = 10;
 
-    public GamePanel() {
+    public GamePage(PageManager pageManager) {
+        super(pageManager);
         setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -139,7 +140,4 @@ public class GamePanel extends JPanel {
         }
     }
 
-    public static void main(String[] args) {
-        new GamePanel();
-    }
 }

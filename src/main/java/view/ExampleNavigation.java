@@ -4,7 +4,8 @@ import entity.DummyUserStats;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import view.components.standard.DFrame;
-import view.pages.MainPanel;
+import view.pages.MainPage;
+import view.pages.PageFrame;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ public class ExampleNavigation {
         model.setState(new LeaderboardState(createLeaderboard()));
 
         // Run UI
-        final DFrame frame = new DFrame();
-        frame.add(new MainPanel(model));
+        final PageFrame frame = new PageFrame();
+        frame.navigate(new MainPage(model, frame));
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setLocationRelativeTo(null);

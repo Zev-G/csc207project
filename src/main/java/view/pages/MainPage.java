@@ -9,7 +9,7 @@ import view.utils.HTMLTextBuilder;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainPanel extends DPanel {
+public class MainPage extends Page {
 
     // UI Fields
     private final DLabel uoftText = new SerifLabel("UofT");
@@ -25,7 +25,8 @@ public class MainPanel extends DPanel {
     private final LeaderboardView leaderboard;
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
 
-    public MainPanel(LeaderboardViewModel lbvm) {
+    public MainPage(LeaderboardViewModel lbvm, PageManager pageManager) {
+        super(pageManager);
         // Create objects
         leaderboard = new LeaderboardView(lbvm);
 
