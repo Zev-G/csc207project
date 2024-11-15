@@ -12,6 +12,8 @@ import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainPage extends Page implements View<AccountState> {
 
@@ -27,7 +29,7 @@ public class MainPage extends Page implements View<AccountState> {
     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
 
-    private final JButton actionButton = new JButton();
+    private final JButton actionButton = new RoundedButton("");
 
     private final LeaderboardView leaderboard;
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
@@ -53,13 +55,25 @@ public class MainPage extends Page implements View<AccountState> {
         layout.setVgap(60);
         setLayout(layout);
 
+        // Add listeners
+        actionButton.addActionListener(this::actionButtonPressed);
+
         // Add components
         add(titleLayout, BorderLayout.PAGE_START);
         add(leaderboard, BorderLayout.CENTER);
+        add(actionButton, BorderLayout.PAGE_END);
 
         // Load state
         loadCurrentState();
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
+    }
+
+    private void actionButtonPressed(ActionEvent event) {
+        if (viewModel.getState().isLoggedIn()) {
+            pageManager.navigate(new GamePage(pageManager));
+        } else {
+            viewModel.setState(new AccountState(true));
+        }
     }
 
 
