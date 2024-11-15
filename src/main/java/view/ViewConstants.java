@@ -1,6 +1,6 @@
 package view;
 
-import view.components.FontGenerator;
+import view.utils.FontGenerator;
 
 import java.awt.*;
 

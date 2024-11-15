@@ -7,7 +7,7 @@ import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;
 import view.utils.ImageScaler;
-import view.components.RoundedButton;
+import view.components.standard.RoundedButton;
 import view.components.game.SegmentedProgressBar;
 
 import javax.swing.*;

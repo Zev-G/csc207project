@@ -1,7 +1,6 @@
-package view.components;
+package view.components.standard;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class HorizontalPanel extends DPanel {
 

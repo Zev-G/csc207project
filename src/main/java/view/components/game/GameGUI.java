@@ -3,7 +3,7 @@ package view.components.game;
 import game.DataAccessMock;
 import game.PhotoLocationFactory;
 import view.utils.ImageScaler;
-import view.components.RoundedButton;
+import view.components.standard.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;

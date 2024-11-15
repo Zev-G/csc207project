@@ -1,6 +1,6 @@
 package view;
 
-import view.components.DFrame;
+import view.components.standard.DFrame;
 import view.pages.MainPanel;
 
 import javax.swing.*;

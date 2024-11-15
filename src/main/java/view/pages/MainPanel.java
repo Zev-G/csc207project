@@ -1,7 +1,7 @@
 package view.pages;
 
 import view.ViewConstants;
-import view.components.*;
+import view.components.standard.*;
 import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
