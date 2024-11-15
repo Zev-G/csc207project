@@ -1,6 +1,10 @@
 package view.pages;
 
+import interface_adapter.ViewModel;
+import interface_adapter.account.AccountState;
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.leaderboard.LeaderboardViewModel;
+import view.View;
 import view.ViewConstants;
 import view.components.leaderboard.LeaderboardView;
 import view.components.standard.*;
@@ -9,7 +13,7 @@ import view.utils.HTMLTextBuilder;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainPage extends Page {
+public class MainPage extends Page implements View<AccountState> {
 
     // UI Fields
     private final DLabel uoftText = new SerifLabel("UofT");
@@ -22,11 +26,19 @@ public class MainPage extends Page {
                     .center().build());
     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
+
+    private final JButton actionButton = new JButton();
+
     private final LeaderboardView leaderboard;
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
 
-    public MainPage(LeaderboardViewModel lbvm, PageManager pageManager) {
+    // View Model
+    private final AccountViewModel viewModel;
+
+    public MainPage(LeaderboardViewModel lbvm, AccountViewModel viewModel, PageManager pageManager) {
         super(pageManager);
+        this.viewModel = viewModel;
+
         // Create objects
         leaderboard = new LeaderboardView(lbvm);
 
@@ -45,6 +57,23 @@ public class MainPage extends Page {
         add(titleLayout, BorderLayout.PAGE_START);
         add(leaderboard, BorderLayout.CENTER);
 
+        // Load state
+        loadCurrentState();
+        viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
+
+    @Override
+    public void loadState(AccountState state) {
+        if (state.isLoggedIn()) {
+            actionButton.setText("Play");
+        } else {
+            actionButton.setText("Log in");
+        }
+    }
+
+    @Override
+    public ViewModel<AccountState> getViewModel() {
+        return viewModel;
+    }
 }

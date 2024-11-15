@@ -1,9 +1,10 @@
 package view;
 
 import entity.DummyUserStats;
+import interface_adapter.account.AccountState;
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
-import view.components.standard.DFrame;
 import view.pages.MainPage;
 import view.pages.PageFrame;
 
@@ -15,12 +16,15 @@ public class ExampleNavigation {
 
     public static void main(String[] args) {
         // Setup dummy state
-        LeaderboardViewModel model = new LeaderboardViewModel();
-        model.setState(new LeaderboardState(createLeaderboard()));
+        LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
+        leaderboardViewModel.setState(new LeaderboardState(createLeaderboard()));
+
+        AccountViewModel accountViewModel = new AccountViewModel();
+        accountViewModel.setState(new AccountState(false));
 
         // Run UI
         final PageFrame frame = new PageFrame();
-        frame.navigate(new MainPage(model, frame));
+        frame.navigate(new MainPage(leaderboardViewModel, accountViewModel, frame));
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setLocationRelativeTo(null);
