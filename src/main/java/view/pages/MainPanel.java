@@ -7,6 +7,7 @@ import view.components.standard.*;
 import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainPanel extends DPanel {
 
@@ -22,7 +23,7 @@ public class MainPanel extends DPanel {
     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
     private final LeaderboardView leaderboard;
-    private final VerticalPanel layout = new VerticalPanel(titlePanel, subtitlePanel);
+    private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
 
     public MainPanel(LeaderboardViewModel lbvm) {
         // Create objects
@@ -35,10 +36,14 @@ public class MainPanel extends DPanel {
         setMargin(ViewConstants.MARGIN_M);
         subtitleText.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Add components
-        layout.add(leaderboard);
+        BorderLayout layout = new BorderLayout();
+        layout.setVgap(60);
+        setLayout(layout);
 
-        add(layout);
+        // Add components
+        add(titleLayout, BorderLayout.PAGE_START);
+        add(leaderboard, BorderLayout.CENTER);
+
     }
 
 }

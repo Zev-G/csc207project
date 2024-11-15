@@ -26,7 +26,7 @@ public class LeaderboardView extends VerticalPanel implements View<LeaderboardSt
     @Override
     public void loadState(LeaderboardState state) {
         removeAll();
-        for (int pos = 0; pos < 3; pos++) {
+        for (int pos = 2; pos >= 0; pos--) {
             DummyUserStats userStats = state.getPosition(pos);
             add(new LeaderboardPositionView(userStats));
         }
