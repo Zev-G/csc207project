@@ -1,5 +1,7 @@
 package view;
 
+import view.components.DFrame;
+
 import javax.swing.*;
 
 public class ExampleUsageGameGUI {
