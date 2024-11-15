@@ -1,6 +1,7 @@
 package view;
 
 import view.components.DFrame;
+import view.pages.GamePanel;
 
 import javax.swing.*;
 

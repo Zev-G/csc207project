@@ -1,9 +1,10 @@
-package view;
+package view.pages;
 
+import view.ViewConstants;
 import view.components.*;
+import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MainPanel extends DPanel {
 

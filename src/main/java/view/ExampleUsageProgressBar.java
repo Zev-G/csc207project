@@ -1,5 +1,7 @@
 package view;
 
+import view.components.game.SegmentedProgressBar;
+
 import javax.swing.*;
 
 public class ExampleUsageProgressBar {
