@@ -1,11 +1,11 @@
 package entity;
 
+
+import javax.swing.*;
+
 public interface Location {
-    String getPhotoUrl();
+    ImageIcon getPhoto();
 
     double[] getLocation();
-
-
-
 
 }
