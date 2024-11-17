@@ -76,7 +76,7 @@ public class ClientHandler implements Runnable {
                 if (!gameStarted) {
                     try {
                         final DataOutputStream out = new DataOutputStream(userSocket.getOutputStream());
-                        out.writeUTF("time out");
+                        out.writeUTF("timeout");
                         server.timeOut(username);
                         out.flush();
                         out.close();
