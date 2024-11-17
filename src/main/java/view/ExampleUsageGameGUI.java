@@ -1,15 +1,15 @@
 package view;
 
-import view.components.standard.DFrame;
-import view.pages.GamePanel;
+import view.pages.GamePage;
+import view.pages.PageFrame;
 
 import javax.swing.*;
 
 public class ExampleUsageGameGUI {
     public static void main(String[] args) {
         // Initialize and start the game GUI
-        final DFrame frame = new DFrame();
-        frame.add(new GamePanel());
+        final PageFrame frame = new PageFrame();
+        frame.navigate(new GamePage(frame));
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setLocationRelativeTo(null);

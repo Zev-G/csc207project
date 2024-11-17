@@ -32,6 +32,7 @@ public class ViewModel<T> {
 
     public void setState(T state) {
         this.state = state;
+        firePropertyChanged();
     }
 
     /**
