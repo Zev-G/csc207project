@@ -1,5 +1,6 @@
 package server;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -10,15 +11,21 @@ import java.util.TimerTask;
 public class ClientHandler implements Runnable {
 
     private final String username;
+    private final String opponentUsername;
     private final Socket userSocket;
     private Socket opponentSocket;
     private final Server server;
     private boolean gameStarted;
 
-    public ClientHandler(Server server, String username, Socket userSocket) {
+    public ClientHandler(Server server, String username, String opponentUsername, Socket userSocket) {
         this.server = server;
         this.username = username;
+        this.opponentUsername = opponentUsername;
         this.userSocket = userSocket;
+    }
+
+    public String getOpponentUsername(){
+        return opponentUsername;
     }
 
     public void connect(Socket opponentSocket) {
@@ -39,6 +46,8 @@ public class ClientHandler implements Runnable {
             dout2.writeUTF(String.valueOf(seed));
             dout1.flush();
             dout2.flush();
+//            DataInputStream in1 = new DataInputStream(userSocket.getInputStream());
+//            System.out.println(in1.readUTF());
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
