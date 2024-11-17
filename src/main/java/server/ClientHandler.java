@@ -47,7 +47,7 @@ public class ClientHandler implements Runnable {
         startGame();
     }
 
-    public void startGame() {
+    private void startGame() {
         waitingTimer.cancel();
         try {
             // Give both users a random seed to generate the same sequence of photos
@@ -137,7 +137,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    public void sendAway() {
+    private void sendAway() {
         System.out.println("sent");
         try {
             final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
@@ -154,7 +154,7 @@ public class ClientHandler implements Runnable {
         gameTimer.cancel();
     }
 
-    public void userDisconnected() {
+    private void userDisconnected() {
         System.out.println("user is disconnected");
         try {
             final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
