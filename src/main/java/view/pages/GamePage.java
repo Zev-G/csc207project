@@ -22,6 +22,8 @@ public class GamePage extends Page {
     private RoundedButton guessButton;
     private JLabel imageLabel1;
 
+    private DataAccessMock dataAccess = new DataAccessMock();
+
     private double[] coord;
     private InteractiveMap map =
             new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")),
@@ -105,7 +107,6 @@ public class GamePage extends Page {
     }
 
     private void loadNewImages(int frameWidth) {
-        DataAccessMock dataAccess = new DataAccessMock();
         PhotoLocationFactory photoFactory = new PhotoLocationFactory(dataAccess);
         PhotoLocation l = photoFactory.getRandomLocation();
 
