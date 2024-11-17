@@ -1,8 +1,8 @@
 package view.pages;
 
-import game.DataAccessMock;
-import game.PhotoLocation;
-import game.PhotoLocationFactory;
+import data_access.DataAccessMock;
+import entity.PhotoLocationFactory;
+import entity.PhotoLocation;
 import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;

@@ -25,12 +25,14 @@ public class Server {
     public Server(int port) {
         try {
             serverSocket = new ServerSocket(port);
-        } catch (IOException exception) {
+        }
+        catch (IOException exception) {
             throw new RuntimeException(exception);
         }
         try {
             start();
-        } catch (IOException exception) {
+        }
+        catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }

@@ -1,4 +1,6 @@
-package game;
+package entity;
+
+import data_access.LocationDataAccess;
 
 public class PhotoLocationFactory {
 
