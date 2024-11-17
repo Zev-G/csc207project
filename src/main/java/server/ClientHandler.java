@@ -17,7 +17,10 @@ public class ClientHandler implements Runnable {
     private final Socket userSocket;
     private Socket opponentSocket;
     private final Server server;
-    private boolean gameStarted;
+
+    private Timer waitingTimer;
+
+    private Timer gameTimer;
 
     private final ExecutorService executorService;
 
@@ -30,20 +33,22 @@ public class ClientHandler implements Runnable {
         this.username = username;
         this.opponentUsername = opponentUsername;
         this.userSocket = userSocket;
-        this.executorService = Executors.newFixedThreadPool(2);  // Use a pool for managing threads
+        // Use a pool for managing threads
+        this.executorService = Executors.newFixedThreadPool(2);
     }
 
-    public String getOpponentUsername(){
+    public String getOpponentUsername() {
         return opponentUsername;
     }
 
     public void connect(Socket opponentSocket) {
+        System.out.println("connected");
         this.opponentSocket = opponentSocket;
         startGame();
     }
 
     public void startGame() {
-        gameStarted = true;
+        waitingTimer.cancel();
         try {
             // Give both users a random seed to generate the same sequence of photos
             sendSeed();
@@ -54,6 +59,30 @@ public class ClientHandler implements Runnable {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        gameTimer = new Timer();
+        gameTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("user timeout");
+                server.remove(username);
+                try {
+                    final DataOutputStream out1 = new DataOutputStream(userSocket.getOutputStream());
+                    out1.writeUTF("timeout");
+                    out1.flush();
+                    out1.close();
+                    userSocket.close();
+                    final DataOutputStream out2 = new DataOutputStream(opponentSocket.getOutputStream());
+                    out2.writeUTF("timeout");
+                    out2.flush();
+                    out2.close();
+                    opponentSocket.close();
+                } catch (IOException exception) {
+                    userDisconnected();
+                }
+
+            }
+        }, Constants.GAME_TIME * Constants.SECOND2MILLISECOND);
     }
 
     private void sendSeed() throws IOException {
@@ -70,24 +99,25 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
-        new Timer().schedule(new TimerTask() {
+        waitingTimer = new Timer();
+        waitingTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if (!gameStarted) {
-                    try {
-                        final DataOutputStream out = new DataOutputStream(userSocket.getOutputStream());
-                        out.writeUTF("timeout");
-                        server.timeOut(username);
-                        out.flush();
-                        out.close();
-                        userSocket.close();
-                    }
-                    catch (IOException exception) {
-                        throw new RuntimeException(exception);
-                    }
+
+                try {
+                    final DataOutputStream out = new DataOutputStream(userSocket.getOutputStream());
+                    out.writeUTF("timeout");
+                    server.remove(username);
+                    out.flush();
+                    out.close();
+                    userSocket.close();
+                } catch (IOException exception) {
+                    server.remove(username);
+                    userDisconnected();
                 }
+
             }
-        }, Constants.TIME_OUT_TIME * Constants.MINUTE2SECOND * Constants.SECOND2MILLISECOND);
+        }, Constants.TIME_OUT_TIME * Constants.SECOND2MILLISECOND);
     }
 
     private void handlePlayerInput(Socket socket, int playerId) {
@@ -107,7 +137,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    public void sendAway(){
+    public void sendAway() {
         System.out.println("sent");
         try {
             final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
@@ -116,9 +146,31 @@ public class ClientHandler implements Runnable {
             dout2.writeUTF(String.valueOf(score1));
             dout1.flush();
             dout2.flush();
+            userSocket.close();
+            opponentSocket.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            userDisconnected();
         }
-
+        gameTimer.cancel();
     }
+
+    public void userDisconnected() {
+        System.out.println("user is disconnected");
+        try {
+            final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
+            dout1.writeUTF("userDisconnected");
+            dout1.flush();
+            userSocket.close();
+            if (opponentSocket != null) {
+                final DataOutputStream dout2 = new DataOutputStream(opponentSocket.getOutputStream());
+                dout2.writeUTF("userDisconnected");
+                dout2.flush();
+                opponentSocket.close();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Some message is sent unsuccessfully.");
+        }
+    }
+
 }

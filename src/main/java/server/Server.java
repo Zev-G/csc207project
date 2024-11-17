@@ -57,11 +57,11 @@ public class Server {
     }
 
     /**
-     * To time out a user from connecting.
+     * To remove a user from connecting.
      *
      * @param username the username of the user
      */
-    public void timeOut(String username) {
+    public void remove(String username) {
         username2ClientHandler.remove(username);
     }
 
