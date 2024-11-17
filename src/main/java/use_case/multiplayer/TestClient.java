@@ -1,5 +1,6 @@
 package use_case.multiplayer;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,6 +25,13 @@ public class TestClient {
                     DataOutputStream out = new DataOutputStream(multiplayerOutputData.getSocket().getOutputStream());
                     out.writeUTF(str);
                     out.flush();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                try {
+                    DataInputStream in = new DataInputStream(multiplayerOutputData.getSocket().getInputStream());
+                    System.out.println(in.readUTF());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
