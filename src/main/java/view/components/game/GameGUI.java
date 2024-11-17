@@ -1,7 +1,7 @@
 package view.components.game;
 
-import game.DataAccessMock;
-import game.PhotoLocationFactory;
+import data_access.DataAccessMock;
+import entity.PhotoLocationFactory;
 import view.utils.ImageScaler;
 import view.components.standard.RoundedButton;
 

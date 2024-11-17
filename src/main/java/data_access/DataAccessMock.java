@@ -1,4 +1,6 @@
-package game;
+package data_access;
+
+import entity.PhotoLocation;
 
 import javax.swing.*;
 import java.util.ArrayList;

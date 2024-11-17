@@ -1,18 +1,20 @@
 package entity;
 
+import javax.swing.*;
+
 public class PhotoLocation implements Location {
 
-    private final String url;
+    private final ImageIcon photo;
     private final double[] location;
 
-    public PhotoLocation(String url, double[] location) {
-        this.url = url;
+    public PhotoLocation(ImageIcon photo, double[] location) {
+        this.photo = photo;
         this.location = location;
     }
 
     @Override
-    public String getPhotoUrl() {
-        return url;
+    public ImageIcon getPhoto() {
+        return photo;
     }
 
     @Override
