@@ -1,4 +1,5 @@
-package server;// Java Program to implement ServerSocket class
+package server;
+// Java Program to implement ServerSocket class
 // Client - side
 
 // Importing required libraries
@@ -23,14 +24,14 @@ public class MyClient {
 
             // Creating Socket class object and
             // initializing Socket
-            Socket soc = new Socket("localhost", 6666);
+            Socket soc = new Socket("localhost", 5555);
 
             // Invoking input stream via getInputStream()
             // method by creating DataInputStream class
             // object
 
             DataOutputStream out = new DataOutputStream(soc.getOutputStream());
-            out.writeUTF(name+","+name2);
+            out.writeUTF(String.format("%s,%s", name, name2));
             out.flush();
 
             DataInputStream dis

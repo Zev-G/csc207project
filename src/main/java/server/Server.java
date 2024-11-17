@@ -65,6 +65,6 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        new Server(5555);
+        new Server(Constants.PORT);
     }
 }

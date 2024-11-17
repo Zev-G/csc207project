@@ -13,7 +13,6 @@ public class ClientHandler implements Runnable {
     private final Socket userSocket;
     private Socket opponentSocket;
     private final Server server;
-
     private boolean gameStarted;
 
     public ClientHandler(Server server, String username, Socket userSocket) {
