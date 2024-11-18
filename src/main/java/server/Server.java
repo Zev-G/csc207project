@@ -51,12 +51,11 @@ public class Server {
         }
     }
 
-    private static class Console implements Runnable {
-
+    private static final class Console implements Runnable {
         @Override
         public void run() {
             while (true) {
-                Scanner scanner = new Scanner(System.in);
+                final Scanner scanner = new Scanner(System.in);
                 if (scanner.next().equals("q")) {
                     System.exit(0);
                 }
@@ -73,11 +72,16 @@ public class Server {
         username2ClientHandler.remove(username);
     }
 
+    /**
+     * To run a server service.
+     * @param args input argument
+     * @throws RuntimeException runtime exception
+     */
     public static void main(String[] args) {
         try {
             new Server(Constants.PORT);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
         }
     }
 }

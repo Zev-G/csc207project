@@ -5,6 +5,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * A Testing Client Code.
+ */
 public class TestClient {
     public static void main(String[] args) {
         MultiplayerOutputBoundary presenter = new MultiplayerOutputBoundary() {

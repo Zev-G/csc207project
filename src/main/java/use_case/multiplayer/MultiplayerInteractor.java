@@ -5,6 +5,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+
+/**
+ * This class connects the user to the server and returns the needed info.
+ */
 public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
     private String host;
@@ -12,12 +16,23 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
     private MultiplayerOutputBoundary presenter;
 
+
+    /**
+     * This creates a Multiplayer interactor.
+     * @param host the host name
+     * @param port the port
+     * @param presenter a presenter
+     */
     public MultiplayerInteractor(String host, int port, MultiplayerOutputBoundary presenter) {
         this.host = host;
         this.port = port;
         this.presenter = presenter;
     }
 
+    /**
+     * To connect to the server
+     * @param multiplayerInputData the input data
+     */
     @Override
     public void execute(MultiplayerInputData multiplayerInputData) {
         try {
