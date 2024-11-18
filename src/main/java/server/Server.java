@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Multiplayer Server
@@ -20,22 +21,16 @@ public class Server {
      * This is the server to support multiplayer.
      *
      * @param port the port for the program to run
-     * @throws RuntimeException May throw runtime exception.
+     * @throws IOException May throw IOException.
      */
-    public Server(int port) {
-        try {
-            serverSocket = new ServerSocket(port);
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        try {
-            start();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+    public Server(int port) throws IOException {
+        serverSocket = new ServerSocket(port);
+        System.out.println("Service started, press q to exit.");
+        start();
     }
 
     private void start() throws IOException {
+        new Thread(new Console()).start();
         while (true) {
             final Socket socket = serverSocket.accept();
             final DataInputStream in = new DataInputStream(socket.getInputStream());
@@ -56,6 +51,19 @@ public class Server {
         }
     }
 
+    private static class Console implements Runnable {
+
+        @Override
+        public void run() {
+            while (true) {
+                Scanner scanner = new Scanner(System.in);
+                if (scanner.next().equals("q")) {
+                    System.exit(0);
+                }
+            }
+        }
+    }
+
     /**
      * To remove a user from connecting.
      *
@@ -66,6 +74,10 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        new Server(Constants.PORT);
+        try {
+            new Server(Constants.PORT);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
