@@ -4,12 +4,26 @@ import entity.PhotoLocation;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DataAccessMock implements LocationDataAccess {
 
     private final ArrayList<PhotoLocation> locations = new ArrayList<>();
 
+    private final Random random;
+
+    public DataAccessMock(long seed) {
+        random = new Random(seed);
+        ImageIcon photo1 = new ImageIcon(ClassLoader.getSystemResource("photos/sample1.jpg"));
+        PhotoLocation photoLocation1 = new PhotoLocation(photo1, new double[]{43.66742755781882, -79.39177102147445});
+        ImageIcon photo2 = new ImageIcon(ClassLoader.getSystemResource("photos/sample2.jpeg"));
+        PhotoLocation photoLocation2 = new PhotoLocation(photo2, new double[]{43.65984277958618, -79.39718377820866});
+        locations.add(photoLocation1);
+        locations.add(photoLocation2);
+    }
+
     public DataAccessMock() {
+        random = new Random();
         ImageIcon photo1 = new ImageIcon(ClassLoader.getSystemResource("photos/sample1.jpg"));
         PhotoLocation photoLocation1 = new PhotoLocation(photo1, new double[]{43.66742755781882, -79.39177102147445});
         ImageIcon photo2 = new ImageIcon(ClassLoader.getSystemResource("photos/sample2.jpeg"));
@@ -20,10 +34,11 @@ public class DataAccessMock implements LocationDataAccess {
 
     @Override
     public PhotoLocation getRandomLocation() {
-        if (Math.random() < .5) {
-            return locations.get(0);
-        } else {
-            return locations.get(1);
+        switch (random.nextInt(2)) {
+            case 0:
+                return locations.get(0);
+            default:
+                return locations.get(1);
         }
     }
 }

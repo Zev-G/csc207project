@@ -25,14 +25,12 @@ public class Server {
     public Server(int port) {
         try {
             serverSocket = new ServerSocket(port);
-        }
-        catch (IOException exception) {
+        } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
         try {
             start();
-        }
-        catch (IOException exception) {
+        } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
@@ -44,11 +42,12 @@ public class Server {
             final String[] names = in.readUTF().split(",");
             final String name = names[0];
             final String name2 = names[1];
-            if (username2ClientHandler.containsKey(name2)) {
+            if (username2ClientHandler.containsKey(name2)
+                    && username2ClientHandler.get(name2).getOpponentUsername().equals(name)) {
                 System.out.println("exist");
                 username2ClientHandler.get(name2).connect(socket);
             } else {
-                final ClientHandler clientHandler = new ClientHandler(this, name, socket);
+                final ClientHandler clientHandler = new ClientHandler(this, name, name2, socket);
                 final Thread clientThread = new Thread(clientHandler);
                 username2ClientHandler.put(name, clientHandler);
                 System.out.println(username2ClientHandler);
@@ -58,11 +57,11 @@ public class Server {
     }
 
     /**
-     * To time out a user from connecting.
+     * To remove a user from connecting.
      *
      * @param username the username of the user
      */
-    public void timeOut(String username) {
+    public void remove(String username) {
         username2ClientHandler.remove(username);
     }
 
