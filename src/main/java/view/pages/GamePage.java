@@ -36,6 +36,8 @@ public class GamePage extends Page {
         super(pageManager);
         setLayout(new BorderLayout());
 
+        setMargin(50);
+
         JPanel topPanel = new JPanel(new BorderLayout());
         roundLabel = new JLabel("Round " + round);
         roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
