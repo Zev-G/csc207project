@@ -87,15 +87,15 @@ public class MainPage extends Page implements View<AccountState> {
     }
 
     private void accountButtonPressed(ActionEvent event) {
-
+        pageManager.navigate(new AccountPage(viewModel, pageManager));
     }
 
     private void loginButtonPressed(ActionEvent event) {
-        viewModel.setState(new AccountState(true));
+
     }
 
     private void signupButtonPressed(ActionEvent event) {
-        viewModel.setState(new AccountState(true));
+
     }
 
 

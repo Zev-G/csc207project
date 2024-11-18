@@ -20,7 +20,7 @@ public class ExampleNavigation {
         leaderboardViewModel.setState(new LeaderboardState(createLeaderboard()));
 
         AccountViewModel accountViewModel = new AccountViewModel();
-        accountViewModel.setState(new AccountState(false));
+        accountViewModel.setState(AccountState.DUMMY_STATE);
 
         // Run UI
         final PageFrame frame = new PageFrame();
