@@ -29,7 +29,11 @@ public class MainPage extends Page implements View<AccountState> {
     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
 
-    private final JButton actionButton = new RoundedButton("");
+    private final JButton loginButton = new RoundedButton("Login");
+    private final JButton signupButton = new RoundedButton("Signup");
+    private final JButton playButton = new RoundedButton("Play");
+    private final JButton accountButton = new RoundedButton("Account");
+    private final DPanel buttons = new DPanel();
 
     private final LeaderboardView leaderboard;
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
@@ -55,35 +59,58 @@ public class MainPage extends Page implements View<AccountState> {
         layout.setVgap(60);
         setLayout(layout);
 
+        buttons.setLayout(new FlowLayout());
+
+        loginButton.setPreferredSize(new Dimension(200, 80));
+        signupButton.setPreferredSize(new Dimension(200, 80));
+        accountButton.setPreferredSize(new Dimension(200, 80));
+        playButton.setPreferredSize(new Dimension(200, 80));
+
         // Add listeners
-        actionButton.addActionListener(this::actionButtonPressed);
+        loginButton.addActionListener(this::loginButtonPressed);
+        signupButton.addActionListener(this::signupButtonPressed);
+        playButton.addActionListener(this::playButtonPressed);
+        accountButton.addActionListener(this::accountButtonPressed);
 
         // Add components
         add(titleLayout, BorderLayout.PAGE_START);
         add(leaderboard, BorderLayout.CENTER);
-        add(actionButton, BorderLayout.PAGE_END);
+        add(buttons, BorderLayout.PAGE_END);
 
         // Load state
         loadCurrentState();
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
-    private void actionButtonPressed(ActionEvent event) {
-        if (viewModel.getState().isLoggedIn()) {
-            pageManager.navigate(new GamePage(pageManager));
-        } else {
-            viewModel.setState(new AccountState(true));
-        }
+    private void playButtonPressed(ActionEvent event) {
+        pageManager.navigate(new GamePage(pageManager));
+    }
+
+    private void accountButtonPressed(ActionEvent event) {
+        pageManager.navigate(new AccountPage(viewModel, pageManager));
+    }
+
+    private void loginButtonPressed(ActionEvent event) {
+        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
+    }
+
+    private void signupButtonPressed(ActionEvent event) {
+        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
     }
 
 
     @Override
     public void loadState(AccountState state) {
+        buttons.removeAll();
         if (state.isLoggedIn()) {
-            actionButton.setText("Play");
+            buttons.add(playButton);
+            buttons.add(accountButton);
         } else {
-            actionButton.setText("Log in");
+            buttons.add(loginButton);
+            buttons.add(signupButton);
         }
+        buttons.revalidate(); // Refreshes the layout
+        buttons.repaint();    // Redraws the container
     }
 
     @Override
