@@ -33,10 +33,21 @@ public class DPanel extends JPanel {
 
     /**
      * Sets the margin
+     * @param t top
+     * @param r right
+     * @param b bottom
+     * @param l left
+     */
+    public void setMargin(int t, int r, int b, int l) {
+        setBorder(new EmptyBorder(t, r, b, l));
+    }
+
+    /**
+     * Sets the margin
      * @param margin the margin
      */
     public void setMargin(int margin) {
-        setBorder(new EmptyBorder(margin, margin, margin, margin));
+        setMargin(margin, margin, margin, margin);
     }
 
 }
