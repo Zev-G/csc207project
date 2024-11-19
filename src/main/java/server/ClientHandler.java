@@ -154,7 +154,7 @@ public class ClientHandler implements Runnable {
                 sendAway();
             }
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            userDisconnected();
         }
     }
 
@@ -177,6 +177,7 @@ public class ClientHandler implements Runnable {
 
     private void userDisconnected() {
         System.out.println("user is disconnected");
+        server.remove(username);
         try {
             final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
             dout1.writeUTF("userDisconnected");
