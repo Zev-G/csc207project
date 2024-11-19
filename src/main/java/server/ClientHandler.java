@@ -78,7 +78,7 @@ public class ClientHandler implements Runnable {
             executorService.submit(() -> handlePlayerInput(opponentSocket, 2));
 
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            userDisconnected();
         }
 
         gameTimer = new Timer();
