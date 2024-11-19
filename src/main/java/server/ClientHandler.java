@@ -133,7 +133,6 @@ public class ClientHandler implements Runnable {
                     out.close();
                     userSocket.close();
                 } catch (IOException exception) {
-                    server.remove(username);
                     userDisconnected();
                 }
 
