@@ -42,13 +42,17 @@ public class TestClient {
                 }
             }
         };
-        MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter);
+        MultiplayerInteractor interactor = new MultiplayerInteractor("192.168.1.2", 5555, presenter);
         Scanner s = new Scanner(System.in);
         String name = s.nextLine().trim();
 
         String name2 = s.nextLine().trim();
 
-        interactor.execute(new MultiplayerInputData(name, name2));
+        try {
+            interactor.execute(new MultiplayerInputData(name, name2));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

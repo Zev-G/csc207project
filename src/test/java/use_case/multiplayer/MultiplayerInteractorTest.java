@@ -1,7 +1,9 @@
 package use_case.multiplayer;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import server.Server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,6 +14,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MultiplayerInteractorTest {
 
+
+    @BeforeAll
+    static void startServer() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new Server(1234);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+    }
+
     @Test
     void execute() {
         Presenter presenter1 = new Presenter();
@@ -21,13 +38,34 @@ class MultiplayerInteractorTest {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                MultiplayerInteractor interactor1 = new MultiplayerInteractor("173.32.226.108", 5555, presenter1);
-                interactor1.execute(new MultiplayerInputData("Alice", "Bob"));
+                MultiplayerInteractor interactor1 = new MultiplayerInteractor("localhost", 1234, presenter1);
+                try {
+                    interactor1.execute(new MultiplayerInputData("Alice", "Bob"));
+                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+                }
             }
         }).start();
 
-        MultiplayerInteractor interactor2 = new MultiplayerInteractor("173.32.226.108", 5555, presenter2);
-        interactor2.execute(new MultiplayerInputData("Bob", "Alice"));
+        MultiplayerInteractor interactor2 = new MultiplayerInteractor("localhost", 1234, presenter2);
+        try {
+            interactor2.execute(new MultiplayerInputData("Bob", "Alice"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Test
+    void executeTimeout() {
+        Presenter presenter1 = new Presenter();
+
+        MultiplayerInteractor interactor2 = new MultiplayerInteractor("localhost", 1234, presenter1);
+        try {
+            interactor2.execute(new MultiplayerInputData("Bob", "Alice"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

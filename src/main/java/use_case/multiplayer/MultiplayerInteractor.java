@@ -19,8 +19,9 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
     /**
      * This creates a Multiplayer interactor.
-     * @param host the host name
-     * @param port the port
+     *
+     * @param host      the host name
+     * @param port      the port
      * @param presenter a presenter
      */
     public MultiplayerInteractor(String host, int port, MultiplayerOutputBoundary presenter) {
@@ -31,29 +32,29 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
     /**
      * To connect to the server
+     *
      * @param multiplayerInputData the input data
+     * @throws IOException may throw IO exception
      */
     @Override
-    public void execute(MultiplayerInputData multiplayerInputData) {
-        try {
-            final Socket socket = new Socket(host, port);
-            final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
-                    multiplayerInputData.getOpponentUsername()));
-            out.flush();
+    public void execute(MultiplayerInputData multiplayerInputData) throws IOException {
 
-            final DataInputStream dis = new DataInputStream(socket.getInputStream());
+        final Socket socket = new Socket(host, port);
+        final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+        out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
+                multiplayerInputData.getOpponentUsername()));
+        out.flush();
 
-            final String str = (String) dis.readUTF();
+        final DataInputStream dis = new DataInputStream(socket.getInputStream());
 
-            if ("timeout".equals(str)) {
-                presenter.prepareTimeoutView();
-            } else {
-                final long seed = Long.parseLong(str);
-                presenter.prepareGame(new MultiplayerOutputData(seed, socket));
-            }
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
+        final String str = (String) dis.readUTF();
+
+        if ("timeout".equals(str)) {
+            presenter.prepareTimeoutView();
+        } else {
+            final long seed = Long.parseLong(str);
+            presenter.prepareGame(new MultiplayerOutputData(seed, socket));
         }
+
     }
 }
