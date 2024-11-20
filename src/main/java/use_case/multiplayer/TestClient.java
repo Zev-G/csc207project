@@ -3,6 +3,8 @@ package use_case.multiplayer;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
@@ -41,7 +43,6 @@ public class TestClient {
             }
         };
         MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter);
-
         Scanner s = new Scanner(System.in);
         String name = s.nextLine().trim();
 

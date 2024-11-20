@@ -21,9 +21,9 @@ public class ClientHandler implements Runnable {
     private Socket opponentSocket;
     private final Server server;
 
-    private Timer waitingTimer;
+    private boolean gameStarted;
 
-    private Timer gameTimer;
+    private boolean gameEnded;
 
     private final ExecutorService executorService;
 
@@ -69,71 +69,74 @@ public class ClientHandler implements Runnable {
     }
 
     private void startGame() {
-        waitingTimer.cancel();
-        try {
-            // Give both users a random seed to generate the same sequence of photos
-            sendSeed();
+        gameStarted = true;
 
-            executorService.submit(() -> handlePlayerInput(userSocket, 1));
-            executorService.submit(() -> handlePlayerInput(opponentSocket, 2));
+        // Give both users a random seed to generate the same sequence of photos
+        sendSeed();
 
-        } catch (IOException exception) {
-            userDisconnected();
-        }
+        executorService.submit(() -> handlePlayerInput(userSocket, 1));
+        executorService.submit(() -> handlePlayerInput(opponentSocket, 2));
 
-        gameTimer = new Timer();
-        gameTimer.schedule(new TimerTask() {
+
+        new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("user timeout");
-                server.remove(username);
-                try {
-                    final DataOutputStream out1 = new DataOutputStream(userSocket.getOutputStream());
-                    out1.writeUTF("timeout");
-                    out1.flush();
-                    out1.close();
-                    userSocket.close();
-                    final DataOutputStream out2 = new DataOutputStream(opponentSocket.getOutputStream());
-                    out2.writeUTF("timeout");
-                    out2.flush();
-                    out2.close();
-                    opponentSocket.close();
-                } catch (IOException exception) {
-                    userDisconnected();
+                if (gameEnded) {
+                    System.out.println("user timeout");
+                    server.remove(username);
+                    try {
+                        final DataOutputStream out1 = new DataOutputStream(userSocket.getOutputStream());
+                        out1.writeUTF("timeout");
+                        out1.flush();
+                        out1.close();
+                        userSocket.close();
+                        final DataOutputStream out2 = new DataOutputStream(opponentSocket.getOutputStream());
+                        out2.writeUTF("timeout");
+                        out2.flush();
+                        out2.close();
+                        opponentSocket.close();
+                    } catch (IOException exception) {
+                        userDisconnected();
+                    }
                 }
 
             }
         }, Constants.GAME_TIME * Constants.SECOND2MILLISECOND);
     }
 
-    private void sendSeed() throws IOException {
-        final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
-        final DataOutputStream dout2 = new DataOutputStream(opponentSocket.getOutputStream());
-        final Random rand = new Random();
-        final long seed = rand.nextLong();
-        // Send the seed away
-        dout1.writeUTF(String.valueOf(seed));
-        dout2.writeUTF(String.valueOf(seed));
-        dout1.flush();
-        dout2.flush();
+    private void sendSeed() {
+        try {
+            final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
+            final DataOutputStream dout2 = new DataOutputStream(opponentSocket.getOutputStream());
+            final Random rand = new Random();
+            final long seed = rand.nextLong();
+            // Send the seed away
+            dout1.writeUTF(String.valueOf(seed));
+            dout2.writeUTF(String.valueOf(seed));
+            dout1.flush();
+            dout2.flush();
+        } catch (IOException e) {
+            userDisconnected();
+        }
     }
 
     @Override
     public void run() {
-        waitingTimer = new Timer();
-        waitingTimer.schedule(new TimerTask() {
+        new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
 
-                try {
-                    final DataOutputStream out = new DataOutputStream(userSocket.getOutputStream());
-                    out.writeUTF("timeout");
-                    server.remove(username);
-                    out.flush();
-                    out.close();
-                    userSocket.close();
-                } catch (IOException exception) {
-                    userDisconnected();
+                if (!gameStarted) {
+                    try {
+                        final DataOutputStream out = new DataOutputStream(userSocket.getOutputStream());
+                        out.writeUTF("timeout");
+                        server.remove(username);
+                        out.flush();
+                        out.close();
+                        userSocket.close();
+                    } catch (IOException exception) {
+                        userDisconnected();
+                    }
                 }
 
             }
@@ -171,7 +174,7 @@ public class ClientHandler implements Runnable {
         } catch (IOException exception) {
             userDisconnected();
         }
-        gameTimer.cancel();
+        gameEnded = true;
     }
 
     private void userDisconnected() {
