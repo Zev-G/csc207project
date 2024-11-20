@@ -81,7 +81,7 @@ public class ClientHandler implements Runnable {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                if (gameEnded) {
+                if (!gameEnded) {
                     System.out.println("user timeout");
                     server.remove(username);
                     try {
