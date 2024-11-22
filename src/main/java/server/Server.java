@@ -36,6 +36,10 @@ public class Server {
                 final Socket socket = serverSocket.accept();
                 final DataInputStream in = new DataInputStream(socket.getInputStream());
                 final String[] names = in.readUTF().split(",");
+                if (names.length != 2) {
+                    System.out.println("connection error");
+                    continue;
+                }
                 final String name = names[0];
                 final String name2 = names[1];
                 if (username2ClientHandler.containsKey(name2)

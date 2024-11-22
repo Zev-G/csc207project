@@ -19,6 +19,11 @@ public class TestClient {
             }
 
             @Override
+            public void prepareErrorView() {
+                System.out.println("error");
+            }
+
+            @Override
             public void prepareGame(MultiplayerOutputData multiplayerOutputData) {
                 System.out.println(multiplayerOutputData.getSeed() + " " + multiplayerOutputData.getSocket());
 
@@ -48,11 +53,8 @@ public class TestClient {
 
         String name2 = s.nextLine().trim();
 
-        try {
-            interactor.execute(new MultiplayerInputData(name, name2));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+        interactor.execute(new MultiplayerInputData(name, name2));
 
 
     }

@@ -37,23 +37,27 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
      * @throws IOException may throw IO exception
      */
     @Override
-    public void execute(MultiplayerInputData multiplayerInputData) throws IOException {
+    public void execute(MultiplayerInputData multiplayerInputData) {
 
-        final Socket socket = new Socket(host, port);
-        final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-        out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
-                multiplayerInputData.getOpponentUsername()));
-        out.flush();
+        try {
+            final Socket socket = new Socket(host, port);
+            final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
+                    multiplayerInputData.getOpponentUsername()));
+            out.flush();
 
-        final DataInputStream dis = new DataInputStream(socket.getInputStream());
+            final DataInputStream dis = new DataInputStream(socket.getInputStream());
 
-        final String str = (String) dis.readUTF();
+            final String str = (String) dis.readUTF();
 
-        if ("timeout".equals(str)) {
-            presenter.prepareTimeoutView();
-        } else {
-            final long seed = Long.parseLong(str);
-            presenter.prepareGame(new MultiplayerOutputData(seed, socket));
+            if ("timeout".equals(str)) {
+                presenter.prepareTimeoutView();
+            } else {
+                final long seed = Long.parseLong(str);
+                presenter.prepareGame(new MultiplayerOutputData(seed, socket));
+            }
+        } catch (IOException e) {
+            presenter.prepareErrorView();
         }
 
     }

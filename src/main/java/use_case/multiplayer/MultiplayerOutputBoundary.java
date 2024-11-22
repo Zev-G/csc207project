@@ -11,6 +11,11 @@ public interface MultiplayerOutputBoundary {
     void prepareTimeoutView();
 
     /**
+     * To prepare the error page.
+     */
+    void prepareErrorView();
+
+    /**
      * To start the multiplayer game.
      * @param multiplayerOutputData the output data from the server.
      */

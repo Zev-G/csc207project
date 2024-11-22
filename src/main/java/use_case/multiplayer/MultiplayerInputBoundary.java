@@ -12,5 +12,5 @@ public interface MultiplayerInputBoundary {
      * @param multiplayerInputData the input data
      * @throws IOException may throw IO exception
      */
-    void execute(MultiplayerInputData multiplayerInputData) throws IOException;
+    void execute(MultiplayerInputData multiplayerInputData);
 }
