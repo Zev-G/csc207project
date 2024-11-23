@@ -47,7 +47,7 @@ public class TestClient {
                 }
             }
         };
-        MultiplayerInteractor interactor = new MultiplayerInteractor("192.168.1.2", 5555, presenter);
+        MultiplayerInteractor interactor = new MultiplayerInteractor("app.kristopherz.net", 5555, presenter);
         Scanner s = new Scanner(System.in);
         String name = s.nextLine().trim();
 
