@@ -77,7 +77,6 @@ public class ClientHandler implements Runnable {
         executorService.submit(() -> handlePlayerInput(userSocket, 1));
         executorService.submit(() -> handlePlayerInput(opponentSocket, 2));
 
-
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

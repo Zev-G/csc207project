@@ -46,9 +46,9 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
                     multiplayerInputData.getOpponentUsername()));
             out.flush();
 
-            final DataInputStream dis = new DataInputStream(socket.getInputStream());
+            final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
 
-            final String str = (String) dis.readUTF();
+            final String str = (String) inputStream.readUTF();
 
             if ("timeout".equals(str)) {
                 presenter.prepareTimeoutView();
@@ -56,7 +56,7 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
                 final long seed = Long.parseLong(str);
                 presenter.prepareGame(new MultiplayerOutputData(seed, socket));
             }
-        } catch (IOException e) {
+        } catch (IOException exception) {
             presenter.prepareErrorView();
         }
 

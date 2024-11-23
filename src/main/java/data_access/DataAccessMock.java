@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * This is for testing, will not be used in production.
+ */
 public class DataAccessMock implements LocationDataAccess {
 
     private final ArrayList<PhotoLocation> locations = new ArrayList<>();
