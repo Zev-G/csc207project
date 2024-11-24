@@ -21,4 +21,9 @@ public class PointsDisplay {
         points += increment;
         pointsLabel.setText(" | " + String.format("%04d", points) + " Points");
     }
+
+    public void setPoints(int points) {
+        this.points = points;
+        pointsLabel.setText(" | " + String.format("%04d", points) + " Points");
+    }
 }

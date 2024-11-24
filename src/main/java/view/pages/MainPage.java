@@ -13,7 +13,6 @@ import view.utils.HTMLTextBuilder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainPage extends Page implements View<AccountState> {
 
@@ -70,7 +69,7 @@ public class MainPage extends Page implements View<AccountState> {
 
     private void actionButtonPressed(ActionEvent event) {
         if (viewModel.getState().isLoggedIn()) {
-            pageManager.navigate(new GamePage(pageManager));
+//            pageManager.navigate(new GamePage(pageManager));
         } else {
             viewModel.setState(new AccountState(true));
         }
