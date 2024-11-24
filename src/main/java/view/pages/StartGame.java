@@ -38,7 +38,7 @@ public class StartGame extends Page{
         GameInteractor interactor = new GameInteractor(new DataAccessMock(), presenter);
         GameController controller = new GameController(interactor);
 
-        viewManager.add("game", new GamePageNew(viewManager, viewModel, controller));
+        viewManager.add("game", new GamePage(viewManager, viewModel, controller));
         viewManager.add("start", new StartGame(viewManager, controller));
 
         viewManager.navigate("start");

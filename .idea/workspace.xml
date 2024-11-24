@@ -9,42 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="clean up code">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_18_2024_8_44_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_18_2024_8_44_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csc207project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/GameRound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/GameStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewManagerModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/LocationDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/LocationDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PhotoLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PhotoLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ExampleUsageGameGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/PageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/PageFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/PageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/PageManager.java" afterDir="false" />
+    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="refactored game">
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
     </list>
     <list id="d941895b-38c2-4b14-9620-1dac6db72437" name="Changes by terre" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" afterDir="false" />
@@ -196,8 +164,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GamePageNew" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.pages.GamePageNew" />
+    <configuration name="GamePage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.pages.GamePage" />
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
@@ -349,7 +317,7 @@
       <workItem from="1732241685285" duration="6050000" />
       <workItem from="1732470532281" duration="336000" />
       <workItem from="1732470895441" duration="14332000" />
-      <workItem from="1732485832659" duration="766000" />
+      <workItem from="1732485832659" duration="1140000" />
     </task>
     <task id="LOCAL-00001" summary="deleted readme and license">
       <option name="closed" value="true" />
@@ -575,14 +543,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732324468351</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="refactored game">
+      <option name="closed" value="true" />
+      <created>1732486750487</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1732486750488</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="location" />
     <MESSAGE value="update some files" />
     <MESSAGE value="finished a mock data access class" />
     <MESSAGE value="implemented distance calculator" />
@@ -607,7 +582,8 @@
     <MESSAGE value="clean up irrelevant code" />
     <MESSAGE value="update address" />
     <MESSAGE value="clean up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up code" />
+    <MESSAGE value="refactored game" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

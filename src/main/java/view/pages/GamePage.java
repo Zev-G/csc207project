@@ -1,10 +1,7 @@
 package view.pages;
 
-import data_access.DataAccessMock;
 import interface_adapter.game.GameController;
-import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
-import use_case.game.GameInteractor;
 import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;
@@ -20,7 +17,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 
-public class GamePageNew extends Page {
+public class GamePage extends Page {
 
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
@@ -37,7 +34,7 @@ public class GamePageNew extends Page {
 
     private GameViewModel gameViewModel;
 
-    public GamePageNew(PageManager pageManager, GameViewModel gameViewModel, GameController gameController) {
+    public GamePage(PageManager pageManager, GameViewModel gameViewModel, GameController gameController) {
         super(pageManager);
 
         setMargin(20);
