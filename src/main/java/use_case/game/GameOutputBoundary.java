@@ -1,4 +1,8 @@
 package use_case.game;
 
-public class GameOutputBoundary {
+public interface GameOutputBoundary {
+
+    void handleGuess(GameOutputData gameOutputData);
+
+    void init(GameOutputData gameOutputData);
 }

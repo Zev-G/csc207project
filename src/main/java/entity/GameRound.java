@@ -1,17 +1,19 @@
-package use_case.game;
+package entity;
 
-public class GameInputData {
-
+public class GameRound {
     private int photoID;
 
     private double[] target;
 
     private double[] chosen;
 
-    public GameInputData(int photoID, double[] target, double[] chosen) {
+    private boolean isAcceptable;
+
+    public GameRound(int photoID, double[] target, double[] chosen, boolean isAcceptable){
         this.photoID = photoID;
         this.target = target;
         this.chosen = chosen;
+        this.isAcceptable = isAcceptable;
     }
 
     public double[] getChosen() {
@@ -24,5 +26,9 @@ public class GameInputData {
 
     public double[] getTarget() {
         return target;
+    }
+
+    public boolean isAcceptable() {
+        return isAcceptable;
     }
 }

@@ -2,9 +2,6 @@ package view.pages;
 
 import view.components.standard.DFrame;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class PageFrame extends DFrame implements PageManager {
 
     private Page currentPage = null;
@@ -15,6 +12,8 @@ public class PageFrame extends DFrame implements PageManager {
         }
         currentPage = page;
         add(page);
+        page.init();
+        paintAll(getGraphics());
     }
 
 }

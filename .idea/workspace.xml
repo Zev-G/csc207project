@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="csc207project:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="clean up code">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_18_2024_8_44_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_18_2024_8_44_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csc207project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/GameRound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/GameStates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewManagerModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/LocationDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/LocationDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PhotoLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PhotoLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ExampleUsageGameGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/PageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/PageFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/PageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/PageManager.java" afterDir="false" />
+    </list>
+    <list id="d941895b-38c2-4b14-9620-1dac6db72437" name="Changes by terre" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameGUI.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="kristopher_1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2oCvVdONrSUe21409U7yExW62mD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ExampleNavigation.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ExampleUsageGameGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ExampleUsageProgressBar.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GameGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GamePageNew.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.GamePanel.executor&quot;: &quot;Run&quot;,
+    &quot;Application.InteractiveMap.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyClient (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyClient (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Snippet.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartGame.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient (5).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestMap.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in csc207project.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MultiplayerInteractorTest.execute.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.MultiplayerInteractorTest.executeError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MultiplayerInteractorTest.executeTimeout.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MultiplayerInteractorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PhotoLocationFactoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PhotoLocationFactoryTest.getRandomLocation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PhotoLocationTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.PhotoLocationTest.getLocation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PhotoLocationTest.getPhoto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.entity in csc207project.executor&quot;: &quot;Coverage&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gameref&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zhaoh/IdeaProjects/csc207project/src/main/java/server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zhaoh\IdeaProjects\csc207project\src\main\java\server" />
+      <recent name="C:\Users\zhaoh\IdeaProjects\csc207project\src\main\java\game" />
+      <recent name="C:\Users\zhaoh\IdeaProjects\csc207project\src\main\java\entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zhaoh\IdeaProjects\csc207project\src\main\resources\photos" />
+      <recent name="C:\Users\zhaoh\IdeaProjects\csc207project" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="use_case.multiplayer" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="use_case.multiplayer" />
+      <recent name="entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="interface_adapter" />
+      <recent name="app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.StartGame">
+    <configuration name="ExampleNavigation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.ExampleNavigation" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExampleUsageGameGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.ExampleUsageGameGUI" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GamePageNew" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.pages.GamePageNew" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.pages.StartGame" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StartGame" />
+        <item itemvalue="Application.ExampleNavigation" />
+        <item itemvalue="Application.ExampleUsageGameGUI" />
+        <item itemvalue="Application.GamePageNew" />
+        <item itemvalue="Application.TestClient" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="" />
+      <created>1730386396416</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730386396416</updated>
+      <workItem from="1730386397944" duration="1291000" />
+      <workItem from="1731169959074" duration="9012000" />
+      <workItem from="1731276598309" duration="237000" />
+      <workItem from="1731543142224" duration="12961000" />
+      <workItem from="1731732188272" duration="614000" />
+      <workItem from="1731792577585" duration="35673000" />
+      <workItem from="1732075407918" duration="290000" />
+      <workItem from="1732075904042" duration="1299000" />
+      <workItem from="1732241685285" duration="6050000" />
+      <workItem from="1732470532281" duration="336000" />
+      <workItem from="1732470895441" duration="14332000" />
+      <workItem from="1732485832659" duration="766000" />
+    </task>
+    <task id="LOCAL-00001" summary="deleted readme and license">
+      <option name="closed" value="true" />
+      <created>1730386429337</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730386429337</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new branch">
+      <option name="closed" value="true" />
+      <created>1731173650728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731173650728</updated>
+    </task>
+    <task id="LOCAL-00003" summary="main file created">
+      <option name="closed" value="true" />
+      <created>1731173741623</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731173741623</updated>
+    </task>
+    <task id="LOCAL-00004" summary="location">
+      <option name="closed" value="true" />
+      <created>1731174855668</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731174855668</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update some files">
+      <option name="closed" value="true" />
+      <created>1731175673868</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731175673868</updated>
+    </task>
+    <task id="LOCAL-00006" summary="finished a mock data access class">
+      <option name="closed" value="true" />
+      <created>1731176392000</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731176392000</updated>
+    </task>
+    <task id="LOCAL-00007" summary="finished a mock data access class">
+      <option name="closed" value="true" />
+      <created>1731176422658</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731176422658</updated>
+    </task>
+    <task id="LOCAL-00008" summary="implemented distance calculator">
+      <option name="closed" value="true" />
+      <created>1731177666362</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731177666362</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed typo">
+      <option name="closed" value="true" />
+      <created>1731213527051</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731213527051</updated>
+    </task>
+    <task id="LOCAL-00010" summary="interactive map is pretty much finished">
+      <option name="closed" value="true" />
+      <created>1731548657940</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731548657940</updated>
+    </task>
+    <task id="LOCAL-00011" summary="merge with Zev branch">
+      <option name="closed" value="true" />
+      <created>1731549306120</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731549306120</updated>
+    </task>
+    <task id="LOCAL-00012" summary="the program is basically functional">
+      <option name="closed" value="true" />
+      <created>1731550613301</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731550613301</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Adding server side code">
+      <option name="closed" value="true" />
+      <created>1731801436274</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731801436274</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update some server side code">
+      <option name="closed" value="true" />
+      <created>1731802716282</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731802716282</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor some files, and add some comments.">
+      <option name="closed" value="true" />
+      <created>1731812579301</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731812579302</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added seeded random generator">
+      <option name="closed" value="true" />
+      <created>1731814259434</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731814259434</updated>
+    </task>
+    <task id="LOCAL-00017" summary="getting started on client code">
+      <option name="closed" value="true" />
+      <created>1731819964491</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731819964491</updated>
+    </task>
+    <task id="LOCAL-00018" summary="let clients and server communicate scores">
+      <option name="closed" value="true" />
+      <created>1731823538693</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731823538693</updated>
+    </task>
+    <task id="LOCAL-00019" summary="minor edit">
+      <option name="closed" value="true" />
+      <created>1731823566952</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1731823566952</updated>
+    </task>
+    <task id="LOCAL-00020" summary="timeout user when no response from the other user">
+      <option name="closed" value="true" />
+      <created>1731875269070</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731875269070</updated>
+    </task>
+    <task id="LOCAL-00021" summary="change some access modifiers">
+      <option name="closed" value="true" />
+      <created>1731875356765</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731875356765</updated>
+    </task>
+    <task id="LOCAL-00022" summary="debug Server.java and ClientHandler.java, added tests">
+      <option name="closed" value="true" />
+      <created>1732066149213</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732066149213</updated>
+    </task>
+    <task id="LOCAL-00023" summary="changed multiplayer interactor">
+      <option name="closed" value="true" />
+      <created>1732067459848</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067459848</updated>
+    </task>
+    <task id="LOCAL-00024" summary="debug ClientHandler.java">
+      <option name="closed" value="true" />
+      <created>1732075924272</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1732075924272</updated>
+    </task>
+    <task id="LOCAL-00025" summary="debug server and update testing">
+      <option name="closed" value="true" />
+      <created>1732242489560</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1732242489560</updated>
+    </task>
+    <task id="LOCAL-00026" summary="clean up irrelevant code">
+      <option name="closed" value="true" />
+      <created>1732323923021</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732323923021</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update address">
+      <option name="closed" value="true" />
+      <created>1732324013290</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1732324013290</updated>
+    </task>
+    <task id="LOCAL-00028" summary="clean up code">
+      <option name="closed" value="true" />
+      <created>1732324468351</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732324468351</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="location" />
+    <MESSAGE value="update some files" />
+    <MESSAGE value="finished a mock data access class" />
+    <MESSAGE value="implemented distance calculator" />
+    <MESSAGE value="fixed typo" />
+    <MESSAGE value="interactive map is pretty much finished" />
+    <MESSAGE value="merge with Zev branch" />
+    <MESSAGE value="the program is basically functional" />
+    <MESSAGE value="Adding server side code" />
+    <MESSAGE value="update some server side code" />
+    <MESSAGE value="refactor some files, and add some comments." />
+    <MESSAGE value="added seeded random generator" />
+    <MESSAGE value="getting started on client code" />
+    <MESSAGE value="let client and server communicate users' scores" />
+    <MESSAGE value="let clients and server communicate scores" />
+    <MESSAGE value="minor edit" />
+    <MESSAGE value="timeout user when no response from the other user" />
+    <MESSAGE value="change some access modifiers" />
+    <MESSAGE value="debug Server.java and ClientHandler.java, added tests" />
+    <MESSAGE value="changed multiplayer interactor" />
+    <MESSAGE value="debug ClientHandler.java" />
+    <MESSAGE value="debug server and update testing" />
+    <MESSAGE value="clean up irrelevant code" />
+    <MESSAGE value="update address" />
+    <MESSAGE value="clean up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up code" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/pages/StartGame.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$All_in_csc207project.ic" NAME="All in csc207project Coverage Results" MODIFIED="1732067093233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/csc207project$TestClient__1_.ic" NAME="TestClient (1) Coverage Results" MODIFIED="1731875766300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.multiplayer.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$entity_in_csc207project.ic" NAME="entity in csc207project Coverage Results" MODIFIED="1732066459721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$PhotoLocationTest.ic" NAME="PhotoLocationTest Coverage Results" MODIFIED="1732063444095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$PhotoLocationFactoryTest.ic" NAME="PhotoLocationFactoryTest Coverage Results" MODIFIED="1732066431938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest.ic" NAME="MultiplayerInteractorTest Coverage Results" MODIFIED="1732242314781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.multiplayer.*</FILTER>
+    </SUITE>
+  </component>
+</project>
