@@ -9,15 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="refactored game">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePageNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
+    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="view manager added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartMultiplayerGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="d941895b-38c2-4b14-9620-1dac6db72437" name="Changes by terre" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameGUI.java" beforeDir="false" />
-    </list>
+    <list id="d941895b-38c2-4b14-9620-1dac6db72437" name="Changes by terre" comment="Changes by terre" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,66 +49,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ExampleNavigation.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ExampleUsageGameGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ExampleUsageProgressBar.executor&quot;: &quot;Run&quot;,
-    &quot;Application.GameGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.GamePageNew.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.GamePanel.executor&quot;: &quot;Run&quot;,
-    &quot;Application.InteractiveMap.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyClient (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyClient (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Snippet.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartGame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient (3).executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient (5).executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestMap.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in csc207project.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.MultiplayerInteractorTest.execute.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.MultiplayerInteractorTest.executeError.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MultiplayerInteractorTest.executeTimeout.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MultiplayerInteractorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.PhotoLocationFactoryTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.PhotoLocationFactoryTest.getRandomLocation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PhotoLocationTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.PhotoLocationTest.getLocation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PhotoLocationTest.getPhoto.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.entity in csc207project.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;gameref&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zhaoh/IdeaProjects/csc207project/src/main/java/server&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ExampleNavigation.executor": "Run",
+    "Application.ExampleUsageGameGUI.executor": "Run",
+    "Application.ExampleUsageProgressBar.executor": "Run",
+    "Application.GameGUI.executor": "Run",
+    "Application.GamePageNew.executor": "Debug",
+    "Application.GamePanel.executor": "Run",
+    "Application.InteractiveMap.executor": "Run",
+    "Application.MyClient (1).executor": "Run",
+    "Application.MyClient (2).executor": "Run",
+    "Application.MyClient.executor": "Run",
+    "Application.Server (1).executor": "Run",
+    "Application.Server (2).executor": "Run",
+    "Application.Server.executor": "Run",
+    "Application.Snippet.executor": "Run",
+    "Application.StartGame.executor": "Run",
+    "Application.StartMultiplayerGame.executor": "Run",
+    "Application.Test (1).executor": "Run",
+    "Application.Test (2).executor": "Run",
+    "Application.Test (3).executor": "Run",
+    "Application.Test (4).executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.TestClient (1).executor": "Run",
+    "Application.TestClient (2).executor": "Run",
+    "Application.TestClient (3).executor": "Run",
+    "Application.TestClient (4).executor": "Run",
+    "Application.TestClient (5).executor": "Run",
+    "Application.TestClient.executor": "Run",
+    "Application.TestMap.executor": "Run",
+    "JUnit.All in csc207project.executor": "Coverage",
+    "JUnit.MultiplayerInteractorTest.execute.executor": "Debug",
+    "JUnit.MultiplayerInteractorTest.executeError.executor": "Run",
+    "JUnit.MultiplayerInteractorTest.executeTimeout.executor": "Run",
+    "JUnit.MultiplayerInteractorTest.executor": "Coverage",
+    "JUnit.PhotoLocationFactoryTest.executor": "Coverage",
+    "JUnit.PhotoLocationFactoryTest.getRandomLocation.executor": "Run",
+    "JUnit.PhotoLocationTest.executor": "Coverage",
+    "JUnit.PhotoLocationTest.getLocation.executor": "Run",
+    "JUnit.PhotoLocationTest.getPhoto.executor": "Run",
+    "JUnit.entity in csc207project.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "gameref",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/zhaoh/IdeaProjects/csc207project/src/main/java/server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "profiler.jvm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zhaoh\IdeaProjects\csc207project\src\main\java\server" />
@@ -133,11 +131,12 @@
       <recent name="entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view.pages" />
       <recent name="interface_adapter" />
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StartGame">
+  <component name="RunManager" selected="Application.StartMultiplayerGame">
     <configuration name="ExampleNavigation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.ExampleNavigation" />
       <module name="csc207project" />
@@ -190,12 +189,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.TestClient" />
+    <configuration name="StartMultiplayerGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.pages.StartMultiplayerGame" />
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="PATTERN" value="view.pages.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -281,11 +280,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StartMultiplayerGame" />
         <item itemvalue="Application.StartGame" />
         <item itemvalue="Application.ExampleNavigation" />
         <item itemvalue="Application.ExampleUsageGameGUI" />
         <item itemvalue="Application.GamePageNew" />
-        <item itemvalue="Application.TestClient" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +316,7 @@
       <workItem from="1732241685285" duration="6050000" />
       <workItem from="1732470532281" duration="336000" />
       <workItem from="1732470895441" duration="14332000" />
-      <workItem from="1732485832659" duration="1140000" />
+      <workItem from="1732485832659" duration="2135000" />
     </task>
     <task id="LOCAL-00001" summary="deleted readme and license">
       <option name="closed" value="true" />
@@ -551,15 +550,37 @@
       <option name="project" value="LOCAL" />
       <updated>1732486750488</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="refactored game">
+      <option name="closed" value="true" />
+      <created>1732487218627</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1732487218627</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Changes by terre">
+      <option name="closed" value="true" />
+      <created>1732487225038</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732487225038</updated>
+    </task>
+    <task id="LOCAL-00032" summary="view manager added">
+      <option name="closed" value="true" />
+      <created>1732487262454</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1732487262454</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update some files" />
-    <MESSAGE value="finished a mock data access class" />
     <MESSAGE value="implemented distance calculator" />
     <MESSAGE value="fixed typo" />
     <MESSAGE value="interactive map is pretty much finished" />
@@ -583,7 +604,9 @@
     <MESSAGE value="update address" />
     <MESSAGE value="clean up code" />
     <MESSAGE value="refactored game" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored game" />
+    <MESSAGE value="Changes by terre" />
+    <MESSAGE value="view manager added" />
+    <option name="LAST_COMMIT_MESSAGE" value="view manager added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
