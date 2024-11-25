@@ -1,8 +1,8 @@
-package interface_adapter.account;
+package use_case.account;
 
-public class AccountState {
+import interface_adapter.account.AccountState;
 
-    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null, 0);
+public class AccountInputData {
 
     private final boolean loggedIn;
     private final String username;
@@ -10,12 +10,16 @@ public class AccountState {
     private final String password;
     private final int userId;
 
-    public AccountState(boolean loggedIn, String username, String email, String password, int userId) {
+    public AccountInputData(boolean loggedIn, String username, String email, String password, int userId) {
         this.loggedIn = loggedIn;
         this.username = username;
         this.email = email;
         this.password = password;
         this.userId = userId;
+    }
+
+    public AccountInputData(AccountState state) {
+        this(state.isLoggedIn(), state.getUsername(), state.getEmail(), state.getPassword(), state.getUserId());
     }
 
     public boolean isLoggedIn() {
