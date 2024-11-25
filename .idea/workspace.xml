@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Update to idea files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutOutputBoundary.java" afterDir="false" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountdelete/AccountDeleteInteractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" afterDir="false" />
     </list>
@@ -22,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -61,6 +64,7 @@
     "Application.StartMultiplayerGame (1).executor": "Run",
     "Application.StartMultiplayerGame.executor": "Run",
     "JUnit.AccountConfirmInteractorTest.pressed.executor": "Run",
+    "JUnit.AccountLogoutInteractorTest.logout.executor": "Coverage",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -90,10 +94,12 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="use_case.accountdelete" />
+      <recent name="use_case.accountlogout" />
       <recent name="use_case.accountconfirm" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AccountLogoutInteractorTest.logout">
+  <component name="RunManager" selected="JUnit.AccountDeleteInteractorTest.deleteAccount">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.app.App" />
       <module name="homework-5" />
@@ -120,19 +126,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartMultiplayerGame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.pages.StartMultiplayerGame" />
-      <module name="homework-5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AccountConfirmInteractorTest.pressed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
@@ -144,6 +137,22 @@
       <option name="PACKAGE_NAME" value="use_case.accountconfirm" />
       <option name="MAIN_CLASS_NAME" value="use_case.accountconfirm.AccountConfirmInteractorTest" />
       <option name="METHOD_NAME" value="pressed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountDeleteInteractorTest.deleteAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.accountdelete.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.accountdelete" />
+      <option name="MAIN_CLASS_NAME" value="use_case.accountdelete.AccountDeleteInteractorTest" />
+      <option name="METHOD_NAME" value="deleteAccount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountLogoutInteractorTest.logout" />
+        <item itemvalue="JUnit.AccountDeleteInteractorTest.deleteAccount" />
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AccountLogoutInteractorTest.logout" />
         <item itemvalue="JUnit.AccountConfirmInteractorTest.pressed" />
         <item itemvalue="Application.StartGame" />
-        <item itemvalue="Application.StartMultiplayerGame (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +211,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732559185055</updated>
-      <workItem from="1732559189576" duration="10090000" />
+      <workItem from="1732559189576" duration="11844000" />
     </task>
     <task id="LOCAL-00001" summary=" workspace">
       <option name="closed" value="true" />
@@ -340,7 +349,63 @@
       <option name="project" value="LOCAL" />
       <updated>1732568514887</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Created account logout input boundary">
+      <option name="closed" value="true" />
+      <created>1732569706358</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569706358</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Created account logout output boundary">
+      <option name="closed" value="true" />
+      <created>1732569713077</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569713077</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Created account logout interactor">
+      <option name="closed" value="true" />
+      <created>1732569725314</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569725314</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Created account logout interactor test">
+      <option name="closed" value="true" />
+      <created>1732569732947</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569732948</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Created account logout presenter">
+      <option name="closed" value="true" />
+      <created>1732569748910</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569748910</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Created account logout controller">
+      <option name="closed" value="true" />
+      <created>1732569761464</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569761464</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Updated account page and app to include account logout stuff">
+      <option name="closed" value="true" />
+      <created>1732569790683</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569790683</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,11 +440,32 @@
     <MESSAGE value="Added userid to account input data" />
     <MESSAGE value="Updated creation of account states to work with new user system" />
     <MESSAGE value="Update to idea files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update to idea files" />
+    <MESSAGE value="Created account logout input boundary" />
+    <MESSAGE value="Created account logout output boundary" />
+    <MESSAGE value="Created account logout interactor" />
+    <MESSAGE value="Created account logout interactor test" />
+    <MESSAGE value="Created account logout presenter" />
+    <MESSAGE value="Created account logout controller" />
+    <MESSAGE value="Updated account page and app to include account logout stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated account page and app to include account logout stuff" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmController.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/csc207project$AccountConfirmInteractorTest_pressed.ic" NAME="AccountConfirmInteractorTest.pressed Coverage Results" MODIFIED="1732568060492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>use_case.accountconfirm.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$AccountLogoutInteractorTest_logout.ic" NAME="AccountLogoutInteractorTest.logout Coverage Results" MODIFIED="1732569672902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.accountlogout.*</FILTER>
     </SUITE>
   </component>
 </project>
