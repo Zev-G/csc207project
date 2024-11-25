@@ -17,7 +17,9 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-
+/**
+ * A game page.
+ */
 public class GamePage extends Page {
 
     private JLabel roundLabel;
@@ -35,6 +37,11 @@ public class GamePage extends Page {
 
     private GameViewModel gameViewModel;
 
+    /**
+     * To make a game page.
+     *
+     * @param app the app that is running the game
+     */
     public GamePage(App app) {
         super(app.getViewManager());
 
@@ -141,6 +148,9 @@ public class GamePage extends Page {
         });
     }
 
+    /**
+     * Init the game.
+     */
     @Override
     public void init() {
         gameController.init();
