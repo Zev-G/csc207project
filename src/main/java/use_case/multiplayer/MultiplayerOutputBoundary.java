@@ -15,9 +15,4 @@ public interface MultiplayerOutputBoundary {
      */
     void prepareErrorView();
 
-    /**
-     * To start the multiplayer game.
-     * @param multiplayerOutputData the output data from the server.
-     */
-    void prepareGame(MultiplayerOutputData multiplayerOutputData);
 }

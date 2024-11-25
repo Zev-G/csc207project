@@ -1,5 +1,7 @@
 package use_case.multiplayer;
 
+import use_case.mgame.MGameInputBoundary;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,6 +18,8 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
     private MultiplayerOutputBoundary presenter;
 
+    private MGameInputBoundary mGameInteractor;
+
 
     /**
      * This creates a Multiplayer interactor.
@@ -24,10 +28,11 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
      * @param port      the port
      * @param presenter a presenter
      */
-    public MultiplayerInteractor(String host, int port, MultiplayerOutputBoundary presenter) {
+    public MultiplayerInteractor(String host, int port, MultiplayerOutputBoundary presenter, MGameInputBoundary mGameInteractor) {
         this.host = host;
         this.port = port;
         this.presenter = presenter;
+        this.mGameInteractor = mGameInteractor;
     }
 
     /**
@@ -54,7 +59,7 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
                 presenter.prepareTimeoutView();
             } else {
                 final long seed = Long.parseLong(str);
-                presenter.prepareGame(new MultiplayerOutputData(seed, socket));
+                mGameInteractor.startMGame(seed, socket);
             }
         } catch (IOException exception) {
             presenter.prepareErrorView();

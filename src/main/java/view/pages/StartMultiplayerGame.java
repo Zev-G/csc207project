@@ -3,23 +3,18 @@ package view.pages;
 import data_access.DataAccessMock;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.game.GameController;
-import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
+import interface_adapter.mgame.MGamePresenter;
 import interface_adapter.multiplayer.MultiplayerController;
-import use_case.game.GameInteractor;
+import use_case.mgame.MGameInteractor;
 import use_case.multiplayer.MultiplayerInteractor;
 import use_case.multiplayer.MultiplayerOutputBoundary;
-import use_case.multiplayer.MultiplayerOutputData;
 import view.components.standard.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class StartMultiplayerGame extends Page{
 
@@ -57,40 +52,22 @@ public class StartMultiplayerGame extends Page{
             }
 
             @Override
-            public void prepareGame(MultiplayerOutputData multiplayerOutputData) {
-                System.out.println(multiplayerOutputData.getSeed() + " " + multiplayerOutputData.getSocket());
-
-                Scanner s = new Scanner(System.in);
-
-                String str = s.nextLine();
-
-                try {
-                    DataOutputStream out = new DataOutputStream(multiplayerOutputData.getSocket().getOutputStream());
-                    out.writeUTF(str);
-                    out.flush();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                try {
-                    DataInputStream in = new DataInputStream(multiplayerOutputData.getSocket().getInputStream());
-                    System.out.println(in.readUTF());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+            public void prepareErrorView() {
+                System.out.println("error");
             }
         };
 
-        MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("localhost",5555, presenter);
-
-        MultiplayerController multiplayerController1 = new MultiplayerController(multiplayerInteractor);
-
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         ViewManager viewManager = new ViewManager(viewManagerModel);
+
         GameViewModel viewModel = new GameViewModel();
-        GamePresenter gamePresenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new DataAccessMock(), gamePresenter);
+        MGamePresenter gamePresenter = new MGamePresenter(viewModel, viewManagerModel);
+        MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), gamePresenter);
         GameController controller = new GameController(interactor);
+
+        MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("localhost",5555, presenter, interactor);
+
+        MultiplayerController multiplayerController1 = new MultiplayerController(multiplayerInteractor);
 
         viewManager.add("game", new GamePage(viewManager, viewModel, controller));
         viewManager.add("start", new StartMultiplayerGame(viewManager, multiplayerController1));

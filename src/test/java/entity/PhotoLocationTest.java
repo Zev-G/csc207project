@@ -15,7 +15,7 @@ class PhotoLocationTest {
     @BeforeAll
     static void init() {
         ImageIcon photo1 = new ImageIcon(ClassLoader.getSystemResource("photos/sample1.jpg"));
-        photoLocation = new PhotoLocation(photo1, new double[]{43.66742755781882, -79.39177102147445});
+        photoLocation = new PhotoLocation(photo1, new double[]{43.66742755781882, -79.39177102147445}, 1);
     }
 
     @Test

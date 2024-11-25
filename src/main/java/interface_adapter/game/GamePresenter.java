@@ -3,6 +3,7 @@ package interface_adapter.game;
 import interface_adapter.ViewManagerModel;
 import use_case.game.GameOutputBoundary;
 import use_case.game.GameOutputData;
+import use_case.mgame.MGameOutputData;
 
 public class GamePresenter implements GameOutputBoundary {
 
@@ -29,5 +30,10 @@ public class GamePresenter implements GameOutputBoundary {
                 gameOutputData.getRound()));
 
         viewManagerModel.setState("game");
+    }
+
+    @Override
+    public void endGame(GameOutputData gameOutputData) {
+        System.out.println("END");
     }
 }

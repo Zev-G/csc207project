@@ -1,6 +1,7 @@
 package use_case.game;
 
 import javax.swing.*;
+import java.net.Socket;
 
 public class GameOutputData {
     private boolean isAcceptable;

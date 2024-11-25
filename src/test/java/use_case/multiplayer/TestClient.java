@@ -1,9 +1,13 @@
 package use_case.multiplayer;
 
+import use_case.game.GameInputData;
+import use_case.mgame.MGameInputBoundary;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
@@ -22,32 +26,26 @@ public class TestClient {
             public void prepareErrorView() {
                 System.out.println("error");
             }
+        };
+
+        MGameInputBoundary inputBoundary = new MGameInputBoundary() {
+            @Override
+            public void startMGame(long seed, Socket socket) {
+                System.out.println("game started");
+            }
 
             @Override
-            public void prepareGame(MultiplayerOutputData multiplayerOutputData) {
-                System.out.println(multiplayerOutputData.getSeed() + " " + multiplayerOutputData.getSocket());
+            public void handleGuess(GameInputData input) {
 
-                Scanner s = new Scanner(System.in);
+            }
 
-                String str = s.nextLine();
+            @Override
+            public void init() {
 
-                try {
-                    DataOutputStream out = new DataOutputStream(multiplayerOutputData.getSocket().getOutputStream());
-                    out.writeUTF(str);
-                    out.flush();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                try {
-                    DataInputStream in = new DataInputStream(multiplayerOutputData.getSocket().getInputStream());
-                    System.out.println(in.readUTF());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
             }
         };
-        MultiplayerInteractor interactor = new MultiplayerInteractor("app.kristopherz.net", 5555, presenter);
+
+        MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter, inputBoundary);
         Scanner s = new Scanner(System.in);
         String name = s.nextLine().trim();
 

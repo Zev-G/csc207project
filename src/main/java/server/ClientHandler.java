@@ -160,6 +160,7 @@ public class ClientHandler implements Runnable {
     }
 
     private void sendAway() {
+        server.remove(username);
         System.out.println("sent");
         try {
             final DataOutputStream dout1 = new DataOutputStream(userSocket.getOutputStream());
@@ -184,13 +185,17 @@ public class ClientHandler implements Runnable {
             dout1.writeUTF("userDisconnected");
             dout1.flush();
             userSocket.close();
+        } catch (IOException exception) {
+            System.out.println("Some message is sent unsuccessfully.");
+        }
+
+        try {
             if (opponentSocket != null) {
                 final DataOutputStream dout2 = new DataOutputStream(opponentSocket.getOutputStream());
                 dout2.writeUTF("userDisconnected");
                 dout2.flush();
                 opponentSocket.close();
             }
-
         } catch (IOException exception) {
             System.out.println("Some message is sent unsuccessfully.");
         }

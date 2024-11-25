@@ -6,30 +6,29 @@ import entity.GameStates;
 import entity.PhotoLocation;
 import entity.PhotoLocationFactory;
 import util.DistanceCalculator;
-import view.utils.ImageScaler;
 
-import javax.swing.*;
-import java.awt.*;
+import java.util.Random;
 
 public class GameInteractor implements GameInputBoundary {
 
-    private GameStates gameStates;
+    protected GameStates gameStates;
 
-    private GameOutputBoundary gameOutputBoundary;
+    protected GameOutputBoundary presenter;
 
-    private LocationDataAccess photoAccess;
+    protected LocationDataAccess photoAccess;
 
-    public GameInteractor(LocationDataAccess photoAccess, GameOutputBoundary gameOutputBoundary) {
-        this.gameOutputBoundary = gameOutputBoundary;
+    public GameInteractor(LocationDataAccess photoAccess, GameOutputBoundary presenter) {
+        this.presenter = presenter;
         this.photoAccess = photoAccess;
         gameStates = new GameStates();
     }
 
     public void init() {
         gameStates.clean();
+        setSeed(new Random().nextLong());
         PhotoLocation p = getNextPhoto();
         GameOutputData gameOutputData = new GameOutputData(false, 0, p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds());
-        gameOutputBoundary.init(gameOutputData);
+        presenter.init(gameOutputData);
     }
 
     public void handleGuess(GameInputData input) {
@@ -42,10 +41,15 @@ public class GameInteractor implements GameInputBoundary {
         GameRound round = new GameRound(photoID, target, chosen, isAcc);
         gameStates.add(round);
         gameStates.setScore(gameStates.getScore() + calculateScore(target, chosen));
+
+        if (gameStates.getRounds() == 11) {
+            endGame(round.isAcceptable());
+        }
+
         PhotoLocation p = getNextPhoto();
         GameOutputData gameOutputData = new GameOutputData(round.isAcceptable(), gameStates.getScore(),
                 p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds());
-        gameOutputBoundary.handleGuess(gameOutputData);
+        presenter.handleGuess(gameOutputData);
     }
 
     private int calculateScore(double[] target, double[] chosen) {
@@ -58,7 +62,7 @@ public class GameInteractor implements GameInputBoundary {
         return DistanceCalculator.calculate(target, chosen) < 100;
     }
 
-    private PhotoLocation getNextPhoto() {
+    protected PhotoLocation getNextPhoto() {
         PhotoLocationFactory photoFactory = new PhotoLocationFactory(photoAccess);
         PhotoLocation l = photoFactory.getRandomLocation();
         return l;
@@ -66,6 +70,15 @@ public class GameInteractor implements GameInputBoundary {
 
     public void setSeed(long seed) {
         photoAccess.setSeed(seed);
+    }
+
+    protected void endGame(boolean isAcceptable) {
+        System.out.println("game finished");
+
+        GameOutputData gameOutputData = new GameOutputData(isAcceptable, gameStates.getScore(),
+                null, 0, null, gameStates.getRounds());
+
+        presenter.endGame(gameOutputData);
     }
 
 }
