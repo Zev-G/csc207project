@@ -90,11 +90,11 @@ public class MainPage extends Page implements View<AccountState> {
     }
 
     private void loginButtonPressed(ActionEvent event) {
-        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
+        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", 1));
     }
 
     private void signupButtonPressed(ActionEvent event) {
-        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
+        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", 1));
     }
 
 

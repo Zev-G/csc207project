@@ -93,20 +93,22 @@ public class App {
     }
 
     public static void main(String[] args) {
+        DataAccessMock mock = new DataAccessMock();
+
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new DataAccessMock(), presenter);
+        GameInteractor interactor = new GameInteractor(mock, presenter);
         GameController controller = new GameController(interactor);
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(viewManagerModel);
-        AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(accountConfirmPresenter);
+        AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(mock, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
 
         leaderboardViewModel.setState(getLeaderboardState());
-        accountViewModel.setState(new AccountState(false, "", "", ""));
+        accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
                 viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, controller, accountConfirmController
