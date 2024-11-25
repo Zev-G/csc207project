@@ -1,0 +1,47 @@
+Index: src/main/java/use_case/multiplayer/TestClient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package use_case.multiplayer;\r\n\r\nimport java.io.DataInputStream;\r\nimport java.io.DataOutputStream;\r\nimport java.io.IOException;\r\nimport java.util.Scanner;\r\n\r\npublic class TestClient {\r\n    public static void main(String[] args) {\r\n        MultiplayerOutputBoundary presenter = new MultiplayerOutputBoundary() {\r\n            @Override\r\n            public void prepareTimeoutView() {\r\n                System.out.println(\"timeout\");\r\n            }\r\n\r\n            @Override\r\n            public void prepareGame(MultiplayerOutputData multiplayerOutputData) {\r\n                System.out.println(multiplayerOutputData.getSeed() + \" \" + multiplayerOutputData.getSocket());\r\n\r\n                Scanner s = new Scanner(System.in);\r\n\r\n                String str = s.nextLine();\r\n\r\n                try {\r\n                    DataOutputStream out = new DataOutputStream(multiplayerOutputData.getSocket().getOutputStream());\r\n                    out.writeUTF(str);\r\n                    out.flush();\r\n                } catch (IOException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n\r\n                try {\r\n                    DataInputStream in = new DataInputStream(multiplayerOutputData.getSocket().getInputStream());\r\n                    System.out.println(in.readUTF());\r\n                } catch (IOException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n            }\r\n        };\r\n        MultiplayerInteractor interactor = new MultiplayerInteractor(\"localhost\", 5555, presenter);\r\n\r\n        Scanner s = new Scanner(System.in);\r\n        String name = s.nextLine().trim();\r\n\r\n        String name2 = s.nextLine().trim();\r\n\r\n        interactor.execute(new MultiplayerInputData(name, name2));\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/use_case/multiplayer/TestClient.java b/src/main/java/use_case/multiplayer/TestClient.java
+--- a/src/main/java/use_case/multiplayer/TestClient.java	(revision 1170c3f00392974b28e40bf63860e95ab8bb841b)
++++ b/src/main/java/use_case/multiplayer/TestClient.java	(date 1731878147014)
+@@ -3,6 +3,8 @@
+ import java.io.DataInputStream;
+ import java.io.DataOutputStream;
+ import java.io.IOException;
++import java.net.InetAddress;
++import java.net.UnknownHostException;
+ import java.util.Scanner;
+ 
+ public class TestClient {
+@@ -37,8 +39,7 @@
+                 }
+             }
+         };
+-        MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter);
+-
++        MultiplayerInteractor interactor = new MultiplayerInteractor("173.32.226.108", 5555, presenter);
+         Scanner s = new Scanner(System.in);
+         String name = s.nextLine().trim();
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" default=\"true\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 1170c3f00392974b28e40bf63860e95ab8bb841b)
++++ b/.idea/misc.xml	(date 1731876035098)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="liberica-11" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file

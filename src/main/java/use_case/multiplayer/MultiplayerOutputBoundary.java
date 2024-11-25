@@ -1,10 +1,18 @@
 package use_case.multiplayer;
 
-import java.io.IOException;
-
+/**
+ * This represents a multiplayer game output boundary.
+ */
 public interface MultiplayerOutputBoundary {
 
+    /**
+     * To prepare the timeout page.
+     */
     void prepareTimeoutView();
 
-    void prepareGame(MultiplayerOutputData multiplayerOutputData);
+    /**
+     * To prepare the error page.
+     */
+    void prepareErrorView();
+
 }

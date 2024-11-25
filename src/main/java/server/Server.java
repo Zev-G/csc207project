@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Multiplayer Server
@@ -20,38 +21,52 @@ public class Server {
      * This is the server to support multiplayer.
      *
      * @param port the port for the program to run
-     * @throws RuntimeException May throw runtime exception.
+     * @throws IOException May throw IOException.
      */
-    public Server(int port) {
-        try {
-            serverSocket = new ServerSocket(port);
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-        try {
-            start();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
+    public Server(int port) throws IOException {
+        serverSocket = new ServerSocket(port);
+        System.out.println("Service started, press q to exit.");
+        start();
+    }
+
+    private void start() {
+        new Thread(new Console()).start();
+        while (true) {
+            try {
+                final Socket socket = serverSocket.accept();
+                final DataInputStream in = new DataInputStream(socket.getInputStream());
+                final String[] names = in.readUTF().split(",");
+                if (names.length != 2) {
+                    System.out.println("connection error");
+                    continue;
+                }
+                final String name = names[0];
+                final String name2 = names[1];
+                if (username2ClientHandler.containsKey(name2)
+                        && username2ClientHandler.get(name2).getOpponentUsername().equals(name)) {
+                    System.out.println("exist");
+                    username2ClientHandler.get(name2).connect(socket);
+                } else {
+                    final ClientHandler clientHandler = new ClientHandler(this, name, name2, socket);
+                    final Thread clientThread = new Thread(clientHandler);
+                    username2ClientHandler.put(name, clientHandler);
+                    System.out.println(username2ClientHandler);
+                    clientThread.start();
+                }
+            } catch (IOException e) {
+                System.out.println("connection error");
+            }
         }
     }
 
-    private void start() throws IOException {
-        while (true) {
-            final Socket socket = serverSocket.accept();
-            final DataInputStream in = new DataInputStream(socket.getInputStream());
-            final String[] names = in.readUTF().split(",");
-            final String name = names[0];
-            final String name2 = names[1];
-            if (username2ClientHandler.containsKey(name2)
-                    && username2ClientHandler.get(name2).getOpponentUsername().equals(name)) {
-                System.out.println("exist");
-                username2ClientHandler.get(name2).connect(socket);
-            } else {
-                final ClientHandler clientHandler = new ClientHandler(this, name, name2, socket);
-                final Thread clientThread = new Thread(clientHandler);
-                username2ClientHandler.put(name, clientHandler);
-                System.out.println(username2ClientHandler);
-                clientThread.start();
+    private static final class Console implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                final Scanner scanner = new Scanner(System.in);
+                if (scanner.next().equals("q")) {
+                    System.exit(0);
+                }
             }
         }
     }
@@ -65,7 +80,17 @@ public class Server {
         username2ClientHandler.remove(username);
     }
 
+    /**
+     * To run a server service.
+     *
+     * @param args input argument
+     * @throws RuntimeException runtime exception
+     */
     public static void main(String[] args) {
-        new Server(Constants.PORT);
+        try {
+            new Server(Constants.PORT);
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 }
