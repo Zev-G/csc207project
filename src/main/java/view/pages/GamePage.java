@@ -38,8 +38,6 @@ public class GamePage extends Page {
     public GamePage(App app) {
         super(app.getViewManager());
 
-        setMargin(20);
-
         this.gameController = app.getGameController();
         this.gameViewModel = app.getGameViewModel();
 
