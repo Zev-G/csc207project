@@ -4,9 +4,9 @@ import use_case.stats.StatsInputBoundary;
 import use_case.stats.StatsInputData;
 
 public class StatsController {
-    private final StatsInputBoundary interactor; // Reference to the interactor
+    private final StatsInteractor interactor; // Reference to the interactor
 
-    public StatsController(StatsInputBoundary interactor) {
+    public StatsController(StatsInteractor interactor) {
         this.interactor = interactor;
     }
 
