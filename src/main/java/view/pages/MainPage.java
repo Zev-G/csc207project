@@ -3,7 +3,6 @@ package view.pages;
 import interface_adapter.ViewModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
-import interface_adapter.leaderboard.LeaderboardViewModel;
 import view.View;
 import view.ViewConstants;
 import view.app.App;
@@ -14,7 +13,6 @@ import view.utils.HTMLTextBuilder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainPage extends Page implements View<AccountState> {
 

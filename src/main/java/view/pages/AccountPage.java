@@ -3,6 +3,7 @@ package view.pages;
 import interface_adapter.ViewModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
+import interface_adapter.accountconfirm.AccountConfirmController;
 import view.View;
 import view.ViewConstants;
 import view.app.App;
@@ -34,9 +35,12 @@ public class AccountPage extends Page implements View<AccountState> {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
+    private final AccountConfirmController accountConfirmController;
+
     public AccountPage(App app) {
         super(app.getViewManager());
         this.viewModel = app.getAccountViewModel();
+        this.accountConfirmController = app.getAccountConfirmController();
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
@@ -133,7 +137,7 @@ public class AccountPage extends Page implements View<AccountState> {
     }
 
     private void confirmButtonPressed(ActionEvent event) {
-        viewManager.back();
+        accountConfirmController.pressed(viewModel.getState());
     }
 
     @Override
