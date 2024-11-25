@@ -40,7 +40,7 @@ class MGameInteractorTest {
         }
 
         @Override
-        public void waitForRespond() {
+        public void waitForResponse() {
             state = "wait";
         }
 

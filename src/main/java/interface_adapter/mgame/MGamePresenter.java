@@ -13,7 +13,7 @@ public class MGamePresenter extends GamePresenter implements MGameOutputBoundary
     }
 
     @Override
-    public void waitForRespond() {
+    public void waitForResponse() {
         System.out.println("waiting");
     }
 

@@ -32,7 +32,7 @@ public class MGameInteractor extends GameInteractor implements MGameInputBoundar
     @Override
     protected void endGame(boolean isAcceptable) {
 
-        ((MGameOutputBoundary) presenter).waitForRespond();
+        ((MGameOutputBoundary) presenter).waitForResponse();
 
         int oppScore = 0;
 
