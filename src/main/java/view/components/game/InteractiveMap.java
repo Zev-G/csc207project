@@ -89,6 +89,14 @@ public class InteractiveMap extends JPanel {
         paintComponent(getGraphics());
     }
 
+    /**
+     * Get the distance between the selected point and the target.
+     * @return
+     */
+    public double getDistance() {
+        return DistanceCalculator.calculate(target, chosenCoord);
+    }
+
     private int[] toXYCoord(double[] coord) {
         final double xRatio = (coord[1] - mapLocation[2]) / (mapLocation[3] - mapLocation[2]);
         final double yRatio = 1 + (coord[0] - mapLocation[1]) / (mapLocation[1] - mapLocation[0]);

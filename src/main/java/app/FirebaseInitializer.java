@@ -17,7 +17,7 @@ public class FirebaseInitializer {
      * @throws IOException exception.
      */
     public static void initializeFirebase() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
+        FileInputStream serviceAccount = new FileInputStream("csc207project/serviceAccountKey.json");
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))

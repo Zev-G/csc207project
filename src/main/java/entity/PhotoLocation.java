@@ -7,12 +7,9 @@ public class PhotoLocation implements Location {
     private final ImageIcon photo;
     private final double[] location;
 
-    private final int photoID;
-
-    public PhotoLocation(ImageIcon photo, double[] location, int photoID) {
+    public PhotoLocation(ImageIcon photo, double[] location) {
         this.photo = photo;
         this.location = location;
-        this.photoID = photoID;
     }
 
     @Override
@@ -23,10 +20,5 @@ public class PhotoLocation implements Location {
     @Override
     public double[] getLocation() {
         return location;
-    }
-
-    @Override
-    public int getPhotoID() {
-        return photoID;
     }
 }

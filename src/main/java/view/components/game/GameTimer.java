@@ -2,57 +2,56 @@ package view.components.game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
+import java.util.Timer;
 import java.util.TimerTask;
 
-public class GameTimer implements ActionListener {
-
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+public class GameTimer {
     private JLabel timerLabel;
-
-    private int totalTime;
     private int timeRemaining;
-
     private Timer timer;
 
-    public GameTimer(int totalTime) {
-        this.timerLabel = new JLabel(String.valueOf(totalTime));
-        this.totalTime = totalTime;
-        this.timeRemaining = totalTime;
-        timer = new Timer(1000, this);
-    }
-
-    public void start() {
-        timer.start();
-    }
-
-    public void stop() {
-        timer.stop();
-    }
-
-    public void resetTimer() {
-        timeRemaining = totalTime;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        timeRemaining--;
-        timerLabel.setText(String.valueOf(timeRemaining));
-        if (timeRemaining <= 0) {
-            support.firePropertyChange("timeout", null, 0);
-            stop();
-        }
+    public GameTimer(int initialTime) {
+        this.timeRemaining = initialTime;
+        this.timerLabel = new JLabel(formatTime(timeRemaining));
+        this.timerLabel.setFont(new Font("Arial", Font.BOLD, 18));
     }
 
     public JLabel getTimerLabel() {
         return timerLabel;
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        this.support.addPropertyChangeListener(listener);
+    public void start(Runnable onTimeUp) {
+        stop();
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    timerLabel.setText(formatTime(timeRemaining));
+                } else {
+                    timer.cancel();
+                    onTimeUp.run();
+                }
+            }
+        }, 0, 1000);
     }
 
+    public void reset(int newTime) {
+        stop();
+        timeRemaining = newTime;
+        timerLabel.setText(formatTime(timeRemaining));
+    }
+
+    public void stop() {
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
+
+    private String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int secs = seconds % 60;
+        return String.format("%d:%02d", minutes, secs);
+    }
 }

@@ -2,7 +2,6 @@ package view.pages;
 
 import view.components.standard.DFrame;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Stack;
@@ -40,10 +39,6 @@ public class PageFrame extends DFrame implements PageManager {
         if (currentPage != null) {
             history.push(currentPage); // Save the current page to history before navigating
         }
-        currentPage = page;
-        add(page);
-        page.init();
-        paintAll(getGraphics());
         forwardStack.clear();          // Clear forward stack on new navigation
         setPage(page);                 // Set the new page
     }

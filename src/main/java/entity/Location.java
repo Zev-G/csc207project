@@ -8,6 +8,4 @@ public interface Location {
 
     double[] getLocation();
 
-    int getPhotoID();
-
 }
