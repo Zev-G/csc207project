@@ -126,7 +126,7 @@ public class AccountPage extends Page implements View<AccountState> {
     }
 
     private void statsButtonPressed(ActionEvent event) {
-
+        viewManager.navigate("stats");
     }
 
     private void deleteAccountButtonPressed(ActionEvent event) {

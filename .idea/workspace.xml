@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountdelete/AccountDeleteInteractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" afterDir="false" />
-    </list>
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Idea filess" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +52,7 @@
     "Application.StartMultiplayerGame (1).executor": "Run",
     "Application.StartMultiplayerGame.executor": "Run",
     "JUnit.AccountConfirmInteractorTest.pressed.executor": "Run",
+    "JUnit.AccountDeleteInteractorTest.deleteAccount.executor": "Coverage",
     "JUnit.AccountLogoutInteractorTest.logout.executor": "Coverage",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -99,7 +88,7 @@
       <recent name="use_case.accountconfirm" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AccountDeleteInteractorTest.deleteAccount">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.app.App" />
       <module name="homework-5" />
@@ -187,8 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountDeleteInteractorTest.deleteAccount" />
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AccountDeleteInteractorTest.deleteAccount" />
         <item itemvalue="JUnit.AccountLogoutInteractorTest.logout" />
         <item itemvalue="JUnit.AccountConfirmInteractorTest.pressed" />
         <item itemvalue="Application.StartGame" />
@@ -211,7 +200,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732559185055</updated>
-      <workItem from="1732559189576" duration="11844000" />
+      <workItem from="1732559189576" duration="12213000" />
     </task>
     <task id="LOCAL-00001" summary=" workspace">
       <option name="closed" value="true" />
@@ -405,7 +394,87 @@
       <option name="project" value="LOCAL" />
       <updated>1732569790683</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Created account delete input boundary">
+      <option name="closed" value="true" />
+      <created>1732571398631</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571398631</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Created account delete output boundary">
+      <option name="closed" value="true" />
+      <created>1732571405344</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571405344</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Created account delete interactor">
+      <option name="closed" value="true" />
+      <created>1732571412300</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571412300</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Created account delete controller">
+      <option name="closed" value="true" />
+      <created>1732571422244</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571422244</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Created account delete presenter">
+      <option name="closed" value="true" />
+      <created>1732571432780</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571432780</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Created account interactor test">
+      <option name="closed" value="true" />
+      <created>1732571440447</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571440447</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Updated account page to use controller">
+      <option name="closed" value="true" />
+      <created>1732571465012</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571465012</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added account delete controller to app">
+      <option name="closed" value="true" />
+      <created>1732571475072</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571475072</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added data access for deleting account">
+      <option name="closed" value="true" />
+      <created>1732571487871</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571487871</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Idea filess">
+      <option name="closed" value="true" />
+      <created>1732571492584</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571492584</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,15 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" workspace" />
-    <MESSAGE value="Questionably clean" />
-    <MESSAGE value="Created account confirm controller" />
-    <MESSAGE value="Created account confirm input boundary" />
-    <MESSAGE value="Created account confirm interactor" />
-    <MESSAGE value="Created account confirm output boundary" />
-    <MESSAGE value="Created account confirm presenter" />
-    <MESSAGE value="Created account input data" />
-    <MESSAGE value="Implemented clean architecture for account and hooked into view system" />
     <MESSAGE value="Created user data access interface" />
     <MESSAGE value="Updated user interface" />
     <MESSAGE value="Updated user to have a user id" />
@@ -447,7 +507,17 @@
     <MESSAGE value="Created account logout presenter" />
     <MESSAGE value="Created account logout controller" />
     <MESSAGE value="Updated account page and app to include account logout stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated account page and app to include account logout stuff" />
+    <MESSAGE value="Created account delete input boundary" />
+    <MESSAGE value="Created account delete output boundary" />
+    <MESSAGE value="Created account delete interactor" />
+    <MESSAGE value="Created account delete controller" />
+    <MESSAGE value="Created account delete presenter" />
+    <MESSAGE value="Created account interactor test" />
+    <MESSAGE value="Updated account page to use controller" />
+    <MESSAGE value="Added account delete controller to app" />
+    <MESSAGE value="Added data access for deleting account" />
+    <MESSAGE value="Idea filess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Idea filess" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,6 +533,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/csc207project$AccountConfirmInteractorTest_pressed.ic" NAME="AccountConfirmInteractorTest.pressed Coverage Results" MODIFIED="1732568060492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>use_case.accountconfirm.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$AccountDeleteInteractorTest_deleteAccount.ic" NAME="AccountDeleteInteractorTest.deleteAccount Coverage Results" MODIFIED="1732571378321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.accountdelete.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$AccountLogoutInteractorTest_logout.ic" NAME="AccountLogoutInteractorTest.logout Coverage Results" MODIFIED="1732569672902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>use_case.accountlogout.*</FILTER>
