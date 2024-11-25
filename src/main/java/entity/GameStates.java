@@ -34,7 +34,7 @@ public class GameStates {
     }
 
     public int getRounds() {
-        return gameRounds.size() + 1;
+        return gameRounds.size();
     }
 
 }

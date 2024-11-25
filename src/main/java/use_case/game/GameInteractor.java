@@ -27,7 +27,7 @@ public class GameInteractor implements GameInputBoundary {
         gameStates.clean();
         setSeed(new Random().nextLong());
         PhotoLocation p = getNextPhoto();
-        GameOutputData gameOutputData = new GameOutputData(false, 0, p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds());
+        GameOutputData gameOutputData = new GameOutputData(false, 0, p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds() + 1);
         presenter.init(gameOutputData);
     }
 
@@ -42,13 +42,13 @@ public class GameInteractor implements GameInputBoundary {
         gameStates.add(round);
         gameStates.setScore(gameStates.getScore() + calculateScore(target, chosen));
 
-        if (gameStates.getRounds() == 11) {
+        if (gameStates.getRounds() == 10) {
             endGame(round.isAcceptable());
         }
 
         PhotoLocation p = getNextPhoto();
         GameOutputData gameOutputData = new GameOutputData(round.isAcceptable(), gameStates.getScore(),
-                p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds());
+                p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds() + 1);
         presenter.handleGuess(gameOutputData);
     }
 
@@ -76,7 +76,7 @@ public class GameInteractor implements GameInputBoundary {
         System.out.println("game finished");
 
         GameOutputData gameOutputData = new GameOutputData(isAcceptable, gameStates.getScore(),
-                null, 0, null, gameStates.getRounds());
+                null, 0, null, gameStates.getRounds() + 1);
 
         presenter.endGame(gameOutputData);
     }

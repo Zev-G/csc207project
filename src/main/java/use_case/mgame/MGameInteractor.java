@@ -24,7 +24,7 @@ public class MGameInteractor extends GameInteractor implements MGameInputBoundar
         setSeed(seed);
         System.out.println(seed);
         PhotoLocation p = getNextPhoto();
-        GameOutputData gameOutputData = new GameOutputData(false, 0, p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds());
+        GameOutputData gameOutputData = new GameOutputData(false, 0, p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds() + 1);
         presenter.init(gameOutputData);
     }
 
@@ -55,7 +55,7 @@ public class MGameInteractor extends GameInteractor implements MGameInputBoundar
 
 
         MGameOutputData gameOutputData = new MGameOutputData(isAcceptable, gameStates.getScore(),
-                null, 0, null, gameStates.getRounds(), oppScore);
+                null, 0, null, gameStates.getRounds() + 1, oppScore);
 
         presenter.endGame(gameOutputData);
     }
