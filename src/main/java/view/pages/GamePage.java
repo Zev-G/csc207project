@@ -1,20 +1,24 @@
 package view.pages;
 
-import data_access.DataAccessMock;
-import entity.PhotoLocationFactory;
-import entity.PhotoLocation;
+import interface_adapter.game.GameController;
+import interface_adapter.game.GameViewModel;
 import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;
-import view.utils.ImageScaler;
 import view.components.standard.RoundedButton;
 import view.components.game.SegmentedProgressBar;
+import view.utils.ImageScaler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 
 public class GamePage extends Page {
+
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
     private GameTimer gameTimer;
@@ -22,24 +26,28 @@ public class GamePage extends Page {
     private RoundedButton guessButton;
     private JLabel imageLabel1;
 
-    private DataAccessMock dataAccess = new DataAccessMock();
-
-    private double[] coord;
     private InteractiveMap map =
             new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")),
                     new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115});
 
-    private int round = 1;
-    private int totalRounds = 10;
+    private GameController gameController;
 
-    public GamePage(PageManager pageManager) {
+    private GameViewModel gameViewModel;
+
+    public GamePage(PageManager pageManager, GameViewModel gameViewModel, GameController gameController) {
         super(pageManager);
+
+        setMargin(20);
+
+        this.gameController = gameController;
+        this.gameViewModel = gameViewModel;
+
         setLayout(new BorderLayout());
 
         setMargin(50);
 
         JPanel topPanel = new JPanel(new BorderLayout());
-        roundLabel = new JLabel("Round " + round);
+        roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
         roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
         topPanel.add(roundLabel, BorderLayout.WEST);
 
@@ -64,6 +72,7 @@ public class GamePage extends Page {
         mainCenterPanel.add(Box.createVerticalGlue());
 
         JPanel imagePanel = new JPanel(new GridLayout(1, 2, 10, 0));
+
         imageLabel1 = new JLabel();
 
 
@@ -72,8 +81,6 @@ public class GamePage extends Page {
 
         imageLabel1.setPreferredSize(new Dimension(frameWidth, frameWidth));
 
-
-        loadNewImages(frameWidth);
 
         imagePanel.add(imageLabel1);
 
@@ -89,7 +96,14 @@ public class GamePage extends Page {
 
         guessButton = new RoundedButton("Guess");
         guessButton.setPreferredSize(new Dimension(200, 80));
-        guessButton.addActionListener(e -> handleGuess(frameWidth));
+        guessButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked");
+                gameController.handleGuess(gameViewModel.getState().getPhotoID(), gameViewModel.getState().getTarget(),
+                        map.getChosenCoord());
+            }
+        });
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
         JPanel buttonPanel = new JPanel();
@@ -97,7 +111,7 @@ public class GamePage extends Page {
         buttonPanel.add(guessButton);
         bottomPanel.add(buttonPanel, BorderLayout.NORTH);
 
-        progressBar = new SegmentedProgressBar(totalRounds);
+        progressBar = new SegmentedProgressBar(10);
         JPanel progressBarPanel = new JPanel(new BorderLayout());
         progressBarPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         progressBarPanel.add(progressBar, BorderLayout.CENTER);
@@ -105,42 +119,30 @@ public class GamePage extends Page {
         bottomPanel.add(progressBarPanel, BorderLayout.SOUTH);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        gameTimer.start(this::nextRound);
+        gameViewModel.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                imageLabel1.setIcon(ImageScaler.getScaledImageIcon(gameViewModel.getState().getNextPhoto(), frameWidth, frameWidth));
+                if(gameViewModel.getState().getRound()!=1){
+                    progressBar.updateRound(gameViewModel.getState().isAcceptable());
+                }
+
+                System.out.println(gameViewModel.getState().getScore());
+                pointsDisplay.setPoints(gameViewModel.getState().getScore());
+            }
+        });
+
+        gameTimer.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                System.out.println("timeout");
+            }
+        });
     }
 
-    private void loadNewImages(int frameWidth) {
-        PhotoLocationFactory photoFactory = new PhotoLocationFactory(dataAccess);
-        PhotoLocation l = photoFactory.getRandomLocation();
-
-        ImageIcon fetchedImage1 = l.getPhoto();
-        coord = l.getLocation();
-        imageLabel1.setIcon(ImageScaler.getScaledImageIcon(fetchedImage1, frameWidth, frameWidth));
+    @Override
+    public void init() {
+        gameTimer.resetTimer();
+        gameTimer.start();
     }
-
-
-    private void handleGuess(int frameWidth) {
-        map.setTarget(coord);
-        boolean win = (map.getDistance() < 100);
-        boolean barFilled = progressBar.updateRound(win);
-
-        if (!barFilled) {
-            round++;
-            roundLabel.setText("Round " + round);
-            loadNewImages(frameWidth);
-        } else {
-            guessButton.setText("End Game");
-        }
-    }
-
-    private void nextRound() {
-        if (round < totalRounds) {
-            round++;
-            roundLabel.setText("Round " + round);
-            gameTimer.reset(60);
-            gameTimer.start(this::nextRound);
-            progressBar.updateRound(Math.random() > 0.5);
-            pointsDisplay.incrementPoints(100);
-        }
-    }
-
 }

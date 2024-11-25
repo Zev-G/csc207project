@@ -13,7 +13,6 @@ import view.utils.HTMLTextBuilder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainPage extends Page implements View<AccountState> {
 
