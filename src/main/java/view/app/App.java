@@ -10,6 +10,7 @@ import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
+import interface_adapter.stats.StatsPageViewModel;
 import use_case.game.GameInteractor;
 import view.pages.ViewManager;
 
@@ -23,6 +24,7 @@ public class App {
     private final ViewManagerModel viewManagerModel;
     private final LeaderboardViewModel leaderboardViewModel;
     private final GameViewModel gameViewModel;
+    private final StatsPageViewModel statsPageViewModel;
 
     // Controllers
     private final GameController gameController;
@@ -32,12 +34,13 @@ public class App {
 
     public App(ViewManagerModel viewManagerModel, AccountViewModel accountViewModel,
                LeaderboardViewModel leaderboardViewModel, GameViewModel gameViewModel,
-               GameController gameController) {
+               GameController gameController, StatsPageViewModel statsPageViewModel) {
         this.viewManagerModel = viewManagerModel;
         this.accountViewModel = accountViewModel;
         this.leaderboardViewModel = leaderboardViewModel;
         this.gameViewModel = gameViewModel;
         this.gameController = gameController;
+        this.statsPageViewModel = statsPageViewModel;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -67,6 +70,8 @@ public class App {
         return gameViewModel;
     }
 
+    public StatsPageViewModel getStatsPageViewModel() { return statsPageViewModel;}
+
     public void show() {
         viewManager.navigate("main");
         viewManager.setVisible(true);
@@ -82,12 +87,13 @@ public class App {
         GameController controller = new GameController(interactor);
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
+        StatsPageViewModel statsPageViewModel = new StatsPageViewModel();
 
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", ""));
 
         App app = new App(
-                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, controller
+                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, controller, statsPageViewModel
         );
 
         app.show();
