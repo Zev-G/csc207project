@@ -7,12 +7,15 @@ import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
+import interface_adapter.accountlogout.AccountLogoutController;
+import interface_adapter.accountlogout.AccountLogoutPresenter;
 import interface_adapter.game.GameController;
 import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import use_case.accountconfirm.AccountConfirmInteractor;
+import use_case.accountlogout.AccountLogoutInteractor;
 import use_case.game.GameInteractor;
 
 import javax.swing.*;
@@ -29,6 +32,7 @@ public class App {
     // Controllers
     private final GameController gameController;
     private final AccountConfirmController accountConfirmController;
+    private final AccountLogoutController accountLogoutController;
 
     // Views
     private final AppViewManager viewManager;
@@ -42,7 +46,8 @@ public class App {
                GameViewModel gameViewModel,
                // Controllers:
                GameController gameController,
-               AccountConfirmController accountConfirmController
+               AccountConfirmController accountConfirmController,
+               AccountLogoutController accountLogoutController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -52,6 +57,7 @@ public class App {
         // Controllers
         this.gameController = gameController;
         this.accountConfirmController = accountConfirmController;
+        this.accountLogoutController = accountLogoutController;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -85,6 +91,10 @@ public class App {
         return accountConfirmController;
     }
 
+    public AccountLogoutController getAccountLogoutController() {
+        return accountLogoutController;
+    }
+
     public void show() {
         viewManager.navigate("main");
         viewManager.setVisible(true);
@@ -107,11 +117,16 @@ public class App {
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(mock, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
 
+        AccountLogoutPresenter accountLogoutPresenter = new AccountLogoutPresenter(viewManagerModel, accountViewModel);
+        AccountLogoutInteractor accountLogoutInteractor = new AccountLogoutInteractor(accountLogoutPresenter);
+        AccountLogoutController accountLogoutController = new AccountLogoutController(accountLogoutInteractor);
+
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
-                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, controller, accountConfirmController
+                viewManagerModel, accountViewModel, leaderboardViewModel,
+                viewModel, controller, accountConfirmController, accountLogoutController
         );
 
         app.show();
