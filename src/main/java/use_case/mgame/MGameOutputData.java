@@ -9,10 +9,6 @@ public class MGameOutputData extends GameOutputData {
 
     private int opponentScore;
 
-    public MGameOutputData(boolean isAcceptable, int score, ImageIcon nextPhoto, int photoID, double[] target, int round) {
-        super(isAcceptable, score, nextPhoto, photoID, target, round);
-    }
-
     public MGameOutputData(boolean isAcceptable, int score, ImageIcon nextPhoto, int photoID, double[] target, int round, int opponentScore) {
         super(isAcceptable, score, nextPhoto, photoID, target, round);
         this.opponentScore = opponentScore;

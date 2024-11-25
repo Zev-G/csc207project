@@ -10,9 +10,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class MGameInteractor extends GameInteractor implements MGameInputBoundary{
+public class MGameInteractor extends GameInteractor implements MGameInputBoundary {
 
     private Socket socket;
+
     public MGameInteractor(LocationDataAccess photoAccess, MGameOutputBoundary presenter) {
         super(photoAccess, presenter);
     }
@@ -35,28 +36,25 @@ public class MGameInteractor extends GameInteractor implements MGameInputBoundar
 
         int oppScore = 0;
 
+        boolean error = false;
+
         try {
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             out.writeUTF(String.valueOf(gameStates.getScore()));
             out.flush();
-        } catch (IOException e) {
-            ((MGameOutputBoundary) presenter).PrepareError();
-        }
-
-        try {
             DataInputStream in = new DataInputStream(socket.getInputStream());
-
             oppScore = Integer.parseInt(in.readUTF());
-//            System.out.println(oppScore);
+
         } catch (IOException e) {
+            error = true;
             ((MGameOutputBoundary) presenter).PrepareError();
         }
 
+        if (!error) {
+            MGameOutputData gameOutputData = new MGameOutputData(isAcceptable, gameStates.getScore(),
+                    null, 0, null, gameStates.getRounds() + 1, oppScore);
 
-
-        MGameOutputData gameOutputData = new MGameOutputData(isAcceptable, gameStates.getScore(),
-                null, 0, null, gameStates.getRounds() + 1, oppScore);
-
-        presenter.endGame(gameOutputData);
+            presenter.endGame(gameOutputData);
+        }
     }
 }

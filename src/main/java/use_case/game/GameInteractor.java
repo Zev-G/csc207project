@@ -44,12 +44,12 @@ public class GameInteractor implements GameInputBoundary {
 
         if (gameStates.getRounds() == 10) {
             endGame(round.isAcceptable());
+        } else {
+            PhotoLocation p = getNextPhoto();
+            GameOutputData gameOutputData = new GameOutputData(round.isAcceptable(), gameStates.getScore(),
+                    p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds() + 1);
+            presenter.handleGuess(gameOutputData);
         }
-
-        PhotoLocation p = getNextPhoto();
-        GameOutputData gameOutputData = new GameOutputData(round.isAcceptable(), gameStates.getScore(),
-                p.getPhoto(), p.getPhotoID(), p.getLocation(), gameStates.getRounds() + 1);
-        presenter.handleGuess(gameOutputData);
     }
 
     private int calculateScore(double[] target, double[] chosen) {

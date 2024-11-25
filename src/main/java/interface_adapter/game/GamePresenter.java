@@ -34,6 +34,8 @@ public class GamePresenter implements GameOutputBoundary {
 
     @Override
     public void endGame(GameOutputData gameOutputData) {
-        System.out.println("END");
+        gameViewModel.setState(new GameState(gameOutputData.isAcceptable(), gameOutputData.getScore(),
+                gameOutputData.getNextPhoto(), gameOutputData.getPhotoID(), gameOutputData.getTarget(),
+                gameOutputData.getRound()));
     }
 }

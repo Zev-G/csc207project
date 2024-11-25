@@ -120,8 +120,10 @@ public class GamePage extends Page {
         gameViewModel.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                imageLabel1.setIcon(ImageScaler.getScaledImageIcon(gameViewModel.getState().getNextPhoto(), frameWidth, frameWidth));
-                if(gameViewModel.getState().getRound()!=1){
+                if (gameViewModel.getState().getNextPhoto() != null) {
+                    imageLabel1.setIcon(ImageScaler.getScaledImageIcon(gameViewModel.getState().getNextPhoto(), frameWidth, frameWidth));
+                }
+                if (gameViewModel.getState().getRound() != 1) {
                     progressBar.updateRound(gameViewModel.getState().isAcceptable());
                 }
 

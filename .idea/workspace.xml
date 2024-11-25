@@ -9,11 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="multiplayer game added">
+    <list default="true" id="873d5b2b-9cde-47dd-9622-274dcc8cdeff" name="Changes" comment="edited GameStates.java">
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/mgame/MGameInteractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/GameStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/GameStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInputData.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/mgame/MGameOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/mgame/MGameOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/multiplayer/MultiplayerInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/use_case/multiplayer/MultiplayerInteractorTest.java" afterDir="false" />
     </list>
     <list id="d941895b-38c2-4b14-9620-1dac6db72437" name="Changes by terre" comment="Changes by terre" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -89,8 +94,12 @@
     "Application.TestClient.executor": "Run",
     "Application.TestMap.executor": "Run",
     "JUnit.All in csc207project.executor": "Coverage",
+    "JUnit.MGameInteractorTest.endGame.executor": "Run",
+    "JUnit.MGameInteractorTest.executor": "Coverage",
+    "JUnit.MGameInteractorTest.startMGame.executor": "Run",
+    "JUnit.MGameInteractorTest.testError.executor": "Run",
     "JUnit.MultiplayerInteractorTest.execute.executor": "Debug",
-    "JUnit.MultiplayerInteractorTest.executeError.executor": "Coverage",
+    "JUnit.MultiplayerInteractorTest.executeError.executor": "Run",
     "JUnit.MultiplayerInteractorTest.executeTimeout.executor": "Debug",
     "JUnit.MultiplayerInteractorTest.executor": "Run",
     "JUnit.PhotoLocationFactoryTest.executor": "Coverage",
@@ -137,6 +146,7 @@
       <recent name="use_case.multiplayer" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="use_case.mgame" />
       <recent name="use_case.multiplayer" />
       <recent name="entity" />
     </key>
@@ -146,22 +156,9 @@
       <recent name="app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StartGame">
+  <component name="RunManager" selected="JUnit.MGameInteractorTest">
     <configuration name="StartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.pages.StartGame" />
-      <module name="csc207project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StartMultiplayerGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.pages.StartMultiplayerGame" />
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
@@ -225,38 +222,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiplayerInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MGameInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="PATTERN" value="use_case.mgame.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="use_case.multiplayer" />
-      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.MultiplayerInteractorTest" />
+      <option name="PACKAGE_NAME" value="use_case.mgame" />
+      <option name="MAIN_CLASS_NAME" value="use_case.mgame.MGameInteractorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiplayerInteractorTest.execute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MGameInteractorTest.endGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.multiplayer.*" />
+          <option name="PATTERN" value="use_case.mgame.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="use_case.multiplayer" />
-      <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.MultiplayerInteractorTest" />
-      <option name="METHOD_NAME" value="execute" />
+      <option name="PACKAGE_NAME" value="use_case.mgame" />
+      <option name="MAIN_CLASS_NAME" value="use_case.mgame.MGameInteractorTest" />
+      <option name="METHOD_NAME" value="endGame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MultiplayerInteractorTest.executeTimeout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MGameInteractorTest.testError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.mgame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.mgame" />
+      <option name="MAIN_CLASS_NAME" value="use_case.mgame.MGameInteractorTest" />
+      <option name="METHOD_NAME" value="testError" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultiplayerInteractorTest.executeError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
@@ -266,7 +279,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="use_case.multiplayer" />
       <option name="MAIN_CLASS_NAME" value="use_case.multiplayer.MultiplayerInteractorTest" />
-      <option name="METHOD_NAME" value="executeTimeout" />
+      <option name="METHOD_NAME" value="executeError" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -285,11 +298,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MGameInteractorTest" />
+        <item itemvalue="JUnit.MGameInteractorTest.testError" />
+        <item itemvalue="JUnit.MultiplayerInteractorTest.executeError" />
+        <item itemvalue="JUnit.MGameInteractorTest.endGame" />
         <item itemvalue="Application.StartGame" />
-        <item itemvalue="Application.StartMultiplayerGame" />
-        <item itemvalue="JUnit.MultiplayerInteractorTest" />
-        <item itemvalue="JUnit.MultiplayerInteractorTest.execute" />
-        <item itemvalue="JUnit.MultiplayerInteractorTest.executeTimeout" />
       </list>
     </recent_temporary>
   </component>
@@ -587,14 +600,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732498460967</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="edited GameStates.java">
+      <option name="closed" value="true" />
+      <created>1732509102570</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1732509102570</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="interactive map is pretty much finished" />
     <MESSAGE value="merge with Zev branch" />
     <MESSAGE value="the program is basically functional" />
     <MESSAGE value="Adding server side code" />
@@ -619,7 +639,8 @@
     <MESSAGE value="view manager added" />
     <MESSAGE value="started on multiplayer controller" />
     <MESSAGE value="multiplayer game added" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiplayer game added" />
+    <MESSAGE value="edited GameStates.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited GameStates.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,25 +650,38 @@
           <option name="timeStamp" value="5" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/use_case/multiplayer/MultiplayerInteractorTest.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/use_case/multiplayer/MultiplayerInteractorTest.java</url>
           <line>26</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/use_case/mgame/MGameInteractorTest.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest_execute.ic" NAME="MultiplayerInteractorTest.execute Coverage Results" MODIFIED="1732495805577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.multiplayer.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$MGameInteractorTest_testError.ic" NAME="MGameInteractorTest.testError Coverage Results" MODIFIED="1732511885228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.mgame.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest_executeError.ic" NAME="MultiplayerInteractorTest.executeError Coverage Results" MODIFIED="1732495821866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.multiplayer.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$PhotoLocationFactoryTest.ic" NAME="PhotoLocationFactoryTest Coverage Results" MODIFIED="1732066431938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>entity.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest.ic" NAME="MultiplayerInteractorTest Coverage Results" MODIFIED="1732497117714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.multiplayer.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$All_in_csc207project.ic" NAME="All in csc207project Coverage Results" MODIFIED="1732067093233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/csc207project$MGameInteractorTest_endGame.ic" NAME="MGameInteractorTest.endGame Coverage Results" MODIFIED="1732509856125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.mgame.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$TestClient__1_.ic" NAME="TestClient (1) Coverage Results" MODIFIED="1731875766300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>use_case.multiplayer.*</FILTER>
     </SUITE>
@@ -657,20 +691,14 @@
     <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest_executeTimeout.ic" NAME="MultiplayerInteractorTest.executeTimeout Coverage Results" MODIFIED="1732495837121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>use_case.multiplayer.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest_execute.ic" NAME="MultiplayerInteractorTest.execute Coverage Results" MODIFIED="1732495805577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>use_case.multiplayer.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest_executeError.ic" NAME="MultiplayerInteractorTest.executeError Coverage Results" MODIFIED="1732495821866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>use_case.multiplayer.*</FILTER>
+    <SUITE FILE_PATH="coverage/csc207project$MGameInteractorTest_startMGame.ic" NAME="MGameInteractorTest.startMGame Coverage Results" MODIFIED="1732509669649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.mgame.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$PhotoLocationTest.ic" NAME="PhotoLocationTest Coverage Results" MODIFIED="1732063444095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>entity.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$PhotoLocationFactoryTest.ic" NAME="PhotoLocationFactoryTest Coverage Results" MODIFIED="1732066431938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>entity.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$MultiplayerInteractorTest.ic" NAME="MultiplayerInteractorTest Coverage Results" MODIFIED="1732497117714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>use_case.multiplayer.*</FILTER>
+    <SUITE FILE_PATH="coverage/csc207project$MGameInteractorTest.ic" NAME="MGameInteractorTest Coverage Results" MODIFIED="1732512051737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.mgame.*</FILTER>
     </SUITE>
   </component>
 </project>
