@@ -10,14 +10,28 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * Multiplayer interactor.
+ */
 public class MGameInteractor extends GameInteractor implements MGameInputBoundary {
 
     private Socket socket;
 
+    /**
+     * To make a multiplayer interactor.
+     * @param photoAccess photo database
+     * @param presenter the presenter
+     */
     public MGameInteractor(LocationDataAccess photoAccess, MGameOutputBoundary presenter) {
         super(photoAccess, presenter);
     }
 
+    /**
+     * To start a multiplayer game.
+     *
+     * @param seed   the seed to generate images
+     * @param socket the socket to communicate with the server
+     */
     @Override
     public void startMGame(long seed, Socket socket) {
         this.socket = socket;
@@ -29,10 +43,15 @@ public class MGameInteractor extends GameInteractor implements MGameInputBoundar
         presenter.init(gameOutputData);
     }
 
+    /**
+     * To end the game.
+     *
+     * @param isAcceptable isAcceptable
+     */
     @Override
     protected void endGame(boolean isAcceptable) {
 
-        ((MGameOutputBoundary) presenter).waitForRespond();
+        ((MGameOutputBoundary) presenter).waitForResponse();
 
         int oppScore = 0;
 
