@@ -1,6 +1,7 @@
 package view.pages;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.ViewModel;
 import view.View;
 
 import java.beans.PropertyChangeEvent;
@@ -8,7 +9,7 @@ import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ViewManager extends PageFrame {
+public class ViewManager extends PageFrame implements View<String> {
 
     private ViewManagerModel viewManagerModel;
 
@@ -16,12 +17,7 @@ public class ViewManager extends PageFrame {
 
     public ViewManager(ViewManagerModel viewManagerModel) {
         this.viewManagerModel = viewManagerModel;
-        viewManagerModel.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                navigate(pageMap.get(viewManagerModel.getState()));
-            }
-        });
+        viewManagerModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
     public void add(String name, Page page) {
@@ -30,5 +26,15 @@ public class ViewManager extends PageFrame {
 
     public void navigate(String name) {
         navigate(pageMap.get(name));
+    }
+
+    @Override
+    public void loadState(String state) {
+        navigate(pageMap.get(viewManagerModel.getState()));
+    }
+
+    @Override
+    public ViewModel<String> getViewModel() {
+        return viewManagerModel;
     }
 }

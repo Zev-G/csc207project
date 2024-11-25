@@ -4,10 +4,10 @@ import view.components.standard.DPanel;
 
 public abstract class Page extends DPanel {
 
-    protected final PageManager pageManager;
+    protected final ViewManager viewManager;
 
-    protected Page(PageManager pageManager) {
-        this.pageManager = pageManager;
+    protected Page(ViewManager viewManager) {
+        this.viewManager = viewManager;
     }
 
     public void init(){

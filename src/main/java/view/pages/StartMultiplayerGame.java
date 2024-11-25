@@ -21,8 +21,8 @@ public class StartMultiplayerGame extends Page{
     GameController gameController;
 
     MultiplayerController multiplayerController;
-    protected StartMultiplayerGame(PageManager pageManager, MultiplayerController multiplayerController) {
-        super(pageManager);
+    protected StartMultiplayerGame(ViewManager viewManager, MultiplayerController multiplayerController) {
+        super(viewManager);
         this.multiplayerController = multiplayerController;
 
         TextField username = new TextField();
@@ -45,36 +45,36 @@ public class StartMultiplayerGame extends Page{
 
     public static void main(String[] args) {
 
-        MultiplayerOutputBoundary presenter = new MultiplayerOutputBoundary() {
-            @Override
-            public void prepareTimeoutView() {
-                System.out.println("timeout");
-            }
-
-            @Override
-            public void prepareErrorView() {
-                System.out.println("error");
-            }
-        };
-
-        ViewManagerModel viewManagerModel = new ViewManagerModel();
-        ViewManager viewManager = new ViewManager(viewManagerModel);
-
-        GameViewModel viewModel = new GameViewModel();
-        MGamePresenter gamePresenter = new MGamePresenter(viewModel, viewManagerModel);
-        MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), gamePresenter);
-        GameController controller = new GameController(interactor);
-
-        MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("localhost",5555, presenter, interactor);
-
-        MultiplayerController multiplayerController1 = new MultiplayerController(multiplayerInteractor);
-
-        viewManager.add("game", new GamePage(viewManager, viewModel, controller));
-        viewManager.add("start", new StartMultiplayerGame(viewManager, multiplayerController1));
-
-        viewManager.navigate("start");
-        viewManager.setVisible(true);
-        viewManager.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        viewManager.setLocationRelativeTo(null);
+//        MultiplayerOutputBoundary presenter = new MultiplayerOutputBoundary() {
+//            @Override
+//            public void prepareTimeoutView() {
+//                System.out.println("timeout");
+//            }
+//
+//            @Override
+//            public void prepareErrorView() {
+//                System.out.println("error");
+//            }
+//        };
+//
+//        ViewManagerModel viewManagerModel = new ViewManagerModel();
+//        ViewManager viewManager = new ViewManager(viewManagerModel);
+//
+//        GameViewModel viewModel = new GameViewModel();
+//        MGamePresenter gamePresenter = new MGamePresenter(viewModel, viewManagerModel);
+//        MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), gamePresenter);
+//        GameController controller = new GameController(interactor);
+//
+//        MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("localhost",5555, presenter, interactor);
+//
+//        MultiplayerController multiplayerController1 = new MultiplayerController(multiplayerInteractor);
+//
+//        viewManager.add("game", new GamePage(viewManager, viewModel, controller));
+//        viewManager.add("start", new StartMultiplayerGame(viewManager, multiplayerController1));
+//
+//        viewManager.navigate("start");
+//        viewManager.setVisible(true);
+//        viewManager.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        viewManager.setLocationRelativeTo(null);
     }
 }

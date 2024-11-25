@@ -2,6 +2,7 @@ package view.pages;
 
 import interface_adapter.game.GameController;
 import interface_adapter.game.GameViewModel;
+import view.app.App;
 import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;
@@ -34,13 +35,13 @@ public class GamePage extends Page {
 
     private GameViewModel gameViewModel;
 
-    public GamePage(PageManager pageManager, GameViewModel gameViewModel, GameController gameController) {
-        super(pageManager);
+    public GamePage(App app) {
+        super(app.getViewManager());
 
         setMargin(20);
 
-        this.gameController = gameController;
-        this.gameViewModel = gameViewModel;
+        this.gameController = app.getGameController();
+        this.gameViewModel = app.getGameViewModel();
 
         setLayout(new BorderLayout());
 
@@ -144,6 +145,7 @@ public class GamePage extends Page {
 
     @Override
     public void init() {
+        gameController.init();
         gameTimer.resetTimer();
         gameTimer.start();
     }

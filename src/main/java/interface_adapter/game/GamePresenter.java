@@ -28,8 +28,6 @@ public class GamePresenter implements GameOutputBoundary {
         gameViewModel.setState(new GameState(gameOutputData.isAcceptable(), gameOutputData.getScore(),
                 gameOutputData.getNextPhoto(), gameOutputData.getPhotoID(), gameOutputData.getTarget(),
                 gameOutputData.getRound()));
-
-        viewManagerModel.setState("game");
     }
 
     @Override

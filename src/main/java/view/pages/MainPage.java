@@ -6,6 +6,7 @@ import interface_adapter.account.AccountViewModel;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import view.View;
 import view.ViewConstants;
+import view.app.App;
 import view.components.leaderboard.LeaderboardView;
 import view.components.standard.*;
 import view.utils.HTMLTextBuilder;
@@ -41,12 +42,12 @@ public class MainPage extends Page implements View<AccountState> {
     // View Model
     private final AccountViewModel viewModel;
 
-    public MainPage(LeaderboardViewModel lbvm, AccountViewModel viewModel, PageManager pageManager) {
-        super(pageManager);
-        this.viewModel = viewModel;
+    public MainPage(App app) {
+        super(app.getViewManager());
+        this.viewModel = app.getAccountViewModel();
 
         // Create objects
-        leaderboard = new LeaderboardView(lbvm);
+        leaderboard = new LeaderboardView(app.getLeaderboardViewModel());
 
         // Configure components
         uoftText.setFontSize(ViewConstants.TEXT_LL);
@@ -83,11 +84,11 @@ public class MainPage extends Page implements View<AccountState> {
     }
 
     private void playButtonPressed(ActionEvent event) {
-        pageManager.navigate(new GamePage(pageManager));
+        viewManager.navigate("game");
     }
 
     private void accountButtonPressed(ActionEvent event) {
-        pageManager.navigate(new AccountPage(viewModel, pageManager));
+        viewManager.navigate("account");
     }
 
     private void loginButtonPressed(ActionEvent event) {

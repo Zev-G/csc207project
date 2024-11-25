@@ -5,6 +5,7 @@ import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import view.View;
 import view.ViewConstants;
+import view.app.App;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -33,9 +34,9 @@ public class AccountPage extends Page implements View<AccountState> {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public AccountPage(AccountViewModel viewModel, PageManager pageManager) {
-        super(pageManager);
-        this.viewModel = viewModel;
+    public AccountPage(App app) {
+        super(app.getViewManager());
+        this.viewModel = app.getAccountViewModel();
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
@@ -119,20 +120,20 @@ public class AccountPage extends Page implements View<AccountState> {
     }
 
     private void deleteAccountButtonPressed(ActionEvent event) {
-        pageManager.back();
+        viewManager.back();
     }
 
     private void logoutButtonPressed(ActionEvent event) {
         viewModel.setState(AccountState.DUMMY_STATE);
-        pageManager.back();
+        viewManager.back();
     }
 
     private void cancelButtonPressed(ActionEvent event) {
-        pageManager.back();
+        viewManager.back();
     }
 
     private void confirmButtonPressed(ActionEvent event) {
-        pageManager.back();
+        viewManager.back();
     }
 
     @Override

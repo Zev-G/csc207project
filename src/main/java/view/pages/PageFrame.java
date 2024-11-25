@@ -46,6 +46,7 @@ public class PageFrame extends DFrame implements PageManager {
     private void setPage(Page page) {
         if (currentPage != null) remove(currentPage);
         currentPage = page;
+        page.init();
         add(currentPage);              // Add the new page to the frame
         revalidate();                  // Refresh the frame layout
         repaint();                     // Redraw the frame
