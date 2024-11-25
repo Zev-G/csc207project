@@ -4,6 +4,7 @@ import interface_adapter.ViewModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
+import interface_adapter.accountdelete.AccountDeleteController;
 import interface_adapter.accountlogout.AccountLogoutController;
 import view.View;
 import view.ViewConstants;
@@ -38,12 +39,14 @@ public class AccountPage extends Page implements View<AccountState> {
 
     private final AccountConfirmController accountConfirmController;
     private final AccountLogoutController accountLogoutController;
+    private final AccountDeleteController accountDeleteController;
 
     public AccountPage(App app) {
         super(app.getViewManager());
         this.viewModel = app.getAccountViewModel();
         this.accountConfirmController = app.getAccountConfirmController();
         this.accountLogoutController = app.getAccountLogoutController();
+        this.accountDeleteController = app.getAccountDeleteController();
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
@@ -127,7 +130,7 @@ public class AccountPage extends Page implements View<AccountState> {
     }
 
     private void deleteAccountButtonPressed(ActionEvent event) {
-        viewManager.back();
+        accountDeleteController.pressed(viewModel.getState());
     }
 
     private void logoutButtonPressed(ActionEvent event) {
