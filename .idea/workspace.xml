@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment=" workspace" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment=" workspace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +64,7 @@
     "Application.StartMultiplayerGame (1).executor": "Run",
     "Application.StartMultiplayerGame.executor": "Run",
     "Application.StatsPageTest.executor": "Run",
+    "JUnit.FirebaseStatTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -88,7 +92,7 @@
       <recent name="C:\Users\terre\IdeaProjects\csc207project\src\main\java\view\components\stats" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StatsPageTest">
+  <component name="RunManager" selected="JUnit.FirebaseStatTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.app.App" />
       <module name="homework-5" />
@@ -128,22 +132,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartMultiplayerGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.pages.StartMultiplayerGame" />
+    <configuration name="StatsPageTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StatsPageTest" />
       <module name="homework-5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StatsPageTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StatsPageTest" />
+    <configuration name="FirebaseStatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.stats.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.FirebaseStatTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirebaseStatTest" />
         <item itemvalue="Application.StatsPageTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.StartGame" />
         <item itemvalue="Application.StartMultiplayerGame (1)" />
-        <item itemvalue="Application.StartMultiplayerGame" />
       </list>
     </recent_temporary>
   </component>
