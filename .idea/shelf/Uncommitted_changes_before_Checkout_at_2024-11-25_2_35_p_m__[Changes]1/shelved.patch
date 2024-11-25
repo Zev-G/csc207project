@@ -1,0 +1,18 @@
+Index: src/main/java/interface_adapter/ViewManagerModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package interface_adapter;\r\n\r\n/**\r\n * Model for the View Manager. Its state is the name of the View which\r\n * is currently active. An initial state of \"\" is used.\r\n */\r\npublic class ViewManagerModel extends ViewModel<String> {\r\n\r\n    public ViewManagerModel() {\r\n        super(\"view manager\");\r\n        this.setState(\"\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/interface_adapter/ViewManagerModel.java b/src/main/java/interface_adapter/ViewManagerModel.java
+--- a/src/main/java/interface_adapter/ViewManagerModel.java	(revision 58afb7c41bc566c3bd20222fe249daf4c443e12b)
++++ b/src/main/java/interface_adapter/ViewManagerModel.java	(date 1732562786602)
+@@ -6,6 +6,7 @@
+  */
+ public class ViewManagerModel extends ViewModel<String> {
+ 
++    private String username;
+     public ViewManagerModel() {
+         super("view manager");
+         this.setState("");
