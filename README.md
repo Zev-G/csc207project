@@ -25,4 +25,3 @@ User Stories:
 | Zev | I’m new to the app and need to sign up. |
 | Rithvik | I want to show that I’m better than my friend, so I do a vs. battle. |
 | Kristopher | I’m on a new computer and so I login. |
-
