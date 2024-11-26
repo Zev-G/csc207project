@@ -31,6 +31,8 @@ public class MainPage extends Page implements View<AccountState> {
     private final JButton loginButton = new RoundedButton("Login");
     private final JButton signupButton = new RoundedButton("Signup");
     private final JButton playButton = new RoundedButton("Play");
+
+    private final JButton multiplayerButton = new RoundedButton("Play Multiplayer");
     private final JButton accountButton = new RoundedButton("Account");
     private final DPanel buttons = new DPanel();
 
@@ -64,11 +66,13 @@ public class MainPage extends Page implements View<AccountState> {
         signupButton.setPreferredSize(new Dimension(200, 80));
         accountButton.setPreferredSize(new Dimension(200, 80));
         playButton.setPreferredSize(new Dimension(200, 80));
+        multiplayerButton.setPreferredSize(new Dimension(200, 80));
 
         // Add listeners
         loginButton.addActionListener(this::loginButtonPressed);
         signupButton.addActionListener(this::signupButtonPressed);
         playButton.addActionListener(this::playButtonPressed);
+        multiplayerButton.addActionListener(this::multiplayerButtonPressed);
         accountButton.addActionListener(this::accountButtonPressed);
 
         // Add components
@@ -83,6 +87,10 @@ public class MainPage extends Page implements View<AccountState> {
 
     private void playButtonPressed(ActionEvent event) {
         viewManager.navigate("game");
+    }
+
+    private void multiplayerButtonPressed(ActionEvent event) {
+        viewManager.navigate("multiplayer");
     }
 
     private void accountButtonPressed(ActionEvent event) {
@@ -103,6 +111,7 @@ public class MainPage extends Page implements View<AccountState> {
         buttons.removeAll();
         if (state.isLoggedIn()) {
             buttons.add(playButton);
+            buttons.add(multiplayerButton);
             buttons.add(accountButton);
         } else {
             buttons.add(loginButton);

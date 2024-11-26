@@ -97,6 +97,7 @@ public class GameInteractor implements GameInputBoundary {
      */
     public void setSeed(long seed) {
         photoAccess.setSeed(seed);
+        System.out.println("set seed");
     }
 
     /**

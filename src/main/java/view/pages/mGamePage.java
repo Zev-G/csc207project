@@ -20,7 +20,7 @@ import java.beans.PropertyChangeListener;
 /**
  * A game page.
  */
-public class GamePage extends Page {
+public class mGamePage extends Page {
 
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
@@ -42,11 +42,11 @@ public class GamePage extends Page {
      *
      * @param app the app that is running the game
      */
-    public GamePage(App app) {
+    public mGamePage(App app) {
         super(app.getViewManager());
 
-        this.gameController = app.getGameController();
-        this.gameViewModel = app.getGameViewModel();
+        this.gameController = app.getMgameController();
+        this.gameViewModel = app.getMgameViewModel();
 
         setLayout(new BorderLayout());
 
@@ -153,7 +153,6 @@ public class GamePage extends Page {
      */
     @Override
     public void init() {
-        gameController.init();
         gameTimer.resetTimer();
         gameTimer.start();
     }

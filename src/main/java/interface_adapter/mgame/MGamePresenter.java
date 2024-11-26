@@ -16,6 +16,12 @@ public class MGamePresenter extends GamePresenter implements MGameOutputBoundary
     }
 
     @Override
+    public void init(GameOutputData gameOutputData) {
+        viewManagerModel.setState("mgame");
+        super.init(gameOutputData);
+    }
+
+    @Override
     public void waitForResponse() {
         System.out.println("waiting");
     }
