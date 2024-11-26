@@ -3,10 +3,10 @@ package use_case.stats;
 import data_access.StatsDataAccess;
 
 public class StatsInteractor implements StatsInputBoundary {
-    private final FirebaseStatsDataAccess dataAccess;
+    private final StatsDataAccess dataAccess;
     private final StatsOutputBoundary outputBoundary;
 
-    public StatsInteractor(FirebaseStatsDataAccess dataAccess, StatsOutputBoundary outputBoundary) {
+    public StatsInteractor(StatsDataAccess dataAccess, StatsOutputBoundary outputBoundary) {
         this.dataAccess = dataAccess;
         this.outputBoundary = outputBoundary;
     }

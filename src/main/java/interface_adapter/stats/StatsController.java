@@ -2,6 +2,7 @@ package interface_adapter.stats;
 
 import use_case.stats.StatsInputBoundary;
 import use_case.stats.StatsInputData;
+import use_case.stats.StatsInteractor;
 
 public class StatsController {
     private final StatsInteractor interactor; // Reference to the interactor

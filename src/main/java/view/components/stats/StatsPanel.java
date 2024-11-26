@@ -7,45 +7,33 @@ import java.awt.*;
 
 public class StatsPanel extends JPanel {
 
-    private final DLabel pointsLabel;
-    private final DLabel gamesPlayedLabel;
-    private final DLabel correctGuessesLabel;
+    private final DLabel statsLabel;
 
     public StatsPanel() {
-        // Initialize labels
-        pointsLabel = new DLabel("Points: -");
-        gamesPlayedLabel = new DLabel("Games Played: -");
-        correctGuessesLabel = new DLabel("Correct Guesses: -");
-
-        // Configure labels
-        pointsLabel.setFontSize(48);
-        pointsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        gamesPlayedLabel.setFontSize(48);
-        gamesPlayedLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        correctGuessesLabel.setFontSize(48);
-        correctGuessesLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        // Initialize the label
+        statsLabel = new DLabel("<html>Points: -<br>Games Played: -<br>Correct Guesses: -</html>");
+        statsLabel.setFontSize(48);
+        statsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Layout configuration
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setAlignmentX(Component.CENTER_ALIGNMENT);
-        setAlignmentY(Component.CENTER_ALIGNMENT);
+        setLayout(new BorderLayout());
+        setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50)); // Adjust padding to control overall spacing
 
-        // Add labels to the panel
-        add(pointsLabel);
-        add(gamesPlayedLabel);
-        add(correctGuessesLabel);
+        // Add the single label to the top (NORTH) of the panel
+        add(statsLabel, BorderLayout.NORTH);
     }
 
     /**
-     * Updates the stats displayed on the panel.
+     * Updates the stats displayed on the label.
      *
      * @param points        The points to display.
      * @param gamesPlayed   The games played to display.
      * @param correctGuesses The correct guesses to display.
      */
     public void updateStats(int points, int gamesPlayed, int correctGuesses) {
-        pointsLabel.setText("Points: " + points);
-        gamesPlayedLabel.setText("Games Played: " + gamesPlayed);
-        correctGuessesLabel.setText("Correct Guesses: " + correctGuesses);
+        statsLabel.setText(String.format(
+                "<html>Points: %d<br>Games Played: %d<br>Correct Guesses: %d</html>",
+                points, gamesPlayed, correctGuesses
+        ));
     }
 }

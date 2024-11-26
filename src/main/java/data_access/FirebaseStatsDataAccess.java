@@ -13,25 +13,45 @@ public class FirebaseStatsDataAccess implements StatsDataAccess {
 
     @Override
     public StatsOutputData getUserStats(String username) {
-        final StatsOutputData[] result = new StatsOutputData[1];
+        final StatsOutputData[] result = {null}; // Placeholder for retrieved stats
 
-        // Firebase query
-        database.child("users").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        // Query the database for all users
+        database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int points = dataSnapshot.child("points").getValue(Integer.class);
-                int gamesPlayed = dataSnapshot.child("gamesPlayed").getValue(Integer.class);
-                int correctGuesses = dataSnapshot.child("correctGuesses").getValue(Integer.class);
+                // Iterate through all users
+                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                    String name = userSnapshot.child("name").getValue(String.class);
 
-                // Build StatsOutputData object
-                result[0] = new StatsOutputData(username, points, gamesPlayed, correctGuesses);
+                    if (username.equals(name)) {
+                        // User found - retrieve stats
+                        int correctGuesses = userSnapshot.child("correctGuesses").getValue(Integer.class);
+                        int gamesPlayed = userSnapshot.child("gamesPlayed").getValue(Integer.class);
+                        int points = userSnapshot.child("points").getValue(Integer.class);
+
+                        // Build StatsOutputData object
+                        result[0] = new StatsOutputData(username, points, gamesPlayed, correctGuesses);
+                        break;
+                    }
+                }
+
+                if (result[0] == null) {
+                    System.err.println("User with username '" + username + "' not found.");
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                throw new RuntimeException("Error retrieving data from Firebase: " + databaseError.getMessage());
+                System.err.println("Error accessing Firebase: " + databaseError.getMessage());
             }
         });
+
+        // Wait to ensure the asynchronous operation completes
+        try {
+            Thread.sleep(3000); // Optional: Adjust time to wait for Firebase response
+        } catch (InterruptedException e) {
+            System.err.println("Error while waiting for Firebase response: " + e.getMessage());
+        }
 
         return result[0];
     }

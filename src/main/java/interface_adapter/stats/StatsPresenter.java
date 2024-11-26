@@ -1,8 +1,9 @@
 package interface_adapter.stats;
 
+import use_case.stats.StatsOutputBoundary;
 import use_case.stats.StatsOutputData;
 
-public class StatsPresenter {
+public class StatsPresenter implements StatsOutputBoundary {
 
     private final StatsPageViewModel viewModel;
 
@@ -16,7 +17,8 @@ public class StatsPresenter {
      *
      * @param outputData The data to present.
      */
-    public void present(StatsOutputData outputData) {
+    @Override
+    public void presentStats(StatsOutputData outputData) {
         // Create a new StatsPageState using the factory method
         StatsPageState state = StatsPageState.fromStatsOutputData(outputData);
 

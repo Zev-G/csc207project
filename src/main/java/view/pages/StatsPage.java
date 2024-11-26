@@ -1,36 +1,44 @@
 package view.pages;
 
+import interface_adapter.ViewModel;
+import interface_adapter.stats.StatsController;
+import interface_adapter.stats.StatsPageState;
 import interface_adapter.stats.StatsPageViewModel;
+import view.View;
 import view.app.App;
-import view.components.stats.StatsPanel;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.HorizontalPanel;
+import view.components.standard.RoundedButton;
 import view.components.standard.VerticalPanel;
+import view.components.stats.StatsPanel;
 import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class StatsPage extends Page {
+public class StatsPage extends Page implements View<StatsPageState> {
 
     // UI Fields
     private final DLabel usernameLabel = new DLabel("Username: -");
     private final DLabel subtitleText = new DLabel(
             new HTMLTextBuilder()
-                    .addText("Review your performance so far:")
+                    .addText("--Your Stats--")
                     .center().build()
     );
     private final StatsPanel statsPanel = new StatsPanel();
     private final DPanel buttonsPanel = new DPanel();
+    private final JButton backbutton = new RoundedButton("Back");
 
     // ViewModel
     private final StatsPageViewModel viewModel;
+    private final StatsController statsController;
 
     public StatsPage(App app) {
         super(app.getViewManager());
         this.viewModel = app.getStatsPageViewModel();
+        this.statsController = app.getStatsController();
 
         // Configure components
         usernameLabel.setFont(new Font("Impact", Font.BOLD, 75)); // Sporty font for username
@@ -44,13 +52,12 @@ public class StatsPage extends Page {
         setLayout(new BorderLayout());
         buttonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
-        // Add buttons (if needed, e.g., back button)
-        JButton backButton = new JButton("Back");
-        backButton.setPreferredSize(new Dimension(200, 80));
-        backButton.addActionListener(this::onBackButtonPressed);
-        buttonsPanel.add(backButton);
+        // Configure back button
+        backbutton.setPreferredSize(new Dimension(200, 80));
+        backbutton.addActionListener(this::backButtonPressed);
+        buttonsPanel.add(backbutton); // Ensure the button is added to the buttonsPanel
 
-        // Add components
+        // Add components to the page
         add(new VerticalPanel(
                 new HorizontalPanel(usernameLabel),
                 new HorizontalPanel(subtitleText)
@@ -63,12 +70,12 @@ public class StatsPage extends Page {
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
-    private void onBackButtonPressed(ActionEvent event) {
+    private void backButtonPressed(ActionEvent event) {
         viewManager.back();
     }
 
-    private void loadCurrentState() {
-        var state = viewModel.getState();
+    @Override
+    public void loadState(StatsPageState state) {
         if (state != null) {
             // Update username
             usernameLabel.setText(state.getUsername());
@@ -78,12 +85,13 @@ public class StatsPage extends Page {
         }
     }
 
-    public void loadState(Object state) {
-        loadCurrentState();
+    @Override
+    public ViewModel<StatsPageState> getViewModel() {
+        return viewModel;
     }
 
-    @Override
     public void init() {
-        loadCurrentState();
+        // Fetch stats for the current user (e.g., DemoUser)
+        statsController.fetchStats("DemoUser");
     }
 }

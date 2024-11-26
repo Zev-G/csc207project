@@ -1,16 +1,14 @@
 package view.app;
 
 import interface_adapter.ViewManagerModel;
-import view.pages.AccountPage;
-import view.pages.GamePage;
-import view.pages.MainPage;
-import view.pages.ViewManager;
+import view.pages.*;
 
 public class AppViewManager extends ViewManager {
 
     private MainPage mainPage;
     private GamePage gamePage;
     private AccountPage accountPage;
+    private StatsPage statsPage;
 
     private final App app;
 
@@ -24,12 +22,11 @@ public class AppViewManager extends ViewManager {
         mainPage = new MainPage(app);
         gamePage = new GamePage(app);
         accountPage = new AccountPage(app);
+        statsPage = new StatsPage(app);
 
         add("main", mainPage);
         add("game", gamePage);
         add("account", accountPage);
+        add("stats", statsPage);
     }
-
-
-
 }

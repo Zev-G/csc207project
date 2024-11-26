@@ -1,4 +1,4 @@
-package use_case.stats;
+package StatsTests;
 
 import app.FirebaseInitializer;
 import com.google.firebase.database.*;
