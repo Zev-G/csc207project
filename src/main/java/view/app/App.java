@@ -7,6 +7,8 @@ import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
+import interface_adapter.accountdelete.AccountDeleteController;
+import interface_adapter.accountdelete.AccountDeletePresenter;
 import interface_adapter.accountlogout.AccountLogoutController;
 import interface_adapter.accountlogout.AccountLogoutPresenter;
 import interface_adapter.game.GameController;
@@ -19,6 +21,7 @@ import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerPresenter;
 import interface_adapter.multiplayer.MultiplayerViewModel;
 import use_case.accountconfirm.AccountConfirmInteractor;
+import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
 import use_case.game.GameInteractor;
 import use_case.mgame.MGameInteractor;
@@ -46,6 +49,7 @@ public class App {
     private final MultiplayerController multiplayerController;
     private final AccountConfirmController accountConfirmController;
     private final AccountLogoutController accountLogoutController;
+    private final AccountDeleteController accountDeleteController;
 
     // Views
     private final AppViewManager viewManager;
@@ -65,6 +69,17 @@ public class App {
             MultiplayerController multiplayerController,
             AccountConfirmController accountConfirmController,
             AccountLogoutController accountLogoutController
+               // Views:
+               ViewManagerModel viewManagerModel,
+               // Models:
+               AccountViewModel accountViewModel,
+               LeaderboardViewModel leaderboardViewModel,
+               GameViewModel gameViewModel,
+               // Controllers:
+               GameController gameController,
+               AccountConfirmController accountConfirmController,
+               AccountLogoutController accountLogoutController,
+               AccountDeleteController accountDeleteController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -79,6 +94,7 @@ public class App {
         this.multiplayerController = multiplayerController;
         this.accountConfirmController = accountConfirmController;
         this.accountLogoutController = accountLogoutController;
+        this.accountDeleteController = accountDeleteController;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -132,6 +148,10 @@ public class App {
         return accountLogoutController;
     }
 
+    public AccountDeleteController getAccountDeleteController() {
+        return accountDeleteController;
+    }
+
     public void show() {
         viewManager.navigate("main");
         viewManager.setVisible(true);
@@ -173,11 +193,17 @@ public class App {
         AccountLogoutInteractor accountLogoutInteractor = new AccountLogoutInteractor(accountLogoutPresenter);
         AccountLogoutController accountLogoutController = new AccountLogoutController(accountLogoutInteractor);
 
+        AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(viewManagerModel, accountViewModel);
+        AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, mock);
+        AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
+
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
                 viewManagerModel, accountViewModel, leaderboardViewModel,
+                viewModel, controller, accountConfirmController, accountLogoutController,
+                accountDeleteController,
                 viewModel, mgameViewModel, multiplayerViewModel, controller, mgameController, multiplayerController
                 , accountConfirmController, accountLogoutController
         );

@@ -9,4 +9,5 @@ public interface UserDataAccess {
     boolean changeEmail(int uid, String email);
     User getUser(int uid);
 
+    boolean deleteAccount(int userId);
 }

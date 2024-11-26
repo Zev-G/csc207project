@@ -82,4 +82,12 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         }
         return null;
     }
+
+    @Override
+    public boolean deleteAccount(int userId) {
+        User user = getUser(userId);
+        if (user == null) return false;
+        users.remove(getUser(userId));
+        return true;
+    }
 }
