@@ -27,6 +27,8 @@ public class MultiplayerPage extends Page {
     private final JTextField theirUsernameField = new JTextField();
 
     private final JButton connect = new RoundedButton("Connect");
+
+    private final JButton cancelButton = new RoundedButton("Cancel");
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
@@ -47,6 +49,7 @@ public class MultiplayerPage extends Page {
         layout.setVgap(60);
         setLayout(layout);
         buttons.add(connect);
+        buttons.add(cancelButton);
         add(titleLayout, BorderLayout.PAGE_START);
         add(grid, BorderLayout.CENTER);
         add(buttons, BorderLayout.PAGE_END);
@@ -97,9 +100,13 @@ public class MultiplayerPage extends Page {
         buttons.setLayout(new FlowLayout());
 
         connect.setPreferredSize(new Dimension(200, 80));
+        cancelButton.setPreferredSize(new Dimension(200, 80));
 
         // Add listeners
         connect.addActionListener(this::connectButtonPressed);
+
+        cancelButton.addActionListener(this::cancelButtonPressed);
+
         viewModel.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
@@ -131,6 +138,10 @@ public class MultiplayerPage extends Page {
             controller.execute(usernameField.getText(), theirUsernameField.getText());
         }
 
+    }
+
+    private void cancelButtonPressed(ActionEvent event) {
+        viewManager.back();
     }
 
     @Override
