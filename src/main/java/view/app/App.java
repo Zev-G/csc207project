@@ -68,18 +68,8 @@ public class App {
             GameController mgameController,
             MultiplayerController multiplayerController,
             AccountConfirmController accountConfirmController,
-            AccountLogoutController accountLogoutController
-               // Views:
-               ViewManagerModel viewManagerModel,
-               // Models:
-               AccountViewModel accountViewModel,
-               LeaderboardViewModel leaderboardViewModel,
-               GameViewModel gameViewModel,
-               // Controllers:
-               GameController gameController,
-               AccountConfirmController accountConfirmController,
-               AccountLogoutController accountLogoutController,
-               AccountDeleteController accountDeleteController
+            AccountLogoutController accountLogoutController,
+            AccountDeleteController accountDeleteController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -120,7 +110,7 @@ public class App {
         return gameController;
     }
 
-    public GameController getMgameController(){
+    public GameController getMgameController() {
         return mgameController;
     }
 
@@ -136,7 +126,7 @@ public class App {
         return mgameViewModel;
     }
 
-    public MultiplayerViewModel getMultiplayerViewModel(){
+    public MultiplayerViewModel getMultiplayerViewModel() {
         return multiplayerViewModel;
     }
 
@@ -201,12 +191,9 @@ public class App {
         accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
-                viewManagerModel, accountViewModel, leaderboardViewModel,
-                viewModel, controller, accountConfirmController, accountLogoutController,
-                accountDeleteController,
-                viewModel, mgameViewModel, multiplayerViewModel, controller, mgameController, multiplayerController
-                , accountConfirmController, accountLogoutController
-        );
+                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, mgameViewModel,
+                multiplayerViewModel, controller, mgameController, multiplayerController, accountConfirmController,
+                accountLogoutController, accountDeleteController);
 
         app.show();
     }
