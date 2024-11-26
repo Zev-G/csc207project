@@ -16,6 +16,8 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
     private String host;
     private int port;
 
+    private boolean tryToConnet;
+
     private MultiplayerOutputBoundary presenter;
 
     private MGameInputBoundary mGameInteractor;
@@ -53,13 +55,32 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
             final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
 
-            final String str = (String) inputStream.readUTF();
+            if (!tryToConnet) {
+                System.out.println("try to connect");
+                tryToConnet = true;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String str = "error";
+                        try {
+                            str = (String) inputStream.readUTF();
+                        } catch (IOException e) {
+                            presenter.prepareErrorView();
+                        }
 
-            if ("timeout".equals(str)) {
-                presenter.prepareTimeoutView();
-            } else {
-                final long seed = Long.parseLong(str);
-                mGameInteractor.startMGame(seed, socket);
+                        if ("timeout".equals(str)) {
+                            presenter.prepareTimeoutView();
+                        } else if ("error".equals(str)) {
+                            presenter.prepareErrorView();
+                        } else {
+                            final long seed = Long.parseLong(str);
+                            tryToConnet = false;
+                            mGameInteractor.startMGame(seed, socket);
+                        }
+                    }
+                }).start();
+            }else {
+                System.out.println("please wait");
             }
         } catch (IOException exception) {
             presenter.prepareErrorView();
