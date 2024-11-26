@@ -47,15 +47,16 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
     public void execute(MultiplayerInputData multiplayerInputData) {
 
         try {
-            final Socket socket = new Socket(host, port);
-            final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
-                    multiplayerInputData.getOpponentUsername()));
-            out.flush();
-
-            final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
-
             if (!tryToConnet) {
+
+                final Socket socket = new Socket(host, port);
+                final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
+                        multiplayerInputData.getOpponentUsername()));
+                out.flush();
+
+                final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+
                 System.out.println("try to connect");
                 tryToConnet = true;
                 new Thread(new Runnable() {
@@ -79,7 +80,7 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
                         }
                     }
                 }).start();
-            }else {
+            } else {
                 System.out.println("please wait");
             }
         } catch (IOException exception) {
