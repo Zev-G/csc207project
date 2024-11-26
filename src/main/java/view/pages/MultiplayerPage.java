@@ -127,6 +127,7 @@ public class MultiplayerPage extends Page {
         if (usernameField.getText().isEmpty() || theirUsernameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter username");
         } else {
+            connect.setText("Waiting...");
             controller.execute(usernameField.getText(), theirUsernameField.getText());
         }
 
