@@ -1,6 +1,7 @@
 package use_case.game;
 
-public interface GameOutputBoundary {
+public interface
+GameOutputBoundary {
 
     void handleGuess(GameOutputData gameOutputData);
 

@@ -132,6 +132,7 @@ public class GamePage extends Page {
 
                 System.out.println(gameViewModel.getState().getScore());
                 pointsDisplay.setPoints(gameViewModel.getState().getScore());
+                System.out.println("called after game over");
             }
         });
 

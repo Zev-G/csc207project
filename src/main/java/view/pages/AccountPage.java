@@ -116,7 +116,6 @@ public class AccountPage extends Page implements View<AccountState> {
     }
 
     private void statsButtonPressed(ActionEvent event) {
-        System.out.println("clicked");
         viewManager.navigate("stats");
     }
 

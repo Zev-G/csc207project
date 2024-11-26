@@ -1,6 +1,7 @@
 package view.pages;
 
 import interface_adapter.ViewModel;
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageState;
 import interface_adapter.stats.StatsPageViewModel;
@@ -34,11 +35,13 @@ public class StatsPage extends Page implements View<StatsPageState> {
     // ViewModel
     private final StatsPageViewModel viewModel;
     private final StatsController statsController;
+    private final AccountViewModel aCViewModel;
 
     public StatsPage(App app) {
         super(app.getViewManager());
         this.viewModel = app.getStatsPageViewModel();
         this.statsController = app.getStatsController();
+        this.aCViewModel = app.getAccountViewModel();
 
         // Configure components
         usernameLabel.setFont(new Font("Impact", Font.BOLD, 75)); // Sporty font for username
@@ -92,6 +95,8 @@ public class StatsPage extends Page implements View<StatsPageState> {
 
     public void init() {
         // Fetch stats for the current user (e.g., DemoUser)
-        statsController.fetchStats("DemoUser");
+
+        statsController.fetchStats(aCViewModel.getState().getUsername());
+//      statsController.fetchStats("DemoUser");
     }
 }
