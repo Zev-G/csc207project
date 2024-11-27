@@ -42,11 +42,11 @@ public class GamePage extends Page {
      *
      * @param app the app that is running the game
      */
-    public GamePage(App app) {
+    public GamePage(App app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
 
-        this.gameController = app.getGameController();
-        this.gameViewModel = app.getGameViewModel();
+        this.gameController = gameController;
+        this.gameViewModel = gameViewModel;
 
         setLayout(new BorderLayout());
 
@@ -143,7 +143,8 @@ public class GamePage extends Page {
         gameTimer.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
-                System.out.println("timeout");
+                gameController.timeout(gameViewModel.getState().getPhotoID(), gameViewModel.getState().getTarget(),
+                        map.getChosenCoord());
             }
         });
     }

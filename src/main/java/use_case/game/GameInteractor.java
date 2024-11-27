@@ -114,4 +114,17 @@ public class GameInteractor implements GameInputBoundary {
         presenter.endGame(gameOutputData);
     }
 
+    public void timeout(GameInputData input) {
+        final int photoID = input.getPhotoID();
+        final double[] target = input.getTarget();
+        final double[] chosen = input.getChosen();
+        final boolean isAcc = isAcceptable(target, chosen);
+
+        GameRound round = new GameRound(photoID, target, chosen, isAcc);
+        gameStates.add(round);
+        gameStates.setScore(gameStates.getScore() + calculateScore(target, chosen));
+
+        endGame(round.isAcceptable());
+    }
+
 }

@@ -16,4 +16,11 @@ public interface GameInputBoundary {
      * To initiate a new game.
      */
     void init();
+
+    /**
+     * To timeout user.
+     *
+     * @param input game input data
+     */
+    void timeout(GameInputData input);
 }
