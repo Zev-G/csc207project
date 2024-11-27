@@ -43,6 +43,11 @@ public class TestClient {
             public void init() {
 
             }
+
+            @Override
+            public void timeout(GameInputData input) {
+
+            }
         };
 
         MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter, inputBoundary);

@@ -115,6 +115,9 @@ public class MultiplayerPage extends Page {
                     case "connect":
                         connect.setText("Connect");
                         break;
+                    case "wait":
+                        connect.setText("Waiting...");
+                        break;
                     case "error":
                         connect.setText("Error Occurred, retry");
                         break;
@@ -134,14 +137,16 @@ public class MultiplayerPage extends Page {
         if (usernameField.getText().isEmpty() || theirUsernameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter username");
         } else {
-            connect.setText("Waiting...");
+            viewModel.setState("wait");
             controller.execute(usernameField.getText(), theirUsernameField.getText());
         }
 
     }
 
     private void cancelButtonPressed(ActionEvent event) {
-        viewManager.back();
+        if (!viewModel.getState().equals("wait")) {
+            viewManager.back();
+        }
     }
 
     @Override

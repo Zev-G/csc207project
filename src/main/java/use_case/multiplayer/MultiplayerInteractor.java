@@ -80,8 +80,6 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
                         }
                     }
                 }).start();
-            } else {
-                System.out.println("please wait");
             }
         } catch (IOException exception) {
             presenter.prepareErrorView();
