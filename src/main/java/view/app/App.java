@@ -158,19 +158,16 @@ public class App {
         GameInteractor interactor = new GameInteractor(mock, presenter);
         GameController controller = new GameController(interactor);
 
-
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel);
         MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccessMock(), mgamePresenter);
         GameController mgameController = new GameController(mGameInteractorinteractor);
 
         MultiplayerViewModel multiplayerViewModel = new MultiplayerViewModel();
-
         MultiplayerPresenter multiplayerPresenter = new MultiplayerPresenter(multiplayerViewModel);
         MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("app.kristopherz.net", 5555,
                 multiplayerPresenter, mGameInteractorinteractor);
         MultiplayerController multiplayerController = new MultiplayerController(multiplayerInteractor);
-
 
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();

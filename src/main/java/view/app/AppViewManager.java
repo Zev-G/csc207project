@@ -22,10 +22,10 @@ public class AppViewManager extends ViewManager {
 
     public void init() {
         mainPage = new MainPage(app);
-        gamePage = new GamePage(app);
+        gamePage = new GamePage(app, app.getGameController(), app.getGameViewModel());
         accountPage = new AccountPage(app);
         multiplayerPage = new MultiplayerPage(app, app.getMultiplayerController());
-        mgamePage = new mGamePage(app);
+        mgamePage = new mGamePage(app, app.getMgameController(), app.getMgameViewModel());
 
         add("main", mainPage);
         add("game", gamePage);

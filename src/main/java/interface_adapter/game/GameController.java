@@ -18,4 +18,8 @@ public class GameController {
     public void init(){
         this.gameInteractor.init();
     }
+
+    public void timeout(int photoID, double[] target, double[] chosen) {
+        gameInteractor.timeout(new GameInputData(photoID, target, chosen));
+    }
 }
