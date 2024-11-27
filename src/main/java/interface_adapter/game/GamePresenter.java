@@ -7,9 +7,9 @@ import use_case.mgame.MGameOutputData;
 
 public class GamePresenter implements GameOutputBoundary {
 
-    GameViewModel gameViewModel;
+    protected GameViewModel gameViewModel;
 
-    ViewManagerModel viewManagerModel;
+    protected ViewManagerModel viewManagerModel;
 
     public GamePresenter(GameViewModel gameViewModel, ViewManagerModel viewManagerModel) {
         this.gameViewModel = gameViewModel;
@@ -35,5 +35,6 @@ public class GamePresenter implements GameOutputBoundary {
         gameViewModel.setState(new GameState(gameOutputData.isAcceptable(), gameOutputData.getScore(),
                 gameOutputData.getNextPhoto(), gameOutputData.getPhotoID(), gameOutputData.getTarget(),
                 gameOutputData.getRound()));
+        System.out.println("END");
     }
 }

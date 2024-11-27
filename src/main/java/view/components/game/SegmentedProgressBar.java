@@ -70,9 +70,7 @@ public class SegmentedProgressBar extends JPanel {
         return statuses;
     }
 
-    /**
-     * Represents one segment.
-     */
+
     private static class SegmentPanel extends JPanel {
 
         protected SegmentPanel(Color color) {
@@ -84,6 +82,9 @@ public class SegmentedProgressBar extends JPanel {
         }
     }
 
+    /**
+     * Resets the progress bar to the initial state.
+     */
     public void reset() {
         currentRound = 0; // Reset the current round
         for (int i = 0; i < totalRounds; i++) {

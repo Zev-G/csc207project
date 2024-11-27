@@ -40,7 +40,7 @@ class MGameInteractorTest {
         }
 
         @Override
-        public void waitForRespond() {
+        public void waitForResponse() {
             state = "wait";
         }
 
@@ -57,7 +57,7 @@ class MGameInteractorTest {
             @Override
             public void run() {
                 try {
-                    new Server(1122);
+                    new Server(8888);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -72,7 +72,7 @@ class MGameInteractorTest {
 
 
         MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), presenterMock);
-        Socket socket = new Socket("localhost", 1122);
+        Socket socket = new Socket("localhost", 8888);
         interactor.startMGame(1000, socket);
 
         assertEquals(1, presenterMock.data.getRound());
@@ -81,7 +81,7 @@ class MGameInteractorTest {
 
     private static class MockServer1 {
         public MockServer1() throws IOException {
-            ServerSocket serverSocket = new ServerSocket(1222);
+            ServerSocket serverSocket = new ServerSocket(7777);
             Socket socket = serverSocket.accept();
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
@@ -92,7 +92,7 @@ class MGameInteractorTest {
     }
 
     @Test
-    void endGame() throws IOException {
+    void endGame() throws IOException, InterruptedException {
 
         new Thread(new Runnable() {
             @Override
@@ -109,11 +109,13 @@ class MGameInteractorTest {
 
 
         MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), presenterMock);
-        Socket socket = new Socket("localhost", 1222);
+        Socket socket = new Socket("localhost", 7777);
         interactor.startMGame(1000, socket);
         for (int i = 0; i < 10; i++) {
             interactor.handleGuess(new GameInputData(0, new double[]{0, 0}, new double[]{1, 1}));
         }
+
+        Thread.sleep(500);
 
         assertEquals(11, presenterMock.data.getRound());
 
@@ -130,7 +132,7 @@ class MGameInteractorTest {
     }
 
     @Test
-    void testError() throws IOException {
+    void testError() throws IOException, InterruptedException {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -151,6 +153,8 @@ class MGameInteractorTest {
         for (int i = 0; i < 10; i++) {
             interactor.handleGuess(new GameInputData(0, new double[]{0, 0}, new double[]{1, 1}));
         }
+
+        Thread.sleep(500);
 
         assertEquals("error", presenterMock.state);
 

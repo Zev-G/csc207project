@@ -34,10 +34,17 @@ import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
+import interface_adapter.mgame.MGamePresenter;
+import interface_adapter.mgame.MGameEndViewModel;
+import interface_adapter.multiplayer.MultiplayerController;
+import interface_adapter.multiplayer.MultiplayerPresenter;
+import interface_adapter.multiplayer.MultiplayerViewModel;
 import use_case.accountconfirm.AccountConfirmInteractor;
 import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
 import use_case.game.GameInteractor;
+import use_case.mgame.MGameInteractor;
+import use_case.multiplayer.MultiplayerInteractor;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -53,8 +60,16 @@ public class App {
     private final StatsPageViewModel statsPageViewModel;
     private final GameSummaryPageViewModel summaryPageViewModel;
 
+    private final GameViewModel mgameViewModel;
+
+    private final MultiplayerViewModel multiplayerViewModel;
+
+    private final MGameEndViewModel mGameEndViewModel;
+
     // Controllers
     private final GameController gameController;
+    private final GameController mgameController;
+    private final MultiplayerController multiplayerController;
     private final StatsController statsController;
     private final AccountConfirmController accountConfirmController;
     private final AccountLogoutController accountLogoutController;
@@ -64,16 +79,40 @@ public class App {
     // Views
     private final AppViewManager viewManager;
 
-    public App(ViewManagerModel viewManagerModel, AccountViewModel accountViewModel,
-               LeaderboardViewModel leaderboardViewModel, GameViewModel gameViewModel,
-               GameController gameController, StatsPageViewModel statsPageViewModel, StatsController statsController, AccountConfirmController accountConfirmController,
+    public App(
+               // Views:
+               ViewManagerModel viewManagerModel,
+               // Models:
+               AccountViewModel accountViewModel,
+               LeaderboardViewModel leaderboardViewModel,
+               GameViewModel gameViewModel,
+               StatsPageViewModel statsPageViewModel,
+               GameSummaryPageViewModel summaryPageViewModel,
+               GameViewModel mgameViewModel,
+               MultiplayerViewModel multiplayerViewModel,
+               MGameEndViewModel mGameEndViewModel,
+               // Controllers:
+               GameController gameController,
+               GameController mgameController,
+               MultiplayerController multiplayerController,
+               AccountConfirmController accountConfirmController,
                AccountLogoutController accountLogoutController,
-               AccountDeleteController accountDeleteController, GameSummaryController gameSummaryController, GameSummaryPageViewModel summaryPageViewModel) {
+               AccountDeleteController accountDeleteController,
+               StatsController statsController,
+               GameSummaryController gameSummaryController
+    ) {
+        // Model
         this.viewManagerModel = viewManagerModel;
         this.accountViewModel = accountViewModel;
         this.leaderboardViewModel = leaderboardViewModel;
         this.gameViewModel = gameViewModel;
+        this.mgameViewModel = mgameViewModel;
+        this.multiplayerViewModel = multiplayerViewModel;
+        this.mGameEndViewModel = mGameEndViewModel;
+        // Controllers
         this.gameController = gameController;
+        this.mgameController = mgameController;
+        this.multiplayerController = multiplayerController;
         this.statsPageViewModel = statsPageViewModel;
         this.statsController = statsController;
         this.accountConfirmController = accountConfirmController;
@@ -106,13 +145,37 @@ public class App {
         return gameController;
     }
 
+    public GameController getMgameController() {
+        return mgameController;
+    }
+
+    public MultiplayerController getMultiplayerController() {
+        return multiplayerController;
+    }
+
     public GameViewModel getGameViewModel() {
         return gameViewModel;
     }
 
-    public StatsPageViewModel getStatsPageViewModel() { return statsPageViewModel; }
+    public GameViewModel getMgameViewModel() {
+        return mgameViewModel;
+    }
 
-    public StatsController getStatsController() {return statsController; }
+    public MultiplayerViewModel getMultiplayerViewModel() {
+        return multiplayerViewModel;
+    }
+
+    public MGameEndViewModel getmGameEndViewModel() {
+        return mGameEndViewModel;
+    }
+
+    public StatsPageViewModel getStatsPageViewModel() {
+        return statsPageViewModel;
+    }
+
+    public StatsController getStatsController() {
+        return statsController;
+    }
 
     public GameSummaryController getGameSummaryController() {
         return gameSummaryController;
@@ -151,11 +214,28 @@ public class App {
             return; // Exit if Firebase initialization fails
         }
         DataAccessMock mock = new DataAccessMock();
+
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
         GameInteractor interactor = new GameInteractor(new DataAccessMock(), presenter);
         GameController controller = new GameController(interactor);
+
+
+        MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
+        GameViewModel mgameViewModel = new GameViewModel();
+        MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel, mGameEndViewModel);
+        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccessMock(), mgamePresenter);
+        GameController mgameController = new GameController(mGameInteractorinteractor);
+
+        MultiplayerViewModel multiplayerViewModel = new MultiplayerViewModel();
+        MultiplayerPresenter multiplayerPresenter = new MultiplayerPresenter(multiplayerViewModel);
+        MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("app.kristopherz.net", 5555,
+                multiplayerPresenter, mGameInteractorinteractor);
+        MultiplayerController multiplayerController = new MultiplayerController(multiplayerInteractor);
+
+
+
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -186,10 +266,24 @@ public class App {
         accountViewModel.setState(new AccountState(false, "", "", "",0));
 
         App app = new App(
-                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, controller, statsPageViewModel, statsController,
-                accountConfirmController, accountLogoutController,
-                accountDeleteController, gameSummaryController, summaryPageViewModel
-        );
+                viewManagerModel,
+                accountViewModel,
+                leaderboardViewModel,
+                viewModel,
+                statsPageViewModel,
+                summaryPageViewModel,
+                mgameViewModel,
+                multiplayerViewModel,
+                mGameEndViewModel,
+                controller,
+                mgameController,
+                multiplayerController,
+                accountConfirmController,
+                accountLogoutController,
+                accountDeleteController,
+                statsController,
+                gameSummaryController
+                );
 
         app.show();
     }
@@ -197,4 +291,5 @@ public class App {
     private static LeaderboardState getLeaderboardState() {
         return new LeaderboardState(List.of(new DummyUserStats("Zev", 123), new DummyUserStats("Chris", 233), new DummyUserStats("Terrence", 198)));
     }
+
 }

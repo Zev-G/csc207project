@@ -15,9 +15,13 @@ import view.utils.ImageScaler;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * A game page.
+ */
 public class GamePage extends Page {
 
     private JLabel roundLabel;
@@ -38,13 +42,18 @@ public class GamePage extends Page {
     private GameViewModel gameViewModel;
     private final AccountViewModel aCViewModel;
 
-    public GamePage(App app) {
+    /**
+     * To make a game page.
+     *
+     * @param app the app that is running the game
+     */
+    public GamePage(App app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
 
         setMargin(20);
 
-        this.gameController = app.getGameController();
-        this.gameViewModel = app.getGameViewModel();
+        this.gameController = gameController;
+        this.gameViewModel = gameViewModel;
         this.gameSummaryController = app.getGameSummaryController();
         this.aCViewModel = app.getAccountViewModel();
 
@@ -163,12 +172,25 @@ public class GamePage extends Page {
             homeButton.setVisible(gameViewModel.getState().shouldShow());
         });
 
-        gameTimer.addPropertyChangeListener(evt -> System.out.println("timeout"));
+        // Update visibility of View Summary button
+        viewSummaryButton.setVisible(gameViewModel.getState().shouldShow());
+
+        // Update visibility of Home button (e.g., another condition)
+        homeButton.setVisible(gameViewModel.getState().shouldShow());
+        });
     }
 
+    /**
+     * Init the game.
+     */
     @Override
     public void init() {
         gameController.init();
+        resetPage();
+    }
+
+    protected void resetPage(){
+        progressBar.reset();
         gameTimer.resetTimer();
         gameTimer.start();
 
