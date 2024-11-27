@@ -36,7 +36,6 @@ public class mGamePage extends GamePage {
 
     @Override
     public void init() {
-        gameTimer.resetTimer();
-        gameTimer.start();
+        resetPage();
     }
 }
