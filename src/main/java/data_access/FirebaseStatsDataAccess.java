@@ -2,6 +2,7 @@ package data_access;
 
 import com.google.firebase.database.*;
 import use_case.stats.StatsOutputData;
+import java.util.concurrent.CompletableFuture;
 
 public class FirebaseStatsDataAccess implements StatsDataAccess {
 
@@ -13,7 +14,8 @@ public class FirebaseStatsDataAccess implements StatsDataAccess {
 
     @Override
     public StatsOutputData getUserStats(String username) {
-        final StatsOutputData[] result = {null}; // Placeholder for retrieved stats
+        // Create a CompletableFuture to hold the result
+        CompletableFuture<StatsOutputData> future = new CompletableFuture<>();
 
         // Query the database for all users
         database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -29,30 +31,31 @@ public class FirebaseStatsDataAccess implements StatsDataAccess {
                         int gamesPlayed = userSnapshot.child("gamesPlayed").getValue(Integer.class);
                         int points = userSnapshot.child("points").getValue(Integer.class);
 
-                        // Build StatsOutputData object
-                        result[0] = new StatsOutputData(username, points, gamesPlayed, correctGuesses);
-                        break;
+                        // Build StatsOutputData object and complete the future
+                        StatsOutputData stats = new StatsOutputData(username, points, gamesPlayed, correctGuesses);
+                        future.complete(stats);
+                        return; // Exit the loop once the user is found
                     }
                 }
 
-                if (result[0] == null) {
-                    System.err.println("User with username '" + username + "' not found.");
-                }
+                // If no user is found, complete the future with null
+                System.err.println("User with username '" + username + "' not found.");
+                future.complete(null);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.err.println("Error accessing Firebase: " + databaseError.getMessage());
+                future.completeExceptionally(databaseError.toException()); // Complete exceptionally on error
             }
         });
 
-        // Wait to ensure the asynchronous operation completes
+        // Return the result from the CompletableFuture
         try {
-            Thread.sleep(3000); // Optional: Adjust time to wait for Firebase response
-        } catch (InterruptedException e) {
-            System.err.println("Error while waiting for Firebase response: " + e.getMessage());
+            return future.get(); // This will block until the operation is complete (without sleep)
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Return null if there is an exception
         }
-
-        return result[0];
     }
 }
