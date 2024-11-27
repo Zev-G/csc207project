@@ -1,7 +1,7 @@
 UofTGeoguessr
 -
 
-This is a game that lets UofT students to explore UofT campus.
+This is a game that lets UofT students explore UofT campus.
 
 
 Team members:
@@ -22,6 +22,6 @@ User Stories:
 | Team | I consider myself very knowledgeable about UofT but I play the game to test my knowledge and learn about places I wouldn’t normally go.    |
 | Terrence | The user wants to check their statistics and ranking. |
 | Asksshatt | I found this super underground place and added the image.  |
-| Zev | I’m new to the app and need to sign up. |
-| Rithvik | I want to show that I’m better than my friend, so I do a vs. battle. |
-| Kristopher | I’m on a new computer and so I login. |
+| Zev | I want to edit my account information |
+| Rithvik |  I’m new to the app and need to sign up and log in. |
+| Kristopher | I want to show that I’m better than my friend, so I do a vs. battle.|
