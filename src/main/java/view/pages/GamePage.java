@@ -155,6 +155,11 @@ public class GamePage extends Page {
     @Override
     public void init() {
         gameController.init();
+        resetPage();
+    }
+
+    protected void resetPage(){
+        progressBar.reset();
         gameTimer.resetTimer();
         gameTimer.start();
     }
