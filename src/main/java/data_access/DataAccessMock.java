@@ -43,6 +43,11 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
     }
 
     @Override
+    public PhotoLocation getPhotoLocationByID(int id) {
+        return null;
+    }
+
+    @Override
     public void setSeed(long seed) {
         random = new Random(seed);
     }
@@ -62,7 +67,7 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         User user = getUser(uid);
         if (user == null) return false;
         users.remove(user);
-        users.add(new CommonUser(username, user.getPassword(),user.getEmail(), uid));
+        users.add(new CommonUser(username, user.getPassword(), user.getEmail(), uid));
         return true;
     }
 
