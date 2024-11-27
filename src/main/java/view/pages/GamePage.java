@@ -171,5 +171,9 @@ public class GamePage extends Page {
         gameController.init();
         gameTimer.resetTimer();
         gameTimer.start();
+
+        // Reset the progress bar
+        progressBar.reset(); // Ensure progress bar is cleared when the page is initialized
     }
+
 }

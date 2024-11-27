@@ -83,4 +83,15 @@ public class SegmentedProgressBar extends JPanel {
             setBackground(color);
         }
     }
+
+    public void reset() {
+        currentRound = 0; // Reset the current round
+        for (int i = 0; i < totalRounds; i++) {
+            SegmentPanel segment = (SegmentPanel) getComponent(i);
+            segment.setColor(Color.LIGHT_GRAY); // Reset all segments to their default color
+        }
+        highlightNextSegment(); // Highlight the first segment
+        repaint();
+    }
+
 }

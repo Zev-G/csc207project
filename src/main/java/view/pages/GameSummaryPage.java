@@ -3,9 +3,6 @@ package view.pages;
 import interface_adapter.ViewModel;
 import interface_adapter.game.GameSummaryPageState;
 import interface_adapter.game.GameSummaryPageViewModel;
-import interface_adapter.stats.StatsController;
-import interface_adapter.stats.StatsPageState;
-import interface_adapter.stats.StatsPageViewModel;
 import view.View;
 import view.app.App;
 import view.components.standard.DLabel;
@@ -14,7 +11,6 @@ import view.components.standard.HorizontalPanel;
 import view.components.standard.RoundedButton;
 import view.components.standard.VerticalPanel;
 import view.components.stats.GameSummaryPanel;
-import view.components.stats.StatsPanel;
 import view.utils.HTMLTextBuilder;
 
 import javax.swing.*;
@@ -35,19 +31,17 @@ public class GameSummaryPage extends Page implements View<GameSummaryPageState> 
 
     // ViewModel
     private final GameSummaryPageViewModel viewModel;
-    private final StatsController statsController;
 
     public GameSummaryPage(App app) {
         super(app.getViewManager());
         this.viewModel = app.getGameSummaryPageViewModel();
-        this.statsController = app.getStatsController();
 
         // Configure components
-        subtitleText.setFontSize(28);
+        subtitleText.setFontSize(80); // Updated font size for Game Summary
         subtitleText.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Layout configuration
-        setMargin(20);
+        setMargin(50); // Add margin to push everything slightly down
         setLayout(new BorderLayout());
         buttonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
@@ -83,10 +77,5 @@ public class GameSummaryPage extends Page implements View<GameSummaryPageState> 
     @Override
     public ViewModel<GameSummaryPageState> getViewModel() {
         return viewModel;
-    }
-
-    public void init() {
-        // Fetch stats
-        //statsController.fetchStats();
     }
 }
