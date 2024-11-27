@@ -43,7 +43,7 @@ public class GameSummaryPanel extends JPanel {
         // Update guesses panel
         guessesPanel.removeAll(); // Clear previous guesses
         for (Boolean guess : guessBar) {
-            JLabel guessLabel = new JLabel(guess ? "✓" : "✗");
+            JLabel guessLabel = new JLabel(guess ? "Correct" : "Incorrect");
             guessLabel.setFont(new Font("Arial", Font.BOLD, 36)); // Large font for ticks and crosses
             guessLabel.setForeground(guess ? Color.GREEN : Color.RED); // Green for ticks, red for crosses
             guessesPanel.add(guessLabel);

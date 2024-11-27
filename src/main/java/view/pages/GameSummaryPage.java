@@ -26,12 +26,12 @@ public class GameSummaryPage extends Page implements View<GameSummaryPageState> 
     // UI Fields
     private final DLabel subtitleText = new DLabel(
             new HTMLTextBuilder()
-                    .addText("--Your Stats--")
+                    .addText("--Game Summary--")
                     .center().build()
     );
     private final GameSummaryPanel gameSummaryPanel = new GameSummaryPanel();
     private final DPanel buttonsPanel = new DPanel();
-    private final JButton backButton = new RoundedButton("Back");
+    private final JButton backButton = new RoundedButton("Home");
 
     // ViewModel
     private final GameSummaryPageViewModel viewModel;
@@ -69,7 +69,7 @@ public class GameSummaryPage extends Page implements View<GameSummaryPageState> 
     }
 
     private void backButtonPressed(ActionEvent event) {
-        viewManager.back();
+        viewManager.navigate("main");
     }
 
     @Override

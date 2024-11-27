@@ -1,5 +1,6 @@
 package view.pages;
 
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.game.GameController;
 import interface_adapter.game.GameSummaryController;
 import interface_adapter.game.GameViewModel;
@@ -35,6 +36,7 @@ public class GamePage extends Page {
     private GameController gameController;
     private GameSummaryController gameSummaryController;
     private GameViewModel gameViewModel;
+    private final AccountViewModel aCViewModel;
 
     public GamePage(App app) {
         super(app.getViewManager());
@@ -44,6 +46,7 @@ public class GamePage extends Page {
         this.gameController = app.getGameController();
         this.gameViewModel = app.getGameViewModel();
         this.gameSummaryController = app.getGameSummaryController();
+        this.aCViewModel = app.getAccountViewModel();
 
         setLayout(new BorderLayout());
 
@@ -107,7 +110,8 @@ public class GamePage extends Page {
         viewSummaryButton.setPreferredSize(new Dimension(200, 80));
         viewSummaryButton.addActionListener(e -> {
             //PASS IN GAME STATE POINTS AND PROGRESS BAR STUFF
-            gameSummaryController.fetchGameStats(progressBar.getAllSegmentStatus(), gameViewModel.getState().getScore(), app.);
+            gameSummaryController.fetchGameStats(progressBar.getAllSegmentStatus(), gameViewModel.getState().getScore(), aCViewModel.getState().getUsername());
+            viewManager.navigate("summary");
             System.out.println("View Summary clicked");
         });
         viewSummaryButton.setVisible(false); // Initially hidden

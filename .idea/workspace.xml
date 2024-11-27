@@ -5,51 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Idea filess">
-      <change afterPath="$PROJECT_DIR$/src/main/java/data_access/GameSummaryDataAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPageState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPageViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/account/AccountInputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInteractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameSummaryPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/pages/GameSummaryPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountconfirm/AccountConfirmInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountdelete/AccountDeleteInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountlogout/AccountLogoutInteractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CommonUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CommonUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/account/AccountState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/account/AccountState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +62,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Merging terrence.allder",
+    "git-widget-placeholder": "terrence.allder",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/vezve/OneDrive/Desktop/School/UofT Year 2/CSC207/java/csc207project/src/main/java/use_case",
     "node.js.detected.package.eslint": "true",
