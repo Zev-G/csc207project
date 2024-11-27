@@ -1,6 +1,6 @@
 package StatsTests;
 
-import app.FirebaseInitializer;
+import data_access.FirebaseInitializer;
 import com.google.firebase.database.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -22,7 +22,7 @@ import java.beans.PropertyChangeListener;
  */
 public class GamePage extends Page {
 
-    private JLabel roundLabel;
+//    private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
     protected GameTimer gameTimer;
     private PointsDisplay pointsDisplay;
@@ -55,9 +55,9 @@ public class GamePage extends Page {
         setMargin(50);
 
         JPanel topPanel = new JPanel(new BorderLayout());
-        roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
-        roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        topPanel.add(roundLabel, BorderLayout.WEST);
+        //roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
+//        roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
+//        topPanel.add(roundLabel, BorderLayout.WEST);
 
         gameTimer = new GameTimer(60);
         pointsDisplay = new PointsDisplay(0);
@@ -163,6 +163,10 @@ public class GamePage extends Page {
                     progressBar.updateRound(gameViewModel.getState().isAcceptable());
                 }
 
+                if (gameViewModel.getState().isGameOver()){
+                    gameOver();
+                }
+
                 System.out.println(gameViewModel.getState().getScore());
                 pointsDisplay.setPoints(gameViewModel.getState().getScore());
 
@@ -170,13 +174,13 @@ public class GamePage extends Page {
                 pointsDisplay.setPoints(gameViewModel.getState().getScore());
 
                 // Update visibility of View Summary button
-                summaryButton.setVisible(gameViewModel.getState().shouldShow());
+                summaryButton.setVisible(gameViewModel.getState().isGameOver());
 
                 // Update visibility of Home button (e.g., another condition)
-                homeButton.setVisible(gameViewModel.getState().shouldShow());
+                homeButton.setVisible(gameViewModel.getState().isGameOver());
 
                 // Update visibility of Guess button
-                guessButton.setVisible(!gameViewModel.getState().shouldShow());
+                guessButton.setVisible(!gameViewModel.getState().isGameOver());
             }
         });
 
@@ -202,5 +206,10 @@ public class GamePage extends Page {
         progressBar.reset();
         gameTimer.resetTimer();
         gameTimer.start();
+    }
+
+    private void gameOver(){
+        map.reset();
+        gameTimer.resetTimer();
     }
 }

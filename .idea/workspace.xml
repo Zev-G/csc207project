@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/app/AppViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/AppViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StatsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StatsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,10 +142,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App (1)" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.App (5)" />
         <item itemvalue="Application.App (4)" />
         <item itemvalue="Application.App (3)" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -208,16 +212,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
           <line>36</line>
           <option name="timeStamp" value="48" />
@@ -226,6 +220,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>
           <line>64</line>
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
+          <line>26</line>
+          <properties class="use_case.game.GameOutputBoundary" method="endGame">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

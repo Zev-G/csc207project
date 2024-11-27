@@ -71,7 +71,7 @@ public class GameInteractor implements GameInputBoundary {
 
     private int calculateScore(double[] target, double[] chosen) {
         // should change later
-        return (int) (200 / DistanceCalculator.calculate(target, chosen));
+        return (int) (200 / (1 + DistanceCalculator.calculate(target, chosen)));
     }
 
     private boolean isAcceptable(double[] target, double[] chosen) {

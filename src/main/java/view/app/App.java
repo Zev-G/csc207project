@@ -1,6 +1,6 @@
 package view.app;
 
-import app.FirebaseInitializer;
+import data_access.FirebaseInitializer;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import data_access.*;
@@ -16,13 +16,8 @@ import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
 import use_case.game.*;
 import use_case.stats.StatsInteractor;
-import view.pages.ViewManager;
 
 import data_access.DataAccessMock;
-import entity.DummyUserStats;
-import interface_adapter.ViewManagerModel;
-import interface_adapter.account.AccountState;
-import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
 import interface_adapter.accountdelete.AccountDeleteController;
@@ -32,8 +27,6 @@ import interface_adapter.accountlogout.AccountLogoutPresenter;
 import interface_adapter.game.GameController;
 import interface_adapter.game.GamePresenter;
 import interface_adapter.game.GameViewModel;
-import interface_adapter.leaderboard.LeaderboardState;
-import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.mgame.MGamePresenter;
 import interface_adapter.mgame.MGameEndViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
