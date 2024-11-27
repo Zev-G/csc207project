@@ -1,8 +1,6 @@
 package view.pages;
 
-import interface_adapter.account.AccountViewModel;
 import interface_adapter.game.GameController;
-import interface_adapter.game.GameSummaryController;
 import interface_adapter.game.GameViewModel;
 import view.app.App;
 import view.components.game.GameTimer;
@@ -26,11 +24,11 @@ public class GamePage extends Page {
 
     private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
-    private GameTimer gameTimer;
+    protected GameTimer gameTimer;
     private PointsDisplay pointsDisplay;
     private RoundedButton guessButton;
-    private RoundedButton viewSummaryButton;
-    private RoundedButton homeButton; // New Home button
+    private RoundedButton summaryButton;
+    private RoundedButton homeButton;
     private JLabel imageLabel1;
 
     private InteractiveMap map =
@@ -38,9 +36,8 @@ public class GamePage extends Page {
                     new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115});
 
     private GameController gameController;
-    private GameSummaryController gameSummaryController;
+
     private GameViewModel gameViewModel;
-    private final AccountViewModel aCViewModel;
 
     /**
      * To make a game page.
@@ -50,18 +47,13 @@ public class GamePage extends Page {
     public GamePage(App app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
 
-        setMargin(20);
-
         this.gameController = gameController;
         this.gameViewModel = gameViewModel;
-        this.gameSummaryController = app.getGameSummaryController();
-        this.aCViewModel = app.getAccountViewModel();
 
         setLayout(new BorderLayout());
 
         setMargin(50);
 
-        // Top panel configuration
         JPanel topPanel = new JPanel(new BorderLayout());
         roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
         roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
@@ -79,7 +71,6 @@ public class GamePage extends Page {
 
         add(topPanel, BorderLayout.NORTH);
 
-        // Main center panel configuration
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int frameWidth = (int) (screenSize.width * 0.35);
 
@@ -91,54 +82,41 @@ public class GamePage extends Page {
         JPanel imagePanel = new JPanel(new GridLayout(1, 2, 10, 0));
 
         imageLabel1 = new JLabel();
+
+
         imageLabel1.setHorizontalAlignment(JLabel.CENTER);
+
+
         imageLabel1.setPreferredSize(new Dimension(frameWidth, frameWidth));
+
 
         imagePanel.add(imageLabel1);
 
         mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.X_AXIS));
+
         mainCenterPanel.add(imagePanel);
+
         mainCenterPanel.add(map);
+
         mainCenterPanel.add(Box.createVerticalGlue());
 
         add(mainCenterPanel, BorderLayout.CENTER);
 
-        // Bottom panel with buttons
         guessButton = new RoundedButton("Guess");
         guessButton.setPreferredSize(new Dimension(200, 80));
-        guessButton.addActionListener(e -> {
-            System.out.println("clicked");
-            gameController.handleGuess(
-                    gameViewModel.getState().getPhotoID(),
-                    gameViewModel.getState().getTarget(),
-                    map.getChosenCoord()
-            );
+        guessButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked");
+                gameController.handleGuess(gameViewModel.getState().getPhotoID(), gameViewModel.getState().getTarget(),
+                        map.getChosenCoord());
+            }
         });
-
-        viewSummaryButton = new RoundedButton("View Summary");
-        viewSummaryButton.setPreferredSize(new Dimension(200, 80));
-        viewSummaryButton.addActionListener(e -> {
-            //PASS IN GAME STATE POINTS AND PROGRESS BAR STUFF
-            gameSummaryController.fetchGameStats(progressBar.getAllSegmentStatus(), gameViewModel.getState().getScore(), aCViewModel.getState().getUsername());
-            viewManager.navigate("summary");
-            System.out.println("View Summary clicked");
-        });
-        viewSummaryButton.setVisible(false); // Initially hidden
-
-        homeButton = new RoundedButton("Home"); // New Home button
-        homeButton.setPreferredSize(new Dimension(200, 80));
-        homeButton.addActionListener(e -> {
-            System.out.println("Home clicked");
-            viewManager.navigate("main"); // Handle Home action in the controller
-        });
-        homeButton.setVisible(false); // Initially hidden
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
         buttonPanel.add(guessButton);
-        buttonPanel.add(viewSummaryButton); // Add View Summary button
-        buttonPanel.add(homeButton); // Add Home button
         bottomPanel.add(buttonPanel, BorderLayout.NORTH);
 
         progressBar = new SegmentedProgressBar(10);
@@ -149,34 +127,65 @@ public class GamePage extends Page {
         bottomPanel.add(progressBarPanel, BorderLayout.SOUTH);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // Add property change listeners
-        gameViewModel.addPropertyChangeListener(evt -> {
-            if (gameViewModel.getState().getNextPhoto() != null) {
-                imageLabel1.setIcon(ImageScaler.getScaledImageIcon(
-                        gameViewModel.getState().getNextPhoto(),
-                        frameWidth,
-                        frameWidth
-                ));
+        summaryButton = new RoundedButton("Summary");
+        summaryButton.setPreferredSize(new Dimension(200, 80));
+        summaryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked summary");
+                app.getGameSummaryController().fetchGameStats(progressBar.getAllSegmentStatus(),
+                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername());
+                viewManager.navigate("summary");
             }
-            if (gameViewModel.getState().getRound() != 1) {
-                progressBar.updateRound(gameViewModel.getState().isAcceptable());
+        });
+        summaryButton.setVisible(false);
+        homeButton = new RoundedButton("Home");
+        homeButton.setPreferredSize(new Dimension(200, 80));
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked home");
+                viewManager.navigate("main");
             }
+        });
+        homeButton.setVisible(false);
+        buttonPanel.add(summaryButton);
+        buttonPanel.add(homeButton);
+        bottomPanel.add(buttonPanel, BorderLayout.NORTH);
 
-            System.out.println(gameViewModel.getState().getScore());
-            pointsDisplay.setPoints(gameViewModel.getState().getScore());
+        gameViewModel.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if (gameViewModel.getState().getNextPhoto() != null) {
+                    imageLabel1.setIcon(ImageScaler.getScaledImageIcon(gameViewModel.getState().getNextPhoto(), frameWidth, frameWidth));
+                }
+                if (gameViewModel.getState().getRound() != 1) {
+                    progressBar.updateRound(gameViewModel.getState().isAcceptable());
+                }
 
-            // Update visibility of View Summary button
-            viewSummaryButton.setVisible(gameViewModel.getState().shouldShow());
+                System.out.println(gameViewModel.getState().getScore());
+                pointsDisplay.setPoints(gameViewModel.getState().getScore());
 
-            // Update visibility of Home button (e.g., another condition)
-            homeButton.setVisible(gameViewModel.getState().shouldShow());
+                System.out.println(gameViewModel.getState().getScore());
+                pointsDisplay.setPoints(gameViewModel.getState().getScore());
+
+                // Update visibility of View Summary button
+                summaryButton.setVisible(gameViewModel.getState().shouldShow());
+
+                // Update visibility of Home button (e.g., another condition)
+                homeButton.setVisible(gameViewModel.getState().shouldShow());
+
+                // Update visibility of Guess button
+                guessButton.setVisible(!gameViewModel.getState().shouldShow());
+            }
         });
 
-        // Update visibility of View Summary button
-        viewSummaryButton.setVisible(gameViewModel.getState().shouldShow());
-
-        // Update visibility of Home button (e.g., another condition)
-        homeButton.setVisible(gameViewModel.getState().shouldShow());
+        gameTimer.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                gameController.timeout(gameViewModel.getState().getPhotoID(), gameViewModel.getState().getTarget(),
+                        map.getChosenCoord());
+            }
         });
     }
 
@@ -193,9 +202,5 @@ public class GamePage extends Page {
         progressBar.reset();
         gameTimer.resetTimer();
         gameTimer.start();
-
-        // Reset the progress bar
-        progressBar.reset(); // Ensure progress bar is cleared when the page is initialized
     }
-
 }

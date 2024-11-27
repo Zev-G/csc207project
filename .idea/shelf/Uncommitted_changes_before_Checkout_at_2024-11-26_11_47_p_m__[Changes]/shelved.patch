@@ -1,0 +1,139 @@
+Index: src/main/java/app/FirebaseInitializer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package app;\r\n\r\nimport java.io.FileInputStream;\r\nimport java.io.IOException;\r\n\r\nimport com.google.auth.oauth2.GoogleCredentials;\r\nimport com.google.firebase.FirebaseApp;\r\nimport com.google.firebase.FirebaseOptions;\r\n\r\n/**\r\n * Initializing Firebase.\r\n */\r\npublic class FirebaseInitializer {\r\n\r\n    /**\r\n     * Initializing.\r\n     * @throws IOException exception.\r\n     */\r\n    public static void initializeFirebase() throws IOException {\r\n        FileInputStream serviceAccount = new FileInputStream(\"csc207project/serviceAccountKey.json\");\r\n\r\n        FirebaseOptions options = new FirebaseOptions.Builder()\r\n                .setCredentials(GoogleCredentials.fromStream(serviceAccount))\r\n                .setDatabaseUrl(\"https://uoftguessr-default-rtdb.firebaseio.com/\")\r\n                .build();\r\n\r\n        FirebaseApp.initializeApp(options);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/app/FirebaseInitializer.java b/src/main/java/app/FirebaseInitializer.java
+--- a/src/main/java/app/FirebaseInitializer.java	(revision f91af38b14903383377d6f006620d213f0309444)
++++ b/src/main/java/app/FirebaseInitializer.java	(date 1732682772189)
+@@ -17,7 +17,7 @@
+      * @throws IOException exception.
+      */
+     public static void initializeFirebase() throws IOException {
+-        FileInputStream serviceAccount = new FileInputStream("csc207project/serviceAccountKey.json");
++        FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
+ 
+         FirebaseOptions options = new FirebaseOptions.Builder()
+                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+Index: src/main/java/view/pages/StatsPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.pages;\r\n\r\nimport interface_adapter.ViewModel;\r\nimport interface_adapter.account.AccountViewModel;\r\nimport interface_adapter.stats.StatsController;\r\nimport interface_adapter.stats.StatsPageState;\r\nimport interface_adapter.stats.StatsPageViewModel;\r\nimport view.View;\r\nimport view.app.App;\r\nimport view.components.standard.DLabel;\r\nimport view.components.standard.DPanel;\r\nimport view.components.standard.HorizontalPanel;\r\nimport view.components.standard.RoundedButton;\r\nimport view.components.standard.VerticalPanel;\r\nimport view.components.stats.StatsPanel;\r\nimport view.utils.HTMLTextBuilder;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\n\r\npublic class StatsPage extends Page implements View<StatsPageState> {\r\n\r\n    // UI Fields\r\n    private final DLabel usernameLabel = new DLabel(\"Username: -\");\r\n    private final DLabel subtitleText = new DLabel(\r\n            new HTMLTextBuilder()\r\n                    .addText(\"--Your Stats--\")\r\n                    .center().build()\r\n    );\r\n    private final StatsPanel statsPanel = new StatsPanel();\r\n    private final DPanel buttonsPanel = new DPanel();\r\n    private final JButton backbutton = new RoundedButton(\"Back\");\r\n\r\n    // ViewModel\r\n    private final StatsPageViewModel viewModel;\r\n    private final StatsController statsController;\r\n    private final AccountViewModel aCViewModel;\r\n\r\n    public StatsPage(App app) {\r\n        super(app.getViewManager());\r\n        this.viewModel = app.getStatsPageViewModel();\r\n        this.statsController = app.getStatsController();\r\n        this.aCViewModel = app.getAccountViewModel();\r\n\r\n        // Configure components\r\n        usernameLabel.setFont(new Font(\"Impact\", Font.BOLD, 75)); // Sporty font for username\r\n        usernameLabel.setHorizontalAlignment(SwingConstants.CENTER);\r\n\r\n        subtitleText.setFontSize(28);\r\n        subtitleText.setHorizontalAlignment(SwingConstants.CENTER);\r\n\r\n        // Layout configuration\r\n        setMargin(20);\r\n        setLayout(new BorderLayout());\r\n        buttonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));\r\n\r\n        // Configure back button\r\n        backbutton.setPreferredSize(new Dimension(200, 80));\r\n        backbutton.addActionListener(this::backButtonPressed);\r\n        buttonsPanel.add(backbutton); // Ensure the button is added to the buttonsPanel\r\n\r\n        // Add components to the page\r\n        add(new VerticalPanel(\r\n                new HorizontalPanel(usernameLabel),\r\n                new HorizontalPanel(subtitleText)\r\n        ), BorderLayout.PAGE_START);\r\n        add(statsPanel, BorderLayout.CENTER);\r\n        add(buttonsPanel, BorderLayout.PAGE_END);\r\n\r\n        // Load state\r\n        loadCurrentState();\r\n        viewModel.addPropertyChangeListener(evt -> loadCurrentState());\r\n    }\r\n\r\n    private void backButtonPressed(ActionEvent event) {\r\n        viewManager.back();\r\n    }\r\n\r\n    @Override\r\n    public void loadState(StatsPageState state) {\r\n        if (state != null) {\r\n            // Update username\r\n            usernameLabel.setText(state.getUsername());\r\n\r\n            // Update stats\r\n            statsPanel.updateStats(state.getPoints(), state.getGamesPlayed(), state.getCorrectGuesses());\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public ViewModel<StatsPageState> getViewModel() {\r\n        return viewModel;\r\n    }\r\n\r\n    public void init() {\r\n        // Fetch stats for the current user (e.g., DemoUser)\r\n\r\n        statsController.fetchStats(aCViewModel.getState().getUsername());\r\n//      statsController.fetchStats(\"DemoUser\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/StatsPage.java b/src/main/java/view/pages/StatsPage.java
+--- a/src/main/java/view/pages/StatsPage.java	(revision f91af38b14903383377d6f006620d213f0309444)
++++ b/src/main/java/view/pages/StatsPage.java	(date 1732682772189)
+@@ -96,7 +96,7 @@
+     public void init() {
+         // Fetch stats for the current user (e.g., DemoUser)
+ 
+-        statsController.fetchStats(aCViewModel.getState().getUsername());
+-//      statsController.fetchStats("DemoUser");
++//        statsController.fetchStats(aCViewModel.getState().getUsername());
++        statsController.fetchStats("Terrence");
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"482eafd2-4214-4b6c-88a5-d599ac344a31\" name=\"Changes\" comment=\"Updated account page and app to include account logout stuff\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"kristopher.zhao\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n    &quot;associatedIndex&quot;: 2\r\n    }</component>\r\n  <component name=\"ProjectId\" id=\"2pLxVrI0dMaJi8LZUFBZthOsrDf\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.App (2).executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.App (3).executor&quot;: &quot;Debug&quot;,\r\n    &quot;Application.App (4).executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.App (5).executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.App (1)\">\r\n    <configuration name=\"App (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (3)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (4)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (5)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.App (1)\" />\r\n        <item itemvalue=\"Application.App (5)\" />\r\n        <item itemvalue=\"Application.App (4)\" />\r\n        <item itemvalue=\"Application.App (3)\" />\r\n        <item itemvalue=\"Application.App\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46\" />\r\n        <option value=\"jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7a6b8aa1-16ab-4ba6-82f4-2be2151e965b\" name=\"Changes\" comment=\"\" />\r\n      <created>1732590527178</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732590527178</updated>\r\n      <workItem from=\"1732590532509\" duration=\"752000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Added multiplayer game to app\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732591234422</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732591234422</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\" workspace\" />\r\n    <MESSAGE value=\"Questionably clean\" />\r\n    <MESSAGE value=\"Created account confirm controller\" />\r\n    <MESSAGE value=\"Created account confirm input boundary\" />\r\n    <MESSAGE value=\"Created account confirm interactor\" />\r\n    <MESSAGE value=\"Created account confirm output boundary\" />\r\n    <MESSAGE value=\"Created account confirm presenter\" />\r\n    <MESSAGE value=\"Created account input data\" />\r\n    <MESSAGE value=\"Implemented clean architecture for account and hooked into view system\" />\r\n    <MESSAGE value=\"Created user data access interface\" />\r\n    <MESSAGE value=\"Updated user interface\" />\r\n    <MESSAGE value=\"Updated user to have a user id\" />\r\n    <MESSAGE value=\"Updated data access mock to have fake user access\" />\r\n    <MESSAGE value=\"Created test for account confirm interactor\" />\r\n    <MESSAGE value=\"Added userid to account input data\" />\r\n    <MESSAGE value=\"Updated creation of account states to work with new user system\" />\r\n    <MESSAGE value=\"Update to idea files\" />\r\n    <MESSAGE value=\"Created account logout input boundary\" />\r\n    <MESSAGE value=\"Created account logout output boundary\" />\r\n    <MESSAGE value=\"Created account logout interactor\" />\r\n    <MESSAGE value=\"Created account logout interactor test\" />\r\n    <MESSAGE value=\"Created account logout presenter\" />\r\n    <MESSAGE value=\"Created account logout controller\" />\r\n    <MESSAGE value=\"Updated account page and app to include account logout stuff\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated account page and app to include account logout stuff\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>51</line>\r\n          <option name=\"timeStamp\" value=\"46\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>46</line>\r\n          <option name=\"timeStamp\" value=\"47\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"48\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"49\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f91af38b14903383377d6f006620d213f0309444)
++++ b/.idea/workspace.xml	(date 1732682772188)
+@@ -5,8 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StatsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StatsPage.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,7 +22,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="kristopher.zhao" />
++        <entry key="$PROJECT_DIR$" value="main" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -40,30 +39,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,
+-    &quot;Application.App (2).executor&quot;: &quot;Run&quot;,
+-    &quot;Application.App (3).executor&quot;: &quot;Debug&quot;,
+-    &quot;Application.App (4).executor&quot;: &quot;Run&quot;,
+-    &quot;Application.App (5).executor&quot;: &quot;Run&quot;,
+-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.App (1).executor": "Run",
++    "Application.App (2).executor": "Run",
++    "Application.App (3).executor": "Debug",
++    "Application.App (4).executor": "Run",
++    "Application.App (5).executor": "Run",
++    "Application.App.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
++    "git-widget-placeholder": "terrence.allder",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager" selected="Application.App (1)">
+     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="view.app.App" />
+@@ -211,16 +210,6 @@
+           <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
+           <line>46</line>
+           <option name="timeStamp" value="47" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
+-          <line>36</line>
+-          <option name="timeStamp" value="48" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>
+-          <line>64</line>
+-          <option name="timeStamp" value="49" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>

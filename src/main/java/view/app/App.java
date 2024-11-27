@@ -291,5 +291,4 @@ public class App {
     private static LeaderboardState getLeaderboardState() {
         return new LeaderboardState(List.of(new DummyUserStats("Zev", 123), new DummyUserStats("Chris", 233), new DummyUserStats("Terrence", 198)));
     }
-
 }

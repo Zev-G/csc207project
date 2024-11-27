@@ -1,0 +1,19 @@
+Index: src/main/java/app/FirebaseInitializer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package app;\r\n\r\nimport java.io.FileInputStream;\r\nimport java.io.IOException;\r\n\r\nimport com.google.auth.oauth2.GoogleCredentials;\r\nimport com.google.firebase.FirebaseApp;\r\nimport com.google.firebase.FirebaseOptions;\r\n\r\n/**\r\n * Initializing Firebase.\r\n */\r\npublic class FirebaseInitializer {\r\n\r\n    /**\r\n     * Initializing.\r\n     * @throws IOException exception.\r\n     */\r\n    public static void initializeFirebase() throws IOException {\r\n        FileInputStream serviceAccount = new FileInputStream(\"csc207project/serviceAccountKey.json\");\r\n\r\n        FirebaseOptions options = new FirebaseOptions.Builder()\r\n                .setCredentials(GoogleCredentials.fromStream(serviceAccount))\r\n                .setDatabaseUrl(\"https://uoftguessr-default-rtdb.firebaseio.com/\")\r\n                .build();\r\n\r\n        FirebaseApp.initializeApp(options);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/app/FirebaseInitializer.java b/src/main/java/app/FirebaseInitializer.java
+--- a/src/main/java/app/FirebaseInitializer.java	(revision 293bf156ecf883fd41b63e87cc4bd6c5e4cf2905)
++++ b/src/main/java/app/FirebaseInitializer.java	(date 1732685960112)
+@@ -17,7 +17,7 @@
+      * @throws IOException exception.
+      */
+     public static void initializeFirebase() throws IOException {
+-        FileInputStream serviceAccount = new FileInputStream("csc207project/serviceAccountKey.json");
++        FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
+ 
+         FirebaseOptions options = new FirebaseOptions.Builder()
+                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))

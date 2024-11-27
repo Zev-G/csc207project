@@ -50,6 +50,6 @@ public class AppViewManager extends ViewManager {
         add("multiplayer", multiplayerPage);
         add("error", errorPage);
         add("wait", waitingPage);
-        add("endmgame", endMultiplayerGamePage)
+        add("endmgame", endMultiplayerGamePage);
     }
 }
