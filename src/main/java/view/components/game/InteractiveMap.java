@@ -89,6 +89,12 @@ public class InteractiveMap extends JPanel {
         paintComponent(getGraphics());
     }
 
+    public void reset(){
+        chosenCoord[0] = 0;
+        chosenCoord[1] = 0;
+        isSelected = false;
+    }
+
     private int[] toXYCoord(double[] coord) {
         final double xRatio = (coord[1] - mapLocation[2]) / (mapLocation[3] - mapLocation[2]);
         final double yRatio = 1 + (coord[0] - mapLocation[1]) / (mapLocation[1] - mapLocation[0]);

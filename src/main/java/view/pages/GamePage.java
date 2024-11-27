@@ -22,11 +22,13 @@ import java.beans.PropertyChangeListener;
  */
 public class GamePage extends Page {
 
-    private JLabel roundLabel;
+//    private JLabel roundLabel;
     private SegmentedProgressBar progressBar;
     protected GameTimer gameTimer;
     private PointsDisplay pointsDisplay;
     private RoundedButton guessButton;
+    private RoundedButton summaryButton;
+    private RoundedButton homeButton;
     private JLabel imageLabel1;
 
     private InteractiveMap map =
@@ -53,9 +55,9 @@ public class GamePage extends Page {
         setMargin(50);
 
         JPanel topPanel = new JPanel(new BorderLayout());
-        roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
-        roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        topPanel.add(roundLabel, BorderLayout.WEST);
+        //roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
+//        roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
+//        topPanel.add(roundLabel, BorderLayout.WEST);
 
         gameTimer = new GameTimer(60);
         pointsDisplay = new PointsDisplay(0);
@@ -125,6 +127,32 @@ public class GamePage extends Page {
         bottomPanel.add(progressBarPanel, BorderLayout.SOUTH);
         add(bottomPanel, BorderLayout.SOUTH);
 
+        summaryButton = new RoundedButton("Summary");
+        summaryButton.setPreferredSize(new Dimension(200, 80));
+        summaryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked summary");
+                app.getGameSummaryController().fetchGameStats(progressBar.getAllSegmentStatus(),
+                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername());
+                viewManager.navigate("summary");
+            }
+        });
+        summaryButton.setVisible(false);
+        homeButton = new RoundedButton("Home");
+        homeButton.setPreferredSize(new Dimension(200, 80));
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("clicked home");
+                viewManager.navigate("main");
+            }
+        });
+        homeButton.setVisible(false);
+        buttonPanel.add(summaryButton);
+        buttonPanel.add(homeButton);
+        bottomPanel.add(buttonPanel, BorderLayout.NORTH);
+
         gameViewModel.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
@@ -135,8 +163,24 @@ public class GamePage extends Page {
                     progressBar.updateRound(gameViewModel.getState().isAcceptable());
                 }
 
+                if (gameViewModel.getState().isGameOver()){
+                    gameOver();
+                }
+
                 System.out.println(gameViewModel.getState().getScore());
                 pointsDisplay.setPoints(gameViewModel.getState().getScore());
+
+                System.out.println(gameViewModel.getState().getScore());
+                pointsDisplay.setPoints(gameViewModel.getState().getScore());
+
+                // Update visibility of View Summary button
+                summaryButton.setVisible(gameViewModel.getState().isGameOver());
+
+                // Update visibility of Home button (e.g., another condition)
+                homeButton.setVisible(gameViewModel.getState().isGameOver());
+
+                // Update visibility of Guess button
+                guessButton.setVisible(!gameViewModel.getState().isGameOver());
             }
         });
 
@@ -162,5 +206,10 @@ public class GamePage extends Page {
         progressBar.reset();
         gameTimer.resetTimer();
         gameTimer.start();
+    }
+
+    private void gameOver(){
+        map.reset();
+        gameTimer.resetTimer();
     }
 }
