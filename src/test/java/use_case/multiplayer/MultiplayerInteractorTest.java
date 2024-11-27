@@ -170,12 +170,14 @@ class MultiplayerInteractorTest {
 
         @Override
         public void handleGuess(GameInputData input) {
-
         }
 
         @Override
         public void init() {
+        }
 
+        @Override
+        public void timeout(GameInputData input) {
         }
     }
 

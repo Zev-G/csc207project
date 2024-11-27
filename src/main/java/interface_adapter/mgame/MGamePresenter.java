@@ -2,6 +2,7 @@ package interface_adapter.mgame;
 
 import interface_adapter.ViewManagerModel;
 import interface_adapter.game.GamePresenter;
+import interface_adapter.game.GameState;
 import interface_adapter.game.GameViewModel;
 import use_case.game.GameOutputData;
 import use_case.mgame.MGameOutputBoundary;
@@ -11,8 +12,12 @@ import use_case.mgame.MGameOutputData;
  * Multiplayer game presenter.
  */
 public class MGamePresenter extends GamePresenter implements MGameOutputBoundary {
-    public MGamePresenter(GameViewModel gameViewModel, ViewManagerModel viewManagerModel) {
+
+    private MGameEndViewModel mGameEndViewModel;
+
+    public MGamePresenter(GameViewModel gameViewModel, ViewManagerModel viewManagerModel, MGameEndViewModel mGameEndViewModel) {
         super(gameViewModel, viewManagerModel);
+        this.mGameEndViewModel = mGameEndViewModel;
     }
 
     @Override
@@ -23,17 +28,19 @@ public class MGamePresenter extends GamePresenter implements MGameOutputBoundary
 
     @Override
     public void waitForResponse() {
-        System.out.println("waiting");
+        viewManagerModel.setState("wait");
     }
 
     @Override
     public void PrepareError() {
-        System.out.println("error");
+        viewManagerModel.setState("error");
     }
 
     @Override
     public void endGame(GameOutputData gameOutputData) {
-        super.endGame(gameOutputData);
-        System.out.println(((MGameOutputData) gameOutputData).getOpponentScore());
+        mGameEndViewModel.setState(new GameEndState(((MGameOutputData) gameOutputData).getScore(),
+                ((MGameOutputData) gameOutputData).getOpponentScore()));
+        viewManagerModel.setState("endmgame");
+
     }
 }

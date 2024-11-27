@@ -17,6 +17,7 @@ import interface_adapter.game.GameViewModel;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.mgame.MGamePresenter;
+import interface_adapter.mgame.MGameEndViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerPresenter;
 import interface_adapter.multiplayer.MultiplayerViewModel;
@@ -42,6 +43,8 @@ public class App {
 
     private final MultiplayerViewModel multiplayerViewModel;
 
+    private final MGameEndViewModel mGameEndViewModel;
+
     // Controllers
     private final GameController gameController;
 
@@ -63,6 +66,7 @@ public class App {
             GameViewModel gameViewModel,
             GameViewModel mgameViewModel,
             MultiplayerViewModel multiplayerViewModel,
+            MGameEndViewModel mGameEndViewModel,
             // Controllers:
             GameController gameController,
             GameController mgameController,
@@ -78,6 +82,7 @@ public class App {
         this.gameViewModel = gameViewModel;
         this.mgameViewModel = mgameViewModel;
         this.multiplayerViewModel = multiplayerViewModel;
+        this.mGameEndViewModel = mGameEndViewModel;
         // Controllers
         this.gameController = gameController;
         this.mgameController = mgameController;
@@ -130,6 +135,10 @@ public class App {
         return multiplayerViewModel;
     }
 
+    public MGameEndViewModel getmGameEndViewModel() {
+        return mGameEndViewModel;
+    }
+
     public AccountConfirmController getAccountConfirmController() {
         return accountConfirmController;
     }
@@ -158,8 +167,10 @@ public class App {
         GameInteractor interactor = new GameInteractor(mock, presenter);
         GameController controller = new GameController(interactor);
 
+
+        MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
-        MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel);
+        MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel, mGameEndViewModel);
         MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccessMock(), mgamePresenter);
         GameController mgameController = new GameController(mGameInteractorinteractor);
 
@@ -168,6 +179,8 @@ public class App {
         MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("app.kristopherz.net", 5555,
                 multiplayerPresenter, mGameInteractorinteractor);
         MultiplayerController multiplayerController = new MultiplayerController(multiplayerInteractor);
+
+
 
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
@@ -188,9 +201,19 @@ public class App {
         accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
-                viewManagerModel, accountViewModel, leaderboardViewModel, viewModel, mgameViewModel,
-                multiplayerViewModel, controller, mgameController, multiplayerController, accountConfirmController,
-                accountLogoutController, accountDeleteController);
+                viewManagerModel,
+                accountViewModel,
+                leaderboardViewModel,
+                viewModel,
+                mgameViewModel,
+                multiplayerViewModel,
+                mGameEndViewModel,
+                controller,
+                mgameController,
+                multiplayerController,
+                accountConfirmController,
+                accountLogoutController,
+                accountDeleteController);
 
         app.show();
     }
