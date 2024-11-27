@@ -4,9 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment=" workspace">
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Idea filess">
+      <change afterPath="$PROJECT_DIR$/src/main/java/data_access/GameSummaryDataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data_access/UserDataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountlogout/AccountLogoutPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPageState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPageViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameSummaryPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/account/AccountInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameSummaryPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/pages/GameSummaryPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountconfirm/AccountConfirmInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountdelete/AccountDeleteInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/accountlogout/AccountLogoutInteractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/FirebaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CommonUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CommonUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/account/AccountState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/account/AccountState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/game/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/StartGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +59,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -31,18 +77,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Tallduoft&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Zev-G/csc207project.git&quot;,
-    &quot;accountId&quot;: &quot;bb30032a-8da2-4e5d-8743-9195f6cd0e74&quot;
-  }
-}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -55,41 +89,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ExampleNavigation.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartGame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartMultiplayerGame (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartMultiplayerGame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StatsPageTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FirebaseStatTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.infernus.idea.checkstyle.CheckStyleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.ExampleNavigation.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Application.StartGame.executor": "Run",
+    "Application.StartMultiplayerGame (1).executor": "Run",
+    "Application.StartMultiplayerGame.executor": "Run",
+    "JUnit.AccountConfirmInteractorTest.pressed.executor": "Run",
+    "JUnit.AccountDeleteInteractorTest.deleteAccount.executor": "Coverage",
+    "JUnit.AccountLogoutInteractorTest.logout.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Merging terrence.allder",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/vezve/OneDrive/Desktop/School/UofT Year 2/CSC207/java/csc207project/src/main/java/use_case",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "org.infernus.idea.checkstyle.CheckStyleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\terre\IdeaProjects\csc207project\src\main\java\view" />
-      <recent name="C:\Users\terre\IdeaProjects\csc207project\src\main\java\data_access" />
-      <recent name="C:\Users\terre\IdeaProjects\csc207project\src\test\java\use_case\stats" />
-      <recent name="C:\Users\terre\IdeaProjects\csc207project\src\main\java\view\pages" />
-      <recent name="C:\Users\terre\IdeaProjects\csc207project\src\main\java\view\components\stats" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vezve\OneDrive\Desktop\School\UofT Year 2\CSC207\java\csc207project\src\main\java\use_case" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="use_case.accountdelete" />
+      <recent name="use_case.accountlogout" />
+      <recent name="use_case.accountconfirm" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -119,45 +161,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartMultiplayerGame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.pages.StartMultiplayerGame" />
+    <configuration name="AccountConfirmInteractorTest.pressed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.pages.*" />
+          <option name="PATTERN" value="use_case.accountconfirm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="use_case.accountconfirm" />
+      <option name="MAIN_CLASS_NAME" value="use_case.accountconfirm.AccountConfirmInteractorTest" />
+      <option name="METHOD_NAME" value="pressed" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FirebaseStatTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountDeleteInteractorTest.deleteAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StatsTests.*" />
+          <option name="PATTERN" value="use_case.accountdelete.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="StatsTests" />
-      <option name="MAIN_CLASS_NAME" value="StatsTests.FirebaseStatTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="use_case.accountdelete" />
+      <option name="MAIN_CLASS_NAME" value="use_case.accountdelete.AccountDeleteInteractorTest" />
+      <option name="METHOD_NAME" value="deleteAccount" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FirebaseStatTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountLogoutInteractorTest.logout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.stats.*" />
+          <option name="PATTERN" value="use_case.accountlogout.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="use_case.stats" />
-      <option name="MAIN_CLASS_NAME" value="use_case.stats.FirebaseStatTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="use_case.accountlogout" />
+      <option name="MAIN_CLASS_NAME" value="use_case.accountlogout.AccountLogoutInteractorTest" />
+      <option name="METHOD_NAME" value="logout" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,9 +223,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.FirebaseStatTest (1)" />
-        <item itemvalue="JUnit.FirebaseStatTest" />
-        <item itemvalue="Application.StartMultiplayerGame (1)" />
+        <item itemvalue="JUnit.AccountDeleteInteractorTest.deleteAccount" />
+        <item itemvalue="JUnit.AccountLogoutInteractorTest.logout" />
+        <item itemvalue="JUnit.AccountConfirmInteractorTest.pressed" />
         <item itemvalue="Application.StartGame" />
       </list>
     </recent_temporary>
@@ -199,7 +246,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732559185055</updated>
-      <workItem from="1732559189576" duration="3043000" />
+      <workItem from="1732559189576" duration="12213000" />
     </task>
     <task id="LOCAL-00001" summary=" workspace">
       <option name="closed" value="true" />
@@ -209,14 +256,335 @@
       <option name="project" value="LOCAL" />
       <updated>1732559315145</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Questionably clean">
+      <option name="closed" value="true" />
+      <created>1732562280939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732562280939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created account confirm controller">
+      <option name="closed" value="true" />
+      <created>1732565871123</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565871123</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created account confirm input boundary">
+      <option name="closed" value="true" />
+      <created>1732565879483</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565879483</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created account confirm interactor">
+      <option name="closed" value="true" />
+      <created>1732565885778</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565885778</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created account confirm output boundary">
+      <option name="closed" value="true" />
+      <created>1732565895140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565895140</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Created account confirm presenter">
+      <option name="closed" value="true" />
+      <created>1732565905164</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565905164</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Created account input data">
+      <option name="closed" value="true" />
+      <created>1732565910895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565910895</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented clean architecture for account and hooked into view system">
+      <option name="closed" value="true" />
+      <created>1732565937031</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732565937031</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created user data access interface">
+      <option name="closed" value="true" />
+      <created>1732568389455</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568389455</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated user interface">
+      <option name="closed" value="true" />
+      <created>1732568400480</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568400480</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updated user to have a user id">
+      <option name="closed" value="true" />
+      <created>1732568440044</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568440044</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated data access mock to have fake user access">
+      <option name="closed" value="true" />
+      <created>1732568456644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568456644</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Created test for account confirm interactor">
+      <option name="closed" value="true" />
+      <created>1732568470048</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568470048</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added userid to account input data">
+      <option name="closed" value="true" />
+      <created>1732568483783</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568483783</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated creation of account states to work with new user system">
+      <option name="closed" value="true" />
+      <created>1732568500990</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568500990</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update to idea files">
+      <option name="closed" value="true" />
+      <created>1732568514887</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732568514887</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Created account logout input boundary">
+      <option name="closed" value="true" />
+      <created>1732569706358</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569706358</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Created account logout output boundary">
+      <option name="closed" value="true" />
+      <created>1732569713077</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569713077</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Created account logout interactor">
+      <option name="closed" value="true" />
+      <created>1732569725314</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569725314</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Created account logout interactor test">
+      <option name="closed" value="true" />
+      <created>1732569732947</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569732948</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Created account logout presenter">
+      <option name="closed" value="true" />
+      <created>1732569748910</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569748910</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Created account logout controller">
+      <option name="closed" value="true" />
+      <created>1732569761464</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569761464</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Updated account page and app to include account logout stuff">
+      <option name="closed" value="true" />
+      <created>1732569790683</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1732569790683</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Created account delete input boundary">
+      <option name="closed" value="true" />
+      <created>1732571398631</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571398631</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Created account delete output boundary">
+      <option name="closed" value="true" />
+      <created>1732571405344</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571405344</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Created account delete interactor">
+      <option name="closed" value="true" />
+      <created>1732571412300</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571412300</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Created account delete controller">
+      <option name="closed" value="true" />
+      <created>1732571422244</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571422244</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Created account delete presenter">
+      <option name="closed" value="true" />
+      <created>1732571432780</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571432780</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Created account interactor test">
+      <option name="closed" value="true" />
+      <created>1732571440447</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571440447</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Updated account page to use controller">
+      <option name="closed" value="true" />
+      <created>1732571465012</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571465012</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added account delete controller to app">
+      <option name="closed" value="true" />
+      <created>1732571475072</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571475072</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added data access for deleting account">
+      <option name="closed" value="true" />
+      <created>1732571487871</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571487871</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Idea filess">
+      <option name="closed" value="true" />
+      <created>1732571492584</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1732571492584</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value=" workspace" />
+    <MESSAGE value="Created user data access interface" />
+    <MESSAGE value="Updated user interface" />
+    <MESSAGE value="Updated user to have a user id" />
+    <MESSAGE value="Updated data access mock to have fake user access" />
+    <MESSAGE value="Created test for account confirm interactor" />
+    <MESSAGE value="Added userid to account input data" />
+    <MESSAGE value="Updated creation of account states to work with new user system" />
+    <MESSAGE value="Update to idea files" />
+    <MESSAGE value="Created account logout input boundary" />
+    <MESSAGE value="Created account logout output boundary" />
+    <MESSAGE value="Created account logout interactor" />
+    <MESSAGE value="Created account logout interactor test" />
+    <MESSAGE value="Created account logout presenter" />
+    <MESSAGE value="Created account logout controller" />
+    <MESSAGE value="Updated account page and app to include account logout stuff" />
+    <MESSAGE value="Created account delete input boundary" />
+    <MESSAGE value="Created account delete output boundary" />
+    <MESSAGE value="Created account delete interactor" />
+    <MESSAGE value="Created account delete controller" />
+    <MESSAGE value="Created account delete presenter" />
+    <MESSAGE value="Created account interactor test" />
+    <MESSAGE value="Updated account page to use controller" />
+    <MESSAGE value="Added account delete controller to app" />
+    <MESSAGE value="Added data access for deleting account" />
+    <MESSAGE value="Idea filess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Idea filess" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/interface_adapter/accountconfirm/AccountConfirmController.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$AccountConfirmInteractorTest_pressed.ic" NAME="AccountConfirmInteractorTest.pressed Coverage Results" MODIFIED="1732568060492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.accountconfirm.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$AccountDeleteInteractorTest_deleteAccount.ic" NAME="AccountDeleteInteractorTest.deleteAccount Coverage Results" MODIFIED="1732571378321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.accountdelete.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$AccountLogoutInteractorTest_logout.ic" NAME="AccountLogoutInteractorTest.logout Coverage Results" MODIFIED="1732569672902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_case.accountlogout.*</FILTER>
+    </SUITE>
   </component>
 </project>

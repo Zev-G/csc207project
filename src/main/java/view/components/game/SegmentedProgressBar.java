@@ -4,6 +4,8 @@ import view.ViewConstants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A progress bar with several segments.
@@ -32,13 +34,7 @@ public class SegmentedProgressBar extends JPanel {
      */
     public boolean updateRound(boolean win) {
         if (currentRound < totalRounds) {
-            final Color fillColor;
-            if (win) {
-                fillColor = PASTEL_GREEN;
-            }
-            else {
-                fillColor = PASTEL_RED;
-            }
+            final Color fillColor = win ? PASTEL_GREEN : PASTEL_RED;
             final SegmentPanel currentSegment = (SegmentPanel) getComponent(currentRound);
             currentSegment.setColor(fillColor);
             currentRound++;
@@ -62,6 +58,19 @@ public class SegmentedProgressBar extends JPanel {
     }
 
     /**
+     * Returns a list of booleans representing the win status of the segments.
+     * @return List<Boolean> where true represents a green segment (win), false otherwise.
+     */
+    public List<Boolean> getAllSegmentStatus() {
+        List<Boolean> statuses = new ArrayList<>();
+        for (int i = 0; i < totalRounds; i++) {
+            SegmentPanel segment = (SegmentPanel) getComponent(i);
+            statuses.add(segment.getBackground().equals(PASTEL_GREEN));
+        }
+        return statuses;
+    }
+
+    /**
      * Represents one segment.
      */
     private static class SegmentPanel extends JPanel {
@@ -74,5 +83,4 @@ public class SegmentedProgressBar extends JPanel {
             setBackground(color);
         }
     }
-
 }

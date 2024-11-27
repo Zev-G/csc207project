@@ -80,4 +80,6 @@ public class GameState {
     public void setPhotoID(int photoID) {
         this.photoID = photoID;
     }
+
+    public boolean shouldShow(){ return this.round == 11; }
 }

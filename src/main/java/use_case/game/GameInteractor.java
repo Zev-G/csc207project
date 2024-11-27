@@ -74,7 +74,7 @@ public class GameInteractor implements GameInputBoundary {
 
     protected void endGame(boolean isAcceptable) {
         System.out.println("game finished");
-
+        System.out.println(gameStates.getRounds() + 1);
         GameOutputData gameOutputData = new GameOutputData(isAcceptable, gameStates.getScore(),
                 null, 0, null, gameStates.getRounds() + 1);
 

@@ -9,6 +9,7 @@ public class AppViewManager extends ViewManager {
     private GamePage gamePage;
     private AccountPage accountPage;
     private StatsPage statsPage;
+    private GameSummaryPage gameSummaryPage;
 
     private final App app;
 
@@ -23,10 +24,12 @@ public class AppViewManager extends ViewManager {
         gamePage = new GamePage(app);
         accountPage = new AccountPage(app);
         statsPage = new StatsPage(app);
+        gameSummaryPage = new GameSummaryPage(app);
 
         add("main", mainPage);
         add("game", gamePage);
         add("account", accountPage);
         add("stats", statsPage);
+        add("summary", gameSummaryPage);
     }
 }

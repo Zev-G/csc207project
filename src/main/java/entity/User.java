@@ -17,4 +17,16 @@ public interface User {
      */
     String getPassword();
 
+    /**
+     * Returns the email of the user.
+     * @return the email of the user.
+     */
+    String getEmail();
+
+    /**
+     * Returns the user id.
+     * @return the user id.
+     */
+    int getUserId();
+
 }
