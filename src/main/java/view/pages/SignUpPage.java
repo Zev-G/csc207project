@@ -104,6 +104,7 @@ public class SignUpPage extends Page implements View<AccountState> {
 
         loadCurrentState();
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
+
     }
 
     private void signUpButtonPressed(ActionEvent event) {
@@ -122,5 +123,13 @@ public class SignUpPage extends Page implements View<AccountState> {
 
         // Navigate to account page after successful sign up
         viewManager.navigate("account");
+
+    }
+
+    private void cancelButtonPressed(ActionEvent event) {
+
+        // Return to previous page
+        viewManager.back();
+
     }
 }
