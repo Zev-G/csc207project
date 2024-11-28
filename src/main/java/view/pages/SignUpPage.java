@@ -63,5 +63,12 @@ public class SignUpPage extends Page implements View<AccountState> {
         gbc.anchor = GridBagConstraints.CENTER; // Center alignment
         grid.add(pageTitle, gbc);
 
+        // Username label
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1; // Single column
+        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        grid.add(usernameLabel, gbc);
+
     }
 }
