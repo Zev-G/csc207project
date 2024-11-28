@@ -2,6 +2,9 @@ package interface_adapter.image;
 
 import use_case.image.ImagePageInputBoundary;
 
+import java.io.File;
+import java.io.IOException;
+
 public class ImagePageController {
 
     private final ImagePageInputBoundary interactor;
@@ -10,7 +13,7 @@ public class ImagePageController {
         this.interactor = interactor;
     }
 
-    public void uploadImage(String imagePath) {
-        interactor.uploadImage(imagePath);
+    public void uploadImage(File imageFile, String description) throws IOException {
+        interactor.uploadImage(imageFile, description);
     }
 }
