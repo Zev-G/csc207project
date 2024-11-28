@@ -200,11 +200,11 @@ public class App {
         return summaryPageViewModel;
     }
 
-    public ImagePageController getImagePageController() { // New
+    public ImagePageController getImagePageController() {
         return imagePageController;
     }
 
-    public ImagePageViewModel getImagePageViewModel() { // New
+    public ImagePageViewModel getImagePageViewModel() {
         return imagePageViewModel;
     }
 
@@ -275,8 +275,9 @@ public class App {
 
         ImagePageViewModel imagePageViewModel = new ImagePageViewModel();
         ImagePagePresenter imagePagePresenter = new ImagePagePresenter(imagePageViewModel);
-        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter);
+        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter, "50ebc9d32abce50f92c2794ae7b36aa3e743b272");
         ImagePageController imagePageController = new ImagePageController(imagePageInteractor);
+
 
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "",0));
