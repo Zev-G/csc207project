@@ -1,8 +1,8 @@
 package view.pages;
 
 import interface_adapter.ViewModel;
-import interface_adapter.account.AccountState;
-import interface_adapter.account.AccountViewModel;
+import interface_adapter.signup.SignUpState;
+import interface_adapter.signup.SignUpViewModel;
 import view.View;
 import view.ViewConstants;
 import view.app.App;
@@ -15,9 +15,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class SignUpPage extends Page implements View<AccountState> {
+public class SignUpPage extends Page implements View<SignUpState> {
 
-    private final AccountViewModel viewModel;
+    private final SignUpViewModel viewModel;
 
     private final DLabel pageTitle = new DLabel("Sign Up");
     private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
@@ -35,7 +35,7 @@ public class SignUpPage extends Page implements View<AccountState> {
 
     public SignUpPage(App app) {
         super(app.getViewManager());
-        this.viewModel = app.getAccountViewModel();
+        this.viewModel = app.getSignUpViewModel();
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
@@ -70,19 +70,29 @@ public class SignUpPage extends Page implements View<AccountState> {
         gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
         grid.add(usernameLabel, gbc);
 
+        // Username field
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
+        gbc.weightx = 1.0; // Let the text field take extra space
+        grid.add(usernameField, gbc);
+
         // Email label
         gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.fill = GridBagConstraints.NONE; // Reset fill
-        gbc.weightx = 0; // Reset weight
         gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
         grid.add(emailLabel, gbc);
+
+        // Email field
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
+        gbc.weightx = 1.0; // Let the text field take extra space
+        grid.add(emailField, gbc);
 
         // Password label
         gbc.gridx = 0;
         gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.NONE; // Reset fill
-        gbc.weightx = 0; // Reset weight
         gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
         grid.add(passwordLabel, gbc);
 
@@ -104,49 +114,52 @@ public class SignUpPage extends Page implements View<AccountState> {
 
         loadCurrentState();
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
-
     }
 
     private void signUpButtonPressed(ActionEvent event) {
-
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
 
-        // Validating input before updating the state
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        // Set credentials in the view model
+        viewModel.setCredentials(username, email, password);
 
-        // Update view model state
-        viewModel.setState(new AccountState(true, username, email, password, 0));
-
-        // Navigate to account page after successful sign up
-        viewManager.navigate("account");
-
+        // Initiate sign-up process
+        viewModel.signUp();
     }
 
     private void cancelButtonPressed(ActionEvent event) {
-
-        // Return to previous page
+        // Return to the previous page
         viewManager.back();
-
     }
 
     @Override
-    public void loadState(AccountState state) {
+    public void loadState(SignUpState state) {
+        if (state.isSigningUp()) {
+            // Disable inputs and show a progress indicator
+            signUpButton.setEnabled(false);
+            cancelButton.setEnabled(false);
+        } else {
+            // Enable inputs
+            signUpButton.setEnabled(true);
+            cancelButton.setEnabled(true);
 
-        // Clear fields when loading the page
-        usernameField.setText("");
-        emailField.setText("");
-        passwordField.setText("");
+            if (state.getErrorMessage() != null) {
+                // Show error message
+                JOptionPane.showMessageDialog(this, state.getErrorMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
 
+        // Reset fields if sign-up was successful
+        if (!state.isSigningUp() && state.getErrorMessage() == null) {
+            usernameField.setText("");
+            emailField.setText("");
+            passwordField.setText("");
+        }
     }
 
     @Override
-    public ViewModel<AccountState> getViewModel() {
-
+    public ViewModel<SignUpState> getViewModel() {
         return viewModel;
-
     }
 }
