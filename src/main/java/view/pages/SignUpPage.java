@@ -32,4 +32,12 @@ public class SignUpPage extends Page implements View<AccountState> {
     private final JButton cancelButton = new RoundedButton("Cancel");
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
-}
+
+    public SignUpPage(App app) {
+        super(app.getViewManager());
+        this.viewModel = app.getAccountViewModel();
+
+        setMargin(ViewConstants.MARGIN_M);
+        pageTitle.setFontSize(ViewConstants.TEXT_LL);
+
+    }
