@@ -79,28 +79,28 @@ public class App {
     private final AppViewManager viewManager;
 
     public App(
-               // Views:
-               ViewManagerModel viewManagerModel,
-               // Models:
-               AccountViewModel accountViewModel,
-               LeaderboardViewModel leaderboardViewModel,
-               GameViewModel gameViewModel,
-               StatsPageViewModel statsPageViewModel,
-               GameSummaryPageViewModel summaryPageViewModel,
-               GameViewModel mgameViewModel,
-               MultiplayerViewModel multiplayerViewModel,
-               MGameEndViewModel mGameEndViewModel,
-               ImagePageViewModel imagePageViewModel,
-               // Controllers:
-               GameController gameController,
-               GameController mgameController,
-               MultiplayerController multiplayerController,
-               AccountConfirmController accountConfirmController,
-               AccountLogoutController accountLogoutController,
-               AccountDeleteController accountDeleteController,
-               StatsController statsController,
-               GameSummaryController gameSummaryController,
-               ImagePageController imagePageController
+            // Views:
+            ViewManagerModel viewManagerModel,
+            // Models:
+            AccountViewModel accountViewModel,
+            LeaderboardViewModel leaderboardViewModel,
+            GameViewModel gameViewModel,
+            StatsPageViewModel statsPageViewModel,
+            GameSummaryPageViewModel summaryPageViewModel,
+            GameViewModel mgameViewModel,
+            MultiplayerViewModel multiplayerViewModel,
+            MGameEndViewModel mGameEndViewModel,
+            ImagePageViewModel imagePageViewModel,
+            // Controllers:
+            GameController gameController,
+            GameController mgameController,
+            MultiplayerController multiplayerController,
+            AccountConfirmController accountConfirmController,
+            AccountLogoutController accountLogoutController,
+            AccountDeleteController accountDeleteController,
+            StatsController statsController,
+            GameSummaryController gameSummaryController,
+            ImagePageController imagePageController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -301,7 +301,7 @@ public class App {
                 statsController,
                 gameSummaryController,
                 imagePageController
-                );
+        );
 
         app.show();
     }
