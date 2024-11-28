@@ -51,8 +51,7 @@ public class ImagePage extends Page {
         fileSelectionPanel.add(uploadButton);
         fileSelectionPanel.add(selectedFileLabel);
 
-        // Interactive Map Configuration
-        int mapDimension = 400; // Make it a 400x400 square
+        int mapDimension = 400;
         ImageIcon rawMap = new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg"));
         ImageIcon scaledMap = ImageScaler.getScaledImageIcon(rawMap, mapDimension, mapDimension);
         interactiveMap = new InteractiveMap(scaledMap, new double[]{43.669978, 43.657185, -79.403269, -79.384892});
