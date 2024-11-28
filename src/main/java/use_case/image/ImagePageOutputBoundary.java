@@ -1,5 +1,8 @@
 package use_case.image;
 
 public interface ImagePageOutputBoundary {
-    void presentImagePath(String path);
+    void presentImagePath(String imagePath);
+    void presentUploadSuccess(String response);
+    void presentUploadFailure(String error);
 }
+
