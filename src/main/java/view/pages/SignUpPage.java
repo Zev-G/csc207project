@@ -115,8 +115,12 @@ public class SignUpPage extends Page implements View<AccountState> {
         // Validating input before updating the state
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
         }
 
+        // Update view model state
+        viewModel.setState(new AccountState(true, username, email, password, 0));
+
+        // Navigate to account page after successful sign up
+        viewManager.navigate("account");
     }
 }
