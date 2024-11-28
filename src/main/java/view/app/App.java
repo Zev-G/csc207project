@@ -254,7 +254,7 @@ public class App {
         GameSummaryPageViewModel summaryPageViewModel = new GameSummaryPageViewModel();
         GameSummaryOutputBoundary gameSummaryPresenter = new GameSummaryPresenter(summaryPageViewModel);
         GameSummaryInputBoundary gameSummaryInteractor = new GameSummaryInteractor(gameSummaryPresenter);
-        GameSummaryController gameSummaryController = new GameSummaryController(gameSummaryInteractor);
+        GameSummaryController gameSummaryController = new GameSummaryController(updateStatsInteractor, gameSummaryInteractor);
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(viewManagerModel);
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(mock, accountConfirmPresenter);
