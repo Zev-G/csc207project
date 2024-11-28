@@ -93,5 +93,16 @@ public class SignUpPage extends Page implements View<AccountState> {
         gbc.weightx = 1.0; // Let the text field take extra space
         grid.add(passwordField, gbc);
 
+        buttons.setLayout(new FlowLayout());
+
+        signUpButton.setPreferredSize(new Dimension(200, 80));
+        cancelButton.setPreferredSize(new Dimension(200, 80));
+
+        // Add listeners
+        signUpButton.addActionListener(this::signUpButtonPressed);
+        cancelButton.addActionListener(this::cancelButtonPressed);
+
+        loadCurrentState();
+        viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 }
