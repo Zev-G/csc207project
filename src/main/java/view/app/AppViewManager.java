@@ -35,8 +35,7 @@ public class AppViewManager extends ViewManager {
         errorPage = new ErrorPage(app);
         waitingPage = new WaitingPage(app);
         endMultiplayerGamePage = new EndMultiplayerGamePage(app);
-        imagePage = new ImagePage(app);
-
+        imagePage = new ImagePage(app, app.getImagePageController(), app.getImagePageViewModel());
 
         add("main", mainPage);
         add("game", gamePage);
