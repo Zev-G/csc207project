@@ -66,6 +66,15 @@ public class ImagePage extends Page {
         buttonsPanel.add(backButton);
         buttonsPanel.add(uploadToImgurButton);
 
+        // Main Content Panel
+        JPanel contentPanel = new JPanel(new BorderLayout(10, 10));
+        contentPanel.add(fileSelectionPanel, BorderLayout.NORTH);
+
+        // Center Panel for the Map
+        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        centerPanel.add(interactiveMap);
+        contentPanel.add(centerPanel, BorderLayout.CENTER);
+
         // Add components to main layout
         add(headerPanel, BorderLayout.PAGE_START);
         add(contentPanel, BorderLayout.CENTER);
