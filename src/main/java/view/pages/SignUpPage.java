@@ -70,5 +70,13 @@ public class SignUpPage extends Page implements View<AccountState> {
         gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
         grid.add(usernameLabel, gbc);
 
+        // Email label
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.NONE; // Reset fill
+        gbc.weightx = 0; // Reset weight
+        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        grid.add(emailLabel, gbc);
+
     }
 }
