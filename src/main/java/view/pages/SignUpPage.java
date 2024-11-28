@@ -40,4 +40,20 @@ public class SignUpPage extends Page implements View<AccountState> {
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
 
+        // Layout
+        BorderLayout layout = new BorderLayout();
+        layout.setVgap(60);
+        setLayout(layout);
+        buttons.add(signUpButton);
+        buttons.add(cancelButton);
+        add(titleLayout, BorderLayout.PAGE_START);
+        add(grid, BorderLayout.CENTER);
+        add(buttons, BorderLayout.PAGE_END);
+
+        grid.setMargin(0, 400, 0, 400);
+
+        grid.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+
     }
+}
