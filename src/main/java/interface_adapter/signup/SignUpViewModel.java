@@ -7,4 +7,10 @@ public class SignUpViewModel extends ViewModel<SignUpState> {
 
     private final FirebaseUserDataAccess userDataAccess;
 
+    public SignUpViewModel(FirebaseUserDataAccess userDataAccess) {
+        super("signup");
+        this.userDataAccess = userDataAccess;
+        setState(SignUpState.DUMMY_STATE);
+    }
+
 }
