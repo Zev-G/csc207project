@@ -23,11 +23,77 @@ public class DataAccess implements LocationDataAccess {
 
     public DataAccess(long seed) {
         random = new Random(seed);
-//        fetchImagesAndLocations();
+        fetchImagesAndLocations();
     }
 
     public DataAccess() {
         this(new Random().nextLong());
+    }
+
+    /**
+     * Fetches images and their corresponding coordinates from an external API or database.
+     */
+    private void fetchImagesAndLocations() {
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(IMGUR_API_URL)
+                .addHeader("Authorization", "Bearer " + ACCESS_TOKEN)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (response.isSuccessful() && response.body() != null) {
+                String responseBody = response.body().string();
+                JSONObject json = new JSONObject(responseBody);
+                JSONArray imagesArray = json.getJSONArray("data");
+
+                // Iterate through the fetched image data and generate PhotoLocation objects
+                for (int i = 0; i < imagesArray.length(); i++) {
+                    JSONObject imageData = imagesArray.getJSONObject(i);
+
+                    String imageUrl = imageData.getString("link");
+                    String description = imageData.optString("description", "");
+
+                    // Parse coordinates from the description field if available
+                    double[] coordinates = parseCoordinates(description);
+
+                    if (coordinates != null) {
+                        ImageIcon photo = new ImageIcon(new URL(imageUrl));
+                        PhotoLocation photoLocation = new PhotoLocation(photo, coordinates, i + 1);
+                        locations.add(photoLocation);
+                    }
+                }
+
+                System.out.println("Fetched " + locations.size() + " photo locations from Imgur.");
+            } else {
+                System.err.println("Failed to fetch images: " + response.message());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error fetching images and locations.");
+        }
+    }
+
+    /**
+     * Parses the coordinates from the image description.
+     *
+     * @param description Description containing coordinates.
+     * @return A double array representing latitude and longitude, or null if parsing fails.
+     */
+    private double[] parseCoordinates(String description) {
+        try {
+            // Example description format: "Coordinates: [43.659842, -79.397183]"
+            if (description.startsWith("Coordinates:")) {
+                String coords = description.substring(description.indexOf("[") + 1, description.indexOf("]"));
+                String[] splitCoords = coords.split(",");
+                double latitude = Double.parseDouble(splitCoords[0].trim());
+                double longitude = Double.parseDouble(splitCoords[1].trim());
+                return new double[]{latitude, longitude};
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to parse coordinates from description: " + description);
+        }
+        return null;
     }
 
     @Override
