@@ -98,8 +98,7 @@ public class DataAccess implements LocationDataAccess {
 
     @Override
     public int getPhotoID() {
-        // Generate a random photo ID for the game interactor.
-        return locations.isEmpty() ? -1 : random.nextInt(locations.size());
+        return 0;
     }
 
     @Override
@@ -113,5 +112,14 @@ public class DataAccess implements LocationDataAccess {
             throw new IllegalStateException("No photo locations available.");
         }
         return locations.get(random.nextInt(locations.size()));
+    }
+
+    /**
+     * Exposes the list of PhotoLocation objects for testing.
+     *
+     * @return List of PhotoLocation objects.
+     */
+    public ArrayList<PhotoLocation> getLocations() {
+        return locations;
     }
 }
