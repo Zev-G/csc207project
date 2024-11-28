@@ -135,9 +135,18 @@ public class SignUpPage extends Page implements View<AccountState> {
 
     @Override
     public void loadState(AccountState state) {
+
         // Clear fields when loading the page
         usernameField.setText("");
         emailField.setText("");
         passwordField.setText("");
+
+    }
+
+    @Override
+    public ViewModel<AccountState> getViewModel() {
+
+        return viewModel;
+
     }
 }
