@@ -105,4 +105,10 @@ public class SignUpPage extends Page implements View<AccountState> {
         loadCurrentState();
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
+
+    private void signUpButtonPressed(ActionEvent event) {
+        String username = usernameField.getText();
+        String email = emailField.getText();
+        String password = new String(passwordField.getPassword());
+    }
 }
