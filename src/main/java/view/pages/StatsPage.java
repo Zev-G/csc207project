@@ -96,7 +96,7 @@ public class StatsPage extends Page implements View<StatsPageState> {
     public void init() {
         // Fetch stats for the current user (e.g., DemoUser)
 
-//        statsController.fetchStats(aCViewModel.getState().getUsername());
-        statsController.fetchStats("Terrence");
+        statsController.fetchStats(aCViewModel.getState().getUsername());
+//        statsController.fetchStats("Terrence");
     }
 }
