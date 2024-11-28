@@ -111,6 +111,14 @@ public class ImagePage extends Page {
             return;
         }
 
+        double[] chosenCoord = interactiveMap.getChosenCoord();
+        if (chosenCoord[0] == 0 && chosenCoord[1] == 0) {
+            JOptionPane.showMessageDialog(this, "Please select a location on the map.");
+            return;
+        }
+
+        String description = "Coordinates: [" + chosenCoord[0] + ", " + chosenCoord[1] + "]";
+
         OkHttpClient client = new OkHttpClient();
 
         RequestBody requestBody = new MultipartBody.Builder()
