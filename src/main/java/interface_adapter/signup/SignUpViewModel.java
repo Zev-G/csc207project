@@ -27,4 +27,15 @@ public class SignUpViewModel extends ViewModel<SignUpState> {
         setState(getState().withCredentials(username, email, password));
 
     }
+    /**
+     * Initiates the sign-up process.
+     */
+    public void signUp() {
+        SignUpState currentState = getState();
+
+        // Ensure the state has valid credentials
+        if (currentState.getUsername().isEmpty() || currentState.getEmail().isEmpty() || currentState.getPassword().isEmpty()) {
+            setState(currentState.withError("All fields are required."));
+        }
+    }
 }
