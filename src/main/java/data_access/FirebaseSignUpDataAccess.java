@@ -19,4 +19,3 @@ public class FirebaseSignUpDataAccess implements SignUpDataAccess {
                 .addOnFailureListener(e -> System.err.println("Error creating user:" + e.getMessage()));
     }
 }
-:;
