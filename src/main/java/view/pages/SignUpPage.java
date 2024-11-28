@@ -55,5 +55,13 @@ public class SignUpPage extends Page implements View<AccountState> {
         grid.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
+        // Page title
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2; // Span across two columns
+        gbc.insets = new Insets(10, 10, 10, 10); // Padding around the component
+        gbc.anchor = GridBagConstraints.CENTER; // Center alignment
+        grid.add(pageTitle, gbc);
+
     }
 }
