@@ -15,4 +15,16 @@ public class SignUpViewModel extends ViewModel<SignUpState> {
         this.userDataAccess = userDataAccess;
         setState(SignUpState.initial());
     }
+
+    /**
+     * Sets the credentials in the state.
+     * @param username the username
+     * @param email the email
+     * @param password the password
+     */
+    public void setCredentials(String username, String email, String password) {
+
+        setState(getState().withCredentials(username, email, password));
+
+    }
 }
