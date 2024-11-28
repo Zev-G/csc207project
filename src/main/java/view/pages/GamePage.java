@@ -134,9 +134,7 @@ public class GamePage extends Page {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("clicked summary");
                 app.getGameSummaryController().fetchGameStats(progressBar.getAllSegmentStatus(),
-                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername());
-                app.getUpdateStatsController().updateStats(app.getAccountViewModel().getState().getUsername(),
-                        gameViewModel.getState().getScore(), progressBar.getCountTrueSegments());
+                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername(), progressBar.getCountTrueSegments());
                 viewManager.navigate("summary");
             }
         });
