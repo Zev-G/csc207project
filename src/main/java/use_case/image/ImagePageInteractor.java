@@ -5,19 +5,19 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Interactor for handling image uploads to Imgur and local simulations.
+ * Interactor for handling image upload functionality.
  */
 public class ImagePageInteractor implements ImagePageInputBoundary {
 
     private static final String IMGUR_API_URL = "https://api.imgur.com/3/image";
-    private final String accessToken;
     private final ImagePageOutputBoundary outputBoundary;
+    private final String accessToken;
 
     /**
-     * Constructor to initialize the interactor with the output boundary and access token.
+     * Constructor for ImagePageInteractor.
      *
      * @param outputBoundary The output boundary for presenting results.
-     * @param accessToken    The access token for Imgur API.
+     * @param accessToken    The access token for Imgur API authentication.
      */
     public ImagePageInteractor(ImagePageOutputBoundary outputBoundary, String accessToken) {
         this.outputBoundary = outputBoundary;
@@ -25,22 +25,15 @@ public class ImagePageInteractor implements ImagePageInputBoundary {
     }
 
     @Override
-    public void uploadImage(String imagePath) {
-        // Simulate the upload operation for local operations
-        outputBoundary.presentImagePath(imagePath);
-    }
+    public void uploadImage(File imageFile, String description) throws IOException {
+        if (imageFile == null || !imageFile.exists()) {
+            outputBoundary.presentUploadFailure("Image file does not exist.");
+            return;
+        }
 
-    /**
-     * Uploads an image to Imgur with a description.
-     *
-     * @param imageFile   The image file to upload.
-     * @param description The description of the image.
-     * @return The Imgur link to the uploaded image.
-     * @throws IOException If the upload fails.
-     */
-    public String uploadImageToImgur(File imageFile, String description) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
+        // Prepare request body for the image upload
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("image", imageFile.getName(),
@@ -48,6 +41,7 @@ public class ImagePageInteractor implements ImagePageInputBoundary {
                 .addFormDataPart("description", description)
                 .build();
 
+        // Prepare the HTTP request
         Request request = new Request.Builder()
                 .url(IMGUR_API_URL)
                 .addHeader("Authorization", "Bearer " + accessToken)
@@ -55,15 +49,16 @@ public class ImagePageInteractor implements ImagePageInputBoundary {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful()) {
+            if (response.isSuccessful() && response.body() != null) {
                 String responseBody = response.body().string();
-                outputBoundary.presentUploadSuccess(responseBody); // Notify success via output boundary
-                return responseBody; // Return the full response for further processing
+                outputBoundary.presentUploadSuccess("Image uploaded successfully: " + responseBody);
             } else {
-                String errorMessage = "Imgur upload failed: " + response.body().string();
-                outputBoundary.presentUploadFailure(errorMessage); // Notify failure via output boundary
-                throw new IOException(errorMessage);
+                String errorMessage = response.body() != null ? response.body().string() : "Unknown error";
+                outputBoundary.presentUploadFailure("Failed to upload image: " + errorMessage);
             }
+        } catch (Exception e) {
+            outputBoundary.presentUploadFailure("Error during upload: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
