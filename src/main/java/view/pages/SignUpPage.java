@@ -107,8 +107,16 @@ public class SignUpPage extends Page implements View<AccountState> {
     }
 
     private void signUpButtonPressed(ActionEvent event) {
+
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
+
+        // Validating input before updating the state
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
     }
 }
