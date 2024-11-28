@@ -1,7 +1,7 @@
 package view.pages;
 
-import okhttp3.*;
-import view.ViewConstants;
+import interface_adapter.image.ImagePageController;
+import interface_adapter.image.ImagePageViewModel;
 import view.app.App;
 import view.components.game.InteractiveMap;
 import view.utils.ImageScaler;
@@ -11,10 +11,13 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * ImagePage handles the UI for image uploads and integrates with the ImagePageController.
+ */
 public class ImagePage extends Page {
 
-    private static final String IMGUR_API_URL = "https://api.imgur.com/3/image";
-    private static final String ACCESS_TOKEN = "50ebc9d32abce50f92c2794ae7b36aa3e743b272";
+    private final ImagePageController controller;
+    private final ImagePageViewModel viewModel;
 
     private final JLabel instructionsLabel = new JLabel("Upload an Image:");
     private final JButton uploadButton = new JButton("Choose Image");
@@ -22,26 +25,17 @@ public class ImagePage extends Page {
     private final JButton backButton = new JButton("BACK");
     private final JButton uploadToImgurButton = new JButton("Upload Image");
 
-    private final InteractiveMap interactiveMap; // The map for selecting coordinates
-
+    private final InteractiveMap interactiveMap; // Map for selecting coordinates
     private File selectedFile;
 
-    public ImagePage(App app) {
+    public ImagePage(App app, ImagePageController controller, ImagePageViewModel viewModel) {
         super(app.getViewManager());
+        this.controller = controller;
+        this.viewModel = viewModel;
 
         // Configure layout
         setLayout(new BorderLayout(10, 10));
-        setMargin(ViewConstants.MARGIN_M);
-
-        ImageIcon originalMapImage = new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg"));
-
-        int mapDimension = 400;
-        ImageIcon scaledMapImage = ImageScaler.getScaledImageIcon(originalMapImage, mapDimension, mapDimension);
-
-        double[] mapBounds = {43.669978, 43.657185, -79.403269, -79.384892};
-        interactiveMap = new InteractiveMap(scaledMapImage, mapBounds);
-        interactiveMap.setPreferredSize(new Dimension(mapDimension, mapDimension));
-        interactiveMap.setBorder(BorderFactory.createTitledBorder("Select Location on Map"));
+        setMargin(20);
 
         // Header Panel
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -57,6 +51,18 @@ public class ImagePage extends Page {
         fileSelectionPanel.add(uploadButton);
         fileSelectionPanel.add(selectedFileLabel);
 
+        // Interactive Map Configuration
+        int mapDimension = 400; // Make it a 400x400 square
+        ImageIcon rawMap = new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg"));
+        ImageIcon scaledMap = ImageScaler.getScaledImageIcon(rawMap, mapDimension, mapDimension);
+        interactiveMap = new InteractiveMap(scaledMap, new double[]{43.669978, 43.657185, -79.403269, -79.384892});
+        interactiveMap.setPreferredSize(new Dimension(mapDimension, mapDimension));
+        interactiveMap.setBorder(BorderFactory.createTitledBorder("Select Location on Map"));
+
+        // Map Panel
+        JPanel mapPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        mapPanel.add(interactiveMap);
+
         // Buttons Panel
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         backButton.setPreferredSize(new Dimension(150, 30));
@@ -69,11 +75,7 @@ public class ImagePage extends Page {
         // Main Content Panel
         JPanel contentPanel = new JPanel(new BorderLayout(10, 10));
         contentPanel.add(fileSelectionPanel, BorderLayout.NORTH);
-
-        // Center Panel for the Map
-        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        centerPanel.add(interactiveMap);
-        contentPanel.add(centerPanel, BorderLayout.CENTER);
+        contentPanel.add(mapPanel, BorderLayout.CENTER);
 
         // Add components to main layout
         add(headerPanel, BorderLayout.PAGE_START);
@@ -83,14 +85,7 @@ public class ImagePage extends Page {
         // Add listeners
         uploadButton.addActionListener(event -> chooseFile());
         backButton.addActionListener(event -> viewManager.navigate("main"));
-        uploadToImgurButton.addActionListener(event -> {
-            try {
-                uploadImageToImgur();
-            } catch (IOException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Failed to upload image: " + e.getMessage());
-            }
-        });
+        uploadToImgurButton.addActionListener(event -> handleUpload());
     }
 
     private void chooseFile() {
@@ -105,7 +100,7 @@ public class ImagePage extends Page {
         }
     }
 
-    private void uploadImageToImgur() throws IOException {
+    private void handleUpload() {
         if (selectedFile == null) {
             JOptionPane.showMessageDialog(this, "Please select an image first.");
             return;
@@ -113,33 +108,17 @@ public class ImagePage extends Page {
 
         double[] chosenCoord = interactiveMap.getChosenCoord();
         if (chosenCoord[0] == 0 && chosenCoord[1] == 0) {
-            JOptionPane.showMessageDialog(this, "Please select a location on the map.");
+            JOptionPane.showMessageDialog(this, "Please select coordinates on the map.");
             return;
         }
 
         String description = "Coordinates: [" + chosenCoord[0] + ", " + chosenCoord[1] + "]";
-
-        OkHttpClient client = new OkHttpClient();
-
-        RequestBody requestBody = new MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-                .addFormDataPart("image", selectedFile.getName(),
-                        RequestBody.create(selectedFile, MediaType.parse("image/jpeg")))
-                .addFormDataPart("description", description)
-                .build();
-
-        Request request = new Request.Builder()
-                .url(IMGUR_API_URL)
-                .addHeader("Authorization", "Bearer " + ACCESS_TOKEN)
-                .post(requestBody)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful()) {
-                JOptionPane.showMessageDialog(this, "Image uploaded successfully!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Failed to upload image. Response: " + response.body().string());
-            }
+        try {
+            controller.uploadImage(selectedFile, description);
+            JOptionPane.showMessageDialog(this, "Image uploaded successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Failed to upload image: " + e.getMessage());
         }
     }
 }
