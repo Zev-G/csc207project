@@ -20,8 +20,7 @@ public class ImagePage extends Page {
     private final JButton backButton = new JButton("BACK");
     private final JButton uploadToImgurButton = new JButton("Upload Image");
 
-    private final JTextField latitudeField = new JTextField(15);
-    private final JTextField longitudeField = new JTextField(15);
+    private final JTextField coordinateField = new JTextField(20); // Singular coordinate input field
 
     private File selectedFile;
 
@@ -29,62 +28,50 @@ public class ImagePage extends Page {
         super(app.getViewManager());
 
         // Configure layout
-        setLayout(new BorderLayout(20, 20));
+        setLayout(new BorderLayout(10, 10));
         setMargin(ViewConstants.MARGIN_M);
 
         // Header Panel
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        instructionsLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        instructionsLabel.setFont(new Font("Arial", Font.BOLD, 20));
         headerPanel.add(instructionsLabel);
 
         // File Selection Panel
-        JPanel fileSelectionPanel = new JPanel(new GridLayout(2, 1, 10, 10));
-        uploadButton.setPreferredSize(new Dimension(200, 40));
-        uploadButton.setFont(new Font("Arial", Font.BOLD, 16));
-        selectedFileLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        JPanel fileSelectionPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fileSelectionPanel.setBorder(BorderFactory.createTitledBorder("Select Image"));
+        uploadButton.setPreferredSize(new Dimension(150, 30));
+        uploadButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        selectedFileLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         fileSelectionPanel.add(uploadButton);
         fileSelectionPanel.add(selectedFileLabel);
 
-        // Coordinates Input Panel
-        JPanel coordinatesPanel = new JPanel(new GridBagLayout());
-        coordinatesPanel.setBorder(BorderFactory.createTitledBorder("Add Coordinates (Optional)"));
+        // Coordinate Input Panel
+        JPanel coordinatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        coordinatePanel.setBorder(BorderFactory.createTitledBorder("Add Coordinate (Optional)"));
+        JLabel coordinateLabel = new JLabel("Coordinate:");
+        coordinateLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        coordinateField.setPreferredSize(new Dimension(200, 30));
+        coordinatePanel.add(coordinateLabel);
+        coordinatePanel.add(coordinateField);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        coordinatesPanel.add(new JLabel("Latitude:"), gbc);
+        // Buttons Panel
+        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        backButton.setPreferredSize(new Dimension(150, 30));
+        uploadToImgurButton.setPreferredSize(new Dimension(150, 30));
+        backButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        uploadToImgurButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        buttonsPanel.add(backButton);
+        buttonsPanel.add(uploadToImgurButton);
 
-        gbc.gridx = 1;
-        latitudeField.setPreferredSize(new Dimension(150, 30));
-        coordinatesPanel.add(latitudeField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        coordinatesPanel.add(new JLabel("Longitude:"), gbc);
-
-        gbc.gridx = 1;
-        longitudeField.setPreferredSize(new Dimension(150, 30));
-        coordinatesPanel.add(longitudeField, gbc);
-
-        // Upload Panel
-        JPanel uploadPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
-        uploadToImgurButton.setPreferredSize(new Dimension(250, 50));
-        uploadToImgurButton.setFont(new Font("Arial", Font.BOLD, 18));
-        uploadPanel.add(uploadToImgurButton);
-
-        // Back Button Panel
-        JPanel backPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        backButton.setPreferredSize(new Dimension(200, 40));
-        backButton.setFont(new Font("Arial", Font.BOLD, 16));
-        backPanel.add(backButton);
+        // Main Content Panel
+        JPanel contentPanel = new JPanel(new GridLayout(2, 1, 10, 10));
+        contentPanel.add(fileSelectionPanel);
+        contentPanel.add(coordinatePanel);
 
         // Add components to main layout
         add(headerPanel, BorderLayout.PAGE_START);
-        add(fileSelectionPanel, BorderLayout.CENTER);
-        add(coordinatesPanel, BorderLayout.SOUTH);
-        add(uploadPanel, BorderLayout.PAGE_END);
-        add(backPanel, BorderLayout.WEST);
+        add(contentPanel, BorderLayout.CENTER);
+        add(buttonsPanel, BorderLayout.PAGE_END);
 
         // Add listeners
         uploadButton.addActionListener(event -> chooseFile());
@@ -105,7 +92,7 @@ public class ImagePage extends Page {
         int returnValue = fileChooser.showOpenDialog(this);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             selectedFile = fileChooser.getSelectedFile();
-            selectedFileLabel.setText("Selected File: " + selectedFile.getName());
+            selectedFileLabel.setText(selectedFile.getName());
         } else {
             selectedFileLabel.setText("No file selected");
         }
@@ -117,12 +104,11 @@ public class ImagePage extends Page {
             return;
         }
 
-        String latitude = latitudeField.getText().trim();
-        String longitude = longitudeField.getText().trim();
+        String coordinate = coordinateField.getText().trim();
 
-        String description = latitude.isEmpty() || longitude.isEmpty()
+        String description = coordinate.isEmpty()
                 ? "Uploaded via ImagePage."
-                : "Coordinates: [" + latitude + ", " + longitude + "]";
+                : "Coordinate: " + coordinate;
 
         OkHttpClient client = new OkHttpClient();
 
