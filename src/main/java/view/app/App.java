@@ -12,6 +12,7 @@ import interface_adapter.game.*;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.stats.StatsController;
+import interface_adapter.stats.UpdateStatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
 import use_case.game.*;
@@ -38,6 +39,8 @@ import use_case.accountlogout.AccountLogoutInteractor;
 import use_case.game.GameInteractor;
 import use_case.mgame.MGameInteractor;
 import use_case.multiplayer.MultiplayerInteractor;
+import use_case.stats.StatsRepository;
+import use_case.stats.UpdateStatsInteractor;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -68,6 +71,7 @@ public class App {
     private final AccountLogoutController accountLogoutController;
     private final AccountDeleteController accountDeleteController;
     private final GameSummaryController gameSummaryController;
+    private final UpdateStatsController updateStatsController;
 
     // Views
     private final AppViewManager viewManager;
@@ -91,6 +95,7 @@ public class App {
                AccountConfirmController accountConfirmController,
                AccountLogoutController accountLogoutController,
                AccountDeleteController accountDeleteController,
+               UpdateStatsController updateStatsController,
                StatsController statsController,
                GameSummaryController gameSummaryController
     ) {
@@ -106,6 +111,7 @@ public class App {
         this.gameController = gameController;
         this.mgameController = mgameController;
         this.multiplayerController = multiplayerController;
+        this.updateStatsController = updateStatsController;
         this.statsPageViewModel = statsPageViewModel;
         this.statsController = statsController;
         this.accountConfirmController = accountConfirmController;
@@ -160,6 +166,10 @@ public class App {
 
     public MGameEndViewModel getmGameEndViewModel() {
         return mGameEndViewModel;
+    }
+
+    public UpdateStatsController getUpdateStatsController() {
+        return updateStatsController;
     }
 
     public StatsPageViewModel getStatsPageViewModel() {
@@ -232,6 +242,9 @@ public class App {
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        StatsRepository statsRepository = new FireBaseStatsUpdate(databaseReference);
+        UpdateStatsInteractor updateStatsInteractor = new UpdateStatsInteractor(statsRepository);
+        UpdateStatsController updateStatsController = new UpdateStatsController(updateStatsInteractor);
         StatsDataAccess statsDataAccess = new FirebaseStatsDataAccess(databaseReference);
         StatsPageViewModel statsPageViewModel = new StatsPageViewModel();
         StatsPresenter statsPresenter = new StatsPresenter(statsPageViewModel);
@@ -274,6 +287,7 @@ public class App {
                 accountConfirmController,
                 accountLogoutController,
                 accountDeleteController,
+                updateStatsController,
                 statsController,
                 gameSummaryController
                 );

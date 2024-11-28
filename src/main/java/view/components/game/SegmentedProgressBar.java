@@ -70,6 +70,19 @@ public class SegmentedProgressBar extends JPanel {
         return statuses;
     }
 
+    public int getCountTrueSegments() {
+        List<Boolean> statuses = getAllSegmentStatus(); // Call the method to get statuses
+        int trueCount = 0;
+
+        // Iterate through the list and count true values
+        for (Boolean status : statuses) {
+            if (status) {
+                trueCount++;
+            }
+        }
+
+        return trueCount; // Return the count of true values
+    }
 
     private static class SegmentPanel extends JPanel {
 
