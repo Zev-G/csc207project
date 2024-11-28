@@ -74,7 +74,6 @@ public class App {
     private final AccountDeleteController accountDeleteController;
     private final GameSummaryController gameSummaryController;
     private final ImagePageController imagePageController;
-    private final UpdateStatsController updateStatsController;
     // Views
     private final AppViewManager viewManager;
 
@@ -98,7 +97,6 @@ public class App {
             AccountConfirmController accountConfirmController,
             AccountLogoutController accountLogoutController,
             AccountDeleteController accountDeleteController,
-            UpdateStatsController updateStatsController,
             StatsController statsController,
             GameSummaryController gameSummaryController,
             ImagePageController imagePageController
