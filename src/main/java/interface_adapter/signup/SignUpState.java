@@ -13,5 +13,24 @@ public class SignUpState {
         this.isSigningUp = isSigningUp;
         this.signUpSuccess = signUpSuccess;
         this.errorMessage = errorMessage;
+    }
+
+    public boolean isSigningUp() {
+
+        return isSigningUp;
+
+    }
+
+    public boolean isSignUpSuccess() {
+
+        return signUpSuccess;
+
+    }
+
+    public String getErrorMessage() {
+
+        return errorMessage;
+
+    }
 
 }
