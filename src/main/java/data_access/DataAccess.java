@@ -31,7 +31,7 @@ public class DataAccess implements LocationDataAccess {
     }
 
     /**
-     * Fetches images and their corresponding coordinates from an external API or database.
+     * Fetches images and their corresponding coordinates from the Imgur API.
      */
     private void fetchImagesAndLocations() {
         OkHttpClient client = new OkHttpClient();
@@ -98,7 +98,8 @@ public class DataAccess implements LocationDataAccess {
 
     @Override
     public int getPhotoID() {
-        return 0;
+        // Generate a random photo ID for the game interactor.
+        return locations.isEmpty() ? -1 : random.nextInt(locations.size());
     }
 
     @Override
