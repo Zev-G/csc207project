@@ -11,6 +11,16 @@ public class ImagePagePresenter implements ImagePageOutputBoundary {
     }
 
     @Override
+    public void presentUploadSuccess(String successMessage) {
+        viewModel.setUploadStatus("Success: " + successMessage);
+    }
+
+    @Override
+    public void presentUploadFailure(String errorMessage) {
+        viewModel.setUploadStatus("Failure: " + errorMessage);
+    }
+
+    @Override
     public void presentImagePath(String path) {
         viewModel.setSelectedImagePath(path);
     }
