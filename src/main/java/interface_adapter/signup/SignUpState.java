@@ -8,4 +8,10 @@ public class SignUpState {
     private final boolean signUpSuccess;
     private final String errorMessage;
 
+
+    public SignUpState(boolean isSigningUp, boolean signUpSuccess, String errorMessage) {
+        this.isSigningUp = isSigningUp;
+        this.signUpSuccess = signUpSuccess;
+        this.errorMessage = errorMessage;
+
 }
