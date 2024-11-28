@@ -3,6 +3,8 @@ package view.pages;
 import okhttp3.*;
 import view.ViewConstants;
 import view.app.App;
+import view.components.game.InteractiveMap;
+import view.utils.ImageScaler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +22,7 @@ public class ImagePage extends Page {
     private final JButton backButton = new JButton("BACK");
     private final JButton uploadToImgurButton = new JButton("Upload Image");
 
-    private final JTextField coordinateField = new JTextField(20); // Singular coordinate input field
+    private final InteractiveMap interactiveMap; // The map for selecting coordinates
 
     private File selectedFile;
 
@@ -30,6 +32,16 @@ public class ImagePage extends Page {
         // Configure layout
         setLayout(new BorderLayout(10, 10));
         setMargin(ViewConstants.MARGIN_M);
+
+        ImageIcon originalMapImage = new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg"));
+
+        int mapDimension = 400;
+        ImageIcon scaledMapImage = ImageScaler.getScaledImageIcon(originalMapImage, mapDimension, mapDimension);
+
+        double[] mapBounds = {43.669978, 43.657185, -79.403269, -79.384892};
+        interactiveMap = new InteractiveMap(scaledMapImage, mapBounds);
+        interactiveMap.setPreferredSize(new Dimension(mapDimension, mapDimension));
+        interactiveMap.setBorder(BorderFactory.createTitledBorder("Select Location on Map"));
 
         // Header Panel
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -45,15 +57,6 @@ public class ImagePage extends Page {
         fileSelectionPanel.add(uploadButton);
         fileSelectionPanel.add(selectedFileLabel);
 
-        // Coordinate Input Panel
-        JPanel coordinatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        coordinatePanel.setBorder(BorderFactory.createTitledBorder("Add Coordinate (Optional)"));
-        JLabel coordinateLabel = new JLabel("Coordinate:");
-        coordinateLabel.setFont(new Font("Arial", Font.PLAIN, 14));
-        coordinateField.setPreferredSize(new Dimension(200, 30));
-        coordinatePanel.add(coordinateLabel);
-        coordinatePanel.add(coordinateField);
-
         // Buttons Panel
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         backButton.setPreferredSize(new Dimension(150, 30));
@@ -62,11 +65,6 @@ public class ImagePage extends Page {
         uploadToImgurButton.setFont(new Font("Arial", Font.PLAIN, 14));
         buttonsPanel.add(backButton);
         buttonsPanel.add(uploadToImgurButton);
-
-        // Main Content Panel
-        JPanel contentPanel = new JPanel(new GridLayout(2, 1, 10, 10));
-        contentPanel.add(fileSelectionPanel);
-        contentPanel.add(coordinatePanel);
 
         // Add components to main layout
         add(headerPanel, BorderLayout.PAGE_START);
@@ -103,12 +101,6 @@ public class ImagePage extends Page {
             JOptionPane.showMessageDialog(this, "Please select an image first.");
             return;
         }
-
-        String coordinate = coordinateField.getText().trim();
-
-        String description = coordinate.isEmpty()
-                ? "Uploaded via ImagePage."
-                : "Coordinate: " + coordinate;
 
         OkHttpClient client = new OkHttpClient();
 
