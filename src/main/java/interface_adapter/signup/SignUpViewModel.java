@@ -37,5 +37,22 @@ public class SignUpViewModel extends ViewModel<SignUpState> {
         if (currentState.getUsername().isEmpty() || currentState.getEmail().isEmpty() || currentState.getPassword().isEmpty()) {
             setState(currentState.withError("All fields are required."));
         }
+
+        // Update state to show that sign-up is in progress
+        setState(currentState.asSigningUp());
+
+        // Interact with FirebaseUserDataAccess
+        userDataAccess.createUser(
+                currentState.getUsername(),
+                currentState.getEmail(),
+                currentState.getPassword()
+        ).thenAccept(result -> {
+            // Success: Reset the state
+            setState(SignUpState.initial());
+        }).exceptionally(ex -> {
+            // Failure: Update state with an error message
+            setState(currentState.withError(ex.getMessage()));
+            return null;
+        });
     }
 }
