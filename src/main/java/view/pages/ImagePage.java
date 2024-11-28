@@ -3,8 +3,6 @@ package view.pages;
 import okhttp3.*;
 import view.ViewConstants;
 import view.app.App;
-import view.components.standard.DPanel;
-import view.components.standard.VerticalPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,44 +14,81 @@ public class ImagePage extends Page {
     private static final String IMGUR_API_URL = "https://api.imgur.com/3/image";
     private static final String ACCESS_TOKEN = "50ebc9d32abce50f92c2794ae7b36aa3e743b272";
 
-    private final JLabel instructionsLabel = new JLabel("Upload an image file:");
-    private final JButton uploadButton = new JButton("Choose File");
+    private final JLabel instructionsLabel = new JLabel("Upload an Image:");
+    private final JButton uploadButton = new JButton("Choose Image");
     private final JLabel selectedFileLabel = new JLabel("No file selected");
-    private final JButton backButton = new JButton("Back");
-    private final JButton uploadToImgurButton = new JButton("Upload to Imgur");
+    private final JButton backButton = new JButton("BACK");
+    private final JButton uploadToImgurButton = new JButton("Upload Image");
+
+    private final JTextField latitudeField = new JTextField(15);
+    private final JTextField longitudeField = new JTextField(15);
+
     private File selectedFile;
 
     public ImagePage(App app) {
         super(app.getViewManager());
 
         // Configure layout
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(20, 20));
         setMargin(ViewConstants.MARGIN_M);
 
-        // Instructions panel
-        DPanel instructionsPanel = new VerticalPanel(instructionsLabel);
-        instructionsLabel.setFont(new Font("Serif", Font.PLAIN, 20));
-        instructionsPanel.setAlignmentX(CENTER_ALIGNMENT);
+        // Header Panel
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        instructionsLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        headerPanel.add(instructionsLabel);
 
-        // File upload panel
-        DPanel uploadPanel = new VerticalPanel();
-        uploadPanel.add(uploadButton);
-        uploadPanel.add(selectedFileLabel);
+        // File Selection Panel
+        JPanel fileSelectionPanel = new JPanel(new GridLayout(2, 1, 10, 10));
+        uploadButton.setPreferredSize(new Dimension(200, 40));
+        uploadButton.setFont(new Font("Arial", Font.BOLD, 16));
+        selectedFileLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        fileSelectionPanel.add(uploadButton);
+        fileSelectionPanel.add(selectedFileLabel);
+
+        // Coordinates Input Panel
+        JPanel coordinatesPanel = new JPanel(new GridBagLayout());
+        coordinatesPanel.setBorder(BorderFactory.createTitledBorder("Add Coordinates (Optional)"));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        coordinatesPanel.add(new JLabel("Latitude:"), gbc);
+
+        gbc.gridx = 1;
+        latitudeField.setPreferredSize(new Dimension(150, 30));
+        coordinatesPanel.add(latitudeField, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        coordinatesPanel.add(new JLabel("Longitude:"), gbc);
+
+        gbc.gridx = 1;
+        longitudeField.setPreferredSize(new Dimension(150, 30));
+        coordinatesPanel.add(longitudeField, gbc);
+
+        // Upload Panel
+        JPanel uploadPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        uploadToImgurButton.setPreferredSize(new Dimension(250, 50));
+        uploadToImgurButton.setFont(new Font("Arial", Font.BOLD, 18));
         uploadPanel.add(uploadToImgurButton);
 
-        // Back button panel
-        DPanel backPanel = new DPanel();
-        backPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        // Back Button Panel
+        JPanel backPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        backButton.setPreferredSize(new Dimension(200, 40));
+        backButton.setFont(new Font("Arial", Font.BOLD, 16));
         backPanel.add(backButton);
 
-        // Add components
-        add(instructionsPanel, BorderLayout.PAGE_START);
-        add(uploadPanel, BorderLayout.CENTER);
-        add(backPanel, BorderLayout.PAGE_END);
+        // Add components to main layout
+        add(headerPanel, BorderLayout.PAGE_START);
+        add(fileSelectionPanel, BorderLayout.CENTER);
+        add(coordinatesPanel, BorderLayout.SOUTH);
+        add(uploadPanel, BorderLayout.PAGE_END);
+        add(backPanel, BorderLayout.WEST);
 
         // Add listeners
         uploadButton.addActionListener(event -> chooseFile());
-        backButton.addActionListener(event -> viewManager.navigate("main")); // Navigate back to MainPage
+        backButton.addActionListener(event -> viewManager.navigate("main"));
         uploadToImgurButton.addActionListener(event -> {
             try {
                 uploadImageToImgur();
@@ -82,12 +117,20 @@ public class ImagePage extends Page {
             return;
         }
 
+        String latitude = latitudeField.getText().trim();
+        String longitude = longitudeField.getText().trim();
+
+        String description = latitude.isEmpty() || longitude.isEmpty()
+                ? "Uploaded via ImagePage."
+                : "Coordinates: [" + latitude + ", " + longitude + "]";
+
         OkHttpClient client = new OkHttpClient();
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("image", selectedFile.getName(),
                         RequestBody.create(selectedFile, MediaType.parse("image/jpeg")))
+                .addFormDataPart("description", description)
                 .build();
 
         Request request = new Request.Builder()
@@ -98,7 +141,6 @@ public class ImagePage extends Page {
 
         try (Response response = client.newCall(request).execute()) {
             if (response.isSuccessful()) {
-                String responseBody = response.body().string();
                 JOptionPane.showMessageDialog(this, "Image uploaded successfully!");
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to upload image. Response: " + response.body().string());

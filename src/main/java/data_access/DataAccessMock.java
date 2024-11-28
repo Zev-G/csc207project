@@ -54,14 +54,16 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
                 JSONObject json = new JSONObject(responseBody);
                 JSONArray imagesArray = json.getJSONArray("data");
 
-                // Ensure we have at least two images for the predefined PhotoLocation objects
-                if (imagesArray.length() >= 2) {
-                    // Use the first two images from Imgur for the predefined PhotoLocation objects
+                // Ensure we have at least three images for the predefined PhotoLocation objects
+                if (imagesArray.length() >= 3) {
+                    // Use the first three images from Imgur for the predefined PhotoLocation objects
                     JSONObject image1 = imagesArray.getJSONObject(0);
                     JSONObject image2 = imagesArray.getJSONObject(1);
+                    JSONObject image3 = imagesArray.getJSONObject(2);
 
                     String imageUrl1 = image1.getString("link");
                     String imageUrl2 = image2.getString("link");
+                    String imageUrl3 = image3.getString("link");
 
                     ImageIcon photo1 = new ImageIcon(new URL(imageUrl1));
                     PhotoLocation photoLocation1 = new PhotoLocation(photo1, new double[]{43.66742755781882, -79.39177102147445}, 1);
@@ -69,8 +71,12 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
                     ImageIcon photo2 = new ImageIcon(new URL(imageUrl2));
                     PhotoLocation photoLocation2 = new PhotoLocation(photo2, new double[]{43.65984277958618, -79.39718377820866}, 2);
 
+                    ImageIcon photo3 = new ImageIcon(new URL(imageUrl3));
+                    PhotoLocation photoLocation3 = new PhotoLocation(photo3, new double[]{43.662891, -79.395656}, 3);
+
                     locations.add(photoLocation1);
                     locations.add(photoLocation2);
+                    locations.add(photoLocation3);
 
                     System.out.println("Predefined PhotoLocation objects updated with Imgur images.");
                 } else {
