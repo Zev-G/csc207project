@@ -67,7 +67,7 @@ public class SignUpPage extends Page implements View<SignUpState> {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1; // Single column
-        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        gbc.anchor = GridBagConstraints.LINE_START; // Left-align label
         grid.add(usernameLabel, gbc);
 
         // Username field
