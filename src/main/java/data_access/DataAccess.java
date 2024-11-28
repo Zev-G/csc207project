@@ -1,6 +1,8 @@
 package data_access;
 
 import entity.PhotoLocation;
+import entity.CommonUser;
+import entity.User;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,19 +13,22 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Actual implementation of data access that fetches images and their corresponding locations.
+ * Actual implementation of data access that fetches images and their corresponding locations,
+ * and includes user-related functionalities.
  */
-public class DataAccess implements LocationDataAccess {
+public class DataAccess implements LocationDataAccess, UserDataAccess {
 
     private static final String IMGUR_API_URL = "https://api.imgur.com/3/account/me/images";
     private static final String ACCESS_TOKEN = "50ebc9d32abce50f92c2794ae7b36aa3e743b272";
 
     private final ArrayList<PhotoLocation> locations = new ArrayList<>();
+    private final ArrayList<CommonUser> users = new ArrayList<>();
     private Random random;
 
     public DataAccess(long seed) {
         random = new Random(seed);
         fetchImagesAndLocations();
+        initializeUsers();
     }
 
     public DataAccess() {
@@ -75,6 +80,15 @@ public class DataAccess implements LocationDataAccess {
     }
 
     /**
+     * Initializes default users for testing.
+     */
+    private void initializeUsers() {
+        users.add(new CommonUser("Zev", "1234", "godfreyzev@gmail.com", 1));
+        users.add(new CommonUser("Alice", "password", "alice@example.com", 2));
+        users.add(new CommonUser("Bob", "qwerty", "bob@example.com", 3));
+    }
+
+    /**
      * Parses the coordinates from the image description.
      *
      * @param description Description containing coordinates.
@@ -121,5 +135,39 @@ public class DataAccess implements LocationDataAccess {
      */
     public ArrayList<PhotoLocation> getLocations() {
         return locations;
+    }
+
+    @Override
+    public boolean changeUsername(int uid, String username) {
+        User user = getUser(uid);
+        if (user == null) return false;
+        users.remove(user);
+        users.add(new CommonUser(username, user.getPassword(), user.getEmail(), uid));
+        return true;
+    }
+
+    @Override
+    public boolean changeEmail(int uid, String email) {
+        User user = getUser(uid);
+        if (user == null) return false;
+        users.remove(user);
+        users.add(new CommonUser(user.getName(), user.getPassword(), email, uid));
+        return true;
+    }
+
+    @Override
+    public User getUser(int uid) {
+        for (CommonUser user : users) {
+            if (user.getUserId() == uid) return user;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean deleteAccount(int userId) {
+        User user = getUser(userId);
+        if (user == null) return false;
+        users.remove(user);
+        return true;
     }
 }
