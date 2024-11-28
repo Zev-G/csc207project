@@ -78,5 +78,20 @@ public class SignUpPage extends Page implements View<AccountState> {
         gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
         grid.add(emailLabel, gbc);
 
+        // Password label
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.NONE; // Reset fill
+        gbc.weightx = 0; // Reset weight
+        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        grid.add(passwordLabel, gbc);
+
+        // Password field
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
+        gbc.weightx = 1.0; // Let the text field take extra space
+        grid.add(passwordField, gbc);
+
     }
 }
