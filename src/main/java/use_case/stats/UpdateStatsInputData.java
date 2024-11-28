@@ -22,4 +22,6 @@ public class UpdateStatsInputData {
     public int getCorrectGuesses() {
         return correctGuesses;
     }
+
 }
+

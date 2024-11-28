@@ -19,3 +19,4 @@ public class UpdateStatsController {
         interactor.updateStats(inputData);
     }
 }
+

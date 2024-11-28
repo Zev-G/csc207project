@@ -12,4 +12,6 @@ public class UpdateStatsInteractor implements UpdateStatsInputBoundary {
     public void updateStats(UpdateStatsInputData inputData) {
         statsRepository.updateStats(inputData.getUserName(), inputData.getPoints(), inputData.getCorrectGuesses());
     }
+
 }
+

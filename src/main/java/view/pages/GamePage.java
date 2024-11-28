@@ -134,7 +134,7 @@ public class GamePage extends Page {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("clicked summary");
                 app.getGameSummaryController().fetchGameStats(progressBar.getAllSegmentStatus(),
-                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername());
+                        gameViewModel.getState().getScore(), app.getAccountViewModel().getState().getUsername(), progressBar.getCountTrueSegments());
                 viewManager.navigate("summary");
             }
         });
@@ -144,6 +144,8 @@ public class GamePage extends Page {
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                app.getUpdateStatsController().updateStats(app.getAccountViewModel().getState().getUsername(),
+                        gameViewModel.getState().getScore(), progressBar.getCountTrueSegments());
                 System.out.println("clicked home");
                 viewManager.navigate("main");
             }

@@ -78,10 +78,12 @@ public class App {
     private final GameSummaryController gameSummaryController;
     private final UpdateStatsController updateStatsController;
     private final ImagePageController imagePageController;
+
     // Views
     private final AppViewManager viewManager;
 
     public App(
+
             // Views:
             ViewManagerModel viewManagerModel,
             // Models:
@@ -105,6 +107,7 @@ public class App {
             StatsController statsController,
             GameSummaryController gameSummaryController,
             ImagePageController imagePageController
+
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -261,9 +264,7 @@ public class App {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         StatsRepository statsRepository = new FireBaseStatsUpdate(databaseReference);
-
         UpdateStatsInteractor updateStatsInteractor = new UpdateStatsInteractor(statsRepository);
-
         UpdateStatsController updateStatsController = new UpdateStatsController(updateStatsInteractor);
 
         StatsDataAccess statsDataAccess = new FirebaseStatsDataAccess(databaseReference);
@@ -275,7 +276,7 @@ public class App {
         GameSummaryPageViewModel summaryPageViewModel = new GameSummaryPageViewModel();
         GameSummaryOutputBoundary gameSummaryPresenter = new GameSummaryPresenter(summaryPageViewModel);
         GameSummaryInputBoundary gameSummaryInteractor = new GameSummaryInteractor(gameSummaryPresenter);
-        GameSummaryController gameSummaryController = new GameSummaryController(gameSummaryInteractor);
+        GameSummaryController gameSummaryController = new GameSummaryController(updateStatsInteractor, gameSummaryInteractor);
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(viewManagerModel);
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
