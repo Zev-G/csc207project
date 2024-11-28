@@ -1,22 +1,22 @@
 package use_case.accountdelete;
 
-import data_access.DataAccessMock;
+import data_access.DataAccess;
 import use_case.account.AccountInputData;
 
 public class AccountDeleteInteractor implements AccountDeleteInputBoundary {
 
     private final AccountDeleteOutputBoundary outputBoundary;
-    private final DataAccessMock dataAccessMock;
+    private final DataAccess dataAccess;
 
-    public AccountDeleteInteractor(AccountDeleteOutputBoundary outputBoundary, DataAccessMock dataAccessMock) {
+    public AccountDeleteInteractor(AccountDeleteOutputBoundary outputBoundary, DataAccess dataAccessMock) {
         this.outputBoundary = outputBoundary;
-        this.dataAccessMock = dataAccessMock;
+        this.dataAccess = dataAccessMock;
     }
 
 
     @Override
     public void deleteAccount(AccountInputData inputData) {
-        boolean success = dataAccessMock.deleteAccount(inputData.getUserId());
+        boolean success = dataAccess.deleteAccount(inputData.getUserId());
         if (success) outputBoundary.handleSuccess();
         else outputBoundary.handleFail();
     }
