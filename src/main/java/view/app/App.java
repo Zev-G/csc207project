@@ -9,6 +9,10 @@ import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.game.*;
+import interface_adapter.image.ImagePageController;
+import interface_adapter.image.ImagePagePresenter;
+import interface_adapter.image.ImagePageViewModel;
+import use_case.image.ImagePageInteractor;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.stats.StatsController;
@@ -58,6 +62,7 @@ public class App {
     private final MultiplayerViewModel multiplayerViewModel;
 
     private final MGameEndViewModel mGameEndViewModel;
+    private final ImagePageViewModel imagePageViewModel;
 
     // Controllers
     private final GameController gameController;
@@ -68,6 +73,7 @@ public class App {
     private final AccountLogoutController accountLogoutController;
     private final AccountDeleteController accountDeleteController;
     private final GameSummaryController gameSummaryController;
+    private final ImagePageController imagePageController;
 
     // Views
     private final AppViewManager viewManager;
@@ -84,6 +90,7 @@ public class App {
                GameViewModel mgameViewModel,
                MultiplayerViewModel multiplayerViewModel,
                MGameEndViewModel mGameEndViewModel,
+               ImagePageViewModel imagePageViewModel,
                // Controllers:
                GameController gameController,
                GameController mgameController,
@@ -92,7 +99,8 @@ public class App {
                AccountLogoutController accountLogoutController,
                AccountDeleteController accountDeleteController,
                StatsController statsController,
-               GameSummaryController gameSummaryController
+               GameSummaryController gameSummaryController,
+               ImagePageController imagePageController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -102,6 +110,7 @@ public class App {
         this.mgameViewModel = mgameViewModel;
         this.multiplayerViewModel = multiplayerViewModel;
         this.mGameEndViewModel = mGameEndViewModel;
+        this.imagePageViewModel = imagePageViewModel;
         // Controllers
         this.gameController = gameController;
         this.mgameController = mgameController;
@@ -113,6 +122,7 @@ public class App {
         this.accountDeleteController = accountDeleteController;
         this.gameSummaryController = gameSummaryController;
         this.summaryPageViewModel = summaryPageViewModel;
+        this.imagePageController = imagePageController;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -190,6 +200,14 @@ public class App {
         return summaryPageViewModel;
     }
 
+    public ImagePageController getImagePageController() { // New
+        return imagePageController;
+    }
+
+    public ImagePageViewModel getImagePageViewModel() { // New
+        return imagePageViewModel;
+    }
+
     public void show() {
         viewManager.navigate("main");
         viewManager.setVisible(true);
@@ -255,6 +273,11 @@ public class App {
         AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, mock);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
 
+        ImagePageViewModel imagePageViewModel = new ImagePageViewModel();
+        ImagePagePresenter imagePagePresenter = new ImagePagePresenter(imagePageViewModel);
+        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter);
+        ImagePageController imagePageController = new ImagePageController(imagePageInteractor);
+
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "",0));
 
@@ -268,6 +291,7 @@ public class App {
                 mgameViewModel,
                 multiplayerViewModel,
                 mGameEndViewModel,
+                imagePageViewModel,
                 controller,
                 mgameController,
                 multiplayerController,
@@ -275,7 +299,8 @@ public class App {
                 accountLogoutController,
                 accountDeleteController,
                 statsController,
-                gameSummaryController
+                gameSummaryController,
+                imagePageController
                 );
 
         app.show();
