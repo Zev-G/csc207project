@@ -1,29 +1,47 @@
 package interface_adapter.signup;
 
+/**
+ * Represents the state of the SignUp process.
+ */
 public class SignUpState {
 
-    public static SignUpState DUMMY_STATE = new SignUpState(false, false, null);
-
-    private final boolean isSigningUp;
-    private final boolean signUpSuccess;
+    private final boolean signingUp; // Indicates if a sign-up is in progress
+    private final String username;
+    private final String email;
+    private final String password;
     private final String errorMessage;
 
+    public SignUpState(boolean signingUp, String username, String email, String password, String errorMessage) {
 
-    public SignUpState(boolean isSigningUp, boolean signUpSuccess, String errorMessage) {
-        this.isSigningUp = isSigningUp;
-        this.signUpSuccess = signUpSuccess;
+        this.signingUp = signingUp;
+        this.username = username;
+        this.email = email;
+        this.password = password;
         this.errorMessage = errorMessage;
+
     }
 
     public boolean isSigningUp() {
 
-        return isSigningUp;
+        return signingUp;
 
     }
 
-    public boolean isSignUpSuccess() {
+    public String getUsername() {
 
-        return signUpSuccess;
+        return username;
+
+    }
+
+    public String getEmail() {
+
+        return email;
+
+    }
+
+    public String getPassword() {
+
+        return password;
 
     }
 
@@ -33,4 +51,27 @@ public class SignUpState {
 
     }
 
+    public static SignUpState initial() {
+
+        return new SignUpState(false, "", "", "", null);
+
+    }
+
+    public SignUpState withError(String errorMessage) {
+
+        return new SignUpState(this.signingUp, this.username, this.email, this.password, errorMessage);
+
+    }
+
+    public SignUpState asSigningUp() {
+
+        return new SignUpState(true, this.username, this.email, this.password, null);
+
+    }
+
+    public SignUpState withCredentials(String username, String email, String password) {
+
+        return new SignUpState(this.signingUp, username, email, password, this.errorMessage);
+
+    }
 }
