@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/StatsInteractorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/UpdateStatsInteractorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,18 +25,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Tallduoft"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Tallduoft&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Zev-G/csc207project.git",
-    "accountId": "bb30032a-8da2-4e5d-8743-9195f6cd0e74"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Zev-G/csc207project.git&quot;,
+    &quot;accountId&quot;: &quot;bb30032a-8da2-4e5d-8743-9195f6cd0e74&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -65,6 +59,7 @@
     "Application.App.executor": "Run",
     "JUnit.StatsIntegrationTest.executor": "Run",
     "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
+    "JUnit.StatsInteractorTest.executor": "Run",
     "JUnit.StatsInteractorTest.testFetchStats.executor": "Coverage",
     "JUnit.UpdateStatsInteractorTest.executor": "Coverage",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -88,36 +83,23 @@
       <recent name="use_case.stats" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StatsInteractorTest.testFetchStats">
-    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+  <component name="RunManager" selected="JUnit.GameSummaryInteractorTest">
+    <configuration name="GameSummaryInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.app.*" />
+          <option name="PATTERN" value="use_case.game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StatsIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="homework-5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data_access.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="use_case.stats" />
-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTest" />
+      <option name="PACKAGE_NAME" value="use_case.game" />
+      <option name="MAIN_CLASS_NAME" value="use_case.game.GameSummaryInteractorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
@@ -126,9 +108,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="use_case.stats" />
-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTestWithManualMocks" />
-      <option name="METHOD_NAME" value="testUpdateAndFetchStats" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,13 +145,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="java in homework-5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameSummaryInteractorTest" />
+        <item itemvalue="JUnit.java in homework-5" />
+        <item itemvalue="JUnit.StatsInteractorTest" />
         <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
         <item itemvalue="JUnit.UpdateStatsInteractorTest" />
-        <item itemvalue="JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" />
-        <item itemvalue="JUnit.StatsIntegrationTest" />
-        <item itemvalue="Application.App (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -192,6 +181,7 @@
       <updated>1732590527178</updated>
       <workItem from="1732590532509" duration="752000" />
       <workItem from="1732823838676" duration="9566000" />
+      <workItem from="1732893240439" duration="292000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />
