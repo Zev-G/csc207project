@@ -25,11 +25,18 @@ public class PhotoLocationDataAccess implements LocationDataAccess {
     private final ArrayList<CommonUser> users = new ArrayList<>();
     private Random random;
 
+    /**
+     * Constructor with a random seed for reproducibility.
+     * @param seed Seed for the random number generator.
+     */
     public PhotoLocationDataAccess(long seed) {
         random = new Random(seed);
         fetchImagesAndLocations();
     }
 
+    /**
+     * Create a new PhotoLocationDataAccess with a random seed.
+     */
     public PhotoLocationDataAccess() {
         this(new Random().nextLong());
     }
