@@ -1,8 +1,10 @@
 package use_case.stats;
 
-import data_access.StatsDataAccess;
+import use_case.dataAccessInterface.StatsDataAccess;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +59,7 @@ public class StatsInteractorTest {
         assertEquals(5, result.getGamesPlayed());
         assertEquals(20, result.getCorrectGuesses());
     }
+
 
     @Test
     void testFetchStatsForNonExistentUser() {

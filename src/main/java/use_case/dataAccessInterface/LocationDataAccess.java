@@ -1,4 +1,4 @@
-package data_access;
+package use_case.dataAccessInterface;
 
 import entity.PhotoLocation;
 
@@ -7,13 +7,11 @@ import entity.PhotoLocation;
  */
 public interface LocationDataAccess {
 
-    /**
-     * To get a photo from a random place.
-     * @return
-     */
-
     int getPhotoID();
 
+    PhotoLocation getPhotoLocationByID(int id);
+
     void setSeed(long seed);
+
     PhotoLocation getRandomLocation();
 }

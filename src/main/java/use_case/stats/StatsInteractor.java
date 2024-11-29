@@ -1,6 +1,6 @@
 package use_case.stats;
 
-import data_access.StatsDataAccess;
+import use_case.dataAccessInterface.StatsDataAccess;
 
 public class StatsInteractor implements StatsInputBoundary {
     private final StatsDataAccess dataAccess;

@@ -1,9 +1,5 @@
 package use_case.accountlogout;
 
-import data_access.UserDataAccess;
-import use_case.account.AccountInputData;
-import use_case.accountconfirm.AccountConfirmOutputBoundary;
-
 public class AccountLogoutInteractor implements AccountLogoutInputBoundary {
 
     private final AccountLogoutOutputBoundary presenter;

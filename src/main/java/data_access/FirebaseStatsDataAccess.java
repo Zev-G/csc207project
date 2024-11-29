@@ -1,6 +1,7 @@
 package data_access;
 
 import com.google.firebase.database.*;
+import use_case.dataAccessInterface.StatsDataAccess;
 import use_case.stats.StatsOutputData;
 import java.util.concurrent.CompletableFuture;
 

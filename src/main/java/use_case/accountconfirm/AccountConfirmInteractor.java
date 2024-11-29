@@ -1,6 +1,6 @@
 package use_case.accountconfirm;
 
-import data_access.UserDataAccess;
+import use_case.dataAccessInterface.UserDataAccess;
 import use_case.account.AccountInputData;
 
 public class AccountConfirmInteractor implements AccountConfirmInputBoundary {
