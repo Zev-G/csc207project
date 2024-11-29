@@ -1,4 +1,19 @@
-package view.components.stats;
+/**
+ * GameSummaryPanel.java
+ *
+ * This class represents a UI component for displaying a summary of the user's game performance.
+ * It includes the user's points, a visual representation of guesses (correct and incorrect),
+ * and a motivational message encouraging further exploration.
+ *
+ * Dimensions of Documentation (ACCEU):
+ * - **Accuracy**: Clearly defines its role as a game summary display panel.
+ * - **Clarity**: Provides straightforward descriptions of layout and update functionality.
+ * - **Completeness**: Covers initialization, layout configuration, and update methods.
+ * - **Ease of Use**: Demonstrates how to integrate and update the panel in a larger UI.
+ * - **Up-to-Dateness**: Reflects the current implementation details.
+ */
+
+package view.components.game;
 
 import view.components.standard.DLabel;
 
@@ -6,12 +21,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Panel for displaying a summary of the user's game performance.
+ * Provides a clean and organized layout for showing points, guesses (ticks and crosses), and motivational text.
+ */
 public class GameSummaryPanel extends JPanel {
 
     private final DLabel pointsLabel;
     private final JPanel guessesPanel;
     private final JLabel discoverText;
 
+    /**
+     * Constructs a GameSummaryPanel with a pre-configured layout and components.
+     *
+     * Features:
+     * - Displays motivational text at the top.
+     * - Shows the user's total points in a bold and prominent style in the center.
+     * - Visualizes guesses (correct and incorrect) using ticks and crosses at the bottom.
+     */
     public GameSummaryPanel() {
         // Initialize Discover UofT text
         discoverText = new JLabel("Discover UofT to get more points!");
@@ -38,10 +65,20 @@ public class GameSummaryPanel extends JPanel {
     }
 
     /**
-     * Updates the stats displayed on the panel.
+     * Updates the summary panel with the provided points and guesses.
      *
-     * @param points    The points to display.
-     * @param guessBar  The list of booleans representing correct (true) or incorrect (false) guesses.
+     * @param points    The total points to display.
+     * @param guessBar  A list of booleans representing correct (true) or incorrect (false) guesses.
+     *
+     * Responsibilities:
+     * - Updates the points label with the provided value.
+     * - Refreshes the guesses panel to display ticks (\u2713) for correct guesses and crosses (\u2717) for incorrect guesses.
+     *
+     * Usage Example:
+     * <pre>
+     *     GameSummaryPanel summaryPanel = new GameSummaryPanel();
+     *     summaryPanel.updateSummary(100, List.of(true, false, true));
+     * </pre>
      */
     public void updateSummary(int points, List<Boolean> guessBar) {
         // Update points label
