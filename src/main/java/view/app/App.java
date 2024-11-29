@@ -26,14 +26,23 @@ import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
 import interface_adapter.signup.SignUpViewModel;
+import interface_adapter.signup.SignUpPresenter;
+import interface_adapter.signup.SignUpController;
+import interface_adapter.signup.SignUpViewModel;
 import use_case.accountconfirm.AccountConfirmInteractor;
 import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
+import use_case.signup.SignUpInteractor;
+import use_case.signup.SignUpOutputData;
+import use_case.signup.SignUpInputData;
+import use_case.signup.SignUpInputBoundary;
+import use_case.signup.SignUpOutputBoundary;
 import use_case.game.*;
 import use_case.mgame.MGameInteractor;
 import use_case.multiplayer.MultiplayerInteractor;
 import use_case.stats.StatsInteractor;
 import view.pages.SignUpPage;
+
 
 import javax.swing.*;
 import java.io.IOException;
@@ -65,6 +74,7 @@ public class App {
     private final AccountLogoutController accountLogoutController;
     private final AccountDeleteController accountDeleteController;
     private final GameSummaryController gameSummaryController;
+    private final SignUpController signUpController;
 
     // Views
     private final AppViewManager viewManager;
@@ -90,7 +100,8 @@ public class App {
             AccountLogoutController accountLogoutController,
             AccountDeleteController accountDeleteController,
             StatsController statsController,
-            GameSummaryController gameSummaryController
+            GameSummaryController gameSummaryController,
+            SignUpController signUpController
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -112,6 +123,7 @@ public class App {
         this.accountDeleteController = accountDeleteController;
         this.gameSummaryController = gameSummaryController;
         this.summaryPageViewModel = summaryPageViewModel;
+        this.signUpController = signUpController;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -189,6 +201,10 @@ public class App {
         return statsController;
     }
 
+    public SignUpController getSignUpController() {
+        return signUpController;
+    }
+
     public AppViewManager getViewManager() {
         return viewManager;
     }
@@ -202,7 +218,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        // Initialize Firebase
+        // Initialize Firebases
         try {
             FirebaseInitializer.initializeFirebase();
         }
@@ -214,7 +230,7 @@ public class App {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference();
-        FirebaseUserDataAccess firebaseUserDataAccess = new FirebaseUserDataAccess(databaseReference);
+        SignUpDataAccess firebaseSignUpDataAccess = new FirebaseSignUpDataAccess(databaseReference);
         DataAccessMock mock = new DataAccessMock();
 
         ViewManagerModel viewManagerModel = new ViewManagerModel();
@@ -239,7 +255,6 @@ public class App {
 
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         StatsDataAccess statsDataAccess = new FirebaseStatsDataAccess(databaseReference);
         StatsPageViewModel statsPageViewModel = new StatsPageViewModel();
         StatsPresenter statsPresenter = new StatsPresenter(statsPageViewModel);
@@ -266,7 +281,9 @@ public class App {
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "",0));
 
-        SignUpViewModel signUpViewModel = new SignUpViewModel(firebaseUserDataAccess);
+        SignUpViewModel signUpViewModel = new SignUpViewModel();
+        SignUpInteractor signUpInteractor = new SignUpInteractor(firebaseSignUpDataAccess, new SignUpPresenter(signUpViewModel));
+        SignUpController signUpController = new SignUpController(signUpInteractor);
 
         App app = new App(
                 viewManagerModel,
@@ -286,7 +303,8 @@ public class App {
                 accountLogoutController,
                 accountDeleteController,
                 statsController,
-                gameSummaryController
+                gameSummaryController,
+                signUpController
         );
 
         app.show();
