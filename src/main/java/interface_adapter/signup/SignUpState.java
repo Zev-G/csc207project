@@ -87,4 +87,12 @@ public enum SignUpState {
         this.signingUp = signingUp;
         this.errorMessage = errorMessage;
     }
+
+    public boolean isSigningUp() {
+        return signingUp;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 }
