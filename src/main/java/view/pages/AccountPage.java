@@ -8,7 +8,7 @@ import interface_adapter.accountdelete.AccountDeleteController;
 import interface_adapter.accountlogout.AccountLogoutController;
 import view.View;
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -41,7 +41,7 @@ public class AccountPage extends Page implements View<AccountState> {
     private final AccountLogoutController accountLogoutController;
     private final AccountDeleteController accountDeleteController;
 
-    public AccountPage(App app) {
+    public AccountPage(AppViewManager app) {
         super(app.getViewManager());
         this.viewModel = app.getAccountViewModel();
         this.accountConfirmController = app.getAccountConfirmController();

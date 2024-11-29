@@ -6,7 +6,7 @@ import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageState;
 import interface_adapter.stats.StatsPageViewModel;
 import view.View;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.HorizontalPanel;
@@ -37,7 +37,7 @@ public class StatsPage extends Page implements View<StatsPageState> {
     private final StatsController statsController;
     private final AccountViewModel aCViewModel;
 
-    public StatsPage(App app) {
+    public StatsPage(AppViewManager app) {
         super(app.getViewManager());
         this.viewModel = app.getStatsPageViewModel();
         this.statsController = app.getStatsController();

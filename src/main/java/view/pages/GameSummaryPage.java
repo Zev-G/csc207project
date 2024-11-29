@@ -4,7 +4,7 @@ import interface_adapter.ViewModel;
 import interface_adapter.game.GameSummaryPageState;
 import interface_adapter.game.GameSummaryPageViewModel;
 import view.View;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.HorizontalPanel;
@@ -32,7 +32,7 @@ public class GameSummaryPage extends Page implements View<GameSummaryPageState> 
     // ViewModel
     private final GameSummaryPageViewModel viewModel;
 
-    public GameSummaryPage(App app) {
+    public GameSummaryPage(AppViewManager app) {
         super(app.getViewManager());
         this.viewModel = app.getGameSummaryPageViewModel();
 

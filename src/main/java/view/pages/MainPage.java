@@ -5,7 +5,7 @@ import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import view.View;
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.leaderboard.LeaderboardView;
 import view.components.standard.*;
 import view.utils.HTMLTextBuilder;
@@ -44,7 +44,7 @@ public class MainPage extends Page implements View<AccountState> {
     // View Model
     private final AccountViewModel viewModel;
 
-    public MainPage(App app) {
+    public MainPage(AppViewManager app) {
         super(app.getViewManager());
         this.viewModel = app.getAccountViewModel();
 

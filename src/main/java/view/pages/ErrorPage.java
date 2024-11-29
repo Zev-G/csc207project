@@ -1,9 +1,7 @@
 package view.pages;
 
-import interface_adapter.multiplayer.MultiplayerController;
-import interface_adapter.multiplayer.MultiplayerViewModel;
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -12,8 +10,6 @@ import view.components.standard.VerticalPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class ErrorPage extends Page {
 
@@ -24,7 +20,7 @@ public class ErrorPage extends Page {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public ErrorPage(App app) {
+    public ErrorPage(AppViewManager app) {
         super(app.getViewManager());
 
 

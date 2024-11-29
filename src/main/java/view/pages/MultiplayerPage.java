@@ -3,7 +3,7 @@ package view.pages;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerViewModel;
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -34,7 +34,7 @@ public class MultiplayerPage extends Page {
 
     private final MultiplayerController controller;
 
-    public MultiplayerPage(App app, MultiplayerController controller) {
+    public MultiplayerPage(AppViewManager app, MultiplayerController controller) {
         super(app.getViewManager());
 
         viewModel = app.getMultiplayerViewModel();

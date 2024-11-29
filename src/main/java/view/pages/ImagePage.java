@@ -2,7 +2,7 @@ package view.pages;
 
 import interface_adapter.image.ImagePageController;
 import interface_adapter.image.ImagePageViewModel;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.game.InteractiveMap;
 import view.utils.ImageScaler;
 
@@ -28,7 +28,7 @@ public class ImagePage extends Page {
     private final InteractiveMap interactiveMap; // Map for selecting coordinates
     private File selectedFile;
 
-    public ImagePage(App app, ImagePageController controller, ImagePageViewModel viewModel) {
+    public ImagePage(AppViewManager app, ImagePageController controller, ImagePageViewModel viewModel) {
         super(app.getViewManager());
         this.controller = controller;
         this.viewModel = viewModel;

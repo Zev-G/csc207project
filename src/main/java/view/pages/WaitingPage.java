@@ -1,15 +1,12 @@
 package view.pages;
 
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
-import view.components.standard.RoundedButton;
 import view.components.standard.VerticalPanel;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class WaitingPage extends Page {
 
@@ -18,7 +15,7 @@ public class WaitingPage extends Page {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public WaitingPage(App app) {
+    public WaitingPage(AppViewManager app) {
         super(app.getViewManager());
 
         setMargin(ViewConstants.MARGIN_M);

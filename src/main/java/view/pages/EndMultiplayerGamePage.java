@@ -2,7 +2,7 @@ package view.pages;
 
 import interface_adapter.mgame.MGameEndViewModel;
 import view.ViewConstants;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -27,7 +27,7 @@ public class EndMultiplayerGamePage extends Page {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public EndMultiplayerGamePage(App app) {
+    public EndMultiplayerGamePage(AppViewManager app) {
         super(app.getViewManager());
 
         viewModel = app.getmGameEndViewModel();
