@@ -107,6 +107,8 @@ class MGameInteractorTest {
 
         MGamePresenterMock presenterMock = new MGamePresenterMock();
 
+        Thread.sleep(500);
+
 
         MGameInteractor interactor = new MGameInteractor(new DataAccessMock(), presenterMock);
         Socket socket = new Socket("localhost", 7777);

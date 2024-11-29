@@ -35,16 +35,18 @@ public class GamePage extends Page {
     private final GameController gameController;
     private final GameViewModel gameViewModel;
 
+    private final AppViewManager app;
+
     /**
      * Constructs a GamePage with the specified app, game controller, and game view model.
      *
-     * @param app           the application view manager
+     * @param app            the application view manager
      * @param gameController the controller managing game logic
-     * @param gameViewModel the view model for game data
+     * @param gameViewModel  the view model for game data
      */
     public GamePage(AppViewManager app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
-
+        this.app = app;
         this.gameController = gameController;
         this.gameViewModel = gameViewModel;
 
@@ -58,8 +60,6 @@ public class GamePage extends Page {
         setupTopPanel();
         setupMainPanel();
         setupBottomPanel();
-
-        setupListeners(app);
 
         gameViewModel.addPropertyChangeListener(this::onGameStateChange);
         gameTimer.addPropertyChangeListener(evt -> onTimeout());
@@ -165,25 +165,16 @@ public class GamePage extends Page {
         summaryButton = new RoundedButton("Summary");
         summaryButton.setPreferredSize(new Dimension(200, 80));
         summaryButton.setVisible(false);
+        summaryButton.addActionListener(e -> handleSummary(app));
 
         homeButton = new RoundedButton("Home");
         homeButton.setPreferredSize(new Dimension(200, 80));
         homeButton.setVisible(false);
+        homeButton.addActionListener(e -> handleHome(app));
 
         buttonPanel.add(guessButton);
         buttonPanel.add(summaryButton);
         buttonPanel.add(homeButton);
-    }
-
-    /**
-     * Sets up event listeners for the buttons and game state changes.
-     *
-     * @param app the application view manager
-     */
-    private void setupListeners(AppViewManager app) {
-        guessButton.addActionListener(e -> handleGuess());
-        summaryButton.addActionListener(e -> handleSummary(app));
-        homeButton.addActionListener(e -> handleHome(app));
     }
 
     /**
