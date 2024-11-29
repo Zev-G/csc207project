@@ -6,6 +6,7 @@ import java.awt.*;
 
 public final class ViewConstants {
 
+    public static final int MARGIN_L = 20;
     public static final int GAP_S = 5;
     public static final int HEIGHT_SS = 40;
     public static final int TEXT_M = 30;

@@ -9,6 +9,10 @@ import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.game.*;
+import interface_adapter.image.ImagePageController;
+import interface_adapter.image.ImagePagePresenter;
+import interface_adapter.image.ImagePageViewModel;
+import use_case.image.ImagePageInteractor;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.stats.StatsController;
@@ -18,7 +22,7 @@ import interface_adapter.stats.StatsPresenter;
 import use_case.game.*;
 import use_case.stats.StatsInteractor;
 
-import data_access.DataAccessMock;
+import data_access.DataAccess;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
 import interface_adapter.accountdelete.AccountDeleteController;
@@ -61,6 +65,7 @@ public class App {
     private final MultiplayerViewModel multiplayerViewModel;
 
     private final MGameEndViewModel mGameEndViewModel;
+    private final ImagePageViewModel imagePageViewModel;
 
     // Controllers
     private final GameController gameController;
@@ -72,32 +77,37 @@ public class App {
     private final AccountDeleteController accountDeleteController;
     private final GameSummaryController gameSummaryController;
     private final UpdateStatsController updateStatsController;
+    private final ImagePageController imagePageController;
 
     // Views
     private final AppViewManager viewManager;
 
     public App(
-               // Views:
-               ViewManagerModel viewManagerModel,
-               // Models:
-               AccountViewModel accountViewModel,
-               LeaderboardViewModel leaderboardViewModel,
-               GameViewModel gameViewModel,
-               StatsPageViewModel statsPageViewModel,
-               GameSummaryPageViewModel summaryPageViewModel,
-               GameViewModel mgameViewModel,
-               MultiplayerViewModel multiplayerViewModel,
-               MGameEndViewModel mGameEndViewModel,
-               // Controllers:
-               GameController gameController,
-               GameController mgameController,
-               MultiplayerController multiplayerController,
-               AccountConfirmController accountConfirmController,
-               AccountLogoutController accountLogoutController,
-               AccountDeleteController accountDeleteController,
-               UpdateStatsController updateStatsController,
-               StatsController statsController,
-               GameSummaryController gameSummaryController
+
+            // Views:
+            ViewManagerModel viewManagerModel,
+            // Models:
+            AccountViewModel accountViewModel,
+            LeaderboardViewModel leaderboardViewModel,
+            GameViewModel gameViewModel,
+            StatsPageViewModel statsPageViewModel,
+            GameSummaryPageViewModel summaryPageViewModel,
+            GameViewModel mgameViewModel,
+            MultiplayerViewModel multiplayerViewModel,
+            MGameEndViewModel mGameEndViewModel,
+            ImagePageViewModel imagePageViewModel,
+            // Controllers:
+            GameController gameController,
+            GameController mgameController,
+            MultiplayerController multiplayerController,
+            AccountConfirmController accountConfirmController,
+            AccountLogoutController accountLogoutController,
+            AccountDeleteController accountDeleteController,
+            UpdateStatsController updateStatsController,
+            StatsController statsController,
+            GameSummaryController gameSummaryController,
+            ImagePageController imagePageController
+
     ) {
         // Model
         this.viewManagerModel = viewManagerModel;
@@ -107,6 +117,7 @@ public class App {
         this.mgameViewModel = mgameViewModel;
         this.multiplayerViewModel = multiplayerViewModel;
         this.mGameEndViewModel = mGameEndViewModel;
+        this.imagePageViewModel = imagePageViewModel;
         // Controllers
         this.gameController = gameController;
         this.mgameController = mgameController;
@@ -119,6 +130,7 @@ public class App {
         this.accountDeleteController = accountDeleteController;
         this.gameSummaryController = gameSummaryController;
         this.summaryPageViewModel = summaryPageViewModel;
+        this.imagePageController = imagePageController;
 
         this.viewManager = new AppViewManager(this);
         viewManager.init();
@@ -200,6 +212,14 @@ public class App {
         return summaryPageViewModel;
     }
 
+    public ImagePageController getImagePageController() {
+        return imagePageController;
+    }
+
+    public ImagePageViewModel getImagePageViewModel() {
+        return imagePageViewModel;
+    }
+
     public void show() {
         viewManager.navigate("main");
         viewManager.setVisible(true);
@@ -214,21 +234,21 @@ public class App {
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Failed to initialize Firebase. Exiting...");
-            return; // Exit if Firebase initialization fails
+            return;
         }
-        DataAccessMock mock = new DataAccessMock();
+        DataAccess data = new DataAccess();
 
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new DataAccessMock(), presenter);
+        GameInteractor interactor = new GameInteractor(new DataAccess(), presenter);
         GameController controller = new GameController(interactor);
 
 
         MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel, mGameEndViewModel);
-        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccessMock(), mgamePresenter);
+        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccess(), mgamePresenter);
         GameController mgameController = new GameController(mGameInteractorinteractor);
 
         MultiplayerViewModel multiplayerViewModel = new MultiplayerViewModel();
@@ -242,9 +262,11 @@ public class App {
         AccountViewModel accountViewModel = new AccountViewModel();
         LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
         StatsRepository statsRepository = new FireBaseStatsUpdate(databaseReference);
         UpdateStatsInteractor updateStatsInteractor = new UpdateStatsInteractor(statsRepository);
         UpdateStatsController updateStatsController = new UpdateStatsController(updateStatsInteractor);
+
         StatsDataAccess statsDataAccess = new FirebaseStatsDataAccess(databaseReference);
         StatsPageViewModel statsPageViewModel = new StatsPageViewModel();
         StatsPresenter statsPresenter = new StatsPresenter(statsPageViewModel);
@@ -257,7 +279,7 @@ public class App {
         GameSummaryController gameSummaryController = new GameSummaryController(updateStatsInteractor, gameSummaryInteractor);
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(viewManagerModel);
-        AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(mock, accountConfirmPresenter);
+        AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
 
         AccountLogoutPresenter accountLogoutPresenter = new AccountLogoutPresenter(viewManagerModel, accountViewModel);
@@ -265,8 +287,14 @@ public class App {
         AccountLogoutController accountLogoutController = new AccountLogoutController(accountLogoutInteractor);
 
         AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(viewManagerModel, accountViewModel);
-        AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, mock);
+        AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, data);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
+
+        ImagePageViewModel imagePageViewModel = new ImagePageViewModel();
+        ImagePagePresenter imagePagePresenter = new ImagePagePresenter(imagePageViewModel);
+        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter, "50ebc9d32abce50f92c2794ae7b36aa3e743b272");
+        ImagePageController imagePageController = new ImagePageController(imagePageInteractor);
+
 
         leaderboardViewModel.setState(getLeaderboardState());
         accountViewModel.setState(new AccountState(false, "", "", "",0));
@@ -281,6 +309,7 @@ public class App {
                 mgameViewModel,
                 multiplayerViewModel,
                 mGameEndViewModel,
+                imagePageViewModel,
                 controller,
                 mgameController,
                 multiplayerController,
@@ -289,8 +318,9 @@ public class App {
                 accountDeleteController,
                 updateStatsController,
                 statsController,
-                gameSummaryController
-                );
+                gameSummaryController,
+                imagePageController
+        );
 
         app.show();
     }

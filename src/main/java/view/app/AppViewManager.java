@@ -10,22 +10,17 @@ public class AppViewManager extends ViewManager {
     private AccountPage accountPage;
     private StatsPage statsPage;
     private GameSummaryPage gameSummaryPage;
-
     private MultiplayerPage multiplayerPage;
-
     private mGamePage mgamePage;
-
     private ErrorPage errorPage;
-
     private WaitingPage waitingPage;
-
     private EndMultiplayerGamePage endMultiplayerGamePage;
+    private ImagePage imagePage;
 
     private final App app;
 
     public AppViewManager(App app) {
         super(app.getViewManagerModel());
-
         this.app = app;
     }
 
@@ -40,6 +35,7 @@ public class AppViewManager extends ViewManager {
         errorPage = new ErrorPage(app);
         waitingPage = new WaitingPage(app);
         endMultiplayerGamePage = new EndMultiplayerGamePage(app);
+        imagePage = new ImagePage(app, app.getImagePageController(), app.getImagePageViewModel());
 
         add("main", mainPage);
         add("game", gamePage);
@@ -51,5 +47,6 @@ public class AppViewManager extends ViewManager {
         add("error", errorPage);
         add("wait", waitingPage);
         add("endmgame", endMultiplayerGamePage);
+        add("image", imagePage);
     }
 }
