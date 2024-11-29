@@ -1,4 +1,4 @@
-package view.components.stats;
+package view.components.game;
 
 import view.components.standard.DLabel;
 
@@ -6,14 +6,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Panel for displaying the game summary, including points scored and guess results.
+ */
 public class GameSummaryPanel extends JPanel {
 
     private final DLabel pointsLabel;
     private final JPanel guessesPanel;
     private final JLabel discoverText;
 
+    /**
+     * Constructs a GameSummaryPanel with initial UI components.
+     */
     public GameSummaryPanel() {
-        // Initialize Discover UofT text
+        // Initialize "Discover UofT" text
         discoverText = new JLabel("Discover UofT to get more points!");
         discoverText.setFont(new Font("Arial", Font.PLAIN, 60)); // Font size 60, unbolded
         discoverText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -32,7 +38,7 @@ public class GameSummaryPanel extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50)); // Adjust padding to control overall spacing
 
         // Add components
-        add(discoverText, BorderLayout.NORTH); // Discover UofT at the top
+        add(discoverText, BorderLayout.NORTH); // "Discover UofT" at the top
         add(pointsLabel, BorderLayout.CENTER); // Points in the middle
         add(guessesPanel, BorderLayout.SOUTH); // Guesses at the bottom
     }
@@ -40,8 +46,8 @@ public class GameSummaryPanel extends JPanel {
     /**
      * Updates the stats displayed on the panel.
      *
-     * @param points    The points to display.
-     * @param guessBar  The list of booleans representing correct (true) or incorrect (false) guesses.
+     * @param points   the total points to display
+     * @param guessBar the list of Boolean values representing correct (true) or incorrect (false) guesses
      */
     public void updateSummary(int points, List<Boolean> guessBar) {
         // Update points label
@@ -50,9 +56,9 @@ public class GameSummaryPanel extends JPanel {
         // Update guesses panel
         guessesPanel.removeAll(); // Clear previous guesses
         for (Boolean guess : guessBar) {
-            JLabel guessLabel = new JLabel(guess ? "\u2713" : "\u2717");
+            JLabel guessLabel = new JLabel(guess ? "\u2713" : "\u2717"); // Checkmark or cross
             guessLabel.setFont(new Font("Arial Unicode MS", Font.BOLD, 48)); // Larger font size for ticks/crosses
-            guessLabel.setForeground(guess ? Color.GREEN : Color.RED); // Green for ticks, red for crosses
+            guessLabel.setForeground(guess ? Color.GREEN : Color.RED); // Green for correct, red for incorrect
             guessesPanel.add(guessLabel);
         }
 

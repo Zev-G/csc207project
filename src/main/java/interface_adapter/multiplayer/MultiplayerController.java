@@ -8,7 +8,7 @@ import use_case.multiplayer.MultiplayerInputData;
  */
 public class MultiplayerController {
 
-    MultiplayerInputBoundary multiplayerInteractor;
+    private final MultiplayerInputBoundary multiplayerInteractor;
 
     /**
      * To create a multiplayer controller.
