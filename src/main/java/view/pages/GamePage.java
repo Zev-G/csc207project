@@ -38,9 +38,9 @@ public class GamePage extends Page {
     /**
      * Constructs a GamePage with the specified app, game controller, and game view model.
      *
-     * @param app           the application view manager
+     * @param app            the application view manager
      * @param gameController the controller managing game logic
-     * @param gameViewModel the view model for game data
+     * @param gameViewModel  the view model for game data
      */
     public GamePage(AppViewManager app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
@@ -58,8 +58,6 @@ public class GamePage extends Page {
         setupTopPanel();
         setupMainPanel();
         setupBottomPanel();
-
-        setupListeners(app);
 
         gameViewModel.addPropertyChangeListener(this::onGameStateChange);
         gameTimer.addPropertyChangeListener(evt -> onTimeout());
@@ -173,17 +171,6 @@ public class GamePage extends Page {
         buttonPanel.add(guessButton);
         buttonPanel.add(summaryButton);
         buttonPanel.add(homeButton);
-    }
-
-    /**
-     * Sets up event listeners for the buttons and game state changes.
-     *
-     * @param app the application view manager
-     */
-    private void setupListeners(AppViewManager app) {
-        guessButton.addActionListener(e -> handleGuess());
-        summaryButton.addActionListener(e -> handleSummary(app));
-        homeButton.addActionListener(e -> handleHome(app));
     }
 
     /**
