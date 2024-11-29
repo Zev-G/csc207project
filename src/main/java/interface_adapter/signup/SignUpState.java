@@ -78,7 +78,7 @@
 
 package interface_adapter.signup;
 
-public enum SignUpState {
+public class SignUpState {
 
     private final boolean signingUp;
     private final String errorMessage;
