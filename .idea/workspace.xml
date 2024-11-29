@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Tallduoft&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Zev-G/csc207project.git&quot;,
+    &quot;accountId&quot;: &quot;bb30032a-8da2-4e5d-8743-9195f6cd0e74&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2pLxVrI0dMaJi8LZUFBZthOsrDf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App (1).executor": "Run",
+    "Application.App (2).executor": "Run",
+    "Application.App (3).executor": "Debug",
+    "Application.App (4).executor": "Run",
+    "Application.App (5).executor": "Run",
+    "Application.App.executor": "Run",
+    "JUnit.StatsIntegrationTest.executor": "Run",
+    "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
+    "JUnit.StatsInteractorTest.executor": "Run",
+    "JUnit.StatsInteractorTest.testFetchStats.executor": "Coverage",
+    "JUnit.UpdateStatsInteractorTest.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="use_case.stats" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.GameSummaryInteractorTest">
+    <configuration name="GameSummaryInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.game" />
+      <option name="MAIN_CLASS_NAME" value="use_case.game.GameSummaryInteractorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.stats.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StatsInteractorTest.testFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.stats.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
+      <option name="METHOD_NAME" value="testFetchStats" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateStatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.stats.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.UpdateStatsInteractorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in homework-5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-5" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameSummaryInteractorTest" />
+        <item itemvalue="JUnit.java in homework-5" />
+        <item itemvalue="JUnit.StatsInteractorTest" />
+        <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
+        <item itemvalue="JUnit.UpdateStatsInteractorTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff" />
+      <created>1732590527178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732590527178</updated>
+      <workItem from="1732590532509" duration="752000" />
+      <workItem from="1732823838676" duration="9566000" />
+      <workItem from="1732893240439" duration="292000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added multiplayer game to app">
+      <option name="closed" value="true" />
+      <created>1732591234422</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732591234422</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" workspace" />
+    <MESSAGE value="Questionably clean" />
+    <MESSAGE value="Created account confirm controller" />
+    <MESSAGE value="Created account confirm input boundary" />
+    <MESSAGE value="Created account confirm interactor" />
+    <MESSAGE value="Created account confirm output boundary" />
+    <MESSAGE value="Created account confirm presenter" />
+    <MESSAGE value="Created account input data" />
+    <MESSAGE value="Implemented clean architecture for account and hooked into view system" />
+    <MESSAGE value="Created user data access interface" />
+    <MESSAGE value="Updated user interface" />
+    <MESSAGE value="Updated user to have a user id" />
+    <MESSAGE value="Updated data access mock to have fake user access" />
+    <MESSAGE value="Created test for account confirm interactor" />
+    <MESSAGE value="Added userid to account input data" />
+    <MESSAGE value="Updated creation of account states to work with new user system" />
+    <MESSAGE value="Update to idea files" />
+    <MESSAGE value="Created account logout input boundary" />
+    <MESSAGE value="Created account logout output boundary" />
+    <MESSAGE value="Created account logout interactor" />
+    <MESSAGE value="Created account logout interactor test" />
+    <MESSAGE value="Created account logout presenter" />
+    <MESSAGE value="Created account logout controller" />
+    <MESSAGE value="Updated account page and app to include account logout stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated account page and app to include account logout stuff" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
+          <line>26</line>
+          <properties class="use_case.game.GameOutputBoundary">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
+  </component>
+</project>
