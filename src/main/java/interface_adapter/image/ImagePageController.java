@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * The {@code ImagePageController} class serves as the controller in the interface adapter layer.
+ * This class serves as the controller in the interface adapter layer.
  * It acts as a mediator between the user interface and the use case interactor for image-related operations.
  */
 public class ImagePageController {
