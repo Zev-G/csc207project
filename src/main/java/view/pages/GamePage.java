@@ -2,7 +2,7 @@ package view.pages;
 
 import interface_adapter.game.GameController;
 import interface_adapter.game.GameViewModel;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.game.GameTimer;
 import view.components.game.InteractiveMap;
 import view.components.game.PointsDisplay;
@@ -44,7 +44,7 @@ public class GamePage extends Page {
      *
      * @param app the app that is running the game
      */
-    public GamePage(App app, GameController gameController, GameViewModel gameViewModel) {
+    public GamePage(AppViewManager app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
 
         this.gameController = gameController;

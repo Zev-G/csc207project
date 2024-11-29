@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class ViewManager extends PageFrame implements View<String> {
 
-    private ViewManagerModel viewManagerModel;
+    protected ViewManagerModel viewManagerModel;
 
     private Map<String, Page> pageMap = new HashMap<>();
 
