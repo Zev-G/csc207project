@@ -9,4 +9,12 @@ public class SignUpOutputData {
         this.success = success;
         this.errorMessage = errorMessage;
     }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 }
