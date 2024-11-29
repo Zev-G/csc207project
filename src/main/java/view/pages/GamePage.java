@@ -35,6 +35,8 @@ public class GamePage extends Page {
     private final GameController gameController;
     private final GameViewModel gameViewModel;
 
+    private final AppViewManager app;
+
     /**
      * Constructs a GamePage with the specified app, game controller, and game view model.
      *
@@ -44,7 +46,7 @@ public class GamePage extends Page {
      */
     public GamePage(AppViewManager app, GameController gameController, GameViewModel gameViewModel) {
         super(app.getViewManager());
-
+        this.app = app;
         this.gameController = gameController;
         this.gameViewModel = gameViewModel;
 
@@ -163,10 +165,12 @@ public class GamePage extends Page {
         summaryButton = new RoundedButton("Summary");
         summaryButton.setPreferredSize(new Dimension(200, 80));
         summaryButton.setVisible(false);
+        summaryButton.addActionListener(e -> handleSummary(app));
 
         homeButton = new RoundedButton("Home");
         homeButton.setPreferredSize(new Dimension(200, 80));
         homeButton.setVisible(false);
+        homeButton.addActionListener(e -> handleHome(app));
 
         buttonPanel.add(guessButton);
         buttonPanel.add(summaryButton);
