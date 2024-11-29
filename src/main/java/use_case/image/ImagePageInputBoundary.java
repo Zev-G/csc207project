@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * The {@code ImagePageInputBoundary} interface defines the input methods required for
+ * This interface defines the input methods required for
  * the image-related use case operations. It provides an abstraction for uploading images.
  */
 public interface ImagePageInputBoundary {
