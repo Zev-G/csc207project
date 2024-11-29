@@ -124,7 +124,6 @@ public class SignUpPage extends Page implements View<SignUpState> {
         String email = emailField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();
 
-        // Invoke the controller for sign-up
         app.getSignUpController().handleSignUp(username, email, password);
     }
 
@@ -139,7 +138,8 @@ public class SignUpPage extends Page implements View<SignUpState> {
             // Disable inputs and show a progress indicator
             signUpButton.setEnabled(false);
             cancelButton.setEnabled(false);
-        } else {
+        }
+        else {
             // Enable inputs
             signUpButton.setEnabled(true);
             cancelButton.setEnabled(true);
