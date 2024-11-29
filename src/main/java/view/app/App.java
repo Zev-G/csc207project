@@ -12,6 +12,7 @@ import interface_adapter.game.*;
 import interface_adapter.image.ImagePageController;
 import interface_adapter.image.ImagePagePresenter;
 import interface_adapter.image.ImagePageViewModel;
+import use_case.dataAccessInterface.StatsDataAccess;
 import use_case.image.ImagePageInteractor;
 import interface_adapter.leaderboard.LeaderboardState;
 import interface_adapter.leaderboard.LeaderboardViewModel;
@@ -22,7 +23,7 @@ import interface_adapter.stats.StatsPresenter;
 import use_case.game.*;
 import use_case.stats.StatsInteractor;
 
-import data_access.DataAccess;
+import data_access.PhotoLocationDataAccess;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
 import interface_adapter.accountdelete.AccountDeleteController;
@@ -236,19 +237,19 @@ public class App {
             System.err.println("Failed to initialize Firebase. Exiting...");
             return;
         }
-        DataAccess data = new DataAccess();
+        DataAccessMock data = new DataAccessMock();
 
         ViewManagerModel viewManagerModel = new ViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new DataAccess(), presenter);
+        GameInteractor interactor = new GameInteractor(new PhotoLocationDataAccess(), presenter);
         GameController controller = new GameController(interactor);
 
 
         MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, viewManagerModel, mGameEndViewModel);
-        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new DataAccess(), mgamePresenter);
+        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new PhotoLocationDataAccess(), mgamePresenter);
         GameController mgameController = new GameController(mGameInteractorinteractor);
 
         MultiplayerViewModel multiplayerViewModel = new MultiplayerViewModel();
@@ -256,7 +257,6 @@ public class App {
         MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("app.kristopherz.net", 5555,
                 multiplayerPresenter, mGameInteractorinteractor);
         MultiplayerController multiplayerController = new MultiplayerController(multiplayerInteractor);
-
 
 
         AccountViewModel accountViewModel = new AccountViewModel();
@@ -297,7 +297,7 @@ public class App {
 
 
         leaderboardViewModel.setState(getLeaderboardState());
-        accountViewModel.setState(new AccountState(false, "", "", "",0));
+        accountViewModel.setState(new AccountState(false, "", "", "", 0));
 
         App app = new App(
                 viewManagerModel,

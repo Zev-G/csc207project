@@ -7,18 +7,18 @@ import javax.swing.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DataAccessTest {
+class PhotoLocationDataAccessTest {
 
     @Test
     void testFetchImagesAndLocations() {
         // Initialize DataAccess with a fixed seed for reproducibility
-        DataAccess dataAccess = new DataAccess(12345L);
+        PhotoLocationDataAccess photoLocationDataAccess = new PhotoLocationDataAccess(12345L);
 
         // Ensure images and locations are fetched successfully
-        assertFalse(dataAccess.getLocations().isEmpty(), "Locations list should not be empty.");
+        assertFalse(photoLocationDataAccess.getLocations().isEmpty(), "Locations list should not be empty.");
 
         // Test the first PhotoLocation object
-        PhotoLocation photoLocation = dataAccess.getLocations().get(0);
+        PhotoLocation photoLocation = photoLocationDataAccess.getLocations().get(0);
 
         assertNotNull(photoLocation, "PhotoLocation should not be null.");
         assertNotNull(photoLocation.getPhoto(), "ImageIcon in PhotoLocation should not be null.");
@@ -36,10 +36,10 @@ class DataAccessTest {
     @Test
     void testGetRandomLocation() {
         // Initialize DataAccess with a fixed seed
-        DataAccess dataAccess = new DataAccess(12345L);
+        PhotoLocationDataAccess photoLocationDataAccess = new PhotoLocationDataAccess(12345L);
 
         // Fetch a random PhotoLocation
-        PhotoLocation randomLocation = dataAccess.getRandomLocation();
+        PhotoLocation randomLocation = photoLocationDataAccess.getRandomLocation();
 
         assertNotNull(randomLocation, "Random PhotoLocation should not be null.");
         assertNotNull(randomLocation.getPhoto(), "ImageIcon in random PhotoLocation should not be null.");

@@ -1,6 +1,6 @@
 package use_case.stats;
 
-import data_access.StatsDataAccess;
+import use_case.dataAccessInterface.StatsDataAccess;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashMap;
