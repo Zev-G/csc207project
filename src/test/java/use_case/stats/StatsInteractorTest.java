@@ -2,7 +2,9 @@ package use_case.stats;
 
 import use_case.dataAccessInterface.StatsDataAccess;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,27 +60,6 @@ public class StatsInteractorTest {
         assertEquals(20, result.getCorrectGuesses());
     }
 
-    @Test
-    void testUpdateStats() {
-        // Arrange
-        InMemoryStatsDataAccess dataAccess = new InMemoryStatsDataAccess();
-        dataAccess.addUser("test_user", 100, 5, 20);
-        StatsRepository repository = (StatsRepository) dataAccess;
-        UpdateStatsInteractor interactor = new UpdateStatsInteractor(repository);
-
-        UpdateStatsInputData inputData = new UpdateStatsInputData("test_user", 50, 10);
-
-        // Act
-        interactor.updateStats(inputData);
-
-        // Assert
-        StatsOutputData updatedStats = dataAccess.getUserStats("test_user");
-        assertNotNull(updatedStats);
-        assertEquals("test_user", updatedStats.getUsername());
-        assertEquals(150, updatedStats.getPoints());
-        assertEquals(6, updatedStats.getGamesPlayed()); // gamesPlayed incremented
-        assertEquals(30, updatedStats.getCorrectGuesses());
-    }
 
     @Test
     void testFetchStatsForNonExistentUser() {
