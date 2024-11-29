@@ -10,4 +10,9 @@ public class SignUpController {
     public SignUpController(SignUpInputBoundary interactor) {
         this.interactor = interactor;
     }
+
+    public void handleSignUp(String username, String email, String password) {
+        SignUpInputData inputData = new SignUpInputData(username, email, password);
+        interactor.execute(inputData);
+    }
 }
