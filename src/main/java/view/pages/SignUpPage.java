@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 public class SignUpPage extends Page implements View<SignUpState> {
 
     private final SignUpViewModel viewModel;
+    private final App app;
 
     private final DLabel pageTitle = new DLabel("Sign Up");
     private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
@@ -35,6 +36,7 @@ public class SignUpPage extends Page implements View<SignUpState> {
 
     public SignUpPage(App app) {
         super(app.getViewManager());
+        this.app = app;
         this.viewModel = app.getSignUpViewModel();
 
         setMargin(ViewConstants.MARGIN_M);
@@ -117,15 +119,13 @@ public class SignUpPage extends Page implements View<SignUpState> {
     }
 
     private void signUpButtonPressed(ActionEvent event) {
-        String username = usernameField.getText();
-        String email = emailField.getText();
-        String password = new String(passwordField.getPassword());
+        // Retrieve user inputs
+        String username = usernameField.getText().trim();
+        String email = emailField.getText().trim();
+        String password = new String(passwordField.getPassword()).trim();
 
-        // Set credentials in the view model
-        viewModel.setCredentials(username, email, password);
-
-        // Initiate sign-up process
-        viewModel.signUp();
+        // Invoke the controller for sign-up
+        app.getSignUpController().handleSignUp(username, email, password);
     }
 
     private void cancelButtonPressed(ActionEvent event) {
