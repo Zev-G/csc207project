@@ -1,24 +1,9 @@
-/**
- * StatsPageState.java
- *
- * This class represents the state of the statistics page in the application.
- * It provides a snapshot of a user's performance metrics, including points, games played,
- * and the number of correct guesses.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Describes the class's role in encapsulating statistics data.
- * - **Clarity**: Provides straightforward explanations of functionality.
- * - **Completeness**: Covers all constructors, methods, and inner classes.
- * - **Ease of Use**: Includes a builder pattern and factory method for flexible instantiation.
- * - **Up-to-Dateness**: Reflects current structure and usage.
- */
-
 package interface_adapter.stats;
 
 import use_case.stats.StatsOutputData;
 
 /**
- * Represents the state of the statistics page, encapsulating user performance metrics.
+ * Represents the state of the stats page, containing user-related statistics.
  */
 public class StatsPageState {
 
@@ -27,6 +12,14 @@ public class StatsPageState {
     private final int gamesPlayed;
     private final int correctGuesses;
 
+    /**
+     * Constructs a StatsPageState with the provided user statistics.
+     *
+     * @param username       the username of the player
+     * @param points         the total points earned by the player
+     * @param gamesPlayed    the number of games played
+     * @param correctGuesses the number of correct guesses
+     */
     public StatsPageState(String username, int points, int gamesPlayed, int correctGuesses) {
         this.username = username;
         this.points = points;
@@ -35,9 +28,10 @@ public class StatsPageState {
     }
 
     /**
-     * Constructs a StatsPageState object with the given parameters.
+     * Factory method to create a StatsPageState from a StatsOutputData object.
      *
-     * @param outputData  The output data to be displayed containing username, points, games played and correct guesses.    T
+     * @param outputData the source data for user statistics
+     * @return a new StatsPageState instance
      */
     public static StatsPageState fromStatsOutputData(StatsOutputData outputData) {
         return new StatsPageState(
@@ -49,51 +43,7 @@ public class StatsPageState {
     }
 
     /**
-     * Returns the username of the user.
-     *
-     * @return The username.
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * Returns the total points accumulated by the user.
-     *
-     * @return The total points.
-     */
-    public int getPoints() {
-        return points;
-    }
-
-    /**
-     * Returns the total number of games played by the user.
-     *
-     * @return The total number of games played.
-     */
-    public int getGamesPlayed() {
-        return gamesPlayed;
-    }
-
-    /**
-     * Returns the total number of correct guesses made by the user.
-     *
-     * @return The total number of correct guesses.
-     */
-    public int getCorrectGuesses() {
-        return correctGuesses;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "User: %s, Points: %d, Games Played: %d, Correct Guesses: %d",
-                username, points, gamesPlayed, correctGuesses
-        );
-    }
-
-    /**
-     * Builder class for constructing StatsPageState objects with optional parameters.
+     * Builder class for creating a StatsPageState with optional flexibility.
      */
     public static class Builder {
         private String username;
@@ -102,10 +52,10 @@ public class StatsPageState {
         private int correctGuesses;
 
         /**
-         * Sets the username for the StatsPageState being built.
+         * Sets the username for the stats state.
          *
-         * @param username The username to set.
-         * @return The Builder instance for chaining.
+         * @param username the username of the player
+         * @return the Builder instance
          */
         public Builder setUsername(String username) {
             this.username = username;
@@ -113,10 +63,10 @@ public class StatsPageState {
         }
 
         /**
-         * Sets the points for the StatsPageState being built.
+         * Sets the points for the stats state.
          *
-         * @param points The points to set.
-         * @return The Builder instance for chaining.
+         * @param points the total points earned by the player
+         * @return the Builder instance
          */
         public Builder setPoints(int points) {
             this.points = points;
@@ -124,10 +74,10 @@ public class StatsPageState {
         }
 
         /**
-         * Sets the number of games played for the StatsPageState being built.
+         * Sets the games played count for the stats state.
          *
-         * @param gamesPlayed The number of games played to set.
-         * @return The Builder instance for chaining.
+         * @param gamesPlayed the number of games played
+         * @return the Builder instance
          */
         public Builder setGamesPlayed(int gamesPlayed) {
             this.gamesPlayed = gamesPlayed;
@@ -135,10 +85,10 @@ public class StatsPageState {
         }
 
         /**
-         * Sets the number of correct guesses for the StatsPageState being built.
+         * Sets the correct guesses count for the stats state.
          *
-         * @param correctGuesses The number of correct guesses to set.
-         * @return The Builder instance for chaining.
+         * @param correctGuesses the number of correct guesses
+         * @return the Builder instance
          */
         public Builder setCorrectGuesses(int correctGuesses) {
             this.correctGuesses = correctGuesses;
@@ -146,12 +96,61 @@ public class StatsPageState {
         }
 
         /**
-         * Builds and returns a StatsPageState object with the specified parameters.
+         * Builds a new StatsPageState with the specified attributes.
          *
-         * @return A new StatsPageState object.
+         * @return a new StatsPageState instance
          */
         public StatsPageState build() {
             return new StatsPageState(username, points, gamesPlayed, correctGuesses);
         }
+    }
+
+    /**
+     * Gets the username of the player.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Gets the total points earned by the player.
+     *
+     * @return the points
+     */
+    public int getPoints() {
+        return points;
+    }
+
+    /**
+     * Gets the number of games played.
+     *
+     * @return the games played count
+     */
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    /**
+     * Gets the number of correct guesses.
+     *
+     * @return the correct guesses count
+     */
+    public int getCorrectGuesses() {
+        return correctGuesses;
+    }
+
+    /**
+     * Returns a string representation of the stats state.
+     *
+     * @return a formatted string of the user's statistics
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                "User: %s, Points: %d, Games Played: %d, Correct Guesses: %d",
+                username, points, gamesPlayed, correctGuesses
+        );
     }
 }

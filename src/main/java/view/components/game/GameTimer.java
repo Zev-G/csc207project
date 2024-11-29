@@ -1,18 +1,3 @@
-/**
- * GameTimer.java
- *
- * This class provides a countdown timer for games, using a Swing-based implementation.
- * It manages the countdown logic, updates a visual label for the timer, and notifies listeners
- * when the timer reaches zero.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Clearly defines its role as a game timer and notifier.
- * - **Clarity**: Provides concise descriptions of its fields, methods, and behavior.
- * - **Completeness**: Explains the timer's lifecycle methods (start, stop, reset) and notification mechanism.
- * - **Ease of Use**: Demonstrates how to integrate and use the timer in a game UI.
- * - **Up-to-Dateness**: Reflects the current implementation of the countdown timer.
- */
-
 package view.components.game;
 
 import javax.swing.*;
@@ -22,33 +7,23 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
- * A countdown timer for games.
- * Manages a countdown, updates a label with the remaining time, and notifies listeners when the timer ends.
+ * A game timer that counts down from a specified total time, updates a JLabel,
+ * and notifies listeners when the timer reaches zero.
  */
 public class GameTimer implements ActionListener {
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private final JLabel timerLabel;
-    private final Timer timer;
 
     private final int totalTime;
     private int timeRemaining;
 
+    private final Timer timer;
+
     /**
-     * Constructs a GameTimer with the specified total countdown time.
+     * Constructs a GameTimer with a specified total time.
      *
-     * @param totalTime The total time in seconds for the countdown.
-     *
-     * Usage Example:
-     * <pre>
-     *     GameTimer timer = new GameTimer(30); // 30 seconds countdown
-     *     timer.addPropertyChangeListener(event -> {
-     *         if ("timeout".equals(event.getPropertyName())) {
-     *             System.out.println("Time's up!");
-     *         }
-     *     });
-     *     timer.start();
-     * </pre>
+     * @param totalTime the total time (in seconds) for the timer
      */
     public GameTimer(int totalTime) {
         this.timerLabel = new JLabel(String.valueOf(totalTime));
@@ -58,22 +33,21 @@ public class GameTimer implements ActionListener {
     }
 
     /**
-     * Starts the timer and begins the countdown.
+     * Starts the timer countdown.
      */
     public void start() {
         timer.start();
     }
 
     /**
-     * Stops the timer and pauses the countdown.
+     * Stops the timer countdown.
      */
     public void stop() {
         timer.stop();
     }
 
     /**
-     * Resets the timer to the initial total time.
-     * Does not start the timer automatically.
+     * Resets the timer to its initial total time.
      */
     public void resetTimer() {
         timeRemaining = totalTime;
@@ -81,10 +55,10 @@ public class GameTimer implements ActionListener {
     }
 
     /**
-     * Handles the countdown logic on each timer tick.
-     * Decrements the remaining time, updates the timer label, and fires a "timeout" event when time reaches zero.
+     * Handles timer tick events, updating the timer label and notifying listeners
+     * when the time reaches zero.
      *
-     * @param e The action event triggered by the timer.
+     * @param e the action event triggered by the timer
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -97,18 +71,18 @@ public class GameTimer implements ActionListener {
     }
 
     /**
-     * Returns the label displaying the remaining time.
+     * Returns the JLabel displaying the timer value.
      *
-     * @return The JLabel displaying the remaining time.
+     * @return the timer label
      */
     public JLabel getTimerLabel() {
         return timerLabel;
     }
 
     /**
-     * Adds a property change listener to be notified of timer events.
+     * Adds a listener to be notified of property changes, such as timeout events.
      *
-     * @param listener The listener to add.
+     * @param listener the property change listener to add
      */
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.support.addPropertyChangeListener(listener);

@@ -1,18 +1,3 @@
-/**
- * GameSummaryPanel.java
- *
- * This class represents a UI component for displaying a summary of the user's game performance.
- * It includes the user's points, a visual representation of guesses (correct and incorrect),
- * and a motivational message encouraging further exploration.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Clearly defines its role as a game summary display panel.
- * - **Clarity**: Provides straightforward descriptions of layout and update functionality.
- * - **Completeness**: Covers initialization, layout configuration, and update methods.
- * - **Ease of Use**: Demonstrates how to integrate and update the panel in a larger UI.
- * - **Up-to-Dateness**: Reflects the current implementation details.
- */
-
 package view.components.game;
 
 import view.components.standard.DLabel;
@@ -22,8 +7,7 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * Panel for displaying a summary of the user's game performance.
- * Provides a clean and organized layout for showing points, guesses (ticks and crosses), and motivational text.
+ * Panel for displaying the game summary, including points scored and guess results.
  */
 public class GameSummaryPanel extends JPanel {
 
@@ -32,15 +16,10 @@ public class GameSummaryPanel extends JPanel {
     private final JLabel discoverText;
 
     /**
-     * Constructs a GameSummaryPanel with a pre-configured layout and components.
-     *
-     * Features:
-     * - Displays motivational text at the top.
-     * - Shows the user's total points in a bold and prominent style in the center.
-     * - Visualizes guesses (correct and incorrect) using ticks and crosses at the bottom.
+     * Constructs a GameSummaryPanel with initial UI components.
      */
     public GameSummaryPanel() {
-        // Initialize Discover UofT text
+        // Initialize "Discover UofT" text
         discoverText = new JLabel("Discover UofT to get more points!");
         discoverText.setFont(new Font("Arial", Font.PLAIN, 60)); // Font size 60, unbolded
         discoverText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -59,26 +38,16 @@ public class GameSummaryPanel extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50)); // Adjust padding to control overall spacing
 
         // Add components
-        add(discoverText, BorderLayout.NORTH); // Discover UofT at the top
+        add(discoverText, BorderLayout.NORTH); // "Discover UofT" at the top
         add(pointsLabel, BorderLayout.CENTER); // Points in the middle
         add(guessesPanel, BorderLayout.SOUTH); // Guesses at the bottom
     }
 
     /**
-     * Updates the summary panel with the provided points and guesses.
+     * Updates the stats displayed on the panel.
      *
-     * @param points    The total points to display.
-     * @param guessBar  A list of booleans representing correct (true) or incorrect (false) guesses.
-     *
-     * Responsibilities:
-     * - Updates the points label with the provided value.
-     * - Refreshes the guesses panel to display ticks (\u2713) for correct guesses and crosses (\u2717) for incorrect guesses.
-     *
-     * Usage Example:
-     * <pre>
-     *     GameSummaryPanel summaryPanel = new GameSummaryPanel();
-     *     summaryPanel.updateSummary(100, List.of(true, false, true));
-     * </pre>
+     * @param points   the total points to display
+     * @param guessBar the list of Boolean values representing correct (true) or incorrect (false) guesses
      */
     public void updateSummary(int points, List<Boolean> guessBar) {
         // Update points label
@@ -87,9 +56,9 @@ public class GameSummaryPanel extends JPanel {
         // Update guesses panel
         guessesPanel.removeAll(); // Clear previous guesses
         for (Boolean guess : guessBar) {
-            JLabel guessLabel = new JLabel(guess ? "\u2713" : "\u2717");
+            JLabel guessLabel = new JLabel(guess ? "\u2713" : "\u2717"); // Checkmark or cross
             guessLabel.setFont(new Font("Arial Unicode MS", Font.BOLD, 48)); // Larger font size for ticks/crosses
-            guessLabel.setForeground(guess ? Color.GREEN : Color.RED); // Green for ticks, red for crosses
+            guessLabel.setForeground(guess ? Color.GREEN : Color.RED); // Green for correct, red for incorrect
             guessesPanel.add(guessLabel);
         }
 

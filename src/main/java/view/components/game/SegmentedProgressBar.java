@@ -1,17 +1,3 @@
-/**
- * SegmentedProgressBar.java
- *
- * This class represents a progress bar with multiple segments, visually indicating progress through rounds.
- * Each segment can represent a win (green), a loss (red), or a pending round (gray).
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Documents its role as a segmented progress bar with dynamic visual updates.
- * - **Clarity**: Provides clear descriptions of its fields, methods, and functionality.
- * - **Completeness**: Covers initialization, updates, and reset functionality.
- * - **Ease of Use**: Demonstrates how to integrate the component into a larger game UI.
- * - **Up-to-Dateness**: Reflects the current implementation details and segment interaction logic.
- */
-
 package view.components.game;
 
 import view.ViewConstants;
@@ -23,88 +9,75 @@ import java.util.List;
 
 /**
  * A segmented progress bar for tracking progress across multiple rounds.
- * Each segment visually represents the outcome of a round (win/loss) or a pending state.
+ * Each segment represents a round and is color-coded based on win/loss status.
  */
 public class SegmentedProgressBar extends JPanel {
 
-    private static final Color DARKER_GRAY = new Color(169, 169, 169); // Highlight color for next round
-    private static final Color PASTEL_GREEN = new Color(152, 251, 152); // Win color
-    private static final Color PASTEL_RED = new Color(255, 182, 193); // Loss color
+    private static final Color DARKER_GRAY = new Color(169, 169, 169);
+    private static final Color PASTEL_GREEN = new Color(152, 251, 152);
+    private static final Color PASTEL_RED = new Color(255, 182, 193);
 
-    private int totalRounds; // Total number of segments
-    private int currentRound; // Current progress index
+    private final int totalRounds;
+    private int currentRound;
 
     /**
-     * Constructs a SegmentedProgressBar with the specified number of segments.
+     * Constructs a SegmentedProgressBar with the specified number of rounds.
      *
-     * @param totalRounds The total number of segments (rounds) in the progress bar.
-     *
-     * Usage Example:
-     * <pre>
-     *     SegmentedProgressBar progressBar = new SegmentedProgressBar(5);
-     *     progressBar.updateRound(true); // Updates first segment as a win
-     * </pre>
+     * @param totalRounds the total number of rounds to display in the progress bar
      */
     public SegmentedProgressBar(int totalRounds) {
         this.totalRounds = totalRounds;
-        setLayout(new GridLayout(1, totalRounds, ViewConstants.GAP_S, 0)); // Horizontal layout for segments
-        setPreferredSize(new Dimension(0, ViewConstants.HEIGHT_SS)); // Set height for visual consistency
-
-        // Initialize segments with a default gray color
+        setLayout(new GridLayout(1, totalRounds, ViewConstants.GAP_S, 0));
+        setPreferredSize(new Dimension(0, ViewConstants.HEIGHT_SS));
         for (int i = 0; i < totalRounds; i++) {
             add(new SegmentPanel(Color.LIGHT_GRAY));
         }
-        highlightNextSegment(); // Highlight the first segment
+        highlightNextSegment();
     }
 
     /**
-     * Updates the current round's segment based on the outcome (win/loss).
+     * Updates the progress bar for the current round based on win/loss status.
      *
-     * - Marks the segment green for a win.
-     * - Marks the segment red for a loss.
-     * - Highlights the next segment, if applicable.
-     *
-     * @param win True for a win, false for a loss.
-     * @return True if this was the last round, false otherwise.
+     * @param win {@code true} if the round was won, {@code false} otherwise
+     * @return {@code true} if the progress bar has reached the last round, {@code false} otherwise
      */
     public boolean updateRound(boolean win) {
         if (currentRound < totalRounds) {
             final Color fillColor = win ? PASTEL_GREEN : PASTEL_RED;
             final SegmentPanel currentSegment = (SegmentPanel) getComponent(currentRound);
-            currentSegment.setColor(fillColor); // Update current segment color
+            currentSegment.setColor(fillColor);
             currentRound++;
-            repaint(); // Refresh the UI
-
+            repaint();
             if (currentRound < totalRounds) {
-                highlightNextSegment(); // Highlight the next segment
+                highlightNextSegment();
             }
         }
-        return currentRound == totalRounds; // Return whether this was the last round
+        return currentRound == totalRounds;
     }
 
     /**
-     * Highlights the next segment in the progress bar.
+     * Highlights the next segment in the progress bar to indicate the current round.
      */
     private void highlightNextSegment() {
         if (currentRound < totalRounds) {
             final SegmentPanel nextSegment = (SegmentPanel) getComponent(currentRound);
-            nextSegment.setColor(DARKER_GRAY); // Highlight next segment
+            nextSegment.setColor(DARKER_GRAY);
         }
     }
 
     /**
-     * Returns the current round index.
+     * Returns the current round index (0-based).
      *
-     * @return The current round (0-indexed).
+     * @return the current round
      */
     public int getCurrentRound() {
         return currentRound;
     }
 
     /**
-     * Returns the win/loss status of all segments.
+     * Returns a list of booleans representing the win/loss status of all segments.
      *
-     * @return A list of booleans where true represents a win (green segment), false otherwise.
+     * @return a list where {@code true} represents a win (green segment) and {@code false} otherwise
      */
     public List<Boolean> getAllSegmentStatus() {
         List<Boolean> statuses = new ArrayList<>();
@@ -116,57 +89,52 @@ public class SegmentedProgressBar extends JPanel {
     }
 
     /**
-     * Counts the number of segments marked as wins.
+     * Returns the count of segments that represent wins.
      *
-     * @return The count of green segments (wins).
+     * @return the number of segments with a win (green color)
      */
     public int getCountTrueSegments() {
-        List<Boolean> statuses = getAllSegmentStatus(); // Retrieve statuses
+        List<Boolean> statuses = getAllSegmentStatus();
         int trueCount = 0;
-
-        // Count the number of true (win) statuses
         for (Boolean status : statuses) {
             if (status) {
                 trueCount++;
             }
         }
-
-        return trueCount; // Return the count of wins
+        return trueCount;
     }
 
     /**
      * Resets the progress bar to its initial state.
-     * All segments are set to the default gray color, and the first segment is highlighted.
      */
     public void reset() {
-        currentRound = 0; // Reset the current round index
+        currentRound = 0;
         for (int i = 0; i < totalRounds; i++) {
             SegmentPanel segment = (SegmentPanel) getComponent(i);
-            segment.setColor(Color.LIGHT_GRAY); // Reset segment color
+            segment.setColor(Color.LIGHT_GRAY);
         }
-        highlightNextSegment(); // Highlight the first segment
-        repaint(); // Refresh the UI
+        highlightNextSegment();
+        repaint();
     }
 
     /**
-     * Inner class representing an individual segment of the progress bar.
-     * Each segment is a small panel with a customizable background color.
+     * A panel representing an individual segment in the progress bar.
      */
     private static class SegmentPanel extends JPanel {
 
         /**
          * Constructs a SegmentPanel with the specified initial color.
          *
-         * @param color The initial background color of the segment.
+         * @param color the initial color of the segment
          */
         protected SegmentPanel(Color color) {
             setBackground(color);
         }
 
         /**
-         * Updates the color of the segment.
+         * Sets the color of the segment.
          *
-         * @param color The new background color.
+         * @param color the new color of the segment
          */
         protected void setColor(Color color) {
             setBackground(color);

@@ -1,51 +1,31 @@
-/**
- * UpdateStatsController.java
- *
- * This class serves as the controller in the application’s architecture for updating statistics.
- * It acts as the intermediary between the user interface and the use case interactor.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Documents its role in preparing and passing input data.
- * - **Clarity**: Clearly explains the responsibilities of the controller.
- * - **Completeness**: Includes all methods and their purposes.
- * - **Ease of Use**: Facilitates integration with user interface components.
- * - **Up-to-Dateness**: Reflects the latest method signature and behavior.
- */
-
 package interface_adapter.stats;
 
 import use_case.stats.UpdateStatsInputBoundary;
 import use_case.stats.UpdateStatsInputData;
 
 /**
- * Controller for updating user statistics.
- * Responsible for handling user requests and invoking the update stats use case.
+ * Controller class responsible for updating user statistics.
+ * Acts as a bridge between the user interface and the use case layer.
  */
 public class UpdateStatsController {
 
     private final UpdateStatsInputBoundary interactor;
 
     /**
-     * Constructs an UpdateStatsController with the given interactor.
+     * Constructs an UpdateStatsController with the specified interactor.
      *
-     * @param interactor The interactor responsible for processing update stats requests.
+     * @param interactor The interactor that handles the update stats use case.
      */
     public UpdateStatsController(UpdateStatsInputBoundary interactor) {
         this.interactor = interactor;
     }
 
     /**
-     * Updates user statistics by preparing input data and delegating the request to the interactor.
+     * Updates the statistics of a user by delegating the task to the interactor.
      *
-     * @param userName       The username of the user.
-     * @param points         The points to update.
-     * @param correctGuesses The number of correct guesses to update.
-     *
-     * Usage Example:
-     * <pre>
-     *     UpdateStatsController controller = new UpdateStatsController(interactor);
-     *     controller.updateStats("user123", 100, 10);
-     * </pre>
+     * @param userName       The name of the user whose stats are being updated.
+     * @param points         The number of points to be added to the user's stats.
+     * @param correctGuesses The number of correct guesses to be added to the user's stats.
      */
     public void updateStats(String userName, int points, int correctGuesses) {
         // Create the input data
@@ -55,4 +35,3 @@ public class UpdateStatsController {
         interactor.updateStats(inputData);
     }
 }
-

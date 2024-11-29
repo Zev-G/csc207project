@@ -1,76 +1,53 @@
-/**
- * PointsDisplay.java
- *
- * This class represents a visual component for displaying and updating the user's points.
- * It provides methods to initialize, increment, and set the total points, and ensures the
- * display is formatted correctly.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Clearly defines its role as a points display component.
- * - **Clarity**: Provides clear descriptions of its fields, methods, and functionality.
- * - **Completeness**: Covers initialization, update, and access methods.
- * - **Ease of Use**: Demonstrates how to integrate and update the points display in a UI.
- * - **Up-to-Dateness**: Reflects the current implementation details.
- */
-
 package view.components.game;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Component for visually displaying user points in a formatted label.
- * Provides methods for dynamically updating the displayed points.
+ * Displays and manages the player's points in the game.
  */
 public class PointsDisplay {
 
-    private JLabel pointsLabel; // The label displaying the points
-    private int points; // The current total points
+    private final JLabel pointsLabel;
+    private int points;
 
     /**
-     * Constructs a PointsDisplay with the specified initial points.
+     * Constructs a PointsDisplay with an initial points value.
      *
-     * @param initialPoints The initial points to display.
-     *
-     * Usage Example:
-     * <pre>
-     *     PointsDisplay pointsDisplay = new PointsDisplay(0);
-     *     JLabel label = pointsDisplay.getPointsLabel();
-     *     pointsDisplay.incrementPoints(10); // Adds 10 points
-     * </pre>
+     * @param initialPoints the starting points
      */
     public PointsDisplay(int initialPoints) {
         this.points = initialPoints;
         this.pointsLabel = new JLabel(" | " + String.format("%04d", points) + " Points");
-        this.pointsLabel.setFont(new Font("Arial", Font.BOLD, 18)); // Bold font for visibility
+        this.pointsLabel.setFont(new Font("Arial", Font.BOLD, 18));
     }
 
     /**
-     * Returns the JLabel component for the points display.
+     * Returns the JLabel displaying the points.
      *
-     * @return The JLabel displaying the points.
+     * @return the points label
      */
     public JLabel getPointsLabel() {
         return pointsLabel;
     }
 
     /**
-     * Increments the total points by the specified value.
+     * Increments the points by a specified value and updates the display.
      *
-     * @param increment The number of points to add.
+     * @param increment the amount to add to the current points
      */
     public void incrementPoints(int increment) {
         points += increment;
-        pointsLabel.setText(" | " + String.format("%04d", points) + " Points"); // Update label text
+        pointsLabel.setText(" | " + String.format("%04d", points) + " Points");
     }
 
     /**
-     * Sets the total points to the specified value.
+     * Sets the points to a specific value and updates the display.
      *
-     * @param points The new total points to display.
+     * @param points the new points value
      */
     public void setPoints(int points) {
         this.points = points;
-        pointsLabel.setText(" | " + String.format("%04d", points) + " Points"); // Update label text
+        pointsLabel.setText(" | " + String.format("%04d", points) + " Points");
     }
 }

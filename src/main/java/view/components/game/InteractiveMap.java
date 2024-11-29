@@ -1,18 +1,3 @@
-/**
- * InteractiveMap.java
- *
- * This class represents an interactive map component that allows users to click and select locations.
- * It also supports displaying a target location on the map. The map converts between pixel coordinates
- * (screen space) and geographical coordinates (latitude and longitude) to interact with the user.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Documents its role as an interactive UI component for selecting and displaying map locations.
- * - **Clarity**: Provides detailed descriptions of fields, methods, and usage.
- * - **Completeness**: Covers the initialization, coordinate conversion, and rendering logic.
- * - **Ease of Use**: Demonstrates how to integrate the map into a UI with practical examples.
- * - **Up-to-Dateness**: Reflects the current design and interactive functionality.
- */
-
 package view.components.game;
 
 import util.DistanceCalculator;
@@ -22,33 +7,23 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * An interactive map component allowing users to click and select locations,
- * display a target location, and reset selections.
+ * Represents an interactive, clickable map for selecting coordinates.
  */
 public class InteractiveMap extends JPanel {
 
-    private final ImageIcon map; // The map image displayed in the component
-    private double[] target; // The target location (latitude, longitude) to display
-    private boolean displayTarget; // Whether to display the target location
-    private boolean isSelected; // Whether the user has selected a location
-    private final double[] chosenCoord = new double[2]; // The selected location's coordinates (latitude, longitude)
-    private final double[] mapLocation; // The geographical bounds of the map (top, bottom, left, right)
+    private final ImageIcon map;
+    private final double[] mapLocation; // [top, bottom, left, right] latitude and longitude
+
+    private double[] target;
+    private boolean displayTarget;
+    private boolean isSelected;
+    private final double[] chosenCoord = new double[2];
 
     /**
-     * Constructs an InteractiveMap with the given map image and geographical bounds.
+     * Creates an interactive map.
      *
-     * @param map         The image of the map.
-     * @param mapLocation The geographical bounds of the map [top, bottom, left, right].
-     *
-     * Usage Example:
-     * <pre>
-     *     InteractiveMap map = new InteractiveMap(
-     *         new ImageIcon("map.jpg"),
-     *         new double[]{43.67, 43.65, -79.40, -79.38}
-     *     );
-     *     map.setTarget(new double[]{43.66, -79.39});
-     *     map.setDisplayTarget(true);
-     * </pre>
+     * @param map         the map image to display
+     * @param mapLocation the geographic boundaries of the map [top, bottom, left, right]
      */
     public InteractiveMap(ImageIcon map, double[] mapLocation) {
         this.map = map;
@@ -77,19 +52,20 @@ public class InteractiveMap extends JPanel {
 
         if (isSelected) {
             final int[] coord = toXYCoord(chosenCoord);
-            g.fillOval(coord[0] - 5, coord[1] - 5, 10, 10); // Highlight selected location
+            g.fillOval(coord[0] - 5, coord[1] - 5, 10, 10); // Draw user-selected point
         }
+
         if (displayTarget) {
-            g.setColor(new Color(255, 0, 0)); // Red for target
+            g.setColor(new Color(255, 0, 0)); // Red color for target
             final int[] coord = toXYCoord(target);
-            g.fillOval(coord[0] - 5, coord[1] - 5, 10, 10); // Highlight target location
+            g.fillOval(coord[0] - 5, coord[1] - 5, 10, 10); // Draw target point
         }
     }
 
     /**
-     * Returns the user-selected coordinate.
+     * Returns the user-selected coordinates.
      *
-     * @return The selected coordinate as [latitude, longitude].
+     * @return the user-selected coordinates as [latitude, longitude]
      */
     public double[] getChosenCoord() {
         return chosenCoord;
@@ -98,16 +74,16 @@ public class InteractiveMap extends JPanel {
     /**
      * Sets the target location on the map.
      *
-     * @param target The target location as [latitude, longitude].
+     * @param target the target coordinates [latitude, longitude]
      */
     public void setTarget(double[] target) {
         this.target = target;
     }
 
     /**
-     * Sets whether to display the target location on the map.
+     * Controls whether the target location is displayed on the map.
      *
-     * @param displayTarget True to display the target, false otherwise.
+     * @param displayTarget {@code true} to display the target, {@code false} to hide it
      */
     public void setDisplayTarget(boolean displayTarget) {
         this.displayTarget = displayTarget;
@@ -115,7 +91,7 @@ public class InteractiveMap extends JPanel {
     }
 
     /**
-     * Resets the selected location and state.
+     * Resets the map, clearing any selected coordinates.
      */
     public void reset() {
         chosenCoord[0] = 0;
@@ -124,10 +100,10 @@ public class InteractiveMap extends JPanel {
     }
 
     /**
-     * Converts geographical coordinates (latitude, longitude) to pixel coordinates.
+     * Converts geographic coordinates (latitude, longitude) to map pixel coordinates.
      *
-     * @param coord The geographical coordinates as [latitude, longitude].
-     * @return The pixel coordinates as [x, y].
+     * @param coord the geographic coordinates [latitude, longitude]
+     * @return the corresponding pixel coordinates [x, y]
      */
     private int[] toXYCoord(double[] coord) {
         final double xRatio = (coord[1] - mapLocation[2]) / (mapLocation[3] - mapLocation[2]);
@@ -137,10 +113,10 @@ public class InteractiveMap extends JPanel {
     }
 
     /**
-     * Converts pixel coordinates to geographical coordinates (latitude, longitude).
+     * Converts map pixel coordinates to geographic coordinates (latitude, longitude).
      *
-     * @param coord The pixel coordinates as [x, y].
-     * @return The geographical coordinates as [latitude, longitude].
+     * @param coord the pixel coordinates [x, y]
+     * @return the corresponding geographic coordinates [latitude, longitude]
      */
     private double[] toLonLat(int[] coord) {
         final double size = Math.max(getHeight(), getWidth());
@@ -152,20 +128,23 @@ public class InteractiveMap extends JPanel {
     }
 
     /**
-     * Demonstrates the interactive map in a standalone application.
+     * Main method for testing the interactive map component.
      *
-     * @param args Command-line arguments (not used).
+     * @param args command-line arguments
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Interactive Map");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         InteractiveMap map = new InteractiveMap(
                 new ImageIcon(ClassLoader.getSystemResource("photos/UofTmap.jpg")),
                 new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115}
         );
+
         frame.setContentPane(map);
         frame.setSize(500, 500);
         frame.setVisible(true);
+
         map.setTarget(new double[]{43.65984277958618, -79.39718377820866});
         map.setDisplayTarget(true);
     }

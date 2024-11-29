@@ -1,43 +1,21 @@
-/**
- * StatsInteractor.java
- *
- * This class implements the use case logic for fetching user statistics.
- * It orchestrates the flow of data between the input boundary, data access layer, and output boundary,
- * adhering to the principles of Clean Architecture.
- *
- * Dimensions of Documentation (ACCEU):
- * - **Accuracy**: Documents its role in executing the core business logic for fetching statistics.
- * - **Clarity**: Provides clear descriptions of its fields, constructor, and methods.
- * - **Completeness**: Explains how it interacts with other components in the architecture.
- * - **Ease of Use**: Simplifies understanding of the interactor's responsibilities and integration.
- * - **Up-to-Dateness**: Reflects the current implementation details.
- */
-
 package use_case.stats;
 
 import use_case.dataAccessInterface.StatsDataAccess;
 
 /**
- * The interactor for fetching user statistics.
- * Implements the {@link StatsInputBoundary} to handle statistics retrieval use case logic.
+ * Interactor for handling user statistics retrieval.
+ * Communicates with the data access layer and delegates presentation to the output boundary.
  */
 public class StatsInteractor implements StatsInputBoundary {
+
     private final StatsDataAccess dataAccess;
     private final StatsOutputBoundary outputBoundary;
 
     /**
-     * Constructs a StatsInteractor with the specified dependencies.
+     * Constructs a StatsInteractor.
      *
-     * @param dataAccess     The data access interface for retrieving user statistics.
-     * @param outputBoundary The output boundary interface for presenting the retrieved statistics.
-     *
-     * Usage Example:
-     * <pre>
-     *     StatsDataAccess dataAccess = new StatsDatabaseAdapter(...);
-     *     StatsOutputBoundary presenter = new StatsPresenter(...);
-     *     StatsInteractor interactor = new StatsInteractor(dataAccess, presenter);
-     *     interactor.fetchStats(new StatsInputData("user123"));
-     * </pre>
+     * @param dataAccess     the data access interface for retrieving user statistics
+     * @param outputBoundary the output boundary for presenting the statistics
      */
     public StatsInteractor(StatsDataAccess dataAccess, StatsOutputBoundary outputBoundary) {
         this.dataAccess = dataAccess;
@@ -46,23 +24,14 @@ public class StatsInteractor implements StatsInputBoundary {
 
     /**
      * Fetches user statistics based on the provided input data.
+     * Retrieves statistics from the data access layer and passes them to the output boundary.
      *
-     * Process:
-     * 1. Extracts the username from the input data.
-     * 2. Retrieves the statistics for the specified user from the data access layer.
-     * 3. Passes the retrieved data to the output boundary for presentation.
-     *
-     * @param inputData The input data containing the username.
+     * @param inputData the input data containing the username for fetching statistics
      */
     @Override
     public void fetchStats(StatsInputData inputData) {
-        // Retrieve the username from the input data
         String username = inputData.getUsername();
-
-        // Fetch user statistics from the data access layer
         StatsOutputData outputData = dataAccess.getUserStats(username);
-
-        // Pass the retrieved data to the presenter via the output boundary
         outputBoundary.presentStats(outputData);
     }
 }
