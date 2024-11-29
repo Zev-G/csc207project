@@ -1,0 +1,102 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"482eafd2-4214-4b6c-88a5-d599ac344a31\" name=\"Changes\" comment=\"Updated account page and app to include account logout stuff\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"kristopher.zhao\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2pLxVrI0dMaJi8LZUFBZthOsrDf\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.App (1).executor\": \"Run\",\r\n    \"Application.App (2).executor\": \"Run\",\r\n    \"Application.App (3).executor\": \"Debug\",\r\n    \"Application.App (4).executor\": \"Run\",\r\n    \"Application.App (5).executor\": \"Run\",\r\n    \"Application.App.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Application.App (1)\">\r\n    <configuration name=\"App (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (3)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (4)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (5)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.App (1)\" />\r\n        <item itemvalue=\"Application.App (5)\" />\r\n        <item itemvalue=\"Application.App (4)\" />\r\n        <item itemvalue=\"Application.App (3)\" />\r\n        <item itemvalue=\"Application.App\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46\" />\r\n        <option value=\"jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7a6b8aa1-16ab-4ba6-82f4-2be2151e965b\" name=\"Changes\" comment=\"\" />\r\n      <created>1732590527178</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732590527178</updated>\r\n      <workItem from=\"1732590532509\" duration=\"752000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Added multiplayer game to app\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732591234422</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732591234422</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\" workspace\" />\r\n    <MESSAGE value=\"Questionably clean\" />\r\n    <MESSAGE value=\"Created account confirm controller\" />\r\n    <MESSAGE value=\"Created account confirm input boundary\" />\r\n    <MESSAGE value=\"Created account confirm interactor\" />\r\n    <MESSAGE value=\"Created account confirm output boundary\" />\r\n    <MESSAGE value=\"Created account confirm presenter\" />\r\n    <MESSAGE value=\"Created account input data\" />\r\n    <MESSAGE value=\"Implemented clean architecture for account and hooked into view system\" />\r\n    <MESSAGE value=\"Created user data access interface\" />\r\n    <MESSAGE value=\"Updated user interface\" />\r\n    <MESSAGE value=\"Updated user to have a user id\" />\r\n    <MESSAGE value=\"Updated data access mock to have fake user access\" />\r\n    <MESSAGE value=\"Created test for account confirm interactor\" />\r\n    <MESSAGE value=\"Added userid to account input data\" />\r\n    <MESSAGE value=\"Updated creation of account states to work with new user system\" />\r\n    <MESSAGE value=\"Update to idea files\" />\r\n    <MESSAGE value=\"Created account logout input boundary\" />\r\n    <MESSAGE value=\"Created account logout output boundary\" />\r\n    <MESSAGE value=\"Created account logout interactor\" />\r\n    <MESSAGE value=\"Created account logout interactor test\" />\r\n    <MESSAGE value=\"Created account logout presenter\" />\r\n    <MESSAGE value=\"Created account logout controller\" />\r\n    <MESSAGE value=\"Updated account page and app to include account logout stuff\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated account page and app to include account logout stuff\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>51</line>\r\n          <option name=\"timeStamp\" value=\"46\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>46</line>\r\n          <option name=\"timeStamp\" value=\"47\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"48\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"49\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ b/.idea/workspace.xml	(date 1732685276977)
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,7 +22,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="kristopher.zhao" />
++        <entry key="$PROJECT_DIR$" value="terrence.allder" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -132,10 +131,10 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.App (1)" />
+         <item itemvalue="Application.App (5)" />
+         <item itemvalue="Application.App (4)" />
+         <item itemvalue="Application.App (3)" />
++        <item itemvalue="Application.App (1)" />
+         <item itemvalue="Application.App" />
+       </list>
+     </recent_temporary>
+@@ -171,6 +170,17 @@
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value=" workspace" />
+@@ -204,22 +214,22 @@
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
+-          <line>51</line>
++          <line>52</line>
+           <option name="timeStamp" value="46" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
+-          <line>46</line>
++          <line>47</line>
+           <option name="timeStamp" value="47" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
+-          <line>36</line>
++          <line>56</line>
+           <option name="timeStamp" value="48" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>
+-          <line>64</line>
++          <line>84</line>
+           <option name="timeStamp" value="49" />
+         </line-breakpoint>
+       </breakpoints>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" default=\"true\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ b/.idea/misc.xml	(date 1732685368659)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file

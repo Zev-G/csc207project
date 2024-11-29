@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/StatsInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/UpdateStatsInteractorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +26,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="kristopher.zhao" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Tallduoft"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Zev-G/csc207project.git",
+    "accountId": "bb30032a-8da2-4e5d-8743-9195f6cd0e74"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,6 +63,10 @@
     "Application.App (4).executor": "Run",
     "Application.App (5).executor": "Run",
     "Application.App.executor": "Run",
+    "JUnit.StatsIntegrationTest.executor": "Run",
+    "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
+    "JUnit.StatsInteractorTest.testFetchStats.executor": "Coverage",
+    "JUnit.UpdateStatsInteractorTest.executor": "Coverage",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -64,7 +83,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.App (1)">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="use_case.stats" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.StatsInteractorTest.testFetchStats">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.app.App" />
       <module name="homework-5" />
@@ -78,85 +102,96 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+    <configuration name="StatsIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.app.*" />
+          <option name="PATTERN" value="data_access.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+    <configuration name="StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.app.*" />
+          <option name="PATTERN" value="use_case.stats.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTestWithManualMocks" />
+      <option name="METHOD_NAME" value="testUpdateAndFetchStats" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+    <configuration name="StatsInteractorTest.testFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.app.*" />
+          <option name="PATTERN" value="use_case.stats.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
+      <option name="METHOD_NAME" value="testFetchStats" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+    <configuration name="UpdateStatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework-5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.app.*" />
+          <option name="PATTERN" value="use_case.stats.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="use_case.stats" />
+      <option name="MAIN_CLASS_NAME" value="use_case.stats.UpdateStatsInteractorTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
+        <item itemvalue="JUnit.UpdateStatsInteractorTest" />
+        <item itemvalue="JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" />
+        <item itemvalue="JUnit.StatsIntegrationTest" />
         <item itemvalue="Application.App (1)" />
-        <item itemvalue="Application.App (5)" />
-        <item itemvalue="Application.App (4)" />
-        <item itemvalue="Application.App (3)" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
-        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7a6b8aa1-16ab-4ba6-82f4-2be2151e965b" name="Changes" comment="" />
+      <changelist id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff" />
       <created>1732590527178</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732590527178</updated>
       <workItem from="1732590532509" duration="752000" />
+      <workItem from="1732823838676" duration="9566000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />
@@ -203,16 +238,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
           <line>36</line>
           <option name="timeStamp" value="48" />
@@ -222,7 +247,27 @@
           <line>64</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
+          <line>26</line>
+          <properties class="use_case.game.GameOutputBoundary">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,0 +1,532 @@
+Index: src/main/java/view/pages/MainPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.pages;\r\n\r\nimport interface_adapter.ViewModel;\r\nimport interface_adapter.account.AccountState;\r\nimport interface_adapter.account.AccountViewModel;\r\nimport interface_adapter.leaderboard.LeaderboardViewModel;\r\nimport view.View;\r\nimport view.ViewConstants;\r\nimport view.components.leaderboard.LeaderboardView;\r\nimport view.components.standard.*;\r\nimport view.utils.HTMLTextBuilder;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\n\r\npublic class MainPage extends Page implements View<AccountState> {\r\n\r\n    // UI Fields\r\n    private final DLabel uoftText = new SerifLabel(\"UofT\");\r\n    private final DLabel gameText = new DLabel(\"Guessr\");\r\n    private final DLabel subtitleText = new DLabel(\r\n            new HTMLTextBuilder()\r\n                    .addText(\"Test your knowledge of UofT by guessing\")\r\n                    .addLineBreak()\r\n                    .addText(\"where these photos were taken\")\r\n                    .center().build());\r\n    private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);\r\n    private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);\r\n\r\n    private final JButton actionButton = new RoundedButton(\"\");\r\n\r\n    private final LeaderboardView leaderboard;\r\n    private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);\r\n\r\n    // View Model\r\n    private final AccountViewModel viewModel;\r\n\r\n    public MainPage(LeaderboardViewModel lbvm, AccountViewModel viewModel, PageManager pageManager) {\r\n        super(pageManager);\r\n        this.viewModel = viewModel;\r\n\r\n        // Create objects\r\n        leaderboard = new LeaderboardView(lbvm);\r\n\r\n        // Configure components\r\n        uoftText.setFontSize(ViewConstants.TEXT_LL);\r\n        gameText.setFontSize(ViewConstants.TEXT_LL);\r\n\r\n        setMargin(ViewConstants.MARGIN_M);\r\n        subtitleText.setHorizontalAlignment(SwingConstants.CENTER);\r\n\r\n        BorderLayout layout = new BorderLayout();\r\n        layout.setVgap(60);\r\n        setLayout(layout);\r\n\r\n        // Add listeners\r\n        actionButton.addActionListener(this::actionButtonPressed);\r\n\r\n        // Add components\r\n        add(titleLayout, BorderLayout.PAGE_START);\r\n        add(leaderboard, BorderLayout.CENTER);\r\n        add(actionButton, BorderLayout.PAGE_END);\r\n\r\n        // Load state\r\n        loadCurrentState();\r\n        viewModel.addPropertyChangeListener(evt -> loadCurrentState());\r\n    }\r\n\r\n    private void actionButtonPressed(ActionEvent event) {\r\n        if (viewModel.getState().isLoggedIn()) {\r\n//            pageManager.navigate(new GamePage(pageManager));\r\n        } else {\r\n            viewModel.setState(new AccountState(true));\r\n        }\r\n    }\r\n\r\n\r\n    @Override\r\n    public void loadState(AccountState state) {\r\n        if (state.isLoggedIn()) {\r\n            actionButton.setText(\"Play\");\r\n        } else {\r\n            actionButton.setText(\"Log in\");\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public ViewModel<AccountState> getViewModel() {\r\n        return viewModel;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/MainPage.java b/src/main/java/view/pages/MainPage.java
+--- a/src/main/java/view/pages/MainPage.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/pages/MainPage.java	(date 1732552397227)
+@@ -28,7 +28,11 @@
+     private final DPanel titlePanel = new HorizontalPanel(uoftText, gameText);
+     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
+ 
+-    private final JButton actionButton = new RoundedButton("");
++    private final JButton loginButton = new RoundedButton("Login");
++    private final JButton signupButton = new RoundedButton("Signup");
++    private final JButton playButton = new RoundedButton("Play");
++    private final JButton accountButton = new RoundedButton("Account");
++    private final DPanel buttons = new DPanel();
+ 
+     private final LeaderboardView leaderboard;
+     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
+@@ -54,35 +58,58 @@
+         layout.setVgap(60);
+         setLayout(layout);
+ 
++        buttons.setLayout(new FlowLayout());
++
++        loginButton.setPreferredSize(new Dimension(200, 80));
++        signupButton.setPreferredSize(new Dimension(200, 80));
++        accountButton.setPreferredSize(new Dimension(200, 80));
++        playButton.setPreferredSize(new Dimension(200, 80));
++
+         // Add listeners
+-        actionButton.addActionListener(this::actionButtonPressed);
++        loginButton.addActionListener(this::loginButtonPressed);
++        signupButton.addActionListener(this::signupButtonPressed);
++        playButton.addActionListener(this::playButtonPressed);
++        accountButton.addActionListener(this::accountButtonPressed);
+ 
+         // Add components
+         add(titleLayout, BorderLayout.PAGE_START);
+         add(leaderboard, BorderLayout.CENTER);
+-        add(actionButton, BorderLayout.PAGE_END);
++        add(buttons, BorderLayout.PAGE_END);
+ 
+         // Load state
+         loadCurrentState();
+         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
+     }
+ 
+-    private void actionButtonPressed(ActionEvent event) {
+-        if (viewModel.getState().isLoggedIn()) {
+-//            pageManager.navigate(new GamePage(pageManager));
+-        } else {
+-            viewModel.setState(new AccountState(true));
+-        }
++    private void playButtonPressed(ActionEvent event) {
++        pageManager.navigate(new GamePage(pageManager));
++    }
++
++    private void accountButtonPressed(ActionEvent event) {
++        pageManager.navigate(new AccountPage(viewModel, pageManager));
+     }
++
++    private void loginButtonPressed(ActionEvent event) {
++        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
++    }
++
++    private void signupButtonPressed(ActionEvent event) {
++        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
++    }
+ 
+ 
+     @Override
+     public void loadState(AccountState state) {
++        buttons.removeAll();
+         if (state.isLoggedIn()) {
+-            actionButton.setText("Play");
++            buttons.add(playButton);
++            buttons.add(accountButton);
+         } else {
+-            actionButton.setText("Log in");
++            buttons.add(loginButton);
++            buttons.add(signupButton);
+         }
++        buttons.revalidate(); // Refreshes the layout
++        buttons.repaint();    // Redraws the container
+     }
+ 
+     @Override
+Index: src/main/java/view/pages/AccountPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/AccountPage.java b/src/main/java/view/pages/AccountPage.java
+new file mode 100644
+--- /dev/null	(date 1732552397226)
++++ b/src/main/java/view/pages/AccountPage.java	(date 1732552397226)
+@@ -0,0 +1,148 @@
++package view.pages;
++
++import interface_adapter.ViewModel;
++import interface_adapter.account.AccountState;
++import interface_adapter.account.AccountViewModel;
++import view.View;
++import view.ViewConstants;
++import view.components.standard.DLabel;
++import view.components.standard.DPanel;
++import view.components.standard.RoundedButton;
++import view.components.standard.VerticalPanel;
++
++import javax.swing.*;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++
++public class AccountPage extends Page implements View<AccountState> {
++
++    private final AccountViewModel viewModel;
++
++    private final DLabel pageTitle = new DLabel("Account");
++    private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
++    private final DLabel usernameLabel = new DLabel("Username");
++    private final DLabel emailLabel = new DLabel("Email");
++    private final JTextField usernameField = new JTextField();
++    private final JTextField emailField = new JTextField();
++
++    private final JButton confirmButton = new RoundedButton("Confirm");
++    private final JButton cancelButton = new RoundedButton("Cancel");
++    private final JButton logoutButton = new RoundedButton("Logout");
++    private final JButton deleteAccountButton = new RoundedButton("Delete Account");
++    private final JButton statsButton = new RoundedButton("Stats");
++    private final DPanel buttons = new DPanel();
++    private final DPanel grid = new DPanel();
++
++    public AccountPage(AccountViewModel viewModel, PageManager pageManager) {
++        super(pageManager);
++        this.viewModel = viewModel;
++
++        setMargin(ViewConstants.MARGIN_M);
++        pageTitle.setFontSize(ViewConstants.TEXT_LL);
++
++        // Layout
++        BorderLayout layout = new BorderLayout();
++        layout.setVgap(60);
++        setLayout(layout);
++        buttons.add(confirmButton);
++        buttons.add(cancelButton);
++        buttons.add(logoutButton);
++        buttons.add(deleteAccountButton);
++        buttons.add(statsButton);
++        add(titleLayout, BorderLayout.PAGE_START);
++        add(grid, BorderLayout.CENTER);
++        add(buttons, BorderLayout.PAGE_END);
++
++        grid.setMargin(0, 400, 0, 400);
++
++
++        grid.setLayout(new GridBagLayout());
++        GridBagConstraints gbc = new GridBagConstraints();
++
++        // Page title
++        gbc.gridx = 0;
++        gbc.gridy = 0;
++        gbc.gridwidth = 2; // Span across two columns
++        gbc.insets = new Insets(10, 10, 10, 10); // Padding around the component
++        gbc.anchor = GridBagConstraints.CENTER; // Center alignment
++        grid.add(pageTitle, gbc);
++
++        // Username label
++        gbc.gridx = 0;
++        gbc.gridy = 1;
++        gbc.gridwidth = 1; // Single column
++        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
++        grid.add(usernameLabel, gbc);
++
++        // Username field
++        gbc.gridx = 1;
++        gbc.gridy = 1;
++        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
++        gbc.weightx = 1.0; // Let the text field take extra space
++        grid.add(usernameField, gbc);
++
++        // Email label
++        gbc.gridx = 0;
++        gbc.gridy = 2;
++        gbc.fill = GridBagConstraints.NONE; // Reset fill
++        gbc.weightx = 0; // Reset weight
++        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
++        grid.add(emailLabel, gbc);
++
++        // Email field
++        gbc.gridx = 1;
++        gbc.gridy = 2;
++        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
++        gbc.weightx = 1.0; // Let the text field take extra space
++        grid.add(emailField, gbc);
++
++        buttons.setLayout(new FlowLayout());
++
++        confirmButton.setPreferredSize(new Dimension(200, 80));
++        cancelButton.setPreferredSize(new Dimension(200, 80));
++        logoutButton.setPreferredSize(new Dimension(200, 80));
++        deleteAccountButton.setPreferredSize(new Dimension(200, 80));
++
++        // Add listeners
++        confirmButton.addActionListener(this::confirmButtonPressed);
++        cancelButton.addActionListener(this::cancelButtonPressed);
++        logoutButton.addActionListener(this::logoutButtonPressed);
++        deleteAccountButton.addActionListener(this::deleteAccountButtonPressed);
++        statsButton.addActionListener(this::statsButtonPressed);
++
++        loadCurrentState();
++        viewModel.addPropertyChangeListener(evt -> loadCurrentState());
++    }
++
++    private void statsButtonPressed(ActionEvent event) {
++
++    }
++
++    private void deleteAccountButtonPressed(ActionEvent event) {
++        pageManager.back();
++    }
++
++    private void logoutButtonPressed(ActionEvent event) {
++        viewModel.setState(AccountState.DUMMY_STATE);
++        pageManager.back();
++    }
++
++    private void cancelButtonPressed(ActionEvent event) {
++        pageManager.back();
++    }
++
++    private void confirmButtonPressed(ActionEvent event) {
++        pageManager.back();
++    }
++
++    @Override
++    public void loadState(AccountState state) {
++        usernameField.setText(state.getUsername());
++        emailField.setText(state.getEmail());
++    }
++
++    @Override
++    public ViewModel<AccountState> getViewModel() {
++        return viewModel;
++    }
++}
+Index: src/main/java/view/pages/GamePage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.pages;\r\n\r\nimport interface_adapter.game.GameController;\r\nimport interface_adapter.game.GameViewModel;\r\nimport view.components.game.GameTimer;\r\nimport view.components.game.InteractiveMap;\r\nimport view.components.game.PointsDisplay;\r\nimport view.components.standard.RoundedButton;\r\nimport view.components.game.SegmentedProgressBar;\r\nimport view.utils.ImageScaler;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.beans.PropertyChangeEvent;\r\nimport java.beans.PropertyChangeListener;\r\n\r\n\r\npublic class GamePage extends Page {\r\n\r\n    private JLabel roundLabel;\r\n    private SegmentedProgressBar progressBar;\r\n    private GameTimer gameTimer;\r\n    private PointsDisplay pointsDisplay;\r\n    private RoundedButton guessButton;\r\n    private JLabel imageLabel1;\r\n\r\n    private InteractiveMap map =\r\n            new InteractiveMap(new ImageIcon(ClassLoader.getSystemResource(\"photos/UofTmap.jpg\")),\r\n                    new double[]{43.66997811270511, 43.657184780883696, -79.40326917196147, -79.3848918572115});\r\n\r\n    private GameController gameController;\r\n\r\n    private GameViewModel gameViewModel;\r\n\r\n    public GamePage(PageManager pageManager, GameViewModel gameViewModel, GameController gameController) {\r\n        super(pageManager);\r\n\r\n        setMargin(20);\r\n\r\n        this.gameController = gameController;\r\n        this.gameViewModel = gameViewModel;\r\n\r\n        setLayout(new BorderLayout());\r\n\r\n        JPanel topPanel = new JPanel(new BorderLayout());\r\n        roundLabel = new JLabel(\"Round \" + gameViewModel.getState().getRound());\r\n        roundLabel.setFont(new Font(\"Arial\", Font.BOLD, 24));\r\n        topPanel.add(roundLabel, BorderLayout.WEST);\r\n\r\n        gameTimer = new GameTimer(60);\r\n        pointsDisplay = new PointsDisplay(0);\r\n\r\n        JPanel timerPanel = new JPanel(new BorderLayout());\r\n        gameTimer.getTimerLabel().setFont(new Font(\"Arial\", Font.BOLD, 24));\r\n        pointsDisplay.getPointsLabel().setFont(new Font(\"Arial\", Font.BOLD, 24));\r\n        timerPanel.add(gameTimer.getTimerLabel(), BorderLayout.WEST);\r\n        timerPanel.add(pointsDisplay.getPointsLabel(), BorderLayout.CENTER);\r\n        topPanel.add(timerPanel, BorderLayout.EAST);\r\n\r\n        add(topPanel, BorderLayout.NORTH);\r\n\r\n        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        int frameWidth = (int) (screenSize.width * 0.35);\r\n\r\n        JPanel mainCenterPanel = new JPanel();\r\n        mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.Y_AXIS));\r\n        mainCenterPanel.setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50));\r\n        mainCenterPanel.add(Box.createVerticalGlue());\r\n\r\n        JPanel imagePanel = new JPanel(new GridLayout(1, 2, 10, 0));\r\n\r\n        imageLabel1 = new JLabel();\r\n\r\n\r\n        imageLabel1.setHorizontalAlignment(JLabel.CENTER);\r\n\r\n\r\n        imageLabel1.setPreferredSize(new Dimension(frameWidth, frameWidth));\r\n\r\n\r\n        imagePanel.add(imageLabel1);\r\n\r\n        mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.X_AXIS));\r\n\r\n        mainCenterPanel.add(imagePanel);\r\n\r\n        mainCenterPanel.add(map);\r\n\r\n        mainCenterPanel.add(Box.createVerticalGlue());\r\n\r\n        add(mainCenterPanel, BorderLayout.CENTER);\r\n\r\n        guessButton = new RoundedButton(\"Guess\");\r\n        guessButton.setPreferredSize(new Dimension(200, 80));\r\n        guessButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                System.out.println(\"clicked\");\r\n                gameController.handleGuess(gameViewModel.getState().getPhotoID(), gameViewModel.getState().getTarget(),\r\n                        map.getChosenCoord());\r\n            }\r\n        });\r\n\r\n        JPanel bottomPanel = new JPanel(new BorderLayout());\r\n        JPanel buttonPanel = new JPanel();\r\n        buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));\r\n        buttonPanel.add(guessButton);\r\n        bottomPanel.add(buttonPanel, BorderLayout.NORTH);\r\n\r\n        progressBar = new SegmentedProgressBar(10);\r\n        JPanel progressBarPanel = new JPanel(new BorderLayout());\r\n        progressBarPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));\r\n        progressBarPanel.add(progressBar, BorderLayout.CENTER);\r\n\r\n        bottomPanel.add(progressBarPanel, BorderLayout.SOUTH);\r\n        add(bottomPanel, BorderLayout.SOUTH);\r\n\r\n        gameViewModel.addPropertyChangeListener(new PropertyChangeListener() {\r\n            @Override\r\n            public void propertyChange(PropertyChangeEvent evt) {\r\n                imageLabel1.setIcon(ImageScaler.getScaledImageIcon(gameViewModel.getState().getNextPhoto(), frameWidth, frameWidth));\r\n                if(gameViewModel.getState().getRound()!=1){\r\n                    progressBar.updateRound(gameViewModel.getState().isAcceptable());\r\n                }\r\n\r\n                System.out.println(gameViewModel.getState().getScore());\r\n                pointsDisplay.setPoints(gameViewModel.getState().getScore());\r\n            }\r\n        });\r\n\r\n        gameTimer.addPropertyChangeListener(new PropertyChangeListener() {\r\n            @Override\r\n            public void propertyChange(PropertyChangeEvent evt) {\r\n                System.out.println(\"timeout\");\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    public void init() {\r\n        gameTimer.resetTimer();\r\n        gameTimer.start();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/GamePage.java b/src/main/java/view/pages/GamePage.java
+--- a/src/main/java/view/pages/GamePage.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/pages/GamePage.java	(date 1732552397227)
+@@ -44,6 +44,8 @@
+ 
+         setLayout(new BorderLayout());
+ 
++        setMargin(50);
++
+         JPanel topPanel = new JPanel(new BorderLayout());
+         roundLabel = new JLabel("Round " + gameViewModel.getState().getRound());
+         roundLabel.setFont(new Font("Arial", Font.BOLD, 24));
+Index: src/main/java/view/ExampleAccount.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/ExampleAccount.java b/src/main/java/view/ExampleAccount.java
+new file mode 100644
+--- /dev/null	(date 1732552397224)
++++ b/src/main/java/view/ExampleAccount.java	(date 1732552397224)
+@@ -0,0 +1,28 @@
++package view;
++
++import interface_adapter.account.AccountState;
++import interface_adapter.account.AccountViewModel;
++import interface_adapter.leaderboard.LeaderboardState;
++import interface_adapter.leaderboard.LeaderboardViewModel;
++import view.pages.AccountPage;
++import view.pages.MainPage;
++import view.pages.PageFrame;
++
++import javax.swing.*;
++
++public class ExampleAccount {
++
++    public static void main(String[] args) {
++        // Setup dummy state
++        AccountViewModel accountViewModel = new AccountViewModel();
++        accountViewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234"));
++
++        // Run UI
++        final PageFrame frame = new PageFrame();
++        frame.navigate(new AccountPage(accountViewModel, frame));
++        frame.setVisible(true);
++        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
++        frame.setLocationRelativeTo(null);
++    }
++
++}
+Index: src/main/java/view/components/standard/DPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.components.standard;\r\n\r\nimport view.ViewConstants;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.border.EmptyBorder;\r\nimport java.awt.*;\r\n\r\npublic class DPanel extends JPanel {\r\n\r\n    public DPanel(LayoutManager layout, boolean isDoubleBuffered) {\r\n        super(layout, isDoubleBuffered);\r\n        init();\r\n    }\r\n\r\n    public DPanel(LayoutManager layout) {\r\n        super(layout);\r\n        init();\r\n    }\r\n\r\n    public DPanel(boolean isDoubleBuffered) {\r\n        super(isDoubleBuffered);\r\n        init();\r\n    }\r\n\r\n    public DPanel() {\r\n        init();\r\n    }\r\n\r\n    private void init() {\r\n\r\n    }\r\n\r\n    /**\r\n     * Sets the margin\r\n     * @param margin the margin\r\n     */\r\n    public void setMargin(int margin) {\r\n        setBorder(new EmptyBorder(margin, margin, margin, margin));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/components/standard/DPanel.java b/src/main/java/view/components/standard/DPanel.java
+--- a/src/main/java/view/components/standard/DPanel.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/components/standard/DPanel.java	(date 1732552397226)
+@@ -31,12 +31,23 @@
+ 
+     }
+ 
++    /**
++     * Sets the margin
++     * @param t top
++     * @param r right
++     * @param b bottom
++     * @param l left
++     */
++    public void setMargin(int t, int r, int b, int l) {
++        setBorder(new EmptyBorder(t, r, b, l));
++    }
++
+     /**
+      * Sets the margin
+      * @param margin the margin
+      */
+     public void setMargin(int margin) {
+-        setBorder(new EmptyBorder(margin, margin, margin, margin));
++        setMargin(margin, margin, margin, margin);
+     }
+ 
+ }
+Index: src/main/java/view/pages/PageManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.pages;\r\n\r\nimport view.pages.Page;\r\n\r\npublic interface PageManager {\r\n\r\n    void navigate(Page page);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/PageManager.java b/src/main/java/view/pages/PageManager.java
+--- a/src/main/java/view/pages/PageManager.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/pages/PageManager.java	(date 1732552397228)
+@@ -4,6 +4,9 @@
+ 
+ public interface PageManager {
+ 
++    void back();
++    void forward();
++
+     void navigate(Page page);
+ 
+ }
+Index: src/main/java/view/pages/PageFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.pages;\r\n\r\nimport view.components.standard.DFrame;\r\n\r\npublic class PageFrame extends DFrame implements PageManager {\r\n\r\n    private Page currentPage = null;\r\n\r\n    public void navigate(Page page) {\r\n        if (currentPage != null) {\r\n            remove(currentPage);\r\n        }\r\n        currentPage = page;\r\n        add(page);\r\n        page.init();\r\n        paintAll(getGraphics());\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/pages/PageFrame.java b/src/main/java/view/pages/PageFrame.java
+--- a/src/main/java/view/pages/PageFrame.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/pages/PageFrame.java	(date 1732552397228)
+@@ -2,18 +2,57 @@
+ 
+ import view.components.standard.DFrame;
+ 
++
++import javax.swing.*;
++import java.awt.*;
++import java.util.Stack;
++
+ public class PageFrame extends DFrame implements PageManager {
+ 
++    private Stack<Page> history = new Stack<>();
++    private Stack<Page> forwardStack = new Stack<>();
++
+     private Page currentPage = null;
+ 
++    @Override
++    public void back() {
++        if (!history.isEmpty()) {
++            if (currentPage != null) {
++                forwardStack.push(currentPage); // Save the current page to the forward stack
++            }
++            Page previousPage = history.pop(); // Get the previous page
++            setPage(previousPage);
++        }
++    }
++
++    @Override
++    public void forward() {
++        if (!forwardStack.isEmpty()) {
++            if (currentPage != null) {
++                history.push(currentPage); // Save the current page to the history stack
++            }
++            Page nextPage = forwardStack.pop(); // Get the next page
++            setPage(nextPage);
++        }
++    }
++
+     public void navigate(Page page) {
+         if (currentPage != null) {
+-            remove(currentPage);
++            history.push(currentPage); // Save the current page to history before navigating
+         }
+         currentPage = page;
+         add(page);
+         page.init();
+         paintAll(getGraphics());
++        forwardStack.clear();          // Clear forward stack on new navigation
++        setPage(page);                 // Set the new page
+     }
+ 
++    private void setPage(Page page) {
++        if (currentPage != null) remove(currentPage);
++        currentPage = page;
++        add(currentPage);              // Add the new page to the frame
++        revalidate();                  // Refresh the frame layout
++        repaint();                     // Redraw the frame
++    }
+ }
+Index: src/main/java/view/components/standard/HorizontalPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.components.standard;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class HorizontalPanel extends DPanel {\r\n\r\n    public HorizontalPanel(JComponent... components) {\r\n        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));\r\n        for (JComponent component : components) {\r\n            add(component);\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/components/standard/HorizontalPanel.java b/src/main/java/view/components/standard/HorizontalPanel.java
+--- a/src/main/java/view/components/standard/HorizontalPanel.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/components/standard/HorizontalPanel.java	(date 1732552397226)
+@@ -6,6 +6,7 @@
+ 
+     public HorizontalPanel(JComponent... components) {
+         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
++
+         for (JComponent component : components) {
+             add(component);
+         }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/.idea/misc.xml	(date 1732552397223)
+@@ -7,6 +7,7 @@
+         <option value="$PROJECT_DIR$/pom.xml" />
+       </list>
+     </option>
++    <option name="workspaceImportForciblyTurnedOn" value="true" />
+   </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: src/main/java/view/ExampleNavigation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\n\r\nimport entity.DummyUserStats;\r\nimport interface_adapter.account.AccountState;\r\nimport interface_adapter.account.AccountViewModel;\r\nimport interface_adapter.leaderboard.LeaderboardState;\r\nimport interface_adapter.leaderboard.LeaderboardViewModel;\r\nimport view.pages.MainPage;\r\nimport view.pages.PageFrame;\r\n\r\nimport javax.swing.*;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class ExampleNavigation {\r\n\r\n    public static void main(String[] args) {\r\n        // Setup dummy state\r\n        LeaderboardViewModel leaderboardViewModel = new LeaderboardViewModel();\r\n        leaderboardViewModel.setState(new LeaderboardState(createLeaderboard()));\r\n\r\n        AccountViewModel accountViewModel = new AccountViewModel();\r\n        accountViewModel.setState(new AccountState(false));\r\n\r\n        // Run UI\r\n        final PageFrame frame = new PageFrame();\r\n        frame.navigate(new MainPage(leaderboardViewModel, accountViewModel, frame));\r\n        frame.setVisible(true);\r\n        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n        frame.setLocationRelativeTo(null);\r\n    }\r\n\r\n    private static List<DummyUserStats> createLeaderboard() {\r\n        List<DummyUserStats> leaderboard = new ArrayList<>();\r\n        leaderboard.add(new DummyUserStats(\"Zev\", (int) (10000 * Math.random())));\r\n        leaderboard.add(new DummyUserStats(\"Terrence\", (int) (10000 * Math.random())));\r\n        leaderboard.add(new DummyUserStats(\"Rithvik\", (int) (10000 * Math.random())));\r\n        leaderboard.add(new DummyUserStats(\"Chris\", (int) (10000 * Math.random())));\r\n        return leaderboard;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/ExampleNavigation.java b/src/main/java/view/ExampleNavigation.java
+--- a/src/main/java/view/ExampleNavigation.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/view/ExampleNavigation.java	(date 1732552397225)
+@@ -20,7 +20,7 @@
+         leaderboardViewModel.setState(new LeaderboardState(createLeaderboard()));
+ 
+         AccountViewModel accountViewModel = new AccountViewModel();
+-        accountViewModel.setState(new AccountState(false));
++        accountViewModel.setState(AccountState.DUMMY_STATE);
+ 
+         // Run UI
+         final PageFrame frame = new PageFrame();
+Index: src/main/java/interface_adapter/account/AccountState.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package interface_adapter.account;\r\n\r\npublic class AccountState {\r\n\r\n    private final boolean loggedIn;\r\n\r\n    public AccountState(boolean loggedIn) {\r\n        this.loggedIn = loggedIn;\r\n    }\r\n\r\n    public boolean isLoggedIn() {\r\n        return loggedIn;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/interface_adapter/account/AccountState.java b/src/main/java/interface_adapter/account/AccountState.java
+--- a/src/main/java/interface_adapter/account/AccountState.java	(revision ae8562e9e37cd29c1bbcca2c9b319b067e60f6c2)
++++ b/src/main/java/interface_adapter/account/AccountState.java	(date 1732552397224)
+@@ -2,14 +2,33 @@
+ 
+ public class AccountState {
+ 
++    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null);
++
+     private final boolean loggedIn;
++    private final String username;
++    private final String email;
++    private final String password;
+ 
+-    public AccountState(boolean loggedIn) {
++    public AccountState(boolean loggedIn, String username, String email, String password) {
+         this.loggedIn = loggedIn;
++        this.username = username;
++        this.email = email;
++        this.password = password;
+     }
+ 
+     public boolean isLoggedIn() {
+         return loggedIn;
+     }
+ 
++    public String getUsername() {
++        return username;
++    }
++
++    public String getEmail() {
++        return email;
++    }
++
++    public String getPassword() {
++        return password;
++    }
+ }

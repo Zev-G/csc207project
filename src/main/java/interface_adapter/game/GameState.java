@@ -16,6 +16,8 @@ public class GameState {
 
     private int photoID;
 
+    private boolean gameOver;
+
     public GameState() {
         isAcceptable = false;
         score = 0;
@@ -31,6 +33,16 @@ public class GameState {
         this.round = round;
         this.target = target;
         this.photoID = photoID;
+    }
+
+    public GameState(boolean isAcceptable, int score, ImageIcon nextPhoto, int photoID, double[] target, int round, boolean gameOver) {
+        this.isAcceptable = isAcceptable;
+        this.score = score;
+        this.nextPhoto = nextPhoto;
+        this.round = round;
+        this.target = target;
+        this.photoID = photoID;
+        this.gameOver = gameOver;
     }
 
     public boolean isAcceptable() {
@@ -79,5 +91,15 @@ public class GameState {
 
     public void setPhotoID(int photoID) {
         this.photoID = photoID;
+    }
+
+    public boolean shouldShow(){ return this.round == 11; }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
     }
 }

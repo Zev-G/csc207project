@@ -38,6 +38,9 @@ public class MGamePresenter extends GamePresenter implements MGameOutputBoundary
 
     @Override
     public void endGame(GameOutputData gameOutputData) {
+        gameViewModel.setState(new GameState(gameOutputData.isAcceptable(), gameOutputData.getScore(),
+                gameOutputData.getNextPhoto(), gameOutputData.getPhotoID(), gameOutputData.getTarget(),
+                gameOutputData.getRound(), true));
         mGameEndViewModel.setState(new GameEndState(((MGameOutputData) gameOutputData).getScore(),
                 ((MGameOutputData) gameOutputData).getOpponentScore()));
         viewManagerModel.setState("endmgame");

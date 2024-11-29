@@ -4,6 +4,8 @@ import view.ViewConstants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A progress bar with several segments.
@@ -32,13 +34,7 @@ public class SegmentedProgressBar extends JPanel {
      */
     public boolean updateRound(boolean win) {
         if (currentRound < totalRounds) {
-            final Color fillColor;
-            if (win) {
-                fillColor = PASTEL_GREEN;
-            }
-            else {
-                fillColor = PASTEL_RED;
-            }
+            final Color fillColor = win ? PASTEL_GREEN : PASTEL_RED;
             final SegmentPanel currentSegment = (SegmentPanel) getComponent(currentRound);
             currentSegment.setColor(fillColor);
             currentRound++;
@@ -62,21 +58,32 @@ public class SegmentedProgressBar extends JPanel {
     }
 
     /**
-     * Resets the progress bar to the initial state.
+     * Returns a list of booleans representing the win status of the segments.
+     * @return List<Boolean> where true represents a green segment (win), false otherwise.
      */
-    public void reset() {
-        currentRound = 0;
+    public List<Boolean> getAllSegmentStatus() {
+        List<Boolean> statuses = new ArrayList<>();
         for (int i = 0; i < totalRounds; i++) {
             SegmentPanel segment = (SegmentPanel) getComponent(i);
-            segment.setColor(Color.LIGHT_GRAY);
+            statuses.add(segment.getBackground().equals(PASTEL_GREEN));
         }
-        highlightNextSegment();
-        repaint();
+        return statuses;
     }
 
-    /**
-     * Represents one segment.
-     */
+    public int getCountTrueSegments() {
+        List<Boolean> statuses = getAllSegmentStatus(); // Call the method to get statuses
+        int trueCount = 0;
+
+        // Iterate through the list and count true values
+        for (Boolean status : statuses) {
+            if (status) {
+                trueCount++;
+            }
+        }
+
+        return trueCount; // Return the count of true values
+    }
+
     private static class SegmentPanel extends JPanel {
 
         protected SegmentPanel(Color color) {
@@ -86,6 +93,19 @@ public class SegmentedProgressBar extends JPanel {
         protected void setColor(Color color) {
             setBackground(color);
         }
+    }
+
+    /**
+     * Resets the progress bar to the initial state.
+     */
+    public void reset() {
+        currentRound = 0; // Reset the current round
+        for (int i = 0; i < totalRounds; i++) {
+            SegmentPanel segment = (SegmentPanel) getComponent(i);
+            segment.setColor(Color.LIGHT_GRAY); // Reset all segments to their default color
+        }
+        highlightNextSegment(); // Highlight the first segment
+        repaint();
     }
 
 }

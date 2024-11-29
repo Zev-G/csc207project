@@ -71,7 +71,7 @@ public class GameInteractor implements GameInputBoundary {
 
     private int calculateScore(double[] target, double[] chosen) {
         // should change later
-        return (int) (200 / DistanceCalculator.calculate(target, chosen));
+        return (int) (200 / (1 + DistanceCalculator.calculate(target, chosen)));
     }
 
     private boolean isAcceptable(double[] target, double[] chosen) {
@@ -107,7 +107,7 @@ public class GameInteractor implements GameInputBoundary {
      */
     protected void endGame(boolean isAcceptable) {
         System.out.println("game finished");
-
+        System.out.println(gameStates.getRounds() + 1);
         GameOutputData gameOutputData = new GameOutputData(isAcceptable, gameStates.getScore(),
                 null, 0, null, gameStates.getRounds() + 1);
 

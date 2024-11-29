@@ -1,0 +1,282 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ /dev/null	(revision 36808aefa7a0b284602d588e68bfad8036483538)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]" date="1732062031492" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/19/2024 7:20 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ /dev/null	(revision 36808aefa7a0b284602d588e68bfad8036483538)
+@@ -1,129 +0,0 @@
+-Index: src/main/java/use_case/multiplayer/TestClient.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package use_case.multiplayer;\r\n\r\nimport java.io.DataInputStream;\r\nimport java.io.DataOutputStream;\r\nimport java.io.IOException;\r\nimport java.util.Scanner;\r\n\r\n/**\r\n * A Testing Client Code.\r\n */\r\npublic class TestClient {\r\n    public static void main(String[] args) {\r\n        MultiplayerOutputBoundary presenter = new MultiplayerOutputBoundary() {\r\n            @Override\r\n            public void prepareTimeoutView() {\r\n                System.out.println(\"timeout\");\r\n            }\r\n\r\n            @Override\r\n            public void prepareGame(MultiplayerOutputData multiplayerOutputData) {\r\n                System.out.println(multiplayerOutputData.getSeed() + \" \" + multiplayerOutputData.getSocket());\r\n\r\n                Scanner s = new Scanner(System.in);\r\n\r\n                String str = s.nextLine();\r\n\r\n                try {\r\n                    DataOutputStream out = new DataOutputStream(multiplayerOutputData.getSocket().getOutputStream());\r\n                    out.writeUTF(str);\r\n                    out.flush();\r\n                } catch (IOException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n\r\n                try {\r\n                    DataInputStream in = new DataInputStream(multiplayerOutputData.getSocket().getInputStream());\r\n                    System.out.println(in.readUTF());\r\n                } catch (IOException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n            }\r\n        };\r\n        MultiplayerInteractor interactor = new MultiplayerInteractor(\"localhost\", 5555, presenter);\r\n\r\n        Scanner s = new Scanner(System.in);\r\n        String name = s.nextLine().trim();\r\n\r\n        String name2 = s.nextLine().trim();\r\n\r\n        interactor.execute(new MultiplayerInputData(name, name2));\r\n\r\n\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/use_case/multiplayer/TestClient.java b/src/main/java/use_case/multiplayer/TestClient.java
+---- a/src/main/java/use_case/multiplayer/TestClient.java	(revision 2f16c540b0bbd30acc3ff6395d670a7dbd35b5d4)
+-+++ b/src/main/java/use_case/multiplayer/TestClient.java	(date 1731981141469)
+-@@ -3,6 +3,8 @@
+- import java.io.DataInputStream;
+- import java.io.DataOutputStream;
+- import java.io.IOException;
+-+import java.net.InetAddress;
+-+import java.net.UnknownHostException;
+- import java.util.Scanner;
+- 
+- /**
+-@@ -40,8 +42,7 @@
+-                 }
+-             }
+-         };
+--        MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter);
+--
+-+        MultiplayerInteractor interactor = new MultiplayerInteractor("173.32.226.108", 5555, presenter);
+-         Scanner s = new Scanner(System.in);
+-         String name = s.nextLine().trim();
+- 
+-Index: .idea/compiler.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"homework-5\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+---- a/.idea/compiler.xml	(revision 2f16c540b0bbd30acc3ff6395d670a7dbd35b5d4)
+-+++ b/.idea/compiler.xml	(date 1731980745989)
+-@@ -6,7 +6,7 @@
+-         <sourceOutputDir name="target/generated-sources/annotations" />
+-         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+-         <outputRelativeToContentRoot value="true" />
+--        <module name="homework-5" />
+-+        <module name="csc207project" />
+-       </profile>
+-     </annotationProcessing>
+-   </component>
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 2f16c540b0bbd30acc3ff6395d670a7dbd35b5d4)
+-+++ b/.idea/misc.xml	(date 1731980709993)
+-@@ -8,5 +8,5 @@
+-       </list>
+-     </option>
+-   </component>
+--  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+-+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="liberica-11" project-jdk-type="JavaSDK" />
+- </project>
+-\ No newline at end of file
+-Index: pom.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>edu.csc207</groupId>\r\n    <artifactId>homework-5</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <repositories>\r\n        <repository>\r\n            <id>google</id>\r\n            <url>https://maven.google.com/</url>\r\n        </repository>\r\n    </repositories>\r\n\r\n    <dependencies>\r\n\r\n        <dependency>\r\n            <groupId>org.json</groupId>\r\n            <artifactId>json</artifactId>\r\n            <version>20240303</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>com.squareup.okhttp3</groupId>\r\n            <artifactId>okhttp</artifactId>\r\n            <version>4.12.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>junit</groupId>\r\n            <artifactId>junit</artifactId>\r\n            <version>4.13.1</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter</artifactId>\r\n            <version>5.8.1</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.google.firebase</groupId>\r\n            <artifactId>firebase-admin</artifactId>\r\n            <version>9.2.0</version>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n\r\n\r\n    <properties>\r\n        <maven.compiler.source>11</maven.compiler.source>\r\n        <maven.compiler.target>11</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/pom.xml b/pom.xml
+---- a/pom.xml	(revision 2f16c540b0bbd30acc3ff6395d670a7dbd35b5d4)
+-+++ b/pom.xml	(date 1731980745481)
+-@@ -5,7 +5,7 @@
+-     <modelVersion>4.0.0</modelVersion>
+- 
+-     <groupId>edu.csc207</groupId>
+--    <artifactId>homework-5</artifactId>
+-+    <artifactId>csc207project</artifactId>
+-     <version>1.0-SNAPSHOT</version>
+- 
+-     <repositories>
+-Index: src/main/resources/META-INF/MANIFEST.MF
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/META-INF/MANIFEST.MF b/src/main/resources/META-INF/MANIFEST.MF
+-new file mode 100644
+---- /dev/null	(date 1731980766871)
+-+++ b/src/main/resources/META-INF/MANIFEST.MF	(date 1731980766871)
+-@@ -0,0 +1,3 @@
+-+Manifest-Version: 1.0
+-+Main-Class: server.Server
+-+
+-Index: .idea/artifacts/csc207project_jar.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/artifacts/csc207project_jar.xml b/.idea/artifacts/csc207project_jar.xml
+-new file mode 100644
+---- /dev/null	(date 1731980773432)
+-+++ b/.idea/artifacts/csc207project_jar.xml	(date 1731980773432)
+-@@ -0,0 +1,17 @@
+-+<component name="ArtifactManager">
+-+  <artifact type="jar" name="csc207project:jar">
+-+    <output-path>$PROJECT_DIR$/out/artifacts/csc207project_jar</output-path>
+-+    <root id="archive" name="csc207project.jar">
+-+      <element id="module-output" name="csc207project" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio/3.6.0/okio-3.6.0.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.10/kotlin-stdlib-common-1.9.10.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20240303/json-20240303.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.8.21/kotlin-stdlib-1.8.21.jar" path-in-jar="/" />
+-+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0.jar" path-in-jar="/" />
+-+    </root>
+-+  </artifact>
+-+</component>
+-\ No newline at end of file
+-diff --git a/homework-5.iml b/csc207project.iml
+-rename from homework-5.iml
+-rename to csc207project.iml
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"482eafd2-4214-4b6c-88a5-d599ac344a31\" name=\"Changes\" comment=\"Updated account page and app to include account logout stuff\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"kristopher.zhao\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2pLxVrI0dMaJi8LZUFBZthOsrDf\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.App (1).executor\": \"Run\",\r\n    \"Application.App (2).executor\": \"Run\",\r\n    \"Application.App (3).executor\": \"Debug\",\r\n    \"Application.App (4).executor\": \"Run\",\r\n    \"Application.App (5).executor\": \"Run\",\r\n    \"Application.App.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Application.App (1)\">\r\n    <configuration name=\"App (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (3)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (4)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App (5)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.App (1)\" />\r\n        <item itemvalue=\"Application.App (5)\" />\r\n        <item itemvalue=\"Application.App (4)\" />\r\n        <item itemvalue=\"Application.App (3)\" />\r\n        <item itemvalue=\"Application.App\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46\" />\r\n        <option value=\"jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7a6b8aa1-16ab-4ba6-82f4-2be2151e965b\" name=\"Changes\" comment=\"\" />\r\n      <created>1732590527178</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732590527178</updated>\r\n      <workItem from=\"1732590532509\" duration=\"752000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Added multiplayer game to app\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732591234422</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732591234422</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\" workspace\" />\r\n    <MESSAGE value=\"Questionably clean\" />\r\n    <MESSAGE value=\"Created account confirm controller\" />\r\n    <MESSAGE value=\"Created account confirm input boundary\" />\r\n    <MESSAGE value=\"Created account confirm interactor\" />\r\n    <MESSAGE value=\"Created account confirm output boundary\" />\r\n    <MESSAGE value=\"Created account confirm presenter\" />\r\n    <MESSAGE value=\"Created account input data\" />\r\n    <MESSAGE value=\"Implemented clean architecture for account and hooked into view system\" />\r\n    <MESSAGE value=\"Created user data access interface\" />\r\n    <MESSAGE value=\"Updated user interface\" />\r\n    <MESSAGE value=\"Updated user to have a user id\" />\r\n    <MESSAGE value=\"Updated data access mock to have fake user access\" />\r\n    <MESSAGE value=\"Created test for account confirm interactor\" />\r\n    <MESSAGE value=\"Added userid to account input data\" />\r\n    <MESSAGE value=\"Updated creation of account states to work with new user system\" />\r\n    <MESSAGE value=\"Update to idea files\" />\r\n    <MESSAGE value=\"Created account logout input boundary\" />\r\n    <MESSAGE value=\"Created account logout output boundary\" />\r\n    <MESSAGE value=\"Created account logout interactor\" />\r\n    <MESSAGE value=\"Created account logout interactor test\" />\r\n    <MESSAGE value=\"Created account logout presenter\" />\r\n    <MESSAGE value=\"Created account logout controller\" />\r\n    <MESSAGE value=\"Updated account page and app to include account logout stuff\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated account page and app to include account logout stuff\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>51</line>\r\n          <option name=\"timeStamp\" value=\"46\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>\r\n          <line>46</line>\r\n          <option name=\"timeStamp\" value=\"47\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"48\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"49\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ b/.idea/workspace.xml	(date 1732685828847)
+@@ -5,8 +5,9 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_2024_7_20_PM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,11 +24,23 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="kristopher.zhao" />
++        <entry key="$PROJECT_DIR$" value="terrence.allder" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "Tallduoft"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/Zev-G/csc207project.git",
++    "accountId": "bb30032a-8da2-4e5d-8743-9195f6cd0e74"
++  }
++}]]></component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+@@ -143,20 +156,21 @@
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+-        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
++        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
++        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+       </set>
+     </attachedChunks>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="7a6b8aa1-16ab-4ba6-82f4-2be2151e965b" name="Changes" comment="" />
++      <changelist id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff" />
+       <created>1732590527178</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1732590527178</updated>
+       <workItem from="1732590532509" duration="752000" />
++      <workItem from="1732685512464" duration="313000" />
+     </task>
+     <task id="LOCAL-00001" summary="Added multiplayer game to app">
+       <option name="closed" value="true" />
+@@ -171,6 +185,17 @@
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value=" workspace" />
+@@ -204,22 +229,22 @@
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
+-          <line>51</line>
++          <line>52</line>
+           <option name="timeStamp" value="46" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/data_access/DataAccessMock.java</url>
+-          <line>46</line>
++          <line>47</line>
+           <option name="timeStamp" value="47" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>
+-          <line>36</line>
++          <line>56</line>
+           <option name="timeStamp" value="48" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>
+-          <line>64</line>
++          <line>84</line>
+           <option name="timeStamp" value="49" />
+         </line-breakpoint>
+       </breakpoints>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" default=\"true\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 36808aefa7a0b284602d588e68bfad8036483538)
++++ b/.idea/misc.xml	(date 1732685828860)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
