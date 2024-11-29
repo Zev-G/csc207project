@@ -11,10 +11,8 @@ public class App {
                 .setupAccount()
                 .setupLeaderboard()
                 .setupMGame()
-                .setupLeaderboard()
                 .setupStats()
                 .setupImage()
-                .setupLeaderboard()
                 .setupPages()
                 .build();
 
