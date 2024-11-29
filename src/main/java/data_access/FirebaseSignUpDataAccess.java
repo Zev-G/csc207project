@@ -1,6 +1,7 @@
 package data_access;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.api.core.ApiFuture;
 import use_case.signup.SignUpInputData;
 
 public class FirebaseSignUpDataAccess implements SignUpDataAccess {
@@ -13,9 +14,16 @@ public class FirebaseSignUpDataAccess implements SignUpDataAccess {
 
     @Override
     public void createUser(SignUpInputData data) {
-        database.child("users").child(data.getUsername())
-                .setValueAsync(data)
-                .addOnSuccessListener(unused -> System.out.println("User created successfully!"))
-                .addOnFailureListener(e -> System.err.println("Error creating user:" + e.getMessage()));
+        String username = data.getUsername();
+        ApiFuture<Void> future = database.child("users").child(username).setValueAsync(data);
+
+        try {
+            // Blocking call
+            future.get();
+            System.out.println("User created successfully!");
+        }
+        catch (Exception e) {
+            System.err.println("Error creating user: " + e.getMessage());
+        }
     }
 }
