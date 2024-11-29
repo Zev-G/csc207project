@@ -89,6 +89,7 @@ public class AccountPage extends Page implements View<AccountState> {
         cancelButton.setPreferredSize(buttonSize);
         logoutButton.setPreferredSize(buttonSize);
         deleteAccountButton.setPreferredSize(buttonSize);
+        statsButton.setPreferredSize(buttonSize);
     }
 
     /**

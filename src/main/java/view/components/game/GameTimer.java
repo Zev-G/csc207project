@@ -51,7 +51,7 @@ public class GameTimer implements ActionListener {
      */
     public void resetTimer() {
         timeRemaining = totalTime;
-        timerLabel.setText(String.valueOf(totalTime));
+        stop();
     }
 
     /**
