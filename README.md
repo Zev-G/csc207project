@@ -78,8 +78,8 @@ You are free to use, modify, and distribute this software as outlined in the lic
 
 ## Feedback
 
-The UofTGuessr team always wants to improve this project. If you have any questions, worries or suggestions feel free to use the following google form  
-https://docs.google.com/forms/d/e/1FAIpQLSe-VnSZ99mgdZjpbpex8ti5qhgn4cSDTVpgGM4PyJbbXlZ4-w/viewform?usp=sf_link
+The UofTGuessr team always wants to improve this project. If you have any questions, worries or suggestions please follow this link  
+[creating an issue](https://github.com/Zev-G/csc207project/issues).
 
 Any and all feedback is accepted and appreciated as long as it is polite and non-abusive to the members of our team.
 
