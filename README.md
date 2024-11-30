@@ -1,4 +1,4 @@
-# UofTGeoguessr
+![Title](TitleImageUT.png)  
 
 Looking to test your knowledge of the UofT St George Campes? UofTGeoGuessr is the game for you!
 UofTGeoGuessr provides a fun interactive experience in which players can challenge their friends to see who knows their
