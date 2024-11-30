@@ -4,6 +4,12 @@ Looking to test your knowledge of the UofT St George Campes? UofTGeoGuessr is th
 UofTGeoGuessr provides a fun interactive experience in which players can challenge their friends to see who knows their
 campus the best.
 ---
+
+## Authors and Contributors
+
+Terrence Allder, 
+
+---
 ## Table of Contents
 
 1. [Project Purpose](#project-purpose)
@@ -53,13 +59,13 @@ On the main page, you will find navigation buttons:
 - **Account**: Manage your account details and view your statistics.
 - **Upload Image**: Add your own photos to the game.
 
-To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location you believe the picture was taken. Confirm your guess by clicking the Guess button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on how close your guess is to the actual location. At the end of the game, you can return to the main menu with the Home button or view a game summary with the Summary button.
+To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location you believe the picture was taken. Confirm your guess by clicking the Guess button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on how close your guess is to the actual location. At the end of the game, you can return to the main menu with the Home button or view a game summary with the Summary button. Watch a demo [here](PlayUsage.mp4).
 
 In multiplayer mode, you and your opponent each enter your usernames to start the game. Gameplay is the same as solo mode, but at the end, you can see both players' scores and the winner based on total points.
 
-In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.
+In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses. Watch a demo [here](AccountUsage.mp4).
 
-To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games.
+To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games. Watch a demo [here](UploadImageVideo.mp4).
 
 ---
 ## License
@@ -69,3 +75,22 @@ This project is licensed under the terms of the [GNU General Public License v3.0
 You are free to use, modify, and distribute this software as outlined in the license. See the full license text in the [LICENSE](LICENSE) file for more details.
 
 ---
+
+## Feedback
+
+The UofTGuessr team always wants to improve this project. If you have any questions, worries or suggestions feel free to use the following google form  
+https://docs.google.com/forms/d/e/1FAIpQLSe-VnSZ99mgdZjpbpex8ti5qhgn4cSDTVpgGM4PyJbbXlZ4-w/viewform?usp=sf_link
+
+Any and all feedback is accepted and appreciated as long as it is polite and non-abusive to the members of our team.
+
+We will do our best to get back to you via email as quick as we can. However student life can get very busy so our answers may not be immediate.
+We will get back to you within 10 business days.
+
+---
+
+## Contributions
+
+In accordance with the philosophy of our license, we do not accept outside contributions to this project. However, as mentioned earlier, we welcome your feedback and suggestions.
+
+We kindly ask that you respect the hard work our team has put into creating this application and refrain from modifying the code in any way.
+

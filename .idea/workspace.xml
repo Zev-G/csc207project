@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
-      <change afterPath="$PROJECT_DIR$/CheckStatsVideo.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InteractiveMapVideo.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UploadImageVideo.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccountUsage.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlayUsage.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -121,6 +119,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="use_case.game" />
       <option name="MAIN_CLASS_NAME" value="use_case.game.GameSummaryInteractorTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,6 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.GameSummaryInteractorTest" />
+      <item itemvalue="JUnit.java in homework-5" />
+      <item itemvalue="JUnit.StatsInteractorTest" />
+      <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
