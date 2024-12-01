@@ -5,6 +5,7 @@ import interface_adapter.image.ImagePageViewModel;
 import view.components.AppViewManager;
 import view.components.game.InteractiveMap;
 import view.utils.ImageScaler;
+import view.components.standard.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,10 +24,10 @@ public class ImagePage extends Page {
     private final ImagePageViewModel viewModel;
 
     private final JLabel instructionsLabel = new JLabel("Upload an Image:");
-    private final JButton uploadButton = new JButton("Choose Image");
+    private final RoundedButton uploadButton = new RoundedButton("Choose Image");
     private final JLabel selectedFileLabel = new JLabel("No file selected");
-    private final JButton backButton = new JButton("BACK");
-    private final JButton uploadToImgurButton = new JButton("Upload Image");
+    private final RoundedButton backButton = new RoundedButton("BACK");
+    private final RoundedButton uploadToImgurButton = new RoundedButton("Upload Image");
 
     private final InteractiveMap interactiveMap; // Map for selecting coordinates
     private File selectedFile;
@@ -56,8 +57,8 @@ public class ImagePage extends Page {
         // File Selection Panel
         JPanel fileSelectionPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         fileSelectionPanel.setBorder(BorderFactory.createTitledBorder("Select Image"));
-        uploadButton.setPreferredSize(new Dimension(150, 30));
-        uploadButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        uploadButton.setPreferredSize(new Dimension(200, 50)); // Adjusted button size
+        uploadButton.setFont(new Font("Arial", Font.BOLD, 16)); // Bold text
         selectedFileLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         fileSelectionPanel.add(uploadButton);
         fileSelectionPanel.add(selectedFileLabel);
@@ -75,10 +76,10 @@ public class ImagePage extends Page {
 
         // Buttons Panel
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        backButton.setPreferredSize(new Dimension(150, 30));
-        uploadToImgurButton.setPreferredSize(new Dimension(150, 30));
-        backButton.setFont(new Font("Arial", Font.PLAIN, 14));
-        uploadToImgurButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        backButton.setPreferredSize(new Dimension(200, 50)); // Adjusted button size
+        backButton.setFont(new Font("Arial", Font.BOLD, 16)); // Bold text
+        uploadToImgurButton.setPreferredSize(new Dimension(200, 50)); // Adjusted button size
+        uploadToImgurButton.setFont(new Font("Arial", Font.BOLD, 16)); // Bold text
         buttonsPanel.add(backButton);
         buttonsPanel.add(uploadToImgurButton);
 
