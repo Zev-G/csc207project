@@ -146,10 +146,14 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
     @Override
     public CompletableFuture<User> getUser(String uid) {
         for (CommonUser user : users) {
-            if (Objects.equals(user.getUserId(), uid)) return CompletableFuture.completedFuture(user);
+            if (Objects.equals(user.getUserId(), uid)) {
+                return CompletableFuture.completedFuture(user);
+            }
         }
-        return null;
+        // Return a completed future with null if the user is not found.
+        return CompletableFuture.completedFuture(null);
     }
+
 
     /**
      * Deletes the user with the given ID.
@@ -160,14 +164,14 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
     public boolean deleteAccount(String userId) {
         User user = null;
         try {
-            user = getUser(userId).get();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
+            user = getUser(userId).get(); // Resolve the CompletableFuture
+        } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
         if (user == null) return false;
-        users.remove(getUser(userId));
+
+        // Correctly remove the resolved user object from the list
+        users.remove(user);
         return true;
     }
 }
