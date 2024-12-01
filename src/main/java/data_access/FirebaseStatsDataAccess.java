@@ -73,7 +73,7 @@ public class FirebaseStatsDataAccess implements StatsDataAccess {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    String name = userSnapshot.child("name").getValue(String.class);
+                    String name = userSnapshot.child("username").getValue(String.class);
 
                     if (username.equals(name)) {
                         int correctGuesses = userSnapshot.child("correctGuesses").getValue(Integer.class);
