@@ -4,74 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="UI changes to image page">
+      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/image/ImagePageInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewManagerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewManagerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/ViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/leaderboard/LeaderboardState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/leaderboard/LeaderboardState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/leaderboard/LeaderboardViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/leaderboard/LeaderboardViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/GameEndState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/GameEndState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGameEndViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGameEndViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/mgame/MGamePresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPageState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPageState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPageViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPageViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/StatsPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/UpdateStatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/stats/UpdateStatsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/account/AccountInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/account/AccountInputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountconfirm/AccountConfirmOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountdelete/AccountDeleteOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/accountlogout/AccountLogoutOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/LocationDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/LocationDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/StatsDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/StatsDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/UserDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/dataAccessInterface/UserDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/game/GameSummaryOutputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsOutputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsOutputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/StatsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInputBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_case/stats/UpdateStatsInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/AppViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/AppViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameSummaryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameSummaryPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/GameTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/InteractiveMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/PointsDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/game/SegmentedProgressBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/leaderboard/LeaderboardPositionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/leaderboard/LeaderboardPositionView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/leaderboard/LeaderboardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/leaderboard/LeaderboardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/DFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/DFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/DPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/DPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/HorizontalPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/HorizontalPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/RoundedButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/RoundedButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/SerifLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/SerifLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/standard/VerticalPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/standard/VerticalPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/components/stats/StatsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/components/stats/StatsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/AccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/EndMultiplayerGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/EndMultiplayerGamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/ErrorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/ErrorPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/GameSummaryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/GameSummaryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/Page.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +41,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Zev-G/csc207project.git&quot;,
-    &quot;accountId&quot;: &quot;bb30032a-8da2-4e5d-8743-9195f6cd0e74&quot;
+    &quot;accountId&quot;: &quot;014a6187-9d14-4b90-b7c3-f14662c31c91&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -120,45 +56,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.App (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.App (3).executor&quot;: &quot;Debug&quot;,
-    &quot;Application.App (4).executor&quot;: &quot;Run&quot;,
-    &quot;Application.App (5).executor&quot;: &quot;Run&quot;,
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StatsIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StatsInteractorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StatsInteractorTest.testFetchStats.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UpdateStatsInteractorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;zev.godfrey&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App (1).executor": "Run",
+    "Application.App (2).executor": "Run",
+    "Application.App (3).executor": "Debug",
+    "Application.App (4).executor": "Run",
+    "Application.App (5).executor": "Run",
+    "Application.App.executor": "Run",
+    "JUnit.StatsIntegrationTest.executor": "Run",
+    "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
+    "JUnit.StatsInteractorTest.executor": "Run",
+    "JUnit.StatsInteractorTest.testFetchStats.executor": "Coverage",
+    "JUnit.UpdateStatsInteractorTest.executor": "Coverage",
+    "JUnit.java in csc207project.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "aaki__temp",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="use_case.stats" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.java in csc207project">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.App" />
-      <module name="homework-5" />
+      <module name="csc207project" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -199,18 +138,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StatsInteractorTest.testFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="homework-5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="use_case.stats.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="use_case.stats" />
-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
-      <option name="METHOD_NAME" value="testFetchStats" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="java in csc207project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="csc207project" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,20 +154,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.java in csc207project" />
+      <item itemvalue="JUnit.GameSummaryInteractorTest" />
+      <item itemvalue="JUnit.StatsInteractorTest" />
+      <item itemvalue="JUnit.java in homework-5" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in csc207project" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.GameSummaryInteractorTest" />
         <item itemvalue="JUnit.java in homework-5" />
         <item itemvalue="JUnit.StatsInteractorTest" />
-        <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-da6bd485" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -253,6 +192,8 @@
       <workItem from="1732893240439" duration="292000" />
       <workItem from="1732914709857" duration="743000" />
       <workItem from="1732915485295" duration="2842000" />
+      <workItem from="1732997593462" duration="471000" />
+      <workItem from="1733017970273" duration="5097000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />
@@ -278,14 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732915992988</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="UI changes to image page">
+      <option name="closed" value="true" />
+      <created>1733023330150</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733023330150</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Questionably clean" />
     <MESSAGE value="Created account confirm controller" />
     <MESSAGE value="Created account confirm input boundary" />
     <MESSAGE value="Created account confirm interactor" />
@@ -310,7 +258,8 @@
     <MESSAGE value="Updated account page and app to include account logout stuff" />
     <MESSAGE value="Comments for account interface adapters" />
     <MESSAGE value="Many java doc comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Many java doc comments added" />
+    <MESSAGE value="UI changes to image page" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI changes to image page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -333,14 +282,15 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>use_case.stats.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/compsci_207_project$java_in_csc207project.ic" NAME="java in csc207project Coverage Results" MODIFIED="1733024665010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
