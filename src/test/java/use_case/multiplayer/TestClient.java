@@ -50,7 +50,7 @@ public class TestClient {
             }
         };
 
-        MultiplayerInteractor interactor = new MultiplayerInteractor("localhost", 5555, presenter, inputBoundary);
+        MultiplayerInteractor interactor = new MultiplayerInteractor("app.kristopherz.net", 5555, presenter, inputBoundary);
         Scanner s = new Scanner(System.in);
         String name = s.nextLine().trim();
 
