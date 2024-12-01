@@ -12,7 +12,10 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * ImagePage handles the UI for image uploads and integrates with the ImagePageController.
+ * This class represents a user interface page for uploading images
+ * and selecting coordinates on an interactive map. It integrates with the
+ * {@code ImagePageController} to handle the business logic and uses the
+ * {@code ImagePageViewModel} to manage the view state.
  */
 public class ImagePage extends Page {
 
@@ -28,6 +31,14 @@ public class ImagePage extends Page {
     private final InteractiveMap interactiveMap; // Map for selecting coordinates
     private File selectedFile;
 
+    /**
+     * Constructs an {@code ImagePage} instance with the specified app manager, controller,
+     * and view model.
+     *
+     * @param app       the {@code AppViewManager} responsible for managing navigation and views.
+     * @param controller the {@code ImagePageController} to handle image upload logic.
+     * @param viewModel  the {@code ImagePageViewModel} to manage the UI state.
+     */
     public ImagePage(AppViewManager app, ImagePageController controller, ImagePageViewModel viewModel) {
         super(app.getViewManager());
         this.controller = controller;
@@ -87,6 +98,11 @@ public class ImagePage extends Page {
         uploadToImgurButton.addActionListener(event -> handleUpload());
     }
 
+    /**
+     * Opens a file chooser dialog to allow the user to select an image file.
+     * Updates the {@code selectedFileLabel} to display the name of the chosen file
+     * or indicates no file was selected.
+     */
     private void chooseFile() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -99,6 +115,11 @@ public class ImagePage extends Page {
         }
     }
 
+    /**
+     * Handles the upload process by validating the selected file and coordinates,
+     * then delegates the image upload to the controller.
+     * Displays appropriate messages for success or failure.
+     */
     private void handleUpload() {
         if (selectedFile == null) {
             JOptionPane.showMessageDialog(this, "Please select an image first.");

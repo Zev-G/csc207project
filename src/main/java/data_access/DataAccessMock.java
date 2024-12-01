@@ -22,6 +22,13 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
 
     private Random random;
 
+    /**
+     * Constructs a DataAccessMock object with a specified seed for random number generation.
+     * This constructor initializes the mock data access with predefined photo locations and a user.
+     *
+     * @param seed A long value used to seed the random number generator for consistent randomization.
+     *             This allows for reproducible random behavior in tests.
+     */
     public DataAccessMock(long seed) {
         // Locations
         random = new Random(seed);
@@ -35,25 +42,44 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         users.add(new CommonUser("Zev", "1234", "godfreyzev@gmail.com", 1));
     }
 
+    /**
+     * Returns the user with the given ID.
+     */
     public DataAccessMock() {
         this(new Random().nextLong());
     }
 
+    /**
+     * Returns the user with the given ID.
+     * @return photo id
+     */
     @Override
     public int getPhotoID() {
         return 0;
     }
 
+    /**
+     * Returns the user with the given ID.
+     * @return photo location
+     */
     @Override
     public PhotoLocation getPhotoLocationByID(int id) {
         return null;
     }
 
+    /**
+     * Deletes the user with the given ID.
+     * @param seed seed for reproducibility
+     */
     @Override
     public void setSeed(long seed) {
         random = new Random(seed);
     }
 
+    /**
+     * Returns a random photo location.
+     * @return photo location
+     */
     @Override
     public PhotoLocation getRandomLocation() {
         switch (random.nextInt(2)) {
@@ -64,6 +90,12 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         }
     }
 
+    /**
+     * Changes the username of the user with the given ID.
+     * @param uid user id
+     * @param username new username
+     * @return true if successful, false otherwise
+     */
     @Override
     public boolean changeUsername(int uid, String username) {
         User user = getUser(uid);
@@ -73,6 +105,12 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         return true;
     }
 
+    /**
+     * Changes the email of the user with the given ID.
+     * @param uid user id
+     * @param email new email
+     * @return true if successful, false otherwise
+     * */
     @Override
     public boolean changeEmail(int uid, String email) {
         User user = getUser(uid);
@@ -82,6 +120,11 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         return true;
     }
 
+    /**
+     * Returns the user with the given ID.
+     * @param uid user id
+     * @return user
+     */
     @Override
     public User getUser(int uid) {
         for (CommonUser user : users) {
@@ -90,6 +133,11 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         return null;
     }
 
+    /**
+     * Deletes the user with the given ID.
+     * @param userId user id
+     * @return true if successful, false otherwise
+     */
     @Override
     public boolean deleteAccount(int userId) {
         User user = getUser(userId);
