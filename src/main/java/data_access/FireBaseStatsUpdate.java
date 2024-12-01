@@ -75,7 +75,7 @@ public class FireBaseStatsUpdate implements StatsRepository {
                 boolean userFound = false;
 
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    String name = userSnapshot.child("name").getValue(String.class);
+                    String name = userSnapshot.child("username").getValue(String.class);
 
                     if (username.equals(name)) {
                         userFound = true;
