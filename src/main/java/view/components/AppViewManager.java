@@ -15,6 +15,8 @@ import interface_adapter.leaderboard.LeaderboardViewModel;
 import interface_adapter.mgame.MGameEndViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerViewModel;
+import interface_adapter.signup.SignUpController;
+import interface_adapter.signup.SignUpViewModel;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.UpdateStatsController;
@@ -37,6 +39,7 @@ public class AppViewManager extends ViewManager {
     private MultiplayerViewModel multiplayerViewModel;
     private MGameEndViewModel mGameEndViewModel;
     private ImagePageViewModel imagePageViewModel;
+    private SignUpViewModel signUpViewModel;
 
     // Controllers
     private GameController gameController;
@@ -49,6 +52,7 @@ public class AppViewManager extends ViewManager {
     private GameSummaryController gameSummaryController;
     private UpdateStatsController updateStatsController;
     private ImagePageController imagePageController;
+    private SignUpController signUpController;
 
     /**
      * Constructs an AppViewManager with a default view manager model.
@@ -247,6 +251,25 @@ public class AppViewManager extends ViewManager {
         this.imagePageViewModel = imagePageViewModel;
     }
 
+
+    /**
+     * Returns the sign-up view model.
+     *
+     * @return the sign-up view model.
+     */
+    public SignUpViewModel getSignUpViewModel() {
+        return signUpViewModel;
+    }
+
+    /**
+     * Sets the sign-up view model.
+     *
+     * @param signUpViewModel the sign-up view model to set.
+     */
+    public void setSignUpViewModel(SignUpViewModel signUpViewModel) {
+        this.signUpViewModel = signUpViewModel;
+    }
+
     /**
      * Returns the game controller.
      *
@@ -425,5 +448,23 @@ public class AppViewManager extends ViewManager {
      */
     public void setImagePageController(ImagePageController imagePageController) {
         this.imagePageController = imagePageController;
+    }
+
+    /**
+     * Returns the sign-up controller.
+     *
+     * @return the sign-up controller.
+     */
+    public SignUpController getSignUpController() {
+        return signUpController;
+    }
+
+    /**
+     * Sets the sign-up controller.
+     *
+     * @param signUpController the image page controller to set
+     */
+    public void setSignUpController(SignUpController signUpController) {
+        this.signUpController = signUpController;
     }
 }
