@@ -13,6 +13,7 @@ public class App {
                 .setupMGame()
                 .setupStats()
                 .setupImage()
+                .setupSignUp()
                 .setupPages()
                 .build();
 
