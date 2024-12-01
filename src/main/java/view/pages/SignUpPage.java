@@ -1,11 +1,13 @@
 package view.pages;
 
 import interface_adapter.ViewModel;
+import interface_adapter.signup.SignUpController;
 import interface_adapter.signup.SignUpState;
 import interface_adapter.signup.SignUpViewModel;
 import view.View;
 import view.ViewConstants;
-import view.app.App;
+import app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.RoundedButton;
@@ -18,7 +20,8 @@ import java.awt.event.ActionEvent;
 public class SignUpPage extends Page implements View<SignUpState> {
 
     private final SignUpViewModel viewModel;
-    private final App app;
+    private final AppViewManager app;
+    private final SignUpController controller;
 
     private final DLabel pageTitle = new DLabel("Sign Up");
     private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
@@ -34,10 +37,12 @@ public class SignUpPage extends Page implements View<SignUpState> {
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public SignUpPage(App app) {
+    public SignUpPage(AppViewManager app, SignUpController signUpController, SignUpViewModel signUpViewModel) {
+
         super(app.getViewManager());
         this.app = app;
-        this.viewModel = app.getSignUpViewModel();
+        this.controller = signUpController;
+        this.viewModel = signUpViewModel;
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);

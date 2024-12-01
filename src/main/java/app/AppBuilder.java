@@ -24,6 +24,10 @@ import interface_adapter.mgame.MGamePresenter;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerPresenter;
 import interface_adapter.multiplayer.MultiplayerViewModel;
+import interface_adapter.signup.SignUpController;
+import interface_adapter.signup.SignUpPresenter;
+import interface_adapter.signup.SignUpState;
+import interface_adapter.signup.SignUpViewModel;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
@@ -39,6 +43,9 @@ import use_case.game.GameSummaryOutputBoundary;
 import use_case.image.ImagePageInteractor;
 import use_case.mgame.MGameInteractor;
 import use_case.multiplayer.MultiplayerInteractor;
+import use_case.signup.SignUpInputBoundary;
+import use_case.signup.SignUpInteractor;
+import use_case.signup.SignUpOutputBoundary;
 import use_case.stats.StatsInteractor;
 import use_case.stats.StatsRepository;
 import use_case.stats.UpdateStatsInteractor;
@@ -54,7 +61,8 @@ public class AppBuilder {
     public AppBuilder setupFirebase() {
         try {
             FirebaseInitializer.initializeFirebase();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
             System.err.println("Failed to initialize Firebase. Exiting...");
             System.exit(-1);
@@ -170,10 +178,31 @@ public class AppBuilder {
         return this;
     }
 
+    public AppBuilder setupSignUp() {
+
+        SignUpViewModel signUpViewModel = new SignUpViewModel();
+        SignUpState initialState = new SignUpState(false, null);
+        signUpViewModel.setState(initialState);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseSignUpDataAccess firebaseSignUpDataAccess = new FirebaseSignUpDataAccess(databaseReference);
+
+        SignUpOutputBoundary signUpOutputBoundary = new SignUpPresenter(signUpViewModel);
+        SignUpInputBoundary signUpInputBoundary = new SignUpInteractor(firebaseSignUpDataAccess, signUpOutputBoundary);
+
+        SignUpController signUpController = new SignUpController(signUpInputBoundary);
+
+        app.setSignUpController(signUpController);
+        app.setSignUpViewModel(signUpViewModel);
+
+        return this;
+    }
+
     public AppBuilder setupPages() {
         app.add("main", new MainPage(app));
         app.add("game", new GamePage(app, app.getGameController(), app.getGameViewModel()));
         app.add("account", new AccountPage(app));
+        app.add("signup", new SignUpPage(app, app.getSignUpController(), app.getSignUpViewModel()));
         app.add("stats", new StatsPage(app));
         app.add("summary", new GameSummaryPage(app));
         app.add("multiplayer", new MultiplayerPage(app, app.getMultiplayerController()));
@@ -188,6 +217,5 @@ public class AppBuilder {
     public AppViewManager build() {
         return app;
     }
-
 
 }
