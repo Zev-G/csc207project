@@ -190,7 +190,8 @@ In multiplayer mode, you and your opponent each enter your usernames to start th
 In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.  
 ![here](AccountUsages.gif)
 
-To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games. Watch a demo [here](UploadImageVideo.mp4).
+To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games.  
+![here](UploadImageUsage.gif).
 
 ---
 ## License
