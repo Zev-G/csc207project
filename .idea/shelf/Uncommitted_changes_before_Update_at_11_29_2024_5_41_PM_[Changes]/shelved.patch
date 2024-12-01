@@ -1,0 +1,422 @@
+Index: src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package interface_adapter.multiplayer;\r\n\r\nimport interface_adapter.ViewModel;\r\n\r\npublic class MultiplayerViewModel extends ViewModel<String> {\r\n\r\n    public MultiplayerViewModel() {\r\n        super(\"multiplayer\");\r\n        this.setState(\"connect\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java b/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java
+--- a/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java	(revision a391620e1c8c73413f122bb006a430984b035932)
++++ b/src/main/java/interface_adapter/multiplayer/MultiplayerViewModel.java	(date 1732915612479)
+@@ -3,7 +3,6 @@
+ import interface_adapter.ViewModel;
+ 
+ public class MultiplayerViewModel extends ViewModel<String> {
+-
+     public MultiplayerViewModel() {
+         super("multiplayer");
+         this.setState("connect");
+Index: src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package interface_adapter.multiplayer;\r\n\r\nimport use_case.multiplayer.MultiplayerOutputBoundary;\r\nimport view.pages.MultiplayerPage;\r\n\r\npublic class MultiplayerPresenter implements MultiplayerOutputBoundary {\r\n\r\n    private MultiplayerViewModel viewModel;\r\n\r\n    public MultiplayerPresenter(MultiplayerViewModel viewModel){\r\n        this.viewModel = viewModel;\r\n    }\r\n    @Override\r\n    public void prepareTimeoutView() {\r\n        viewModel.setState(\"timeout\");\r\n    }\r\n\r\n    @Override\r\n    public void prepareErrorView() {\r\n        viewModel.setState(\"error\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java b/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java
+--- a/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java	(revision a391620e1c8c73413f122bb006a430984b035932)
++++ b/src/main/java/interface_adapter/multiplayer/MultiplayerPresenter.java	(date 1732915612474)
+@@ -1,15 +1,15 @@
+ package interface_adapter.multiplayer;
+ 
+ import use_case.multiplayer.MultiplayerOutputBoundary;
+-import view.pages.MultiplayerPage;
+ 
+ public class MultiplayerPresenter implements MultiplayerOutputBoundary {
+ 
+     private MultiplayerViewModel viewModel;
+ 
+-    public MultiplayerPresenter(MultiplayerViewModel viewModel){
++    public MultiplayerPresenter(MultiplayerViewModel viewModel) {
+         this.viewModel = viewModel;
+     }
++
+     @Override
+     public void prepareTimeoutView() {
+         viewModel.setState("timeout");
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"csc207project\" />\r\n        <module name=\"homework-5\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision a391620e1c8c73413f122bb006a430984b035932)
++++ b/.idea/compiler.xml	(date 1732911793886)
+@@ -7,7 +7,6 @@
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+         <module name="csc207project" />
+-        <module name="homework-5" />
+       </profile>
+     </annotationProcessing>
+   </component>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"482eafd2-4214-4b6c-88a5-d599ac344a31\" name=\"Changes\" comment=\"Updated account page and app to include account logout stuff\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/use_case/stats/StatsInteractorTest.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/use_case/stats/UpdateStatsInteractorTest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"Tallduoft\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Zev-G/csc207project.git\",\r\n    \"accountId\": \"bb30032a-8da2-4e5d-8743-9195f6cd0e74\"\r\n  }\r\n}]]></component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2pLxVrI0dMaJi8LZUFBZthOsrDf\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.App (1).executor\": \"Run\",\r\n    \"Application.App (2).executor\": \"Run\",\r\n    \"Application.App (3).executor\": \"Debug\",\r\n    \"Application.App (4).executor\": \"Run\",\r\n    \"Application.App (5).executor\": \"Run\",\r\n    \"Application.App.executor\": \"Run\",\r\n    \"JUnit.StatsIntegrationTest.executor\": \"Run\",\r\n    \"JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor\": \"Run\",\r\n    \"JUnit.StatsInteractorTest.testFetchStats.executor\": \"Coverage\",\r\n    \"JUnit.UpdateStatsInteractorTest.executor\": \"Coverage\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"use_case.stats\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"JUnit.StatsInteractorTest.testFetchStats\">\r\n    <configuration name=\"App (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.app.App\" />\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StatsIntegrationTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"data_access.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"use_case.stats\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"use_case.stats.StatsIntegrationTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"use_case.stats.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"use_case.stats\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"use_case.stats.StatsIntegrationTestWithManualMocks\" />\r\n      <option name=\"METHOD_NAME\" value=\"testUpdateAndFetchStats\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StatsInteractorTest.testFetchStats\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"use_case.stats.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"use_case.stats\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"use_case.stats.StatsInteractorTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"testFetchStats\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UpdateStatsInteractorTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"homework-5\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"use_case.stats.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"use_case.stats\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"use_case.stats.UpdateStatsInteractorTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.StatsInteractorTest.testFetchStats\" />\r\n        <item itemvalue=\"JUnit.UpdateStatsInteractorTest\" />\r\n        <item itemvalue=\"JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats\" />\r\n        <item itemvalue=\"JUnit.StatsIntegrationTest\" />\r\n        <item itemvalue=\"Application.App (1)\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"482eafd2-4214-4b6c-88a5-d599ac344a31\" name=\"Changes\" comment=\"Updated account page and app to include account logout stuff\" />\r\n      <created>1732590527178</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1732590527178</updated>\r\n      <workItem from=\"1732590532509\" duration=\"752000\" />\r\n      <workItem from=\"1732823838676\" duration=\"9566000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Added multiplayer game to app\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1732591234422</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1732591234422</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\" workspace\" />\r\n    <MESSAGE value=\"Questionably clean\" />\r\n    <MESSAGE value=\"Created account confirm controller\" />\r\n    <MESSAGE value=\"Created account confirm input boundary\" />\r\n    <MESSAGE value=\"Created account confirm interactor\" />\r\n    <MESSAGE value=\"Created account confirm output boundary\" />\r\n    <MESSAGE value=\"Created account confirm presenter\" />\r\n    <MESSAGE value=\"Created account input data\" />\r\n    <MESSAGE value=\"Implemented clean architecture for account and hooked into view system\" />\r\n    <MESSAGE value=\"Created user data access interface\" />\r\n    <MESSAGE value=\"Updated user interface\" />\r\n    <MESSAGE value=\"Updated user to have a user id\" />\r\n    <MESSAGE value=\"Updated data access mock to have fake user access\" />\r\n    <MESSAGE value=\"Created test for account confirm interactor\" />\r\n    <MESSAGE value=\"Added userid to account input data\" />\r\n    <MESSAGE value=\"Updated creation of account states to work with new user system\" />\r\n    <MESSAGE value=\"Update to idea files\" />\r\n    <MESSAGE value=\"Created account logout input boundary\" />\r\n    <MESSAGE value=\"Created account logout output boundary\" />\r\n    <MESSAGE value=\"Created account logout interactor\" />\r\n    <MESSAGE value=\"Created account logout interactor test\" />\r\n    <MESSAGE value=\"Created account logout presenter\" />\r\n    <MESSAGE value=\"Created account logout controller\" />\r\n    <MESSAGE value=\"Updated account page and app to include account logout stuff\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated account page and app to include account logout stuff\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/mgame/MGameInteractor.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"48\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/multiplayer/MultiplayerInteractor.java</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"49\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>\r\n          <line>26</line>\r\n          <properties class=\"use_case.game.GameOutputBoundary\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"52\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/csc207project$StatsIntegrationTest.ic\" NAME=\"StatsIntegrationTest Coverage Results\" MODIFIED=\"1732846312682\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\">\r\n      <FILTER>use_case.stats.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/csc207project$StatsInteractorTest_testFetchStats.ic\" NAME=\"StatsInteractorTest.testFetchStats Coverage Results\" MODIFIED=\"1732850247352\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\">\r\n      <FILTER>use_case.stats.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/csc207project$UpdateStatsInteractorTest.ic\" NAME=\"UpdateStatsInteractorTest Coverage Results\" MODIFIED=\"1732850146051\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\">\r\n      <FILTER>use_case.stats.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a391620e1c8c73413f122bb006a430984b035932)
++++ b/.idea/workspace.xml	(date 1732911793856)
+@@ -4,12 +4,28 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Updated account page and app to include account logout stuff">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/StatsInteractorTest.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/use_case/stats/UpdateStatsInteractorTest.java" afterDir="false" />
++    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="debug">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FirebaseInitializer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/stats/FireBaseStatTest.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/homework-5.iml" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -31,18 +47,18 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "Tallduoft"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;Tallduoft&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/Zev-G/csc207project.git",
+-    "accountId": "bb30032a-8da2-4e5d-8743-9195f6cd0e74"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/Zev-G/csc207project.git&quot;,
++    &quot;accountId&quot;: &quot;bb30032a-8da2-4e5d-8743-9195f6cd0e74&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+@@ -63,23 +79,28 @@
+     "Application.App (4).executor": "Run",
+     "Application.App (5).executor": "Run",
+     "Application.App.executor": "Run",
++    "JUnit.All in homework-5.executor": "Run",
+     "JUnit.StatsIntegrationTest.executor": "Run",
+     "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
+     "JUnit.StatsInteractorTest.testFetchStats.executor": "Coverage",
+     "JUnit.UpdateStatsInteractorTest.executor": "Coverage",
++    "JUnit.use_case.stats in homework-5.executor": "Coverage",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "git-widget-placeholder": "main",
++    "git-widget-placeholder": "kristopher.zhao",
+     "kotlin-language-version-configured": "true",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
+@@ -88,13 +109,13 @@
+       <recent name="use_case.stats" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.StatsInteractorTest.testFetchStats">
+-    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="view.app.App" />
+-      <module name="homework-5" />
++  <component name="RunManager">
++    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="app.App" />
++      <module name="csc207project" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="view.app.*" />
++          <option name="PATTERN" value="app.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -102,23 +123,24 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="StatsIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="homework-5" />
++    <configuration name="StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="csc207project" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="data_access.*" />
++          <option name="PATTERN" value="use_case.stats.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="use_case.stats" />
+-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTestWithManualMocks" />
++      <option name="METHOD_NAME" value="testUpdateAndFetchStats" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="homework-5" />
++    <configuration name="StatsInteractorTest.testFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="csc207project" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="use_case.stats.*" />
+@@ -126,15 +148,15 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="use_case.stats" />
+-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsIntegrationTestWithManualMocks" />
+-      <option name="METHOD_NAME" value="testUpdateAndFetchStats" />
++      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
++      <option name="METHOD_NAME" value="testFetchStats" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="StatsInteractorTest.testFetchStats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="homework-5" />
++    <configuration name="UpdateStatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="csc207project" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="use_case.stats.*" />
+@@ -142,15 +164,14 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="use_case.stats" />
+-      <option name="MAIN_CLASS_NAME" value="use_case.stats.StatsInteractorTest" />
+-      <option name="METHOD_NAME" value="testFetchStats" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="MAIN_CLASS_NAME" value="use_case.stats.UpdateStatsInteractorTest" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="UpdateStatsInteractorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="homework-5" />
++    <configuration name="use_case.stats in homework-5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="csc207project" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="use_case.stats.*" />
+@@ -158,27 +179,38 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="use_case.stats" />
+-      <option name="MAIN_CLASS_NAME" value="use_case.stats.UpdateStatsInteractorTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="TEST_OBJECT" value="package" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="JetRunConfigurationType">
++      <module name="csc207project" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
++      <module name="csc207project" />
++      <option name="filePath" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
++        <item itemvalue="Application.App" />
++        <item itemvalue="JUnit.use_case.stats in homework-5" />
+         <item itemvalue="JUnit.UpdateStatsInteractorTest" />
++        <item itemvalue="JUnit.StatsInteractorTest.testFetchStats" />
+         <item itemvalue="JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats" />
+-        <item itemvalue="JUnit.StatsIntegrationTest" />
+-        <item itemvalue="Application.App (1)" />
+       </list>
+     </recent_temporary>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
++        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -192,6 +224,7 @@
+       <updated>1732590527178</updated>
+       <workItem from="1732590532509" duration="752000" />
+       <workItem from="1732823838676" duration="9566000" />
++      <workItem from="1732893609254" duration="7456000" />
+     </task>
+     <task id="LOCAL-00001" summary="Added multiplayer game to app">
+       <option name="closed" value="true" />
+@@ -201,16 +234,45 @@
+       <option name="project" value="LOCAL" />
+       <updated>1732591234422</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="refactor and clean up">
++      <option name="closed" value="true" />
++      <created>1732859293705</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1732859293705</updated>
++    </task>
++    <task id="LOCAL-00003" summary="change test">
++      <option name="closed" value="true" />
++      <created>1732859960532</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1732859960532</updated>
++    </task>
++    <task id="LOCAL-00004" summary="refactor app building process">
++      <option name="closed" value="true" />
++      <created>1732899240322</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1732899240322</updated>
++    </task>
++    <task id="LOCAL-00005" summary="debug">
++      <option name="closed" value="true" />
++      <created>1732899725482</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1732899725482</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value=" workspace" />
+-    <MESSAGE value="Questionably clean" />
+-    <MESSAGE value="Created account confirm controller" />
+     <MESSAGE value="Created account confirm input boundary" />
+     <MESSAGE value="Created account confirm interactor" />
+     <MESSAGE value="Created account confirm output boundary" />
+@@ -232,7 +294,11 @@
+     <MESSAGE value="Created account logout presenter" />
+     <MESSAGE value="Created account logout controller" />
+     <MESSAGE value="Updated account page and app to include account logout stuff" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Updated account page and app to include account logout stuff" />
++    <MESSAGE value="refactor and clean up" />
++    <MESSAGE value="change test" />
++    <MESSAGE value="refactor app building process" />
++    <MESSAGE value="debug" />
++    <option name="LAST_COMMIT_MESSAGE" value="debug" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -250,7 +316,7 @@
+         <line-breakpoint enabled="true" type="java-method">
+           <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
+           <line>26</line>
+-          <properties class="use_case.game.GameOutputBoundary">
++          <properties class="use_case.game.GameOutputBoundary" method="endGame">
+             <option name="EMULATED" value="true" />
+             <option name="WATCH_EXIT" value="false" />
+           </properties>
+@@ -260,13 +326,17 @@
+     </breakpoint-manager>
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
++    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+       <FILTER>use_case.stats.*</FILTER>
+     </SUITE>
+     <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+       <FILTER>use_case.stats.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
++    <SUITE FILE_PATH="coverage/csc207project$All_in_homework_5.ic" NAME="All in homework-5 Coverage Results" MODIFIED="1732858957911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
++      <FILTER>use_case.stats.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/csc207project$use_case_stats_in_homework_5.ic" NAME="use_case.stats in homework-5 Coverage Results" MODIFIED="1732859270270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>use_case.stats.*</FILTER>
+     </SUITE>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_22\" project-jdk-name=\"openjdk-18\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision a391620e1c8c73413f122bb006a430984b035932)
++++ b/.idea/misc.xml	(date 1732859822100)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
