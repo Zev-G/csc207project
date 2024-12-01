@@ -14,6 +14,7 @@ public class App {
                 .setupStats()
                 .setupImage()
                 .setupSignUp()
+                .setupLogIn()
                 .setupPages()
                 .build();
 

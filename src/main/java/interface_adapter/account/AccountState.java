@@ -12,7 +12,7 @@ public class AccountState {
     private final String username;
     private final String email;
     private final String password;
-    private final int userId;
+    private final String userId;
 
     /**
      * Creates a new AccountState with the given inputs
@@ -22,7 +22,7 @@ public class AccountState {
      * @param password the user's email
      * @param userId the id of the user
      */
-    public AccountState(boolean loggedIn, String username, String email, String password, int userId) {
+    public AccountState(boolean loggedIn, String username, String email, String password, String userId) {
         this.loggedIn = loggedIn;
         this.username = username;
         this.email = email;
@@ -46,7 +46,7 @@ public class AccountState {
         return password;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 }

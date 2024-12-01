@@ -29,19 +29,20 @@ public class LogInInteractor implements LogInInputBoundary {
             return;
         }
 
-        dataAccess.findUserByCredentials(inputData).thenAccept(user -> {
-            if (user != null) {
-                viewModel.setState(new AccountState(
-                        true, user.getName(), user.getEmail(), user.getPassword(), user.getUserId()
-                ));
-                outputBoundary.present(new LogInOutputData(true, "Log-in successful!"));
-            }
-            else {
-                outputBoundary.present(new LogInOutputData(false, "Invalid credentials!"));
-            }
-        }).exceptionally(ex -> {
-            outputBoundary.present(new LogInOutputData(false, "Error: " + ex.getMessage()));
-            return null;
-        });
+        dataAccess.findUserByCredentials(inputData.getUsername(), inputData.getEmail(), inputData.getPassword())
+                .thenAccept(user -> {
+                    if (user != null) {
+                        viewModel.setState(new AccountState(
+                                true, user.getName(), user.getEmail(), user.getPassword(), user.getUserId()
+                        ));
+                        outputBoundary.present(new LogInOutputData(true, "Log-in successful!"));
+                    } else {
+                        outputBoundary.present(new LogInOutputData(false, "Invalid credentials!"));
+                    }
+                })
+                .exceptionally(ex -> {
+                    outputBoundary.present(new LogInOutputData(false, "Error: " + ex.getMessage()));
+                    return null;
+                });
     }
 }

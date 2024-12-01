@@ -15,7 +15,8 @@ public class LogInPresenter implements LogInOutputBoundary {
 
     @Override
     public void present(LogInOutputData outputData) {
-        LogInState state = new LogInState(outputData.isSuccess(), outputData.getMessage());
+        // Create a new LogInState with success, message, and isLoggingIn status
+        LogInState state = new LogInState(false, outputData.isSuccess(), outputData.getMessage());
         viewModel.setState(state);
     }
 }

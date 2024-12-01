@@ -139,7 +139,7 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
      * @return true if successful, false otherwise
      */
     @Override
-    public boolean deleteAccount(int userId) {
+    public boolean deleteAccount(String userId) {
         User user = getUser(userId);
         if (user == null) return false;
         users.remove(getUser(userId));

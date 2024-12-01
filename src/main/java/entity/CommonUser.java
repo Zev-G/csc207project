@@ -8,9 +8,9 @@ public class CommonUser implements User {
     private final String name;
     private final String password;
     private final String email;
-    private final int userId;
+    private final String userId;
 
-    public CommonUser(String name, String password, String email, int userId) {
+    public CommonUser(String name, String password, String email, String userId) {
         this.name = name;
         this.password = password;
         this.email = email;
@@ -33,7 +33,7 @@ public class CommonUser implements User {
     }
 
     @Override
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 

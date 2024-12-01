@@ -28,6 +28,10 @@ import interface_adapter.signup.SignUpController;
 import interface_adapter.signup.SignUpPresenter;
 import interface_adapter.signup.SignUpState;
 import interface_adapter.signup.SignUpViewModel;
+import interface_adapter.login.LogInController;
+import interface_adapter.login.LogInPresenter;
+import interface_adapter.login.LogInState;
+import interface_adapter.login.LogInViewModel;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
@@ -46,6 +50,9 @@ import use_case.multiplayer.MultiplayerInteractor;
 import use_case.signup.SignUpInputBoundary;
 import use_case.signup.SignUpInteractor;
 import use_case.signup.SignUpOutputBoundary;
+import use_case.login.LogInInputBoundary;
+import use_case.login.LogInInteractor;
+import use_case.login.LogInOutputBoundary;
 import use_case.stats.StatsInteractor;
 import use_case.stats.StatsRepository;
 import use_case.stats.UpdateStatsInteractor;
@@ -122,7 +129,7 @@ public class AppBuilder {
         AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, data);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
 
-        accountViewModel.setState(new AccountState(false, "", "", "", 0));
+        accountViewModel.setState(new AccountState(false, "", "", "", ""));
 
         app.setAccountViewModel(accountViewModel);
         app.setAccountConfirmController(accountConfirmController);
@@ -198,11 +205,33 @@ public class AppBuilder {
         return this;
     }
 
+    public AppBuilder setupLogIn() {
+
+        AccountViewModel accountViewModel = new AccountViewModel();
+        LogInViewModel logInViewModel = new LogInViewModel();
+        LogInState initialState = new LogInState(false, false, "");
+        logInViewModel.setState(initialState);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseLogInDataAccess firebaseLogInDataAccess = new FirebaseLogInDataAccess(databaseReference);
+
+        LogInOutputBoundary logInPresenter = new LogInPresenter(logInViewModel);
+        LogInInputBoundary logInInteractor = new LogInInteractor(firebaseLogInDataAccess, logInPresenter, accountViewModel);
+
+        LogInController logInController = new LogInController(logInInteractor);
+
+        app.setLoginController(logInController);
+        app.setLoginViewModel(logInViewModel);
+
+        return this;
+    }
+
     public AppBuilder setupPages() {
         app.add("main", new MainPage(app));
         app.add("game", new GamePage(app, app.getGameController(), app.getGameViewModel()));
         app.add("account", new AccountPage(app));
         app.add("signup", new SignUpPage(app, app.getSignUpController(), app.getSignUpViewModel()));
+        app.add("logIn", new LogInPage(app, app.getLoginController(), app.getLoginViewModel()));
         app.add("stats", new StatsPage(app));
         app.add("summary", new GameSummaryPage(app));
         app.add("multiplayer", new MultiplayerPage(app, app.getMultiplayerController()));

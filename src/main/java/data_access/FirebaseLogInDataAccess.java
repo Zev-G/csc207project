@@ -3,14 +3,15 @@ package data_access;
 import com.google.firebase.database.*;
 import entity.CommonUser;
 import entity.User;
+import use_case.dataAccessInterface.LogInDataAccess;
 import use_case.dataAccessInterface.UserDataAccess;
 
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CompletableFuture;
 
 /**
- * Firebase implementation for managing log-in functionality and user data.
+ * Firebase implementation for managing user data and log-in functionality.
  */
-public class FirebaseLogInDataAccess implements UserDataAccess {
+public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess {
     private final DatabaseReference usersRef;
 
     /**
@@ -25,31 +26,34 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
     /**
      * Retrieves a user by their unique ID.
      *
-     * @param uid The unique ID of the user.
-     * @return The user object associated with the ID.
+     * @param uid The unique ID of the user (as a string).
+     * @return A CompletableFuture that will complete with the user object if found, null otherwise.
      */
     @Override
-    public User getUser(int uid) {
-        final User[] userResult = {null};
-        CountDownLatch latch = new CountDownLatch(1);
+    public CompletableFuture<User> getUser(String uid) {
+        CompletableFuture<User> future = new CompletableFuture<>();
 
-        usersRef.child(String.valueOf(uid)).addListenerForSingleValueEvent(new ValueEventListener() {
+        usersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    userResult[0] = mapSnapshotToUser(dataSnapshot);
+                    // Complete with user data
+                    future.complete(mapSnapshotToUser(dataSnapshot));
                 }
-                latch.countDown();
+                else {
+                    // Complete with null if user is not found
+                    future.complete(null);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                latch.countDown();
+                future.completeExceptionally(new Exception("Error fetching user: " + databaseError.getMessage()));
             }
         });
 
-        waitForLatch(latch);
-        return userResult[0];
+        // Return the CompletableFuture
+        return future;
     }
 
     /**
@@ -60,7 +64,7 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
      * @return {@code true} if the username was successfully changed, {@code false} otherwise.
      */
     @Override
-    public boolean changeUsername(int uid, String username) {
+    public boolean changeUsername(String uid, String username) {
         return updateField(uid, "username", username);
     }
 
@@ -72,7 +76,7 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
      * @return {@code true} if the email was successfully changed, {@code false} otherwise.
      */
     @Override
-    public boolean changeEmail(int uid, String email) {
+    public boolean changeEmail(String uid, String email) {
         return updateField(uid, "email", email);
     }
 
@@ -83,16 +87,13 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
      * @return {@code true} if the account was successfully deleted, {@code false} otherwise.
      */
     @Override
-    public boolean deleteAccount(int userId) {
+    public boolean deleteAccount(String userId) {
         final boolean[] success = {false};
-        CountDownLatch latch = new CountDownLatch(1);
 
-        usersRef.child(String.valueOf(userId)).removeValue((databaseError, databaseReference) -> {
+        usersRef.child(userId).removeValue((databaseError, databaseReference) -> {
             success[0] = databaseError == null;
-            latch.countDown();
         });
 
-        waitForLatch(latch);
         return success[0];
     }
 
@@ -102,11 +103,11 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
      * @param username The username of the user.
      * @param email    The email of the user.
      * @param password The password of the user.
-     * @return User entity if the credentials match; null otherwise.
+     * @return A CompletableFuture that will complete with the User entity if the credentials match, or null otherwise.
      */
-    public User findUserByCredentials(String username, String email, String password) {
-        final User[] userResult = {null};
-        CountDownLatch latch = new CountDownLatch(1);
+    @Override
+    public CompletableFuture<User> findUserByCredentials(String username, String email, String password) {
+        CompletableFuture<User> future = new CompletableFuture<>();
 
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -120,21 +121,23 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
                             && dbUsername.equals(username)
                             && dbEmail.equals(email)
                             && dbPassword.equals(password)) {
-                        userResult[0] = mapSnapshotToUser(userSnapshot);
-                        break;
+                        // Complete with the matched user
+                        future.complete(mapSnapshotToUser(userSnapshot));
+                        return;
                     }
                 }
-                latch.countDown();
+                // Complete with null if no user matches
+                future.complete(null);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                latch.countDown();
+                future.completeExceptionally(new Exception("Database error: " + databaseError.getMessage()));
             }
         });
 
-        waitForLatch(latch);
-        return userResult[0];
+        // Return the CompletableFuture
+        return future;
     }
 
     /**
@@ -145,16 +148,13 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
      * @param value The new value for the field.
      * @return {@code true} if the update was successful, {@code false} otherwise.
      */
-    private boolean updateField(int uid, String field, String value) {
+    private boolean updateField(String uid, String field, String value) {
         final boolean[] success = {false};
-        CountDownLatch latch = new CountDownLatch(1);
 
-        usersRef.child(String.valueOf(uid)).child(field).setValue(value, (databaseError, databaseReference) -> {
+        usersRef.child(uid).child(field).setValue(value, (databaseError, databaseReference) -> {
             success[0] = databaseError == null;
-            latch.countDown();
         });
 
-        waitForLatch(latch);
         return success[0];
     }
 
@@ -169,24 +169,7 @@ public class FirebaseLogInDataAccess implements UserDataAccess {
         String username = snapshot.child("username").getValue(String.class);
         String email = snapshot.child("email").getValue(String.class);
         String password = snapshot.child("password").getValue(String.class);
-        int correctGuesses = snapshot.child("correctGuesses").getValue(Integer.class);
-        int gamesPlayed = snapshot.child("gamesPlayed").getValue(Integer.class);
-        int points = snapshot.child("points").getValue(Integer.class);
 
-        return new CommonUser(username, email, password, userId, correctGuesses, gamesPlayed, points);
-    }
-
-    /**
-     * Waits for a latch to count down to 0.
-     *
-     * @param latch The CountDownLatch to wait on.
-     */
-    private void waitForLatch(CountDownLatch latch) {
-        try {
-            latch.await();
-        }
-        catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+        return new CommonUser(username, email, password, userId);
     }
 }

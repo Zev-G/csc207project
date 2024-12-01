@@ -27,6 +27,6 @@ public interface User {
      * Returns the user id.
      * @return the user id.
      */
-    int getUserId();
+    String getUserId();
 
 }
