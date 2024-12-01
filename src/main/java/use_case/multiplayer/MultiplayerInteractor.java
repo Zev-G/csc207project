@@ -48,7 +48,7 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
         try {
             if (!tryToConnet) {
-
+                // To start a socket.
                 final Socket socket = new Socket(host, port);
                 final DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 out.writeUTF(String.format("%s,%s", multiplayerInputData.getUsername(),
@@ -57,8 +57,9 @@ public class MultiplayerInteractor implements MultiplayerInputBoundary {
 
                 final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
 
-                System.out.println("try to connect");
+//                System.out.println("try to connect");
                 tryToConnet = true;
+                // New Thread to catch the info from the server
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
