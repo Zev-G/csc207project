@@ -1,3 +1,39 @@
 Manifest-Version: 1.0
-Main-Class: server.Server
+Main-Class: app.App
+Class-Path: httpclient-4.5.14.jar proto-google-cloud-firestore-bundle-v1
+ -3.13.0.jar google-cloud-storage-2.22.4.jar netty-handler-4.1.94.Final.
+ jar grpc-xds-1.55.1.jar netty-transport-4.1.94.Final.jar gax-httpjson-0
+ .114.0.jar google-api-client-gson-2.2.0.jar opencensus-contrib-grpc-uti
+ l-0.31.1.jar checker-qual-3.32.0.jar kotlin-stdlib-common-1.5.31.jar j2
+ objc-annotations-1.3.jar google-http-client-jackson2-1.43.1.jar netty-c
+ odec-http-4.1.94.Final.jar opencensus-api-0.31.1.jar google-api-service
+ s-storage-v1-rev20230301-2.0.0.jar netty-codec-4.1.94.Final.jar commons
+ -logging-1.2.jar grpc-google-cloud-storage-v2-2.22.4-alpha.jar netty-re
+ solver-4.1.94.Final.jar gson-2.10.1.jar kotlin-stdlib-1.6.20.jar gapic-
+ google-cloud-storage-v2-2.22.4-alpha.jar gax-grpc-2.29.0.jar opencensus
+ -contrib-http-util-0.31.1.jar grpc-context-1.55.1.jar grpc-api-1.55.1.j
+ ar grpc-rls-1.55.1.jar firebase-admin-9.2.0.jar slf4j-api-2.0.7.jar grp
+ c-protobuf-lite-1.55.1.jar google-http-client-appengine-1.43.1.jar grpc
+ -grpclb-1.55.1.jar google-cloud-core-2.19.0.jar error_prone_annotations
+ -2.18.0.jar grpc-netty-shaded-1.55.1.jar annotations-4.1.1.4.jar common
+ s-codec-1.15.jar opencensus-proto-0.2.0.jar netty-buffer-4.1.94.Final.j
+ ar jsr305-3.0.2.jar google-http-client-apache-v2-1.42.3.jar json-202403
+ 03.jar proto-google-iam-v1-1.15.0.jar okhttp-4.10.0.jar kotlin-stdlib-j
+ dk7-1.5.31.jar netty-transport-native-unix-common-4.1.94.Final.jar http
+ core-4.4.16.jar failureaccess-1.0.1.jar guava-31.1-jre.jar google-auth-
+ library-credentials-1.17.0.jar re2j-1.6.jar api-common-2.12.0.jar googl
+ e-cloud-firestore-3.13.0.jar grpc-googleapis-1.55.1.jar grpc-alts-1.55.
+ 1.jar okio-jvm-3.0.0.jar javax.annotation-api-1.3.2.jar google-cloud-co
+ re-grpc-2.19.0.jar kotlin-stdlib-jdk8-1.5.31.jar proto-google-common-pr
+ otos-2.20.0.jar grpc-services-1.55.1.jar auto-value-annotations-1.10.1.
+ jar grpc-auth-1.55.1.jar proto-google-cloud-storage-v2-2.22.4-alpha.jar
+  proto-google-cloud-firestore-v1-3.13.0.jar google-api-client-2.2.0.jar
+  google-auth-library-oauth2-http-1.17.0.jar google-cloud-core-http-2.19
+ .0.jar netty-common-4.1.94.Final.jar annotations-13.0.jar google-oauth-
+ client-1.34.1.jar animal-sniffer-annotations-1.23.jar grpc-protobuf-1.5
+ 5.1.jar conscrypt-openjdk-uber-2.5.2.jar gax-2.29.0.jar grpc-stub-1.55.
+ 1.jar google-http-client-1.43.1.jar threetenbp-1.6.8.jar jackson-core-2
+ .14.2.jar listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.ja
+ r protobuf-java-3.23.2.jar perfmark-api-0.26.0.jar protobuf-java-util-3
+ .23.2.jar google-http-client-gson-1.42.3.jar grpc-core-1.55.1.jar
 
