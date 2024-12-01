@@ -37,6 +37,7 @@ import use_case.game.GameSummaryInputBoundary;
 import use_case.game.GameSummaryInteractor;
 import use_case.game.GameSummaryOutputBoundary;
 import use_case.image.ImagePageInteractor;
+import data_access.ImageUploadDataAccess;
 import use_case.mgame.MGameInteractor;
 import use_case.multiplayer.MultiplayerInteractor;
 import use_case.stats.StatsInteractor;
@@ -49,7 +50,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class AppBuilder {
-    private AppViewManager app = new AppViewManager();
+    private final AppViewManager app = new AppViewManager();
 
     public AppBuilder setupFirebase() {
         try {
@@ -74,18 +75,18 @@ public class AppBuilder {
     }
 
     public AppBuilder setupMGame() {
-        //Game setup
+        // Game setup
         MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, app.getViewManagerModel(), mGameEndViewModel);
-        MGameInteractor mGameInteractorinteractor = new MGameInteractor(new PhotoLocationDataAccess(), mgamePresenter);
-        GameController mgameController = new GameController(mGameInteractorinteractor);
+        MGameInteractor mGameInteractor = new MGameInteractor(new PhotoLocationDataAccess(), mgamePresenter);
+        GameController mgameController = new GameController(mGameInteractor);
 
-        //Connection setup
+        // Connection setup
         MultiplayerViewModel multiplayerViewModel = new MultiplayerViewModel();
         MultiplayerPresenter multiplayerPresenter = new MultiplayerPresenter(multiplayerViewModel);
         MultiplayerInteractor multiplayerInteractor = new MultiplayerInteractor("app.kristopherz.net", 5555,
-                multiplayerPresenter, mGameInteractorinteractor);
+                multiplayerPresenter, mGameInteractor);
         MultiplayerController multiplayerController = new MultiplayerController(multiplayerInteractor);
 
         app.setMgameController(mgameController);
@@ -97,7 +98,6 @@ public class AppBuilder {
     }
 
     public AppBuilder setupAccount() {
-
         DataAccessMock data = new DataAccessMock();
 
         AccountViewModel accountViewModel = new AccountViewModel();
@@ -163,7 +163,8 @@ public class AppBuilder {
     public AppBuilder setupImage() {
         ImagePageViewModel imagePageViewModel = new ImagePageViewModel();
         ImagePagePresenter imagePagePresenter = new ImagePagePresenter(imagePageViewModel);
-        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter, "50ebc9d32abce50f92c2794ae7b36aa3e743b272");
+        ImageUploadDataAccess imageUploadDataAccess = new ImageUploadDataAccess("50ebc9d32abce50f92c2794ae7b36aa3e743b272");
+        ImagePageInteractor imagePageInteractor = new ImagePageInteractor(imagePagePresenter, imageUploadDataAccess);
         ImagePageController imagePageController = new ImagePageController(imagePageInteractor);
         app.setImagePageViewModel(imagePageViewModel);
         app.setImagePageController(imagePageController);
@@ -188,6 +189,4 @@ public class AppBuilder {
     public AppViewManager build() {
         return app;
     }
-
-
 }
