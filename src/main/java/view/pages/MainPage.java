@@ -164,7 +164,6 @@ public class MainPage extends Page implements View<AccountState> {
      * @param event The action event triggered by the button press.
      */
     private void loginButtonPressed(ActionEvent event) {
-//        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", ""));
         viewManager.navigate("login");
     }
 
@@ -174,7 +173,6 @@ public class MainPage extends Page implements View<AccountState> {
      * @param event The action event triggered by the button press.
      */
     private void signupButtonPressed(ActionEvent event) {
-//        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", 1));
         viewManager.navigate("signup");
     }
 
