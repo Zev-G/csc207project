@@ -180,7 +180,7 @@ public class LogInPage extends Page implements View<LogInState> {
             logInButton.setEnabled(true);
             cancelButton.setEnabled(true);
 
-            if (state.getMessage() != null) {
+            if (state.getMessage() != null && !state.getMessage().isEmpty()) {
                 // Show error message
                 JOptionPane.showMessageDialog(this, state.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -8,7 +8,10 @@ import use_case.dataAccessInterface.UserDataAccess;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -39,7 +42,7 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
         locations.add(photoLocation1);
         locations.add(photoLocation2);
         // Users
-        users.add(new CommonUser("Zev", "1234", "godfreyzev@gmail.com", 1));
+        users.add(new CommonUser("Zev", "1234", "godfreyzev@gmail.com", "1"));
     }
 
     /**
@@ -97,8 +100,15 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
      * @return true if successful, false otherwise
      */
     @Override
-    public boolean changeUsername(int uid, String username) {
-        User user = getUser(uid);
+    public boolean changeUsername(String uid, String username) {
+        User user = null;
+        try {
+            user = getUser(uid).get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         if (user == null) return false;
         users.remove(user);
         users.add(new CommonUser(username, user.getPassword(), user.getEmail(), uid));
@@ -112,8 +122,15 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
      * @return true if successful, false otherwise
      * */
     @Override
-    public boolean changeEmail(int uid, String email) {
-        User user = getUser(uid);
+    public boolean changeEmail(String uid, String email) {
+        User user = null;
+        try {
+            user = getUser(uid).get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         if (user == null) return false;
         users.remove(user);
         users.add(new CommonUser(user.getName(), user.getPassword(), email, uid));
@@ -122,13 +139,14 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
 
     /**
      * Returns the user with the given ID.
+     *
      * @param uid user id
      * @return user
      */
     @Override
-    public User getUser(int uid) {
+    public CompletableFuture<User> getUser(String uid) {
         for (CommonUser user : users) {
-            if (user.getUserId() == uid) return user;
+            if (Objects.equals(user.getUserId(), uid)) return CompletableFuture.completedFuture(user);
         }
         return null;
     }
@@ -140,7 +158,14 @@ public class DataAccessMock implements LocationDataAccess, UserDataAccess {
      */
     @Override
     public boolean deleteAccount(String userId) {
-        User user = getUser(userId);
+        User user = null;
+        try {
+            user = getUser(userId).get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         if (user == null) return false;
         users.remove(getUser(userId));
         return true;

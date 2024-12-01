@@ -215,7 +215,7 @@ public class AppBuilder {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         FirebaseLogInDataAccess firebaseLogInDataAccess = new FirebaseLogInDataAccess(databaseReference);
 
-        LogInOutputBoundary logInPresenter = new LogInPresenter(logInViewModel);
+        LogInOutputBoundary logInPresenter = new LogInPresenter(logInViewModel, app.getViewManager());
         LogInInputBoundary logInInteractor = new LogInInteractor(firebaseLogInDataAccess, logInPresenter, accountViewModel);
 
         LogInController logInController = new LogInController(logInInteractor);
@@ -226,12 +226,13 @@ public class AppBuilder {
         return this;
     }
 
+
     public AppBuilder setupPages() {
         app.add("main", new MainPage(app));
         app.add("game", new GamePage(app, app.getGameController(), app.getGameViewModel()));
         app.add("account", new AccountPage(app));
         app.add("signup", new SignUpPage(app, app.getSignUpController(), app.getSignUpViewModel()));
-        app.add("logIn", new LogInPage(app, app.getLoginController(), app.getLoginViewModel()));
+        app.add("login", new LogInPage(app, app.getLoginController(), app.getLoginViewModel()));
         app.add("stats", new StatsPage(app));
         app.add("summary", new GameSummaryPage(app));
         app.add("multiplayer", new MultiplayerPage(app, app.getMultiplayerController()));

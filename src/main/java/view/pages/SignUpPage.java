@@ -151,6 +151,7 @@ public class SignUpPage extends Page implements View<SignUpState> {
         String password = new String(passwordField.getPassword()).trim();
 
         app.getSignUpController().handleSignUp(username, email, password);
+        viewManager.back();
     }
 
     /**

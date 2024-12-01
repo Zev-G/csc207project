@@ -6,7 +6,7 @@ package interface_adapter.account;
 public class AccountState {
 
     // TODO rename this
-    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null, 0);
+    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null, null);
 
     private final boolean loggedIn;
     private final String username;

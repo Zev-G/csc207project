@@ -36,6 +36,7 @@ public class LogInInteractor implements LogInInputBoundary {
                                 true, user.getName(), user.getEmail(), user.getPassword(), user.getUserId()
                         ));
                         outputBoundary.present(new LogInOutputData(true, "Log-in successful!"));
+                        outputBoundary.onLoginSuccess();
                     }
                     else {
                         outputBoundary.present(new LogInOutputData(false, "Invalid credentials!"));

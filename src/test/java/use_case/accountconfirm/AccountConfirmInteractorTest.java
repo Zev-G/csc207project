@@ -1,6 +1,7 @@
 package use_case.accountconfirm;
 
 import data_access.DataAccessMock;
+import entity.User;
 import interface_adapter.accountconfirm.AccountConfirmController;
 import interface_adapter.accountconfirm.AccountConfirmPresenter;
 import org.junit.jupiter.api.Test;
@@ -35,18 +36,22 @@ class AccountConfirmInteractorTest {
         AccountConfirmMockPresenter presenter = new AccountConfirmMockPresenter();
         AccountConfirmInteractor interactor = new AccountConfirmInteractor(mockDatabase, presenter);
 
-        AccountInputData inputDataChanged = new AccountInputData(true, "Z", "g@gmail.com", "1234", 1);
+        AccountInputData inputDataChanged = new AccountInputData(true, "Z", "g@gmail.com", "1234", "1");
         interactor.pressed(inputDataChanged);
-        // Should have changed the username in the database
-        assertEquals("Z", mockDatabase.getUser(1).getName());
-        // Should have changed the email in the database
-        assertEquals("g@gmail.com", mockDatabase.getUser(1).getEmail());
-        // Should have been a success
-        assertEquals(true, presenter.getSuccess());
 
-        AccountInputData fakeUser = new AccountInputData(true, "asdf", "asdf", "asdf", 2);
+        try {
+            // Resolve the CompletableFuture and assert the user details
+            User updatedUser = mockDatabase.getUser("1").get();
+            assertEquals("Z", updatedUser.getName());
+            assertEquals("g@gmail.com", updatedUser.getEmail());
+            // Should have been a success
+            assertEquals(true, presenter.getSuccess());
+        } catch (Exception e) {
+            fail("Exception occurred while resolving CompletableFuture: " + e.getMessage());
+        }
+
+        AccountInputData fakeUser = new AccountInputData(true, "asdf", "asdf", "asdf", "2");
         interactor.pressed(fakeUser);
         assertEquals(false, presenter.getSuccess());
-
     }
 }

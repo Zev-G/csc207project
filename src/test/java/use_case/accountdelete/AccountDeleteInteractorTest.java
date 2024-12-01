@@ -33,10 +33,10 @@ class AccountDeleteInteractorTest {
         AccountDeleteMockPresenter presenter = new AccountDeleteMockPresenter();
         AccountDeleteInteractor interactor = new AccountDeleteInteractor(presenter, mockDatabase);
 
-        AccountInputData inputDataChanged = new AccountInputData(true, "Zev", "godfreyzev@gmail.com", "1234", 1);
+        AccountInputData inputDataChanged = new AccountInputData(true, "Zev", "godfreyzev@gmail.com", "1234", "1");
         interactor.deleteAccount(inputDataChanged);
         // Should have removed the username in the database
-        assertNull(mockDatabase.getUser(1));
+        assertNull(mockDatabase.getUser("1"));
         // Should have been a success
         assertEquals(true, presenter.getSuccess());
 

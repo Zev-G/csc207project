@@ -5,4 +5,5 @@ package use_case.login;
  */
 public interface LogInOutputBoundary {
     void present(LogInOutputData outputData);
+    void onLoginSuccess();
 }
