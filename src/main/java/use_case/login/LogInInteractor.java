@@ -1,6 +1,6 @@
 package use_case.login;
 
-import data_access.LogInDataAccess;
+import data_access.FirebaseLogInDataAccess;
 import entity.User;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
@@ -12,11 +12,11 @@ import java.util.concurrent.CompletableFuture;
  */
 public class LogInInteractor implements LogInInputBoundary {
 
-    private final LogInDataAccess dataAccess;
+    private final FirebaseLogInDataAccess dataAccess;
     private final LogInOutputBoundary outputBoundary;
     private final AccountViewModel viewModel;
 
-    public LogInInteractor(LogInDataAccess dataAccess, LogInOutputBoundary outputBoundary, AccountViewModel viewModel) {
+    public LogInInteractor(FirebaseLogInDataAccess dataAccess, LogInOutputBoundary outputBoundary, AccountViewModel viewModel) {
         this.dataAccess = dataAccess;
         this.outputBoundary = outputBoundary;
         this.viewModel = viewModel;
