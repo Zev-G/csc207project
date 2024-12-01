@@ -1,4 +1,4 @@
-![Title](TItleImageUT.png)
+![Title](TitleImageSaved.png)
 
 Looking to test your knowledge of the UofT St George Campes? UofTGeoGuessr is the game for you!  
 UofTGeoGuessr provides a fun interactive experience in which players can challenge their friends to see who knows their campus the best.
@@ -188,7 +188,7 @@ In multiplayer mode, you and your opponent each enter your usernames to start th
 ![here](MultiplayerUsage.gif)
 
 In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.  
-![here](Untitled design.gif)
+![here](AccountUsages.gif)
 
 To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games. Watch a demo [here](UploadImageVideo.mp4).
 
