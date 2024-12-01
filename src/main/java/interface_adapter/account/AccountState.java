@@ -15,7 +15,7 @@ public class AccountState {
     private final String userId;
 
     /**
-     * Creates a new AccountState with the given inputs
+     * Creates a new AccountState with the given inputs.
      * @param loggedIn whether the user is logged in
      * @param username the user's username
      * @param email the user's email
