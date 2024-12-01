@@ -134,6 +134,10 @@ public class SignUpPage extends Page implements View<SignUpState> {
 
     @Override
     public void loadState(SignUpState state) {
+
+        if (state == null) {
+            return;
+        }
         if (state.isSigningUp()) {
             // Disable inputs and show a progress indicator
             signUpButton.setEnabled(false);

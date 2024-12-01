@@ -64,6 +64,7 @@ import interface_adapter.ViewModel;
 public class SignUpViewModel extends ViewModel<SignUpState> {
     public SignUpViewModel() {
         super("signUpPage");
+        setState(new SignUpState(false, null));
     }
 }
 

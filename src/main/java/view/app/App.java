@@ -22,12 +22,10 @@ import interface_adapter.mgame.MGamePresenter;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerPresenter;
 import interface_adapter.multiplayer.MultiplayerViewModel;
+import interface_adapter.signup.*;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
-import interface_adapter.signup.SignUpViewModel;
-import interface_adapter.signup.SignUpPresenter;
-import interface_adapter.signup.SignUpController;
 import interface_adapter.signup.SignUpViewModel;
 import use_case.accountconfirm.AccountConfirmInteractor;
 import use_case.accountdelete.AccountDeleteInteractor;
@@ -282,6 +280,7 @@ public class App {
         accountViewModel.setState(new AccountState(false, "", "", "",0));
 
         SignUpViewModel signUpViewModel = new SignUpViewModel();
+        signUpViewModel.setState(new SignUpState(false, null));
         SignUpInteractor signUpInteractor = new SignUpInteractor(firebaseSignUpDataAccess, new SignUpPresenter(signUpViewModel));
         SignUpController signUpController = new SignUpController(signUpInteractor);
 
