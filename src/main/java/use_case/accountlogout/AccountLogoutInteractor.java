@@ -1,21 +1,28 @@
 package use_case.accountlogout;
 
-import data_access.UserDataAccess;
-import use_case.account.AccountInputData;
-import use_case.accountconfirm.AccountConfirmOutputBoundary;
-
+/**
+ * Interactor for handling account logout actions.
+ * Delegates the logout result to the output boundary.
+ */
 public class AccountLogoutInteractor implements AccountLogoutInputBoundary {
 
     private final AccountLogoutOutputBoundary presenter;
 
+    /**
+     * Constructs an AccountLogoutInteractor.
+     *
+     * @param presenter the output boundary to handle the logout result
+     */
     public AccountLogoutInteractor(AccountLogoutOutputBoundary presenter) {
         this.presenter = presenter;
     }
 
+    /**
+     * Handles the logout action.
+     * Currently, it performs no additional logic and notifies the presenter.
+     */
     @Override
     public void logout() {
-        // Does nothing intentionally
         presenter.loggedOut();
     }
-
 }

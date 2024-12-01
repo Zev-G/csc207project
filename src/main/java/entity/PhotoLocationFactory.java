@@ -1,6 +1,6 @@
 package entity;
 
-import data_access.LocationDataAccess;
+import use_case.dataAccessInterface.LocationDataAccess;
 
 public class PhotoLocationFactory {
 

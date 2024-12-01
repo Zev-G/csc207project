@@ -1,6 +1,6 @@
 package use_case.mgame;
 
-import data_access.LocationDataAccess;
+import use_case.dataAccessInterface.LocationDataAccess;
 import entity.PhotoLocation;
 import use_case.game.GameInteractor;
 import use_case.game.GameOutputData;

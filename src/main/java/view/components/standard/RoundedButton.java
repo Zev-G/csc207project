@@ -3,7 +3,16 @@ package view.components.standard;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A custom button with rounded corners and configurable styling.
+ */
 public class RoundedButton extends JButton {
+
+    /**
+     * Constructs a RoundedButton with the specified text.
+     *
+     * @param text the text displayed on the button
+     */
     public RoundedButton(String text) {
         super(text);
         setFocusPainted(false);
@@ -15,6 +24,11 @@ public class RoundedButton extends JButton {
         setForeground(Color.BLACK);
     }
 
+    /**
+     * Paints the button with rounded corners and a background color.
+     *
+     * @param g the graphics context
+     */
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
@@ -25,6 +39,11 @@ public class RoundedButton extends JButton {
         g2.dispose();
     }
 
+    /**
+     * Paints the border of the button with rounded corners.
+     *
+     * @param g the graphics context
+     */
     @Override
     protected void paintBorder(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
@@ -34,4 +53,3 @@ public class RoundedButton extends JButton {
         g2.dispose();
     }
 }
-

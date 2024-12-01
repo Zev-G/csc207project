@@ -1,14 +1,15 @@
 package interface_adapter;
 
 /**
- * Model for the View Manager. Its state is the name of the View which
- * is currently active. An initial state of "" is used.
+ * Manages the current active view. The initial state is an empty string ("").
  */
 public class ViewManagerModel extends ViewModel<String> {
 
+    /**
+     * Constructs a ViewManagerModel with the default initial state.
+     */
     public ViewManagerModel() {
         super("view manager");
         this.setState("");
     }
-
 }

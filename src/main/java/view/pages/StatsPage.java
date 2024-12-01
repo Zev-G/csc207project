@@ -6,7 +6,7 @@ import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageState;
 import interface_adapter.stats.StatsPageViewModel;
 import view.View;
-import view.app.App;
+import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
 import view.components.standard.HorizontalPanel;
@@ -19,6 +19,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * StatsPage represents a page displaying user stats, including points, games played, and correct guesses.
+ * Implements the View interface for StatsPageState.
+ */
 public class StatsPage extends Page implements View<StatsPageState> {
 
     // UI Fields
@@ -37,7 +41,11 @@ public class StatsPage extends Page implements View<StatsPageState> {
     private final StatsController statsController;
     private final AccountViewModel aCViewModel;
 
-    public StatsPage(App app) {
+    /**
+     * Constructor to initialize the StatsPage with necessary components and ViewModels.
+     * @param app The AppViewManager that provides the required ViewModels and controllers.
+     */
+    public StatsPage(AppViewManager app) {
         super(app.getViewManager());
         this.viewModel = app.getStatsPageViewModel();
         this.statsController = app.getStatsController();
@@ -73,10 +81,18 @@ public class StatsPage extends Page implements View<StatsPageState> {
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
+    /**
+     * Handles the back button press event to navigate back to the previous page.
+     * @param event The action event triggered by the back button press.
+     */
     private void backButtonPressed(ActionEvent event) {
         viewManager.back();
     }
 
+    /**
+     * Loads the state into the view components such as username and stats.
+     * @param state The StatsPageState containing the data to display.
+     */
     @Override
     public void loadState(StatsPageState state) {
         if (state != null) {
@@ -88,15 +104,20 @@ public class StatsPage extends Page implements View<StatsPageState> {
         }
     }
 
+    /**
+     * Returns the ViewModel associated with the StatsPage.
+     * @return The ViewModel for StatsPageState.
+     */
     @Override
     public ViewModel<StatsPageState> getViewModel() {
         return viewModel;
     }
 
+    /**
+     * Initializes the page by fetching the current user's stats.
+     */
     public void init() {
         // Fetch stats for the current user (e.g., DemoUser)
-
-//        statsController.fetchStats(aCViewModel.getState().getUsername());
-        statsController.fetchStats("Terrence");
+        statsController.fetchStats(aCViewModel.getState().getUsername());
     }
 }

@@ -1,6 +1,6 @@
 package use_case.game;
 
-import data_access.LocationDataAccess;
+import use_case.dataAccessInterface.LocationDataAccess;
 import entity.GameRound;
 import entity.GameStates;
 import entity.PhotoLocation;
@@ -114,6 +114,10 @@ public class GameInteractor implements GameInputBoundary {
         presenter.endGame(gameOutputData);
     }
 
+    /**
+     * Handles the timeout
+     * @param input game input data
+     */
     public void timeout(GameInputData input) {
         final int photoID = input.getPhotoID();
         final double[] target = input.getTarget();
