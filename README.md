@@ -40,7 +40,7 @@ We wanted to create a fun experience, accessible to all students, faculty and st
 ## Features of the Software
 
 **Sign up / Log in** features enable users to associate their gameplay and progress to an account.  
-**Change account information** feature allows users to change the email associated with their account.  
+**Change account information** feature allows users to change the email associated with their account, update their username, log out, and delete their account.  
 **Check Stats** feature lets users see how many points they have accumulated and games they have played.   
 **Upload Image** feature allows users to upload a picture of a location of the UofT campus and specify the location where the picture was taken.  
 **Interactive Guessing** is the core feature of our application. Users can click on a map to select the exact location they believe a given picture was taken at.  
