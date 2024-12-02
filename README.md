@@ -173,7 +173,8 @@ To set up and run the project, follow these steps:
 ---
 
 ## Usage Guide
-When first launching the app, you will be prompted to log in or sign up. To create an account, enter a username, password, and email address (NOT SURE SINCE NOT YET IMPLEMENTED). After logging in, you will be directed to the main page where the app's functionalities are accessible.
+When first launching the app, you will be prompted to log in or sign up. To create an account, enter a username, password, and email address. After logging in, you will be directed to the main page where the app's functionalities are accessible.  
+![here](LogInUsage.gif)
 
 On the main page, you will find navigation buttons:
 - **Play**: Start a solo game.
@@ -188,10 +189,10 @@ In multiplayer mode, you and your opponent each enter your usernames to start th
 ![here](MultiplayerUsage.gif)
 
 In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.  
-![here](AccountUsages.gif)
+![here](AccountUsage.gif)
 
 To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games.  
-![here](UploadImageUsage.gif).
+![here](UploadUsage.gif).
 
 ---
 ## License

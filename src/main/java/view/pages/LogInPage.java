@@ -182,7 +182,7 @@ public class LogInPage extends Page implements View<LogInState> {
 
             if (state.getMessage() != null && !state.getMessage().isEmpty()) {
                 // Show error message
-                JOptionPane.showMessageDialog(this, state.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, state.getMessage(), "Message", JOptionPane.INFORMATION_MESSAGE);
             }
         }
 

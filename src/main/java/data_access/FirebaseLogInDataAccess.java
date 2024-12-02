@@ -7,6 +7,7 @@ import use_case.dataAccessInterface.LogInDataAccess;
 import use_case.dataAccessInterface.UserDataAccess;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Firebase implementation for managing user data and log-in functionality.
@@ -89,10 +90,18 @@ public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess 
     @Override
     public boolean deleteAccount(String userId) {
         final boolean[] success = {false};
+        final CountDownLatch latch = new CountDownLatch(1);  // Latch to wait for async operation
 
         usersRef.child(userId).removeValue((databaseError, databaseReference) -> {
             success[0] = databaseError == null;
+            latch.countDown();  // Signal that the operation is complete
         });
+
+        try {
+            latch.await();  // Wait until the latch is counted down
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         return success[0];
     }
@@ -150,12 +159,20 @@ public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess 
      */
     private boolean updateField(String uid, String field, String value) {
         final boolean[] success = {false};
+        final CountDownLatch latch = new CountDownLatch(1);  // Latch to wait for async operation
 
         usersRef.child(uid).child(field).setValue(value, (databaseError, databaseReference) -> {
             success[0] = databaseError == null;
+            latch.countDown();  // Signal that the operation is complete
         });
 
-        return true;
+        try {
+            latch.await();  // Wait until the latch is counted down
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return success[0];  // Return the success status based on the result
     }
 
     /**

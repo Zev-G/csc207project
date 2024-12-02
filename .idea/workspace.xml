@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/FireBaseStatsUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FireBaseStatsUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data_access/FirebaseStatsDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data_access/FirebaseStatsDataAccess.java" afterDir="false" />
-    </list>
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,7 +204,7 @@
       <workItem from="1732893240439" duration="292000" />
       <workItem from="1732914709857" duration="743000" />
       <workItem from="1732915485295" duration="2842000" />
-      <workItem from="1733080081698" duration="7809000" />
+      <workItem from="1733080081698" duration="8056000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />

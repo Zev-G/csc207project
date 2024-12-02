@@ -28,7 +28,7 @@ public class AccountDeletePresenter implements AccountDeleteOutputBoundary {
     @Override
     public void handleSuccess() {
         viewModel.setState(AccountState.DUMMY_STATE);
-        viewManagerModel.setState("main");
+        viewManagerModel.setState("init");
     }
 
     @Override
