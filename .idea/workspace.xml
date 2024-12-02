@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-29_12_13_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-29_12_13_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Removed some weird chatgpt stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,22 +232,85 @@
       <option name="project" value="LOCAL" />
       <updated>1732915992988</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Change to README">
+      <option name="closed" value="true" />
+      <created>1733108009140</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108009140</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Grammar mistakes and silly writing removed from Project Purpose">
+      <option name="closed" value="true" />
+      <created>1733108093093</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108093093</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed my use case description">
+      <option name="closed" value="true" />
+      <created>1733108125246</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108125246</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixed typos in feature section">
+      <option name="closed" value="true" />
+      <created>1733108174416</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108174416</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed writing in installation instructinos">
+      <option name="closed" value="true" />
+      <created>1733108208973</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108208973</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Removed some redundant information already mentioned above">
+      <option name="closed" value="true" />
+      <created>1733108280945</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108280945</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Cleared up writing in usage guide">
+      <option name="closed" value="true" />
+      <created>1733108319897</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108319897</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Improved some writing">
+      <option name="closed" value="true" />
+      <created>1733108419655</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108419655</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Removed some weird chatgpt stuff">
+      <option name="closed" value="true" />
+      <created>1733108462308</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733108462308</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Questionably clean" />
-    <MESSAGE value="Created account confirm controller" />
-    <MESSAGE value="Created account confirm input boundary" />
-    <MESSAGE value="Created account confirm interactor" />
-    <MESSAGE value="Created account confirm output boundary" />
-    <MESSAGE value="Created account confirm presenter" />
-    <MESSAGE value="Created account input data" />
-    <MESSAGE value="Implemented clean architecture for account and hooked into view system" />
-    <MESSAGE value="Created user data access interface" />
     <MESSAGE value="Updated user interface" />
     <MESSAGE value="Updated user to have a user id" />
     <MESSAGE value="Updated data access mock to have fake user access" />
@@ -285,7 +327,16 @@
     <MESSAGE value="Updated account page and app to include account logout stuff" />
     <MESSAGE value="Comments for account interface adapters" />
     <MESSAGE value="Many java doc comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Many java doc comments added" />
+    <MESSAGE value="Change to README" />
+    <MESSAGE value="Grammar mistakes and silly writing removed from Project Purpose" />
+    <MESSAGE value="Fixed my use case description" />
+    <MESSAGE value="Fixed typos in feature section" />
+    <MESSAGE value="fixed writing in installation instructinos" />
+    <MESSAGE value="Removed some redundant information already mentioned above" />
+    <MESSAGE value="Cleared up writing in usage guide" />
+    <MESSAGE value="Improved some writing" />
+    <MESSAGE value="Removed some weird chatgpt stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed some weird chatgpt stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
