@@ -33,6 +33,6 @@ public class AccountLogoutPresenter implements AccountLogoutOutputBoundary {
     @Override
     public void loggedOut() {
         viewModel.setState(AccountState.DUMMY_STATE);
-        viewManagerModel.setState("main");
+        viewManagerModel.setState("init");
     }
 }
