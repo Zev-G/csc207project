@@ -1,5 +1,6 @@
 package view.pages;
 
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerViewModel;
 import view.ViewConstants;
@@ -56,6 +57,8 @@ public class MultiplayerPage extends Page {
     /** Controller for handling multiplayer logic. */
     private final MultiplayerController controller;
 
+    private final AccountViewModel accountViewModel;
+
     /**
      * Constructs a new MultiplayerPage.
      *
@@ -66,6 +69,7 @@ public class MultiplayerPage extends Page {
         super(app.getViewManager());
 
         this.viewModel = app.getMultiplayerViewModel();
+        this.accountViewModel = app.getAccountViewModel();
         this.controller = controller;
 
         // Configure margins and styles
@@ -153,7 +157,7 @@ public class MultiplayerPage extends Page {
         }
         else {
             viewModel.setState("wait");
-            controller.execute(usernameField.getText(), theirUsernameField.getText());
+            controller.execute(accountViewModel.getState().getUsername(), theirUsernameField.getText());
         }
     }
 

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Error handling works">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
-    </list>
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="added comments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -338,16 +334,37 @@
       <option name="project" value="LOCAL" />
       <updated>1733113419360</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Error handling is used now in account delete">
+      <option name="closed" value="true" />
+      <created>1733113600092</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113600092</updated>
+    </task>
+    <task id="LOCAL-00018" summary="If the account changes have an error then the errorhandler is used">
+      <option name="closed" value="true" />
+      <created>1733113668201</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113668201</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1733113719777</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113719777</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added userid to account input data" />
-    <MESSAGE value="Updated creation of account states to work with new user system" />
-    <MESSAGE value="Update to idea files" />
     <MESSAGE value="Created account logout input boundary" />
     <MESSAGE value="Created account logout output boundary" />
     <MESSAGE value="Created account logout interactor" />
@@ -370,7 +387,10 @@
     <MESSAGE value="renamed to be more consistent" />
     <MESSAGE value="Added error handling view model to viemanager" />
     <MESSAGE value="Error handling works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error handling works" />
+    <MESSAGE value="Error handling is used now in account delete" />
+    <MESSAGE value="If the account changes have an error then the errorhandler is used" />
+    <MESSAGE value="added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
