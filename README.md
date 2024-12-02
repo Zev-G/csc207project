@@ -197,7 +197,7 @@ You are free to use, modify, and distribute this software as outlined in the lic
 
 ## Feedback
 
-The UofTGuessr team always wants to improve this project. If you have any questions, worries or suggestions please follow this link to
+If you have any questions, worries or suggestions please follow this link to
 [create an issue](https://github.com/Zev-G/csc207project/issues) to describe ay problems or share any suggestions.
 
 Any and all feedback is accepted and appreciated as long as it is polite and non-abusive to the members of our team.
@@ -208,6 +208,4 @@ We will do our best to get back to review your feedback and get back to you with
 
 ## Contributions
 
-In accordance with the philosophy of our license, we do not accept outside contributions to this project. However, as mentioned earlier, we welcome your feedback and suggestions.
-
-We kindly ask that you respect the hard work our team has put into creating this application and refrain from modifying the code in any way.
+We do not accept outside contributions to this project. However, as mentioned earlier, we welcome your feedback and suggestions.
