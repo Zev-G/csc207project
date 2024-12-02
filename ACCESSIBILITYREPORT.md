@@ -1,4 +1,4 @@
-# Principals of Universal Design
+# 1 Principals of Universal Design
 
 ---
 ## Equitable Use
@@ -39,3 +39,13 @@ In order to make our game less intense to alleviate pressure, we could also impl
 
 All of the buttons in our game are the exact same but with different labels. They are large enough so that users can easily select the right button.
 Our interactive map feature is also clearly seperated from all other buttons so that there is no clicking ambiguity.
+
+---
+ # 2
+ 
+If we were to sell or license our program, the primary group that we would market to would be University of Toronto students and faculty who enjoy video games. Our game has an informative aspect, introducing players to various university locations they may not have visited yet. This makes it particularly appealing to incoming students who are unfamiliar with the campus. For this group, we could market the game as an engaging tool that incentivizes exploration while helping them familiarize themselves with the university's layout in a fun and interactive way.
+
+---
+# 3
+
+Our program has straight forward usages enabling most people to engage with our game. However the access is not perfectly equitable, indeed people suffering from mobility problems or handicaps may suffer from relational harm as they may not have been able to discover the entirety of the University campus and thus be at a significant disadvantage in our game.
