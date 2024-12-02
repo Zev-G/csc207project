@@ -174,17 +174,17 @@ On the main page, you will find navigation buttons:
 - **Account**: Manage your account details and view your statistics.
 - **Upload Image**: Add your own photos to the game.
 
-To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location you believe the picture was taken. Confirm your guess by clicking the Guess button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on how close your guess is to the actual location. At the end of the game, you can return to the main menu with the Home button or view a game summary with the Summary button.  
+To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location where you believe the picture was taken. Confirm your guess by clicking the 'Guess' button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on proximity to the actual location. At the end of the game, you can return to the main menu with the 'Home' button or view a game summary with the Summary button.  
 ![here](PlayUsage.gif)
 
-In multiplayer mode, you and your opponent each enter your usernames to start the game. Gameplay is the same as solo mode, but at the end, you can see both players' scores and the winner based on total points.  
+In multiplayer mode, you and your opponent each enter a username and the other user's username to start the game. Gameplay is the same as solo mode, but at the end, you can see both players' scores and the winner based on total points.  
 ![here](MultiplayerUsage.gif)
 
 In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.  
 ![here](AccountUsage.gif)
 
 To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games.  
-![here](UploadUsage.gif).
+![here](UploadUsage.gif)
 
 ---
 ## License
