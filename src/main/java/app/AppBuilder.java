@@ -120,6 +120,9 @@ public class AppBuilder {
     public AppBuilder setupAccount() {
         UserDataAccess data = new FirebaseLogInDataAccess(FirebaseDatabase.getInstance().getReference());
 
+        final ErrorHandlingViewModel errorHandlingViewModel = new ErrorHandlingViewModel("error-handling");
+        app.setErrorHandlingViewModel(errorHandlingViewModel);
+
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
@@ -128,7 +131,7 @@ public class AppBuilder {
         AccountLogoutInteractor accountLogoutInteractor = new AccountLogoutInteractor(accountLogoutPresenter);
         AccountLogoutController accountLogoutController = new AccountLogoutController(accountLogoutInteractor);
 
-        AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(app.getViewManagerModel(), accountViewModel);
+        AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(app.getViewManagerModel(), errorHandlingViewModel, accountViewModel);
         AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, data);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
 
@@ -246,12 +249,6 @@ public class AppBuilder {
         app.add("wait", new WaitingPage(app));
         app.add("endmgame", new EndMultiplayerGamePage(app));
         app.add("image", new ImagePage(app, app.getImagePageController(), app.getImagePageViewModel()));
-        return this;
-    }
-
-    public AppBuilder setupErrorHandling() {
-        final ErrorHandlingViewModel errorHandlingViewModel = new ErrorHandlingViewModel("error-handling");
-        app.setErrorHandlingViewModel(errorHandlingViewModel);
         return this;
     }
 

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Added error handling view model to viemanager" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Error handling works">
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/AppBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interface_adapter/accountdelete/AccountDeletePresenter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -326,14 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1733113200526</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Error handling works">
+      <option name="closed" value="true" />
+      <created>1733113419360</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113419360</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created test for account confirm interactor" />
     <MESSAGE value="Added userid to account input data" />
     <MESSAGE value="Updated creation of account states to work with new user system" />
     <MESSAGE value="Update to idea files" />
@@ -358,7 +369,8 @@
     <MESSAGE value="Created system to handle errors" />
     <MESSAGE value="renamed to be more consistent" />
     <MESSAGE value="Added error handling view model to viemanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added error handling view model to viemanager" />
+    <MESSAGE value="Error handling works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error handling works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
