@@ -165,7 +165,7 @@ To set up and run the project, follow these steps:
 ---
 
 ## Usage Guide
-When first launching the app, you will be prompted to log in or sign up. To create an account, enter a username, password, and email address. After logging in, you will be directed to the main page where the app's functionalities are accessible.  
+When first launching the app, you will be prompted to log in or sign up. If this is your first time running the app, click 'Sign up' to create an account. Enter a username, password, and email address. After logging in, you will be directed to the main page where the app's functionalities are accessible.  
 ![here](LogInUsage.gif)
 
 On the main page, you will find navigation buttons:
