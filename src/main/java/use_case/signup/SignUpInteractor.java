@@ -6,7 +6,7 @@ import use_case.dataAccessInterface.SignUpDataAccess;
  * Interactor for the Sign-Up use case.
  * This class coordinates the Sign-Up process, including validating user input, creating a new user account, and handling potential errors.
  */
-public class SignUpInteractor implements SignUpInputBoundary {
+public class  SignUpInteractor implements SignUpInputBoundary {
 
     private final SignUpDataAccess dataAccess;
     private final SignUpOutputBoundary outputBoundary;
@@ -22,23 +22,26 @@ public class SignUpInteractor implements SignUpInputBoundary {
         this.outputBoundary = outputBoundary;
     }
 
+    /**
+     * Executes the Sign-Up process.
+     * Validates user input, creates a new user account, and handles the result of the operation.
+     * If validation or account creation fails, an appropriate error is sent to the output boundary.
+     *
+     * @param inputData The user input data containing the desired username, email, and password.
+     * @throws IllegalArgumentException if the input data is invalid (e.g., empty fields).
+     */
     @Override
     public void execute(SignUpInputData inputData) {
         try {
-
             validateInput(inputData);
-
             String userId = generateUniqueUserId();
-
             dataAccess.createUser(userId, inputData);
-
             outputBoundary.present(new SignUpOutputData(true, null));
-        }
-        catch (Exception e) {
-
+        } catch (Exception e) {
             outputBoundary.present(new SignUpOutputData(false, e.getMessage()));
         }
     }
+
 
     /**
      * Validates the user input data.
