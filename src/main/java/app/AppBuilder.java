@@ -123,7 +123,7 @@ public class AppBuilder {
         final ErrorHandlingViewModel errorHandlingViewModel = new ErrorHandlingViewModel("error-handling");
         app.setErrorHandlingViewModel(errorHandlingViewModel);
 
-        AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
+        AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel(), errorHandlingViewModel);
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
 
