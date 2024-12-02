@@ -162,12 +162,6 @@ To set up and run the project, follow these steps:
 
 
 
-### Additional Notes
-- This application is cross-platform and works on Windows, macOS, and Linux.
-- For additional support, refer to the [Java Installation Guide](https://www.oracle.com/java/technologies/javase-install.html).
-
-
-
 ---
 
 ## Usage Guide
