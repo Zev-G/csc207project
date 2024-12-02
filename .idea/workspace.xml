@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="added comments" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Multiplayer page now uses the accountstate username">
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -358,14 +360,21 @@
       <option name="project" value="LOCAL" />
       <updated>1733113719777</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Multiplayer page now uses the accountstate username">
+      <option name="closed" value="true" />
+      <created>1733114056657</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733114056657</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created account logout input boundary" />
     <MESSAGE value="Created account logout output boundary" />
     <MESSAGE value="Created account logout interactor" />
     <MESSAGE value="Created account logout interactor test" />
@@ -390,7 +399,8 @@
     <MESSAGE value="Error handling is used now in account delete" />
     <MESSAGE value="If the account changes have an error then the errorhandler is used" />
     <MESSAGE value="added comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
+    <MESSAGE value="Multiplayer page now uses the accountstate username" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiplayer page now uses the accountstate username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

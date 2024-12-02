@@ -36,9 +36,6 @@ public class MultiplayerPage extends Page {
     /** Label for the opponent's username input field. */
     private final DLabel theirUsername = new DLabel("Their username");
 
-    /** Input field for the user's username. */
-    private final JTextField usernameField = new JTextField();
-
     /** Input field for the opponent's username. */
     private final JTextField theirUsernameField = new JTextField();
 
@@ -106,13 +103,6 @@ public class MultiplayerPage extends Page {
         gbc.anchor = GridBagConstraints.LINE_END;
         grid.add(usernameLabel, gbc);
 
-        // Username field configuration
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.weightx = 1.0;
-        grid.add(usernameField, gbc);
-
         // Opponent username label configuration
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -152,7 +142,7 @@ public class MultiplayerPage extends Page {
      * @param event The action event triggered by the button press.
      */
     private void connectButtonPressed(ActionEvent event) {
-        if (usernameField.getText().isEmpty() || theirUsernameField.getText().isEmpty()) {
+        if (theirUsernameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter username");
         }
         else {
