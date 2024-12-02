@@ -49,4 +49,15 @@ public class AccountState {
     public String getUserId() {
         return userId;
     }
+
+    @Override
+    public String toString() {
+        return "AccountState{" +
+                "loggedIn=" + loggedIn +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userId='" + userId + '\'' +
+                '}';
+    }
 }

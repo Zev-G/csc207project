@@ -32,13 +32,21 @@ public class LogInInteractor implements LogInInputBoundary {
         dataAccess.findUserByCredentials(inputData.getUsername(), inputData.getEmail(), inputData.getPassword())
                 .thenAccept(user -> {
                     if (user != null) {
-                        viewModel.setState(new AccountState(
-                                true, user.getName(), user.getEmail(), user.getPassword(), user.getUserId()
-                        ));
+                        // Set AccountState with user details
+                        AccountState accountState = new AccountState(
+                                true,
+                                user.getName(),
+                                user.getEmail(),
+                                user.getPassword(),
+                                user.getUserId()
+                        );
+                        viewModel.setState(accountState);
+                        System.out.println("AccountState set: " + viewModel.getState());
+
+                        // Notify output boundary of success
                         outputBoundary.present(new LogInOutputData(true, "Log-in successful!"));
                         outputBoundary.onLoginSuccess();
-                    }
-                    else {
+                    } else {
                         outputBoundary.present(new LogInOutputData(false, "Invalid credentials!"));
                     }
                 })

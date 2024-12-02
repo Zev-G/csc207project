@@ -39,6 +39,7 @@ import interface_adapter.stats.UpdateStatsController;
 import use_case.accountconfirm.AccountConfirmInteractor;
 import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
+import use_case.dataAccessInterface.LocationDataAccess;
 import use_case.dataAccessInterface.StatsDataAccess;
 import use_case.game.GameInteractor;
 import use_case.game.GameSummaryInputBoundary;
@@ -65,6 +66,8 @@ import java.util.List;
 
 public class AppBuilder {
     private final AppViewManager app = new AppViewManager();
+    private final AccountViewModel accountViewModel = new AccountViewModel();
+    private final LocationDataAccess locationDataAccess = new PhotoLocationDataAccess();
 
     public AppBuilder setupFirebase() {
         try {
@@ -82,7 +85,7 @@ public class AppBuilder {
         ViewManagerModel viewManagerModel = app.getViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new PhotoLocationDataAccess(), presenter);
+        GameInteractor interactor = new GameInteractor(locationDataAccess, presenter);
         GameController controller = new GameController(interactor);
         app.setGameController(controller);
         app.setGameViewModel(viewModel);
@@ -94,7 +97,7 @@ public class AppBuilder {
         MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, app.getViewManagerModel(), mGameEndViewModel);
-        MGameInteractor mGameInteractor = new MGameInteractor(new PhotoLocationDataAccess(), mgamePresenter);
+        MGameInteractor mGameInteractor = new MGameInteractor(locationDataAccess, mgamePresenter);
         GameController mgameController = new GameController(mGameInteractor);
 
         // Connection setup
@@ -114,8 +117,6 @@ public class AppBuilder {
 
     public AppBuilder setupAccount() {
         DataAccessMock data = new DataAccessMock();
-
-        AccountViewModel accountViewModel = new AccountViewModel();
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
@@ -208,7 +209,7 @@ public class AppBuilder {
 
     public AppBuilder setupLogIn() {
 
-        AccountViewModel accountViewModel = new AccountViewModel();
+
         LogInViewModel logInViewModel = new LogInViewModel();
         LogInState initialState = new LogInState(false, false, "");
         logInViewModel.setState(initialState);
@@ -229,6 +230,7 @@ public class AppBuilder {
 
 
     public AppBuilder setupPages() {
+        app.add("init", new InitPage(app));
         app.add("main", new MainPage(app));
         app.add("game", new GamePage(app, app.getGameController(), app.getGameViewModel()));
         app.add("account", new AccountPage(app));

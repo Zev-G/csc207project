@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
  * Represents the main page of the application, which provides navigation to different
  * parts of the app, including login, signup, single-player, multiplayer, account, and image upload.
  */
-public class MainPage extends Page implements View<AccountState> {
+public class InitPage extends Page implements View<AccountState> {
 
     // UI Fields
     /** Label displaying "UofT". */
@@ -41,17 +41,11 @@ public class MainPage extends Page implements View<AccountState> {
     /** Panel containing the subtitle text. */
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
 
-    /** Button for starting a single-player game. */
-    private final JButton playButton = new RoundedButton("Play");
+    /** Button for navigating to the login page. */
+    private final JButton loginButton = new RoundedButton("Login");
 
-    /** Button for starting a multiplayer game. */
-    private final JButton multiplayerButton = new RoundedButton("Play Multiplayer");
-
-    /** Button for navigating to the account page. */
-    private final JButton accountButton = new RoundedButton("Account");
-
-    /** Button for navigating to the image upload page. */
-    private final JButton uploadImageButton = new RoundedButton("Upload Image");
+    /** Button for navigating to the signup page. */
+    private final JButton signupButton = new RoundedButton("Signup");
 
     /** Panel for holding navigation buttons. */
     private final DPanel buttons = new DPanel();
@@ -62,8 +56,6 @@ public class MainPage extends Page implements View<AccountState> {
     /** Layout for organizing the title and subtitle components. */
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
 
-    private final AppViewManager app;
-
     /** View model for handling account state. */
     private final AccountViewModel viewModel;
 
@@ -72,9 +64,8 @@ public class MainPage extends Page implements View<AccountState> {
      *
      * @param app The app view manager for managing navigation and view models.
      */
-    public MainPage(AppViewManager app) {
+    public InitPage(AppViewManager app) {
         super(app.getViewManager());
-        this.app = app;
         this.viewModel = app.getAccountViewModel();
 
         // Create leaderboard object
@@ -94,16 +85,12 @@ public class MainPage extends Page implements View<AccountState> {
         buttons.setLayout(new FlowLayout());
 
         // Set button sizes
-        accountButton.setPreferredSize(new Dimension(200, 80));
-        playButton.setPreferredSize(new Dimension(200, 80));
-        multiplayerButton.setPreferredSize(new Dimension(200, 80));
-        uploadImageButton.setPreferredSize(new Dimension(200, 80));
+        loginButton.setPreferredSize(new Dimension(200, 80));
+        signupButton.setPreferredSize(new Dimension(200, 80));
 
         // Add action listeners to buttons
-        playButton.addActionListener(this::playButtonPressed);
-        multiplayerButton.addActionListener(this::multiplayerButtonPressed);
-        accountButton.addActionListener(this::accountButtonPressed);
-        uploadImageButton.addActionListener(this::uploadImageButtonPressed);
+        loginButton.addActionListener(this::loginButtonPressed);
+        signupButton.addActionListener(this::signupButtonPressed);
 
         // Add components to the layout
         add(titleLayout, BorderLayout.PAGE_START);
@@ -115,42 +102,24 @@ public class MainPage extends Page implements View<AccountState> {
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
+
     /**
-     * Handles the play button press event, navigating to the game page.
+     * Handles the login button press event, simulating a user login.
      *
      * @param event The action event triggered by the button press.
      */
-    private void playButtonPressed(ActionEvent event) {
-        viewManager.navigate("game");
+    private void loginButtonPressed(ActionEvent event) {
+        viewManager.navigate("login");
     }
 
     /**
-     * Handles the multiplayer button press event, navigating to the multiplayer page.
+     * Handles the signup button press event, simulating a user signup.
      *
      * @param event The action event triggered by the button press.
      */
-    private void multiplayerButtonPressed(ActionEvent event) {
-        viewManager.navigate("multiplayer");
+    private void signupButtonPressed(ActionEvent event) {
+        viewManager.navigate("signup");
     }
-
-    /**
-     * Handles the account button press event, navigating to the account page.
-     *
-     * @param event The action event triggered by the button press.
-     */
-    private void accountButtonPressed(ActionEvent event) {
-        viewManager.navigate("account");
-    }
-
-    /**
-     * Handles the upload image button press event, navigating to the image upload page.
-     *
-     * @param event The action event triggered by the button press.
-     */
-    private void uploadImageButtonPressed(ActionEvent event) {
-        viewManager.navigate("image");
-    }
-
 
     /**
      * Loads the current account state and updates the UI components accordingly.
@@ -160,14 +129,8 @@ public class MainPage extends Page implements View<AccountState> {
     @Override
     public void loadState(AccountState state) {
         buttons.removeAll();
-        if (state.isLoggedIn()) {
-            buttons.add(playButton);
-            buttons.add(multiplayerButton);
-            buttons.add(accountButton);
-            buttons.add(uploadImageButton);
-        } else {
-            app.navigate("init");
-        }
+        buttons.add(loginButton);
+        buttons.add(signupButton);
         buttons.revalidate();
         buttons.repaint();
     }

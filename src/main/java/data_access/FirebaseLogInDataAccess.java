@@ -170,6 +170,6 @@ public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess 
         String email = snapshot.child("email").getValue(String.class);
         String password = snapshot.child("password").getValue(String.class);
 
-        return new CommonUser(username, email, password, userId);
+        return new CommonUser(username, password, email, userId);
     }
 }

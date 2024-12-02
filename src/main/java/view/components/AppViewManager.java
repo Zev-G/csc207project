@@ -87,7 +87,7 @@ public class AppViewManager extends ViewManager {
      * Displays the main page, maximizing the window and centering it on the screen.
      */
     public void showPage() {
-        navigate("main");
+        navigate("init");
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);

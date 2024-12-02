@@ -24,6 +24,6 @@ public class LogInPresenter implements LogInOutputBoundary {
 
     @Override
     public void onLoginSuccess() {
-        viewManager.navigate("account");
+        viewManager.navigate("main");
     }
 }
