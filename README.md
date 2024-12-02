@@ -29,12 +29,11 @@ _The project started from a lab code developed by CSC207 team._
 ---
 
 ## Project Purpose
-Our project is a game that tests peoples knowledge of the UofT campus in a fun and engaging way.
-This game provides two fun experiences by including a social multiplayer mode, where users can compete among friends, and a solo mode for users who want a more peaceful experience.
-University life can be intense, so we wanted to help alleviate the pressure by embracing the beauty and promoting the discovery of our campus.
+Our project is a game that tests people's knowledge of the UofT campus in a fun and engaging way.
+This game provides two modes: a social multiplayer mode, where users can compete among friends, and a solo mode for users who want a more peaceful experience.
+University life can be intense, so we wanted to help alleviate the pressure by embracing the wonderful architecture around UofT and promoting the discovery of ne places on campus.
 
-We wanted to create a fun experience, accessible to all students, faculty and staff at the University of Toronto's St George Campus. Our goal was to cut through the seriousness of University life and bring out the fun aspects of being part of this institution. Our app was designed to reinforce a sense of belonging and community among both students and faculty.
-
+We wanted to create a fun experience, accessible to all students, faculty and staff at the University of Toronto's St George Campus. Our app was designed to reinforce a sense of belonging and community among both students and faculty.
 
 ---
 
