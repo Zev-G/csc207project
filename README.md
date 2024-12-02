@@ -13,7 +13,7 @@ Zev Godfrey
 Rithvik Sunil  
 Kristopher Zhao
 
-Acknowledgement: The project started from a lab code developed by csc207 team
+_The project started from a lab code developed by CSC207 team._
 
 ---
 ## Table of Contents
@@ -29,31 +29,29 @@ Acknowledgement: The project started from a lab code developed by csc207 team
 ---
 
 ## Project Purpose
-Our project is a game that tests peoples knowledge of the UofT campus in a fun and engaging way.
-This game provides two fun experiences by including a social multiplayer mode, where users can compete among friends, and a solo mode for users who want a more peaceful experience.
-University life can be intense, so we wanted to help alleviate the pressure by embracing the beauty and promoting the discovery of our campus.
+Our project is a game that tests people's knowledge of the UofT campus in a fun and engaging way.
+This game provides two modes: a social multiplayer mode, where users can compete among friends, and a solo mode for users who want a more peaceful experience.
+University life can be intense, so we wanted to help alleviate the pressure by embracing the wonderful architecture around UofT and promoting the discovery of ne places on campus.
 
-We wanted to create a fun experience, accessible to all students, faculty and staff at the University of Toronto's St George Campus. Our goal was to cut through the seriousness of University life and bring out the fun aspects of being part of this institution. Our app was designed to reinforce a sense of belonging and community among both students and faculty.
-
+We wanted to create a fun experience, accessible to all students, faculty and staff at the University of Toronto's St George Campus. Our app was designed to reinforce a sense of belonging and community among both students and faculty.
 
 ---
 
 ## Features of the Software
 
 **Sign up / Log in** features enable users to associate their gameplay and progress to an account.  
-**Change account information** feature allows users to change the email associated with their account.  
-**Check Stats** feature lets users see how many points they have accumulated and games they have played.   
-**Upload Image** feature allows users to upload a picture of a location of the UofT campus and specify the location where the picture was taken.  
-**Interactive Guessing** is the core feature of our application. Users can click on a map to select the exact location they believe a given picture was taken at.  
-**Multiplayer Game** feature allows users to play against each other and see who can obtain the most points. The images generated are the same for both players for fairness.
+**Change account information** feature allows users to change the email associated with their account, update their username, log out, and delete their account.  
+**Check Stats** feature lets users see how many points they have accumulated and how many games they have played.   
+**Upload Image** feature allows users to upload a picture of a location on the UofT campus and specify the location where the picture was taken.  
+**Interactive Guessing** core feature of our application. Users can click on a map to select the exact location they believe a given picture was taken at.  
+**Multiplayer Game** feature allows users to play against each other and see who gets the most points. The images generated are the same for both players for fairness.
 
 All features are showcased in our [Usage Guide](#usage-guide) section.
 
 ---
 
 ## Installation Instructions
-see a full installation demonstration [here](https://drive.google.com/file/d/1q2dFMJ-VL90z7lydPBLKgowK4025Bxwd/view?usp=sharing)
-to see how to install java and our app
+see a full video of the installation demonstration [here](https://drive.google.com/file/d/1q2dFMJ-VL90z7lydPBLKgowK4025Bxwd/view?usp=sharing) to see how to install java and our app
 
 ### Software Requirements
 - **Operating System**: This application runs on any operating system (Windows, macOS, Linux).
@@ -164,16 +162,10 @@ To set up and run the project, follow these steps:
 
 
 
-### Additional Notes
-- This application is cross-platform and works on Windows, macOS, and Linux.
-- For additional support, refer to the [Java Installation Guide](https://www.oracle.com/java/technologies/javase-install.html).
-
-
-
 ---
 
 ## Usage Guide
-When first launching the app, you will be prompted to log in or sign up. To create an account, enter a username, password, and email address. After logging in, you will be directed to the main page where the app's functionalities are accessible.  
+When first launching the app, you will be prompted to log in or sign up. If this is your first time running the app, click 'Sign up' to create an account. Enter a username, password, and email address. After logging in, you will be directed to the main page where the app's functionalities are accessible.  
 ![here](LogInUsage.gif)
 
 On the main page, you will find navigation buttons:
@@ -182,17 +174,17 @@ On the main page, you will find navigation buttons:
 - **Account**: Manage your account details and view your statistics.
 - **Upload Image**: Add your own photos to the game.
 
-To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location you believe the picture was taken. Confirm your guess by clicking the Guess button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on how close your guess is to the actual location. At the end of the game, you can return to the main menu with the Home button or view a game summary with the Summary button.  
+To play a solo game, click the Play button to start immediately. The game consists of 10 rounds of location guessing. For each round, you will see a picture and use an interactive map to select the location where you believe the picture was taken. Confirm your guess by clicking the 'Guess' button. Be mindful of the timer, as the game ends if it runs out before all rounds are completed. Points are awarded based on proximity to the actual location. At the end of the game, you can return to the main menu with the 'Home' button or view a game summary with the Summary button.  
 ![here](PlayUsage.gif)
 
-In multiplayer mode, you and your opponent each enter your usernames to start the game. Gameplay is the same as solo mode, but at the end, you can see both players' scores and the winner based on total points.  
+In multiplayer mode, you and your opponent each enter a username and the other user's username to start the game. Gameplay is the same as solo mode, but at the end, you can see both players' scores and the winner based on total points.  
 ![here](MultiplayerUsage.gif)
 
 In the Account section, you can view your account details, delete your account, and check your statistics such as total points, games played, and correct guesses.  
 ![here](AccountUsage.gif)
 
 To upload your own images, click the Upload Image button. Add a photo of a UofT location, select the corresponding location on the interactive map, and upload it. Your image will then be available for use in both solo and multiplayer games.  
-![here](UploadUsage.gif).
+![here](UploadUsage.gif)
 
 ---
 ## License
@@ -205,7 +197,7 @@ You are free to use, modify, and distribute this software as outlined in the lic
 
 ## Feedback
 
-The UofTGuessr team always wants to improve this project. If you have any questions, worries or suggestions please follow this link to
+If you have any questions, worries or suggestions please follow this link to
 [create an issue](https://github.com/Zev-G/csc207project/issues) to describe ay problems or share any suggestions.
 
 Any and all feedback is accepted and appreciated as long as it is polite and non-abusive to the members of our team.
@@ -216,6 +208,4 @@ We will do our best to get back to review your feedback and get back to you with
 
 ## Contributions
 
-In accordance with the philosophy of our license, we do not accept outside contributions to this project. However, as mentioned earlier, we welcome your feedback and suggestions.
-
-We kindly ask that you respect the hard work our team has put into creating this application and refrain from modifying the code in any way.
+We do not accept outside contributions to this project. However, as mentioned earlier, we welcome your feedback and suggestions.
