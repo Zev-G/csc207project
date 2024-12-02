@@ -1,5 +1,8 @@
 package interface_adapter;
 
+/**
+ * Handles errors and lets the UI show them.
+ */
 public class ErrorHandlingViewModel extends ViewModel<String> {
     /**
      * Constructs a ViewModel with a given view name.
