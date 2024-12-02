@@ -9,7 +9,7 @@ public class App {
                 .setupFirebase()
                 .setupGame()
                 .setupAccount()
-                .setupLeaderboard()
+//                .setupLeaderboard()
                 .setupMGame()
                 .setupStats()
                 .setupImage()

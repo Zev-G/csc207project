@@ -57,7 +57,7 @@ public class MainPage extends Page implements View<AccountState> {
     private final DPanel buttons = new DPanel();
 
     /** Leaderboard view displayed on the main page. */
-    private final LeaderboardView leaderboard;
+//    private final LeaderboardView leaderboard;
 
     /** Layout for organizing the title and subtitle components. */
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
@@ -78,7 +78,7 @@ public class MainPage extends Page implements View<AccountState> {
         this.viewModel = app.getAccountViewModel();
 
         // Create leaderboard object
-        leaderboard = new LeaderboardView(app.getLeaderboardViewModel());
+//        leaderboard = new LeaderboardView(app.getLeaderboardViewModel());
 
         // Configure components
         uoftText.setFontSize(ViewConstants.TEXT_LL);
@@ -107,7 +107,7 @@ public class MainPage extends Page implements View<AccountState> {
 
         // Add components to the layout
         add(titleLayout, BorderLayout.PAGE_START);
-        add(leaderboard, BorderLayout.CENTER);
+//        add(leaderboard, BorderLayout.CENTER);
         add(buttons, BorderLayout.PAGE_END);
 
         // Load the initial state
