@@ -51,8 +51,7 @@ All features are showcased in our [Usage Guide](#usage-guide) section.
 ---
 
 ## Installation Instructions
-see a full installation demonstration [here](https://drive.google.com/file/d/1q2dFMJ-VL90z7lydPBLKgowK4025Bxwd/view?usp=sharing)
-to see how to install java and our app
+see a full video of the installation demonstration [here](https://drive.google.com/file/d/1q2dFMJ-VL90z7lydPBLKgowK4025Bxwd/view?usp=sharing) to see how to install java and our app
 
 ### Software Requirements
 - **Operating System**: This application runs on any operating system (Windows, macOS, Linux).
