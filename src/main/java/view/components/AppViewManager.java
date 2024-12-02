@@ -1,5 +1,6 @@
 package view.components;
 
+import interface_adapter.ErrorHandlingViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
@@ -43,6 +44,7 @@ public class AppViewManager extends ViewManager {
     private ImagePageViewModel imagePageViewModel;
     private SignUpViewModel signUpViewModel;
     private LogInViewModel loginViewModel;
+    private ErrorHandlingViewModel errorHandlingViewModel;
 
     // Controllers
     private GameController gameController;
@@ -506,5 +508,14 @@ public class AppViewManager extends ViewManager {
      */
     public void setLoginController(LogInController loginController) {
         this.loginController = loginController;
+    }
+
+
+    public ErrorHandlingViewModel getErrorHandlingViewModel() {
+        return errorHandlingViewModel;
+    }
+
+    public void setErrorHandlingViewModel(ErrorHandlingViewModel errorHandlingViewModel) {
+        this.errorHandlingViewModel = errorHandlingViewModel;
     }
 }

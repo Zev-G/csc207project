@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import data_access.*;
 import entity.DummyUserStats;
+import interface_adapter.ErrorHandlingViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
@@ -245,6 +246,12 @@ public class AppBuilder {
         app.add("wait", new WaitingPage(app));
         app.add("endmgame", new EndMultiplayerGamePage(app));
         app.add("image", new ImagePage(app, app.getImagePageController(), app.getImagePageViewModel()));
+        return this;
+    }
+
+    public AppBuilder setupErrorHandling() {
+        final ErrorHandlingViewModel errorHandlingViewModel = new ErrorHandlingViewModel("error-handling");
+        app.setErrorHandlingViewModel(errorHandlingViewModel);
         return this;
     }
 

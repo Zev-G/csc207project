@@ -16,6 +16,7 @@ public class App {
                 .setupSignUp()
                 .setupLogIn()
                 .setupPages()
+                .setupErrorHandling()
                 .build();
 
         app.showPage();
