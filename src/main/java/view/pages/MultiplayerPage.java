@@ -33,6 +33,8 @@ public class MultiplayerPage extends Page {
     /** Label for the user's username input field. */
     private final DLabel usernameLabel = new DLabel("Username");
 
+    private final DLabel username = new DLabel();
+
     /** Label for the opponent's username input field. */
     private final DLabel theirUsername = new DLabel("Their username");
 
@@ -103,6 +105,13 @@ public class MultiplayerPage extends Page {
         gbc.anchor = GridBagConstraints.LINE_END;
         grid.add(usernameLabel, gbc);
 
+        // Username field configuration
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 1.0;
+        grid.add(username, gbc);
+
         // Opponent username label configuration
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -134,6 +143,9 @@ public class MultiplayerPage extends Page {
                 updateConnectButtonText(viewModel.getState());
             }
         });
+
+        username.setText(accountViewModel.getState().getUsername());
+        accountViewModel.addPropertyChangeListener(evt -> username.setText(accountViewModel.getState().getUsername()));
     }
 
     /**
