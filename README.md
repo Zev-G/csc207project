@@ -63,7 +63,7 @@ see a full video of the installation demonstration [here](https://drive.google.c
 To set up and run the project, follow these steps:
 
 1. **Download the Project**
-    - Visit the [Release Page](https://github.com/Zev-G/csc207project/releases/tag/0.1-b.1).
+    - Visit the [Release Page](https://github.com/Zev-G/csc207project/releases/tag/v0.1.1).
     - Download the file named `csc207project_jar.zip`.
 
 2. **Install Java**
