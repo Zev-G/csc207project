@@ -41,6 +41,7 @@ import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
 import use_case.dataAccessInterface.LocationDataAccess;
 import use_case.dataAccessInterface.StatsDataAccess;
+import use_case.dataAccessInterface.UserDataAccess;
 import use_case.game.GameInteractor;
 import use_case.game.GameSummaryInputBoundary;
 import use_case.game.GameSummaryInteractor;
@@ -116,7 +117,7 @@ public class AppBuilder {
     }
 
     public AppBuilder setupAccount() {
-        DataAccessMock data = new DataAccessMock();
+        UserDataAccess data = new FirebaseLogInDataAccess(FirebaseDatabase.getInstance().getReference());
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);

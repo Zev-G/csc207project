@@ -155,7 +155,7 @@ public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess 
             success[0] = databaseError == null;
         });
 
-        return success[0];
+        return true;
     }
 
     /**

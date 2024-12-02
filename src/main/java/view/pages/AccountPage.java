@@ -190,6 +190,8 @@ public class AccountPage extends Page implements View<AccountState> {
      * @param event the event triggered by pressing the confirm button
      */
     private void confirmButtonPressed(ActionEvent event) {
+        viewModel.setState(new AccountState(true, usernameField.getText(),
+                emailField.getText(), viewModel.getState().getPassword() ,viewModel.getState().getUserId()));
         accountConfirmController.pressed(viewModel.getState());
     }
 
