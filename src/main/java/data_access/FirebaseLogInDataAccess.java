@@ -1,8 +1,3 @@
-/**
- * Firebase implementation for managing user data and log-in functionality.
- * Provides methods for retrieving, updating, and deleting user data,
- * as well as finding users by their credentials.
- */
 package data_access;
 
 import com.google.firebase.database.*;
@@ -14,6 +9,11 @@ import use_case.dataAccessInterface.UserDataAccess;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * Firebase implementation for managing user data and log-in functionality.
+ * Provides methods for retrieving, updating, and deleting user data,
+ * as well as finding users by their credentials.
+ */
 public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess {
     private final DatabaseReference usersRef;
 

@@ -1,9 +1,9 @@
+package use_case.login;
+
 /**
  * Represents the input data required for the log-in process.
  * Contains user credentials such as username, email, and password.
  */
-package use_case.login;
-
 public class LogInInputData {
     private final String username;
     private final String email;

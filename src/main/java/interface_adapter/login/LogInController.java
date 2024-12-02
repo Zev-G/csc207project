@@ -1,12 +1,12 @@
-/**
- * Controller for handling log-in requests.
- * Acts as the intermediary between the view and the use case interactor.
- */
 package interface_adapter.login;
 
 import use_case.login.LogInInputBoundary;
 import use_case.login.LogInInputData;
 
+/**
+ * Controller for handling log-in requests.
+ * Acts as the intermediary between the view and the use case interactor.
+ */
 public class LogInController {
     private final LogInInputBoundary interactor;
 

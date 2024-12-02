@@ -1,10 +1,10 @@
+package interface_adapter.login;
+
 /**
  * Represents the state of the log-in process.
  * Contains fields for indicating whether logging in is in progress,
  * whether it was successful, and any associated messages.
  */
-package interface_adapter.login;
-
 public class LogInState {
     private boolean isLoggingIn;
     private boolean success;

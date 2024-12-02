@@ -1,16 +1,13 @@
+package use_case.login;
+
+import data_access.FirebaseLogInDataAccess;
+import interface_adapter.account.AccountState;
+import interface_adapter.account.AccountViewModel;
+
 /**
  * Handles the log-in use case logic.
  * Validates input data, interacts with the data access layer, and updates the output boundary and account state.
  */
-package use_case.login;
-
-import data_access.FirebaseLogInDataAccess;
-import entity.User;
-import interface_adapter.account.AccountState;
-import interface_adapter.account.AccountViewModel;
-
-import java.util.concurrent.CompletableFuture;
-
 public class LogInInteractor implements LogInInputBoundary {
 
     private final FirebaseLogInDataAccess dataAccess;

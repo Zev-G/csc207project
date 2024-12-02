@@ -1,13 +1,13 @@
-/**
- * Presenter for the log-in process.
- * Updates the view model with the result of the log-in process and manages navigation on success.
- */
 package interface_adapter.login;
 
 import use_case.login.LogInOutputBoundary;
 import use_case.login.LogInOutputData;
 import view.pages.ViewManager;
 
+/**
+ * Presenter for the log-in process.
+ * Updates the view model with the result of the log-in process and manages navigation on success.
+ */
 public class LogInPresenter implements LogInOutputBoundary {
     private final LogInViewModel viewModel;
     private final ViewManager viewManager;

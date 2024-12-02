@@ -1,9 +1,9 @@
+package use_case.login;
+
 /**
  * Represents the output data of the log-in process.
  * Contains information on whether the process was successful and any associated messages.
  */
-package use_case.login;
-
 public class LogInOutputData {
     private final boolean success;
     private final String message;
