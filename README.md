@@ -13,7 +13,7 @@ Zev Godfrey
 Rithvik Sunil  
 Kristopher Zhao
 
-Acknowledgement: The project started from a lab code developed by csc207 team
+_The project started from a lab code developed by CSC207 team._
 
 ---
 ## Table of Contents
