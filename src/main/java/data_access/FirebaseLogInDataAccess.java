@@ -11,6 +11,8 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * Firebase implementation for managing user data and log-in functionality.
+ * Provides methods for retrieving, updating, and deleting user data,
+ * as well as finding users by their credentials.
  */
 public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess {
     private final DatabaseReference usersRef;
@@ -40,8 +42,7 @@ public class FirebaseLogInDataAccess implements LogInDataAccess, UserDataAccess 
                 if (dataSnapshot.exists()) {
                     // Complete with user data
                     future.complete(mapSnapshotToUser(dataSnapshot));
-                }
-                else {
+                } else {
                     // Complete with null if user is not found
                     future.complete(null);
                 }
