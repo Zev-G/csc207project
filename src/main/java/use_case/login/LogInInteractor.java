@@ -1,3 +1,7 @@
+/**
+ * Handles the log-in use case logic.
+ * Validates input data, interacts with the data access layer, and updates the output boundary and account state.
+ */
 package use_case.login;
 
 import data_access.FirebaseLogInDataAccess;
@@ -7,21 +11,31 @@ import interface_adapter.account.AccountViewModel;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Handles the log-in use case logic.
- */
 public class LogInInteractor implements LogInInputBoundary {
 
     private final FirebaseLogInDataAccess dataAccess;
     private final LogInOutputBoundary outputBoundary;
     private final AccountViewModel viewModel;
 
+    /**
+     * Constructs a LogInInteractor with the specified dependencies.
+     *
+     * @param dataAccess     The data access object for interacting with user data.
+     * @param outputBoundary The output boundary for presenting log-in results.
+     * @param viewModel      The account view model for updating account state.
+     */
     public LogInInteractor(FirebaseLogInDataAccess dataAccess, LogInOutputBoundary outputBoundary, AccountViewModel viewModel) {
         this.dataAccess = dataAccess;
         this.outputBoundary = outputBoundary;
         this.viewModel = viewModel;
     }
 
+    /**
+     * Processes the log-in request by validating input data and fetching user information.
+     * Updates the output boundary and account state based on the result.
+     *
+     * @param inputData The input data containing user credentials.
+     */
     @Override
     public void logIn(LogInInputData inputData) {
         if (inputData.getUsername().isEmpty() || inputData.getEmail().isEmpty() || inputData.getPassword().isEmpty()) {
