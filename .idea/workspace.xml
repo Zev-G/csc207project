@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Removed some weird chatgpt stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Added error handling view model to viemanager" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -304,16 +302,37 @@
       <option name="project" value="LOCAL" />
       <updated>1733108462308</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Created system to handle errors">
+      <option name="closed" value="true" />
+      <created>1733113001670</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113001670</updated>
+    </task>
+    <task id="LOCAL-00014" summary="renamed to be more consistent">
+      <option name="closed" value="true" />
+      <created>1733113087616</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113087616</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added error handling view model to viemanager">
+      <option name="closed" value="true" />
+      <created>1733113200526</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733113200526</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated user interface" />
-    <MESSAGE value="Updated user to have a user id" />
-    <MESSAGE value="Updated data access mock to have fake user access" />
     <MESSAGE value="Created test for account confirm interactor" />
     <MESSAGE value="Added userid to account input data" />
     <MESSAGE value="Updated creation of account states to work with new user system" />
@@ -336,7 +355,10 @@
     <MESSAGE value="Cleared up writing in usage guide" />
     <MESSAGE value="Improved some writing" />
     <MESSAGE value="Removed some weird chatgpt stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed some weird chatgpt stuff" />
+    <MESSAGE value="Created system to handle errors" />
+    <MESSAGE value="renamed to be more consistent" />
+    <MESSAGE value="Added error handling view model to viemanager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error handling view model to viemanager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

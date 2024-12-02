@@ -517,5 +517,6 @@ public class AppViewManager extends ViewManager {
 
     public void setErrorHandlingViewModel(ErrorHandlingViewModel errorHandlingViewModel) {
         this.errorHandlingViewModel = errorHandlingViewModel;
+        errorHandlingViewModel.addPropertyChangeListener(evt -> JOptionPane.showMessageDialog(this, evt.getNewValue(), "Error", JOptionPane.ERROR));
     }
 }
