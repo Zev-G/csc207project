@@ -29,12 +29,24 @@ public class AccountDeleteInteractor implements AccountDeleteInputBoundary {
      *
      * @param inputData the input data containing the user ID for account deletion
      */
+//    @Override
+//    public void deleteAccount(AccountInputData inputData) {
+//        boolean success = dataAccess.deleteAccount(inputData.getUserId());
+//        if (success) {
+//            outputBoundary.handleSuccess();
+//        } else {
+//            outputBoundary.handleFail();
+//        }
+//    }
     @Override
     public void deleteAccount(AccountInputData inputData) {
+        System.out.println("AccountDeleteInteractor.deleteAccount called for userId: " + inputData.getUserId());
         boolean success = dataAccess.deleteAccount(inputData.getUserId());
         if (success) {
+            System.out.println("Account deletion successful");
             outputBoundary.handleSuccess();
         } else {
+            System.out.println("Account deletion failed");
             outputBoundary.handleFail();
         }
     }

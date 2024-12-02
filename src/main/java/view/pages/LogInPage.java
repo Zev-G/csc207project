@@ -1,12 +1,11 @@
 package view.pages;
 
 import interface_adapter.ViewModel;
-import interface_adapter.signup.SignUpController;
-import interface_adapter.signup.SignUpState;
-import interface_adapter.signup.SignUpViewModel;
+import interface_adapter.login.LogInController;
+import interface_adapter.login.LogInState;
+import interface_adapter.login.LogInViewModel;
 import view.View;
 import view.ViewConstants;
-import app.App;
 import view.components.AppViewManager;
 import view.components.standard.DLabel;
 import view.components.standard.DPanel;
@@ -18,16 +17,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- *  This class represents the sign-up page of the application. It allows users to enter their username, email, and password to create a new account.
+ * This class represents the log-in page of the application. It allows users to enter their username, email, and password to log into their account.
  */
-public class SignUpPage extends Page implements View<SignUpState> {
+public class LogInPage extends Page implements View<LogInState> {
 
-    private final SignUpViewModel viewModel;
+    private final LogInViewModel viewModel;
     private final AppViewManager app;
-    private final SignUpController controller;
+    private final LogInController controller;
 
     // UI Components.
-    private final DLabel pageTitle = new DLabel("Sign Up");
+    private final DLabel pageTitle = new DLabel("Log In");
     private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
     private final DLabel usernameLabel = new DLabel("Username");
     private final DLabel emailLabel = new DLabel("Email");
@@ -36,17 +35,16 @@ public class SignUpPage extends Page implements View<SignUpState> {
     private final JTextField emailField = new JTextField();
     private final JPasswordField passwordField = new JPasswordField();
 
-    private final JButton signUpButton = new RoundedButton("Sign Up");
+    private final JButton logInButton = new RoundedButton("Log In");
     private final JButton cancelButton = new RoundedButton("Cancel");
     private final DPanel buttons = new DPanel();
     private final DPanel grid = new DPanel();
 
-    public SignUpPage(AppViewManager app, SignUpController signUpController, SignUpViewModel signUpViewModel) {
-
+    public LogInPage(AppViewManager app, LogInController logInController, LogInViewModel logInViewModel) {
         super(app.getViewManager());
         this.app = app;
-        this.controller = signUpController;
-        this.viewModel = signUpViewModel;
+        this.controller = logInController;
+        this.viewModel = logInViewModel;
 
         setMargin(ViewConstants.MARGIN_M);
         pageTitle.setFontSize(ViewConstants.TEXT_LL);
@@ -55,7 +53,7 @@ public class SignUpPage extends Page implements View<SignUpState> {
         BorderLayout layout = new BorderLayout();
         layout.setVgap(60);
         setLayout(layout);
-        buttons.add(signUpButton);
+        buttons.add(logInButton);
         buttons.add(cancelButton);
         add(titleLayout, BorderLayout.PAGE_START);
         add(grid, BorderLayout.CENTER);
@@ -129,11 +127,11 @@ public class SignUpPage extends Page implements View<SignUpState> {
 
         buttons.setLayout(new FlowLayout());
 
-        signUpButton.setPreferredSize(new Dimension(200, 80));
+        logInButton.setPreferredSize(new Dimension(200, 80));
         cancelButton.setPreferredSize(new Dimension(200, 80));
 
         // Add listeners
-        signUpButton.addActionListener(this::signUpButtonPressed);
+        logInButton.addActionListener(this::logInButtonPressed);
         cancelButton.addActionListener(this::cancelButtonPressed);
 
         loadCurrentState();
@@ -141,17 +139,16 @@ public class SignUpPage extends Page implements View<SignUpState> {
     }
 
     /**
-     * Handles the click event on the "Sign Up" button. Retrieves user inputs and calls the controller's handleSignUp method.
+     * Handles the click event on the "Log In" button. Retrieves user inputs and calls the controller's handleLogIn method.
      * @param event The ActionEvent triggered by the button click.
      */
-    private void signUpButtonPressed(ActionEvent event) {
+    private void logInButtonPressed(ActionEvent event) {
         // Retrieve user inputs
         String username = usernameField.getText().trim();
         String email = emailField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();
 
-        app.getSignUpController().handleSignUp(username, email, password);
-        viewManager.back();
+        app.getLoginController().handleLogIn(username, email, password);
     }
 
     /**
@@ -164,33 +161,33 @@ public class SignUpPage extends Page implements View<SignUpState> {
     }
 
     /**
-     * Updates the UI based on the current state of the sign-up process.
-     * @param state The current SignUpState object.
+     * Updates the UI based on the current state of the log-in process.
+     * @param state The current LogInState object.
      */
     @Override
-    public void loadState(SignUpState state) {
+    public void loadState(LogInState state) {
 
         if (state == null) {
             return;
         }
-        if (state.isSigningUp()) {
+        if (state.isLoggingIn()) {
             // Disable inputs and show a progress indicator
-            signUpButton.setEnabled(false);
+            logInButton.setEnabled(false);
             cancelButton.setEnabled(false);
         }
         else {
             // Enable inputs
-            signUpButton.setEnabled(true);
+            logInButton.setEnabled(true);
             cancelButton.setEnabled(true);
 
-            if (state.getErrorMessage() != null) {
+            if (state.getMessage() != null && !state.getMessage().isEmpty()) {
                 // Show error message
-                JOptionPane.showMessageDialog(this, state.getErrorMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, state.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
-        // Reset fields if sign-up was successful
-        if (!state.isSigningUp() && state.getErrorMessage() == null) {
+        // Reset fields if log-in was successful
+        if (!state.isLoggingIn() && state.getMessage() == null) {
             usernameField.setText("");
             emailField.setText("");
             passwordField.setText("");
@@ -199,10 +196,10 @@ public class SignUpPage extends Page implements View<SignUpState> {
 
     /**
      * Returns the view model associated with this page.
-     * @return The SignUpViewModel object.
+     * @return The LogInViewModel object.
      */
     @Override
-    public ViewModel<SignUpState> getViewModel() {
+    public ViewModel<LogInState> getViewModel() {
         return viewModel;
     }
 }

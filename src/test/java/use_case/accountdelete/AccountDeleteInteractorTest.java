@@ -33,16 +33,20 @@ class AccountDeleteInteractorTest {
         AccountDeleteMockPresenter presenter = new AccountDeleteMockPresenter();
         AccountDeleteInteractor interactor = new AccountDeleteInteractor(presenter, mockDatabase);
 
-        AccountInputData inputDataChanged = new AccountInputData(true, "Zev", "godfreyzev@gmail.com", "1234", 1);
+        AccountInputData inputDataChanged = new AccountInputData(true, "Zev", "godfreyzev@gmail.com", "1234", "1");
         interactor.deleteAccount(inputDataChanged);
-        // Should have removed the username in the database
-        assertNull(mockDatabase.getUser(1));
-        // Should have been a success
-        assertEquals(true, presenter.getSuccess());
 
-        interactor.deleteAccount(inputDataChanged);
-        // Should have failed
-        assertEquals(false, presenter.getSuccess());
+        try {
+            // Resolve the CompletableFuture and check the result
+            assertNull(mockDatabase.getUser("1").get());
+            // Should have been a success
+            assertEquals(true, presenter.getSuccess());
 
+            interactor.deleteAccount(inputDataChanged);
+            // Should have failed
+            assertEquals(false, presenter.getSuccess());
+        } catch (Exception e) {
+            fail("Exception occurred while resolving CompletableFuture: " + e.getMessage());
+        }
     }
 }

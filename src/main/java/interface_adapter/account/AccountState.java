@@ -6,23 +6,23 @@ package interface_adapter.account;
 public class AccountState {
 
     // TODO rename this
-    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null, 0);
+    public static AccountState DUMMY_STATE = new AccountState(false, null, null, null, null);
 
     private final boolean loggedIn;
     private final String username;
     private final String email;
     private final String password;
-    private final int userId;
+    private final String userId;
 
     /**
-     * Creates a new AccountState with the given inputs
+     * Creates a new AccountState with the given inputs.
      * @param loggedIn whether the user is logged in
      * @param username the user's username
      * @param email the user's email
      * @param password the user's email
      * @param userId the id of the user
      */
-    public AccountState(boolean loggedIn, String username, String email, String password, int userId) {
+    public AccountState(boolean loggedIn, String username, String email, String password, String userId) {
         this.loggedIn = loggedIn;
         this.username = username;
         this.email = email;
@@ -46,7 +46,18 @@ public class AccountState {
         return password;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountState{" +
+                "loggedIn=" + loggedIn +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userId='" + userId + '\'' +
+                '}';
     }
 }

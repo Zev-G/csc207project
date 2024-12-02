@@ -28,6 +28,10 @@ import interface_adapter.signup.SignUpController;
 import interface_adapter.signup.SignUpPresenter;
 import interface_adapter.signup.SignUpState;
 import interface_adapter.signup.SignUpViewModel;
+import interface_adapter.login.LogInController;
+import interface_adapter.login.LogInPresenter;
+import interface_adapter.login.LogInState;
+import interface_adapter.login.LogInViewModel;
 import interface_adapter.stats.StatsController;
 import interface_adapter.stats.StatsPageViewModel;
 import interface_adapter.stats.StatsPresenter;
@@ -35,7 +39,9 @@ import interface_adapter.stats.UpdateStatsController;
 import use_case.accountconfirm.AccountConfirmInteractor;
 import use_case.accountdelete.AccountDeleteInteractor;
 import use_case.accountlogout.AccountLogoutInteractor;
+import use_case.dataAccessInterface.LocationDataAccess;
 import use_case.dataAccessInterface.StatsDataAccess;
+import use_case.dataAccessInterface.UserDataAccess;
 import use_case.game.GameInteractor;
 import use_case.game.GameSummaryInputBoundary;
 import use_case.game.GameSummaryInteractor;
@@ -47,6 +53,9 @@ import use_case.multiplayer.MultiplayerInteractor;
 import use_case.signup.SignUpInputBoundary;
 import use_case.signup.SignUpInteractor;
 import use_case.signup.SignUpOutputBoundary;
+import use_case.login.LogInInputBoundary;
+import use_case.login.LogInInteractor;
+import use_case.login.LogInOutputBoundary;
 import use_case.stats.StatsInteractor;
 import use_case.stats.StatsRepository;
 import use_case.stats.UpdateStatsInteractor;
@@ -58,6 +67,8 @@ import java.util.List;
 
 public class AppBuilder {
     private final AppViewManager app = new AppViewManager();
+    private final AccountViewModel accountViewModel = new AccountViewModel();
+    private final LocationDataAccess locationDataAccess = new PhotoLocationDataAccess();
 
     public AppBuilder setupFirebase() {
         try {
@@ -75,7 +86,7 @@ public class AppBuilder {
         ViewManagerModel viewManagerModel = app.getViewManagerModel();
         GameViewModel viewModel = new GameViewModel();
         GamePresenter presenter = new GamePresenter(viewModel, viewManagerModel);
-        GameInteractor interactor = new GameInteractor(new PhotoLocationDataAccess(), presenter);
+        GameInteractor interactor = new GameInteractor(locationDataAccess, presenter);
         GameController controller = new GameController(interactor);
         app.setGameController(controller);
         app.setGameViewModel(viewModel);
@@ -87,7 +98,7 @@ public class AppBuilder {
         MGameEndViewModel mGameEndViewModel = new MGameEndViewModel();
         GameViewModel mgameViewModel = new GameViewModel();
         MGamePresenter mgamePresenter = new MGamePresenter(mgameViewModel, app.getViewManagerModel(), mGameEndViewModel);
-        MGameInteractor mGameInteractor = new MGameInteractor(new PhotoLocationDataAccess(), mgamePresenter);
+        MGameInteractor mGameInteractor = new MGameInteractor(locationDataAccess, mgamePresenter);
         GameController mgameController = new GameController(mGameInteractor);
 
         // Connection setup
@@ -106,9 +117,7 @@ public class AppBuilder {
     }
 
     public AppBuilder setupAccount() {
-        DataAccessMock data = new DataAccessMock();
-
-        AccountViewModel accountViewModel = new AccountViewModel();
+        UserDataAccess data = new FirebaseLogInDataAccess(FirebaseDatabase.getInstance().getReference());
 
         AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
@@ -122,7 +131,7 @@ public class AppBuilder {
         AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, data);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
 
-        accountViewModel.setState(new AccountState(false, "", "", "", 0));
+        accountViewModel.setState(new AccountState(false, "", "", "", ""));
 
         app.setAccountViewModel(accountViewModel);
         app.setAccountConfirmController(accountConfirmController);
@@ -199,11 +208,35 @@ public class AppBuilder {
         return this;
     }
 
+    public AppBuilder setupLogIn() {
+
+
+        LogInViewModel logInViewModel = new LogInViewModel();
+        LogInState initialState = new LogInState(false, false, "");
+        logInViewModel.setState(initialState);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseLogInDataAccess firebaseLogInDataAccess = new FirebaseLogInDataAccess(databaseReference);
+
+        LogInOutputBoundary logInPresenter = new LogInPresenter(logInViewModel, app.getViewManager());
+        LogInInputBoundary logInInteractor = new LogInInteractor(firebaseLogInDataAccess, logInPresenter, accountViewModel);
+
+        LogInController logInController = new LogInController(logInInteractor);
+
+        app.setLoginController(logInController);
+        app.setLoginViewModel(logInViewModel);
+
+        return this;
+    }
+
+
     public AppBuilder setupPages() {
+        app.add("init", new InitPage(app));
         app.add("main", new MainPage(app));
         app.add("game", new GamePage(app, app.getGameController(), app.getGameViewModel()));
         app.add("account", new AccountPage(app));
         app.add("signup", new SignUpPage(app, app.getSignUpController(), app.getSignUpViewModel()));
+        app.add("login", new LogInPage(app, app.getLoginController(), app.getLoginViewModel()));
         app.add("stats", new StatsPage(app));
         app.add("summary", new GameSummaryPage(app));
         app.add("multiplayer", new MultiplayerPage(app, app.getMultiplayerController()));
