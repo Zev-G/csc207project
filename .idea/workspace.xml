@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Multiplayer page now uses the account state username">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/pages/MultiplayerPage.java" afterDir="false" />
+    <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/image/ImagePageInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/use_case/image/ImagePageInteractorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +68,8 @@
     "JUnit.GameInteractorTest.executor": "Run",
     "JUnit.GameInteractorTest.testHandleGuess.executor": "Run",
     "JUnit.GameInteractorTest.testInit.executor": "Run",
+    "JUnit.ImagePageInteractorTest.executor": "Run",
+    "JUnit.ImagePageInteractorTest.testUploadImage_Success.executor": "Run",
     "JUnit.StatsIntegrationTest.executor": "Run",
     "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
     "JUnit.StatsInteractorTest.executor": "Run",
@@ -79,7 +82,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "zev.godfrey",
+    "git-widget-placeholder": "aaki__temp",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -101,26 +104,13 @@
       <recent name="use_case.stats" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="use_case.game.GameInteractorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="use_case.game.GameInteractorTest" />
-      <module name="csc207project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="use_case.game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,29 +149,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInteractorTest.testInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImagePageInteractorTest.testUploadImage_ApiThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.game.*" />
+          <option name="PATTERN" value="use_case.image.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="use_case.game" />
-      <option name="MAIN_CLASS_NAME" value="use_case.game.GameInteractorTest" />
-      <option name="METHOD_NAME" value="testInit" />
+      <option name="PACKAGE_NAME" value="use_case.image" />
+      <option name="MAIN_CLASS_NAME" value="use_case.image.ImagePageInteractorTest" />
+      <option name="METHOD_NAME" value="testUploadImage_ApiThrowsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImagePageInteractorTest.testUploadImage_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.image.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.image" />
+      <option name="MAIN_CLASS_NAME" value="use_case.image.ImagePageInteractorTest" />
+      <option name="METHOD_NAME" value="testUploadImage_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.GameInteractorTest" />
+      <item itemvalue="JUnit.GameInteractorTest.testHandleGuess" />
+      <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException" />
+      <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_Success" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException" />
+        <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_Success" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.GameInteractorTest" />
         <item itemvalue="JUnit.GameInteractorTest.testHandleGuess" />
-        <item itemvalue="JUnit.GameInteractorTest.testInit" />
-        <item itemvalue="Application.use_case.game.GameInteractorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +219,7 @@
       <workItem from="1732893240439" duration="292000" />
       <workItem from="1732914709857" duration="743000" />
       <workItem from="1732915485295" duration="2842000" />
-      <workItem from="1733080081698" duration="8056000" />
+      <workItem from="1733080081698" duration="7809000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />
@@ -232,157 +245,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732915992988</updated>
     </task>
-    <task id="LOCAL-00004" summary="Change to README">
-      <option name="closed" value="true" />
-      <created>1733108009140</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108009140</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Grammar mistakes and silly writing removed from Project Purpose">
-      <option name="closed" value="true" />
-      <created>1733108093093</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108093093</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fixed my use case description">
-      <option name="closed" value="true" />
-      <created>1733108125246</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108125246</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fixed typos in feature section">
-      <option name="closed" value="true" />
-      <created>1733108174416</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108174416</updated>
-    </task>
-    <task id="LOCAL-00008" summary="fixed writing in installation instructinos">
-      <option name="closed" value="true" />
-      <created>1733108208973</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108208973</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Removed some redundant information already mentioned above">
-      <option name="closed" value="true" />
-      <created>1733108280945</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108280945</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Cleared up writing in usage guide">
-      <option name="closed" value="true" />
-      <created>1733108319897</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108319897</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Improved some writing">
-      <option name="closed" value="true" />
-      <created>1733108419655</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108419655</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Removed some weird chatgpt stuff">
-      <option name="closed" value="true" />
-      <created>1733108462308</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1733108462308</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Created system to handle errors">
-      <option name="closed" value="true" />
-      <created>1733113001670</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113001670</updated>
-    </task>
-    <task id="LOCAL-00014" summary="renamed to be more consistent">
-      <option name="closed" value="true" />
-      <created>1733113087616</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113087616</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added error handling view model to viemanager">
-      <option name="closed" value="true" />
-      <created>1733113200526</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113200526</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Error handling works">
-      <option name="closed" value="true" />
-      <created>1733113419360</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113419360</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Error handling is used now in account delete">
-      <option name="closed" value="true" />
-      <created>1733113600092</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113600092</updated>
-    </task>
-    <task id="LOCAL-00018" summary="If the account changes have an error then the errorhandler is used">
-      <option name="closed" value="true" />
-      <created>1733113668201</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113668201</updated>
-    </task>
-    <task id="LOCAL-00019" summary="added comments">
-      <option name="closed" value="true" />
-      <created>1733113719777</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1733113719777</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Multiplayer page now uses the accountstate username">
-      <option name="closed" value="true" />
-      <created>1733114056657</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1733114056657</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Multiplayer page now uses the account state username">
-      <option name="closed" value="true" />
-      <created>1733114311427</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1733114311427</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Questionably clean" />
+    <MESSAGE value="Created account confirm controller" />
+    <MESSAGE value="Created account confirm input boundary" />
+    <MESSAGE value="Created account confirm interactor" />
+    <MESSAGE value="Created account confirm output boundary" />
+    <MESSAGE value="Created account confirm presenter" />
+    <MESSAGE value="Created account input data" />
+    <MESSAGE value="Implemented clean architecture for account and hooked into view system" />
+    <MESSAGE value="Created user data access interface" />
+    <MESSAGE value="Updated user interface" />
+    <MESSAGE value="Updated user to have a user id" />
+    <MESSAGE value="Updated data access mock to have fake user access" />
+    <MESSAGE value="Created test for account confirm interactor" />
+    <MESSAGE value="Added userid to account input data" />
+    <MESSAGE value="Updated creation of account states to work with new user system" />
+    <MESSAGE value="Update to idea files" />
+    <MESSAGE value="Created account logout input boundary" />
+    <MESSAGE value="Created account logout output boundary" />
     <MESSAGE value="Created account logout interactor" />
     <MESSAGE value="Created account logout interactor test" />
     <MESSAGE value="Created account logout presenter" />
@@ -390,25 +277,7 @@
     <MESSAGE value="Updated account page and app to include account logout stuff" />
     <MESSAGE value="Comments for account interface adapters" />
     <MESSAGE value="Many java doc comments added" />
-    <MESSAGE value="Change to README" />
-    <MESSAGE value="Grammar mistakes and silly writing removed from Project Purpose" />
-    <MESSAGE value="Fixed my use case description" />
-    <MESSAGE value="Fixed typos in feature section" />
-    <MESSAGE value="fixed writing in installation instructinos" />
-    <MESSAGE value="Removed some redundant information already mentioned above" />
-    <MESSAGE value="Cleared up writing in usage guide" />
-    <MESSAGE value="Improved some writing" />
-    <MESSAGE value="Removed some weird chatgpt stuff" />
-    <MESSAGE value="Created system to handle errors" />
-    <MESSAGE value="renamed to be more consistent" />
-    <MESSAGE value="Added error handling view model to viemanager" />
-    <MESSAGE value="Error handling works" />
-    <MESSAGE value="Error handling is used now in account delete" />
-    <MESSAGE value="If the account changes have an error then the errorhandler is used" />
-    <MESSAGE value="added comments" />
-    <MESSAGE value="Multiplayer page now uses the accountstate username" />
-    <MESSAGE value="Multiplayer page now uses the account state username" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiplayer page now uses the account state username" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many java doc comments added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -421,7 +290,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
           <line>26</line>
-          <properties class="use_case.game.GameOutputBoundary">
+          <properties class="use_case.game.GameOutputBoundary" method="endGame">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -430,22 +299,19 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$GameInteractorTest.ic" NAME="GameInteractorTest Coverage Results" MODIFIED="1733084518365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.game.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>use_case.stats.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/compsci_207_project$java_in_csc207project.ic" NAME="java in csc207project Coverage Results" MODIFIED="1733087545758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
