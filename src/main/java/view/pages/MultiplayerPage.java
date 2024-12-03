@@ -1,5 +1,6 @@
 package view.pages;
 
+import interface_adapter.account.AccountViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerViewModel;
 import view.ViewConstants;
@@ -32,11 +33,10 @@ public class MultiplayerPage extends Page {
     /** Label for the user's username input field. */
     private final DLabel usernameLabel = new DLabel("Username");
 
+    private final DLabel username = new DLabel();
+
     /** Label for the opponent's username input field. */
     private final DLabel theirUsername = new DLabel("Their username");
-
-    /** Input field for the user's username. */
-    private final JTextField usernameField = new JTextField();
 
     /** Input field for the opponent's username. */
     private final JTextField theirUsernameField = new JTextField();
@@ -56,6 +56,8 @@ public class MultiplayerPage extends Page {
     /** Controller for handling multiplayer logic. */
     private final MultiplayerController controller;
 
+    private final AccountViewModel accountViewModel;
+
     /**
      * Constructs a new MultiplayerPage.
      *
@@ -66,6 +68,7 @@ public class MultiplayerPage extends Page {
         super(app.getViewManager());
 
         this.viewModel = app.getMultiplayerViewModel();
+        this.accountViewModel = app.getAccountViewModel();
         this.controller = controller;
 
         // Configure margins and styles
@@ -107,7 +110,7 @@ public class MultiplayerPage extends Page {
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-        grid.add(usernameField, gbc);
+        grid.add(username, gbc);
 
         // Opponent username label configuration
         gbc.gridx = 0;
@@ -140,6 +143,9 @@ public class MultiplayerPage extends Page {
                 updateConnectButtonText(viewModel.getState());
             }
         });
+
+        username.setText(accountViewModel.getState().getUsername());
+        accountViewModel.addPropertyChangeListener(evt -> username.setText(accountViewModel.getState().getUsername()));
     }
 
     /**
@@ -148,12 +154,12 @@ public class MultiplayerPage extends Page {
      * @param event The action event triggered by the button press.
      */
     private void connectButtonPressed(ActionEvent event) {
-        if (usernameField.getText().isEmpty() || theirUsernameField.getText().isEmpty()) {
+        if (theirUsernameField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter username");
         }
         else {
             viewModel.setState("wait");
-            controller.execute(usernameField.getText(), theirUsernameField.getText());
+            controller.execute(accountViewModel.getState().getUsername(), theirUsernameField.getText());
         }
     }
 

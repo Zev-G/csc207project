@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="482eafd2-4214-4b6c-88a5-d599ac344a31" name="Changes" comment="Many java doc comments added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_53_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_55_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_1_58_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-25_2_35_p_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_11_47_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-26_12_51_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_27_a_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_30_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_36_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_12_38_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-27_1_13_a_m___Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-28_12_28_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-29_12_13_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-29_12_13_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2024-11-25_3_33_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-11-25_11_34_a_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/use_case/image/ImagePageInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/use_case/image/ImagePageInteractorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +68,8 @@
     "JUnit.GameInteractorTest.executor": "Run",
     "JUnit.GameInteractorTest.testHandleGuess.executor": "Run",
     "JUnit.GameInteractorTest.testInit.executor": "Run",
+    "JUnit.ImagePageInteractorTest.executor": "Run",
+    "JUnit.ImagePageInteractorTest.testUploadImage_Success.executor": "Run",
     "JUnit.StatsIntegrationTest.executor": "Run",
     "JUnit.StatsIntegrationTestWithManualMocks.testUpdateAndFetchStats.executor": "Run",
     "JUnit.StatsInteractorTest.executor": "Run",
@@ -100,7 +82,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "zev.godfrey",
+    "git-widget-placeholder": "aaki__temp",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -122,26 +104,13 @@
       <recent name="use_case.stats" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="use_case.game.GameInteractorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="use_case.game.GameInteractorTest" />
-      <module name="csc207project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="use_case.game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,29 +149,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInteractorTest.testInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImagePageInteractorTest.testUploadImage_ApiThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="csc207project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="use_case.game.*" />
+          <option name="PATTERN" value="use_case.image.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="use_case.game" />
-      <option name="MAIN_CLASS_NAME" value="use_case.game.GameInteractorTest" />
-      <option name="METHOD_NAME" value="testInit" />
+      <option name="PACKAGE_NAME" value="use_case.image" />
+      <option name="MAIN_CLASS_NAME" value="use_case.image.ImagePageInteractorTest" />
+      <option name="METHOD_NAME" value="testUploadImage_ApiThrowsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImagePageInteractorTest.testUploadImage_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="csc207project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case.image.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case.image" />
+      <option name="MAIN_CLASS_NAME" value="use_case.image.ImagePageInteractorTest" />
+      <option name="METHOD_NAME" value="testUploadImage_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.GameInteractorTest" />
+      <item itemvalue="JUnit.GameInteractorTest.testHandleGuess" />
+      <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException" />
+      <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_Success" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_ApiThrowsException" />
+        <item itemvalue="JUnit.ImagePageInteractorTest.testUploadImage_Success" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.GameInteractorTest" />
         <item itemvalue="JUnit.GameInteractorTest.testHandleGuess" />
-        <item itemvalue="JUnit.GameInteractorTest.testInit" />
-        <item itemvalue="Application.use_case.game.GameInteractorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +219,7 @@
       <workItem from="1732893240439" duration="292000" />
       <workItem from="1732914709857" duration="743000" />
       <workItem from="1732915485295" duration="2842000" />
-      <workItem from="1733080081698" duration="8056000" />
+      <workItem from="1733080081698" duration="7809000" />
     </task>
     <task id="LOCAL-00001" summary="Added multiplayer game to app">
       <option name="closed" value="true" />
@@ -298,7 +290,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/use_case/game/GameOutputBoundary.java</url>
           <line>26</line>
-          <properties class="use_case.game.GameOutputBoundary">
+          <properties class="use_case.game.GameOutputBoundary" method="endGame">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -307,22 +299,19 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$GameInteractorTest.ic" NAME="GameInteractorTest Coverage Results" MODIFIED="1733084518365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.game.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/csc207project$StatsIntegrationTest.ic" NAME="StatsIntegrationTest Coverage Results" MODIFIED="1732846312682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>use_case.stats.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/csc207project$StatsInteractorTest_testFetchStats.ic" NAME="StatsInteractorTest.testFetchStats Coverage Results" MODIFIED="1732850247352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>use_case.stats.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/csc207project$UpdateStatsInteractorTest.ic" NAME="UpdateStatsInteractorTest Coverage Results" MODIFIED="1732850146051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>use_case.stats.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/compsci_207_project$java_in_csc207project.ic" NAME="java in csc207project Coverage Results" MODIFIED="1733087545758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

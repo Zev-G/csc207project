@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import data_access.*;
 import entity.DummyUserStats;
+import interface_adapter.ErrorHandlingViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
@@ -119,7 +120,10 @@ public class AppBuilder {
     public AppBuilder setupAccount() {
         UserDataAccess data = new FirebaseLogInDataAccess(FirebaseDatabase.getInstance().getReference());
 
-        AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel());
+        final ErrorHandlingViewModel errorHandlingViewModel = new ErrorHandlingViewModel("error-handling");
+        app.setErrorHandlingViewModel(errorHandlingViewModel);
+
+        AccountConfirmPresenter accountConfirmPresenter = new AccountConfirmPresenter(app.getViewManagerModel(), errorHandlingViewModel);
         AccountConfirmInteractor accountConfirmInteractor = new AccountConfirmInteractor(data, accountConfirmPresenter);
         AccountConfirmController accountConfirmController = new AccountConfirmController(accountConfirmInteractor);
 
@@ -127,7 +131,7 @@ public class AppBuilder {
         AccountLogoutInteractor accountLogoutInteractor = new AccountLogoutInteractor(accountLogoutPresenter);
         AccountLogoutController accountLogoutController = new AccountLogoutController(accountLogoutInteractor);
 
-        AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(app.getViewManagerModel(), accountViewModel);
+        AccountDeletePresenter accountDeletePresenter = new AccountDeletePresenter(app.getViewManagerModel(), errorHandlingViewModel, accountViewModel);
         AccountDeleteInteractor accountDeleteInteractor = new AccountDeleteInteractor(accountDeletePresenter, data);
         AccountDeleteController accountDeleteController = new AccountDeleteController(accountDeleteInteractor);
 
