@@ -2,18 +2,34 @@ package data_access;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.api.core.ApiFuture;
+import use_case.dataAccessInterface.SignUpDataAccess;
 import use_case.signup.SignUpInputData;
 
 import java.util.Map;
 
+/**
+ * Implementation of SignUpDataAccess using Firebase Realtime Database.
+ * This class handles creating new user accounts in Firebase.
+ */
 public class FirebaseSignUpDataAccess implements SignUpDataAccess {
 
     private final DatabaseReference database;
 
+    /**
+     * Constructor for FirebaseSignUpDataAccess.
+     *
+     * @param database a reference to the Firebase Realtime Database
+     */
     public FirebaseSignUpDataAccess(DatabaseReference database) {
         this.database = database;
     }
 
+    /**
+     * Creates a new user account in Firebase Realtime Database.
+     *
+     * @param userId the unique identifier for the new user
+     * @param data   the data required to create the user account, including username, password, and email.
+     */
     @Override
     public void createUser(String userId, SignUpInputData data) {
 

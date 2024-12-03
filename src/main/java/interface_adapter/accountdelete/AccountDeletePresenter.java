@@ -1,5 +1,6 @@
 package interface_adapter.accountdelete;
 
+import interface_adapter.ErrorHandlingViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountState;
 import interface_adapter.account.AccountViewModel;
@@ -14,25 +15,28 @@ public class AccountDeletePresenter implements AccountDeleteOutputBoundary {
     private final ViewManagerModel viewManagerModel;
     private final AccountViewModel viewModel;
 
+    private final ErrorHandlingViewModel errorHandlingViewModel;
+
     /**
      * Creates a new account delete presenter
      * @param viewManagerModel needed to go to a new page
-     * @param viewModel needed to update the view model
+     * @param viewModel needed to update the v  iew model
      */
-    public AccountDeletePresenter(ViewManagerModel viewManagerModel, AccountViewModel viewModel) {
+    public AccountDeletePresenter(ViewManagerModel viewManagerModel, ErrorHandlingViewModel errorHandlingViewModel, AccountViewModel viewModel) {
         this.viewManagerModel = viewManagerModel;
         this.viewModel = viewModel;
+        this.errorHandlingViewModel = errorHandlingViewModel;
     }
 
 
     @Override
     public void handleSuccess() {
         viewModel.setState(AccountState.DUMMY_STATE);
-        viewManagerModel.setState("main");
+        viewManagerModel.setState("init");
     }
 
     @Override
     public void handleFail() {
-
+        errorHandlingViewModel.setState("Failed to delete account.");
     }
 }

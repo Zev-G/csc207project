@@ -11,7 +11,7 @@ public class AccountInputData {
     private final String username;
     private final String email;
     private final String password;
-    private final int userId;
+    private final String userId;
 
     /**
      * Constructs an AccountInputData object with specified account details.
@@ -22,7 +22,7 @@ public class AccountInputData {
      * @param password the password for the account
      * @param userId   the unique ID of the user
      */
-    public AccountInputData(boolean loggedIn, String username, String email, String password, int userId) {
+    public AccountInputData(boolean loggedIn, String username, String email, String password, String userId) {
         this.loggedIn = loggedIn;
         this.username = username;
         this.email = email;
@@ -80,7 +80,7 @@ public class AccountInputData {
      *
      * @return the user ID
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 }

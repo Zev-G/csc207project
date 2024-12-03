@@ -1,5 +1,6 @@
 package view.components;
 
+import interface_adapter.ErrorHandlingViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.account.AccountViewModel;
 import interface_adapter.accountconfirm.AccountConfirmController;
@@ -12,6 +13,8 @@ import interface_adapter.game.GameViewModel;
 import interface_adapter.image.ImagePageController;
 import interface_adapter.image.ImagePageViewModel;
 import interface_adapter.leaderboard.LeaderboardViewModel;
+import interface_adapter.login.LogInViewModel;
+import interface_adapter.login.LogInController;
 import interface_adapter.mgame.MGameEndViewModel;
 import interface_adapter.multiplayer.MultiplayerController;
 import interface_adapter.multiplayer.MultiplayerViewModel;
@@ -40,6 +43,8 @@ public class AppViewManager extends ViewManager {
     private MGameEndViewModel mGameEndViewModel;
     private ImagePageViewModel imagePageViewModel;
     private SignUpViewModel signUpViewModel;
+    private LogInViewModel loginViewModel;
+    private ErrorHandlingViewModel errorHandlingViewModel;
 
     // Controllers
     private GameController gameController;
@@ -53,6 +58,7 @@ public class AppViewManager extends ViewManager {
     private UpdateStatsController updateStatsController;
     private ImagePageController imagePageController;
     private SignUpController signUpController;
+    private LogInController loginController;
 
     /**
      * Constructs an AppViewManager with a default view manager model.
@@ -83,7 +89,7 @@ public class AppViewManager extends ViewManager {
      * Displays the main page, maximizing the window and centering it on the screen.
      */
     public void showPage() {
-        navigate("main");
+        navigate("init");
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
@@ -268,6 +274,24 @@ public class AppViewManager extends ViewManager {
      */
     public void setSignUpViewModel(SignUpViewModel signUpViewModel) {
         this.signUpViewModel = signUpViewModel;
+    }
+
+    /**
+     * Returns the log-in view model.
+     *
+     * @return the log-in view model.
+     */
+    public LogInViewModel getLoginViewModel() {
+        return loginViewModel;
+    }
+
+    /**
+     * Sets the log-in view model.
+     *
+     * @param loginViewModel the sign-up view model to set.
+     */
+    public void setLoginViewModel(LogInViewModel loginViewModel) {
+        this.loginViewModel = loginViewModel;
     }
 
     /**
@@ -466,5 +490,33 @@ public class AppViewManager extends ViewManager {
      */
     public void setSignUpController(SignUpController signUpController) {
         this.signUpController = signUpController;
+    }
+
+    /**
+     * Returns the log-in controller.
+     *
+     * @return the log-in controller.
+     */
+    public LogInController getLoginController() {
+        return loginController;
+    }
+
+    /**
+     * Sets the log-in controller.
+     *
+     * @param loginController the image page controller to set
+     */
+    public void setLoginController(LogInController loginController) {
+        this.loginController = loginController;
+    }
+
+
+    public ErrorHandlingViewModel getErrorHandlingViewModel() {
+        return errorHandlingViewModel;
+    }
+
+    public void setErrorHandlingViewModel(ErrorHandlingViewModel errorHandlingViewModel) {
+        this.errorHandlingViewModel = errorHandlingViewModel;
+        errorHandlingViewModel.addPropertyChangeListener(evt -> JOptionPane.showMessageDialog(this, evt.getNewValue(), "Error", JOptionPane.ERROR));
     }
 }

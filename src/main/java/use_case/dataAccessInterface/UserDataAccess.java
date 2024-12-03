@@ -1,7 +1,7 @@
 package use_case.dataAccessInterface;
 
-import entity.CommonUser;
 import entity.User;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Interface for accessing and managing user account data.
@@ -11,34 +11,34 @@ public interface UserDataAccess {
     /**
      * Updates the username of a user.
      *
-     * @param uid      the unique ID of the user
-     * @param username the new username
-     * @return {@code true} if the username was successfully changed, {@code false} otherwise
+     * @param uid      The unique ID of the user.
+     * @param username The new username.
+     * @return {@code true} if the username was successfully changed, {@code false} otherwise.
      */
-    boolean changeUsername(int uid, String username);
+    boolean changeUsername(String uid, String username);
 
     /**
      * Updates the email of a user.
      *
-     * @param uid   the unique ID of the user
-     * @param email the new email
-     * @return {@code true} if the email was successfully changed, {@code false} otherwise
+     * @param uid   The unique ID of the user.
+     * @param email The new email.
+     * @return {@code true} if the email was successfully changed, {@code false} otherwise.
      */
-    boolean changeEmail(int uid, String email);
+    boolean changeEmail(String uid, String email);
 
     /**
      * Retrieves a user by their unique ID.
      *
-     * @param uid the unique ID of the user
-     * @return the user object associated with the ID
+     * @param uid The unique ID of the user.
+     * @return A CompletableFuture that will complete with the user object associated with the ID.
      */
-    User getUser(int uid);
+    CompletableFuture<User> getUser(String uid);
 
     /**
      * Deletes a user account.
      *
-     * @param userId the unique ID of the user to be deleted
-     * @return {@code true} if the account was successfully deleted, {@code false} otherwise
+     * @param userId The unique ID of the user to be deleted.
+     * @return {@code true} if the account was successfully deleted, {@code false} otherwise.
      */
-    boolean deleteAccount(int userId);
+    boolean deleteAccount(String userId);
 }

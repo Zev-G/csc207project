@@ -165,6 +165,7 @@ public class AccountPage extends Page implements View<AccountState> {
         accountDeleteController.pressed(viewModel.getState());
     }
 
+
     /**
      * Logs out the user when the logout button is pressed.
      *
@@ -189,6 +190,8 @@ public class AccountPage extends Page implements View<AccountState> {
      * @param event the event triggered by pressing the confirm button
      */
     private void confirmButtonPressed(ActionEvent event) {
+        viewModel.setState(new AccountState(true, usernameField.getText(),
+                emailField.getText(), viewModel.getState().getPassword() ,viewModel.getState().getUserId()));
         accountConfirmController.pressed(viewModel.getState());
     }
 
@@ -199,9 +202,12 @@ public class AccountPage extends Page implements View<AccountState> {
      */
     @Override
     public void loadState(AccountState state) {
-        usernameField.setText(state.getUsername());
-        emailField.setText(state.getEmail());
+        if (state != null) {
+            usernameField.setText(state.getUsername());
+            emailField.setText(state.getEmail());
+        }
     }
+
 
     /**
      * Returns the view model associated with the account page.

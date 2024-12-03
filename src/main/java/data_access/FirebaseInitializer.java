@@ -35,7 +35,7 @@ public class FirebaseInitializer {
      * configures the Firebase application, and sets the database URL for the Firebase Realtime Database.
      *
      * Dependencies:
-     * - The `serviceAccountKey.json` file must be present in the root directory.
+     * - The `serviceAccountKey.json` file must be present in the src/main/resources/JSON directory.
      * - The file should contain the credentials for accessing the Firebase project.
      *
      * Exceptions:

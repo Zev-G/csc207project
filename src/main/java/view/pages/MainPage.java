@@ -41,12 +41,6 @@ public class MainPage extends Page implements View<AccountState> {
     /** Panel containing the subtitle text. */
     private final DPanel subtitlePanel = new HorizontalPanel(subtitleText);
 
-    /** Button for navigating to the login page. */
-    private final JButton loginButton = new RoundedButton("Login");
-
-    /** Button for navigating to the signup page. */
-    private final JButton signupButton = new RoundedButton("Signup");
-
     /** Button for starting a single-player game. */
     private final JButton playButton = new RoundedButton("Play");
 
@@ -63,10 +57,12 @@ public class MainPage extends Page implements View<AccountState> {
     private final DPanel buttons = new DPanel();
 
     /** Leaderboard view displayed on the main page. */
-    private final LeaderboardView leaderboard;
+//    private final LeaderboardView leaderboard;
 
     /** Layout for organizing the title and subtitle components. */
     private final VerticalPanel titleLayout = new VerticalPanel(titlePanel, subtitlePanel);
+
+    private final AppViewManager app;
 
     /** View model for handling account state. */
     private final AccountViewModel viewModel;
@@ -78,10 +74,11 @@ public class MainPage extends Page implements View<AccountState> {
      */
     public MainPage(AppViewManager app) {
         super(app.getViewManager());
+        this.app = app;
         this.viewModel = app.getAccountViewModel();
 
         // Create leaderboard object
-        leaderboard = new LeaderboardView(app.getLeaderboardViewModel());
+//        leaderboard = new LeaderboardView(app.getLeaderboardViewModel());
 
         // Configure components
         uoftText.setFontSize(ViewConstants.TEXT_LL);
@@ -97,16 +94,12 @@ public class MainPage extends Page implements View<AccountState> {
         buttons.setLayout(new FlowLayout());
 
         // Set button sizes
-        loginButton.setPreferredSize(new Dimension(200, 80));
-        signupButton.setPreferredSize(new Dimension(200, 80));
         accountButton.setPreferredSize(new Dimension(200, 80));
         playButton.setPreferredSize(new Dimension(200, 80));
         multiplayerButton.setPreferredSize(new Dimension(200, 80));
         uploadImageButton.setPreferredSize(new Dimension(200, 80));
 
         // Add action listeners to buttons
-        loginButton.addActionListener(this::loginButtonPressed);
-        signupButton.addActionListener(this::signupButtonPressed);
         playButton.addActionListener(this::playButtonPressed);
         multiplayerButton.addActionListener(this::multiplayerButtonPressed);
         accountButton.addActionListener(this::accountButtonPressed);
@@ -114,7 +107,7 @@ public class MainPage extends Page implements View<AccountState> {
 
         // Add components to the layout
         add(titleLayout, BorderLayout.PAGE_START);
-        add(leaderboard, BorderLayout.CENTER);
+//        add(leaderboard, BorderLayout.CENTER);
         add(buttons, BorderLayout.PAGE_END);
 
         // Load the initial state
@@ -158,24 +151,6 @@ public class MainPage extends Page implements View<AccountState> {
         viewManager.navigate("image");
     }
 
-    /**
-     * Handles the login button press event, simulating a user login.
-     *
-     * @param event The action event triggered by the button press.
-     */
-    private void loginButtonPressed(ActionEvent event) {
-        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", 1));
-    }
-
-    /**
-     * Handles the signup button press event, simulating a user signup.
-     *
-     * @param event The action event triggered by the button press.
-     */
-    private void signupButtonPressed(ActionEvent event) {
-//        viewModel.setState(new AccountState(true, "Zev", "godfreyzev@gmail.com", "1234", 1));
-        viewManager.navigate("signup");
-    }
 
     /**
      * Loads the current account state and updates the UI components accordingly.
@@ -191,8 +166,7 @@ public class MainPage extends Page implements View<AccountState> {
             buttons.add(accountButton);
             buttons.add(uploadImageButton);
         } else {
-            buttons.add(loginButton);
-            buttons.add(signupButton);
+            app.navigate("init");
         }
         buttons.revalidate();
         buttons.repaint();

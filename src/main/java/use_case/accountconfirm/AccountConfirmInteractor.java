@@ -38,8 +38,9 @@ public class AccountConfirmInteractor implements AccountConfirmInputBoundary {
 
         if (!success1 || !success2) {
             presenter.handleFail();
-            return;
         }
-        presenter.handleSuccess();
+        else {
+            presenter.handleSuccess();
+        }
     }
 }

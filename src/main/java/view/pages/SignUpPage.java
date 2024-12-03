@@ -17,12 +17,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ *  This class represents the sign-up page of the application. It allows users to enter their username, email, and password to create a new account.
+ */
 public class SignUpPage extends Page implements View<SignUpState> {
 
     private final SignUpViewModel viewModel;
     private final AppViewManager app;
     private final SignUpController controller;
 
+    // UI Components.
     private final DLabel pageTitle = new DLabel("Sign Up");
     private final VerticalPanel titleLayout = new VerticalPanel(pageTitle);
     private final DLabel usernameLabel = new DLabel("Username");
@@ -65,49 +69,62 @@ public class SignUpPage extends Page implements View<SignUpState> {
         // Page title
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2; // Span across two columns
-        gbc.insets = new Insets(10, 10, 10, 10); // Padding around the component
-        gbc.anchor = GridBagConstraints.CENTER; // Center alignment
+        // Span across two columns
+        gbc.gridwidth = 2;
+        // Padding around the component
+        gbc.insets = new Insets(10, 10, 10, 10);
+        // Center alignment
+        gbc.anchor = GridBagConstraints.CENTER;
         grid.add(pageTitle, gbc);
 
         // Username label
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 1; // Single column
-        gbc.anchor = GridBagConstraints.LINE_START; // Left-align label
+        // Single column
+        gbc.gridwidth = 1;
+        // Left-align label
+        gbc.anchor = GridBagConstraints.LINE_START;
         grid.add(usernameLabel, gbc);
 
         // Username field
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
-        gbc.weightx = 1.0; // Let the text field take extra space
+        // Allow text field to expand
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        // Let the text field take extra space
+        gbc.weightx = 1.0;
         grid.add(usernameField, gbc);
 
         // Email label
         gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        // Right-align label
+        gbc.anchor = GridBagConstraints.LINE_END;
         grid.add(emailLabel, gbc);
 
         // Email field
         gbc.gridx = 1;
         gbc.gridy = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
-        gbc.weightx = 1.0; // Let the text field take extra space
+        // Allow text field to expand
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        // Let the text field take extra space
+        gbc.weightx = 1.0;
         grid.add(emailField, gbc);
 
         // Password label
         gbc.gridx = 0;
         gbc.gridy = 3;
-        gbc.anchor = GridBagConstraints.LINE_END; // Right-align label
+        // Right-align label
+        gbc.anchor = GridBagConstraints.LINE_END;
         grid.add(passwordLabel, gbc);
 
         // Password field
         gbc.gridx = 1;
         gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Allow text field to expand
-        gbc.weightx = 1.0; // Let the text field take extra space
+        // Allow text field to expand
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        // Let the text field take extra space
+        gbc.weightx = 1.0;
         grid.add(passwordField, gbc);
 
         buttons.setLayout(new FlowLayout());
@@ -123,6 +140,10 @@ public class SignUpPage extends Page implements View<SignUpState> {
         viewModel.addPropertyChangeListener(evt -> loadCurrentState());
     }
 
+    /**
+     * Handles the click event on the "Sign Up" button. Retrieves user inputs and calls the controller's handleSignUp method.
+     * @param event The ActionEvent triggered by the button click.
+     */
     private void signUpButtonPressed(ActionEvent event) {
         // Retrieve user inputs
         String username = usernameField.getText().trim();
@@ -130,13 +151,22 @@ public class SignUpPage extends Page implements View<SignUpState> {
         String password = new String(passwordField.getPassword()).trim();
 
         app.getSignUpController().handleSignUp(username, email, password);
+        viewManager.back();
     }
 
+    /**
+     * Handles the click event on the "Cancel" button. Navigates back to the previous page.
+     * @param event The ActionEvent triggered by the button click.
+     */
     private void cancelButtonPressed(ActionEvent event) {
         // Return to the previous page
         viewManager.back();
     }
 
+    /**
+     * Updates the UI based on the current state of the sign-up process.
+     * @param state The current SignUpState object.
+     */
     @Override
     public void loadState(SignUpState state) {
 
@@ -167,6 +197,10 @@ public class SignUpPage extends Page implements View<SignUpState> {
         }
     }
 
+    /**
+     * Returns the view model associated with this page.
+     * @return The SignUpViewModel object.
+     */
     @Override
     public ViewModel<SignUpState> getViewModel() {
         return viewModel;
