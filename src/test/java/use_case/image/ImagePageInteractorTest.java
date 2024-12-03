@@ -79,4 +79,16 @@ class ImagePageInteractorTest {
         verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
         verify(mockOutputBoundary).presentUploadFailure("Error during upload: " + expectedError);
     }
+
+
+    @Test
+    void testUploadImage_NullFile() {
+        // Arrange
+        File imageFile = null;
+        String description = "Test description";
+
+        // Act & Assert
+        assertThrows(NullPointerException.class, () -> interactor.uploadImage(imageFile, description));
+        verifyNoInteractions(mockOutputBoundary, mockImageUploadDataAccess);
+    }
 }
