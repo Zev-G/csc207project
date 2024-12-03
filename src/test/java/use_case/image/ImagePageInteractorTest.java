@@ -16,4 +16,14 @@ import static org.mockito.Mockito.*;
  */
 class ImagePageInteractorTest {
 
+    private ImagePageOutputBoundary mockOutputBoundary;
+    private ImageUploadDataAccess mockImageUploadDataAccess;
+    private ImagePageInteractor interactor;
+
+    @BeforeEach
+    void setUp() {
+        mockOutputBoundary = mock(ImagePageOutputBoundary.class);
+        mockImageUploadDataAccess = mock(ImageUploadDataAccess.class);
+        interactor = new ImagePageInteractor(mockOutputBoundary, mockImageUploadDataAccess);
+    }
 }
