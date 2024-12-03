@@ -26,4 +26,21 @@ class ImagePageInteractorTest {
         mockImageUploadDataAccess = mock(ImageUploadDataAccess.class);
         interactor = new ImagePageInteractor(mockOutputBoundary, mockImageUploadDataAccess);
     }
+
+    @Test
+    void testUploadImage_Success() throws IOException {
+        // Arrange
+        File imageFile = new File("test-image.jpg");
+        String description = "Test description";
+        String expectedResponse = "http://imgur.com/test-image";
+
+        when(mockImageUploadDataAccess.uploadImage(imageFile, description)).thenReturn(expectedResponse);
+
+        // Act
+        interactor.uploadImage(imageFile, description);
+
+        // Assert
+        verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
+        verify(mockOutputBoundary).presentUploadSuccess("Image uploaded successfully: " + expectedResponse);
+    }
 }
