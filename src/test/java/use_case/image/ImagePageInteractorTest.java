@@ -43,4 +43,22 @@ class ImagePageInteractorTest {
         verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
         verify(mockOutputBoundary).presentUploadSuccess("Image uploaded successfully: " + expectedResponse);
     }
+
+    @Test
+    void testUploadImage_InvalidArgument() throws IOException {
+        // Arrange
+        File imageFile = new File("invalid-image.jpg");
+        String description = "Invalid description";
+        String expectedError = "Invalid image file.";
+
+        when(mockImageUploadDataAccess.uploadImage(imageFile, description))
+                .thenThrow(new IllegalArgumentException(expectedError));
+
+        // Act
+        interactor.uploadImage(imageFile, description);
+
+        // Assert
+        verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
+        verify(mockOutputBoundary).presentUploadFailure(expectedError);
+    }
 }
