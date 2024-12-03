@@ -91,4 +91,21 @@ class ImagePageInteractorTest {
         assertThrows(NullPointerException.class, () -> interactor.uploadImage(imageFile, description));
         verifyNoInteractions(mockOutputBoundary, mockImageUploadDataAccess);
     }
+
+    @Test
+    void testUploadImage_NullDescription() throws IOException {
+        // Arrange
+        File imageFile = new File("test-image.jpg");
+        String description = null;
+        String expectedResponse = "http://imgur.com/test-image";
+
+        when(mockImageUploadDataAccess.uploadImage(imageFile, description)).thenReturn(expectedResponse);
+
+        // Act
+        interactor.uploadImage(imageFile, description);
+
+        // Assert
+        verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
+        verify(mockOutputBoundary).presentUploadSuccess("Image uploaded successfully: " + expectedResponse);
+    }
 }
