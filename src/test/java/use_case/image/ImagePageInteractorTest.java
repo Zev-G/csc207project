@@ -61,4 +61,22 @@ class ImagePageInteractorTest {
         verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
         verify(mockOutputBoundary).presentUploadFailure(expectedError);
     }
+
+    @Test
+    void testUploadImage_IOException() throws IOException {
+        // Arrange
+        File imageFile = new File("test-image.jpg");
+        String description = "Test description";
+        String expectedError = "I/O error occurred.";
+
+        // Mock setup to throw IOException
+        doThrow(new IOException(expectedError)).when(mockImageUploadDataAccess).uploadImage(imageFile, description);
+
+        // Act & Assert
+        IOException thrown = assertThrows(IOException.class, () -> interactor.uploadImage(imageFile, description));
+        assertEquals(expectedError, thrown.getMessage());
+
+        verify(mockImageUploadDataAccess).uploadImage(imageFile, description);
+        verify(mockOutputBoundary).presentUploadFailure("Error during upload: " + expectedError);
+    }
 }
